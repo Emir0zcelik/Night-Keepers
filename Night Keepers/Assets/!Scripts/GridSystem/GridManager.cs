@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    private Grid<Tile> _grid;
+    private BaseGrid _grid;
     
     
 }
