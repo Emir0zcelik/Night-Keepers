@@ -5,16 +5,20 @@ using UnityEngine;
 public class Grid<T>
 {
     public const int sortingOrderDefault = 5000; // Code Monkey Utils --> Will be moving to another script like utils.cs...
-    
+
+    private int _width;
+    private int _height;
     private int _cellsize;
     private T [,] _grid;
     private TextMesh[,] _debugText;
 
-    public Grid(int cellsize)
+    public Grid(int width, int height, int cellsize)
     {
+        _width = width;
+        _height = height;
         _cellsize = cellsize;
-        _grid = new T[cellsize, cellsize];
-        _debugText = new TextMesh[cellsize, cellsize];
+        _grid = new T[_width, _height];
+        _debugText = new TextMesh[_width, _height];
 
         for (int x = 0; x < _grid.GetLength(0); x++)
         {
@@ -25,8 +29,8 @@ public class Grid<T>
                 Debug.DrawLine(GridToWorldPosition(new Vector2Int(x, z)), GridToWorldPosition(new Vector2Int(x + 1, z)), Color.white, 100f);
             }
         }
-        Debug.DrawLine(GridToWorldPosition(new Vector2Int(0, _cellsize)), GridToWorldPosition(new Vector2Int(_cellsize, _cellsize)), Color.white, 100f);
-        Debug.DrawLine(GridToWorldPosition(new Vector2Int(_cellsize, 0)), GridToWorldPosition(new Vector2Int(_cellsize, _cellsize)), Color.white, 100f);
+        Debug.DrawLine(GridToWorldPosition(new Vector2Int(0, _height)), GridToWorldPosition(new Vector2Int(_width, _height)), Color.white, 100f);
+        Debug.DrawLine(GridToWorldPosition(new Vector2Int(_width, 0)), GridToWorldPosition(new Vector2Int(_width, _height)), Color.white, 100f);
     }
     
     public void SetItem(Vector2Int gridPosition, T item)
