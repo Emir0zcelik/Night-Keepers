@@ -4,6 +4,8 @@ using UnityEngine;
 
 public struct Tile
 {
-    // Public Building building;
-    // Public BuildingType buildingType;
-}
+    public TileType tileType;
+    public bool IsFull;
+};
+
+public enum TileType{Empty, Rock, Wood, Iron, Water}
