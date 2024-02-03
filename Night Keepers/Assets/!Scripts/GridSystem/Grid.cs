@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Grid<T>
 {
-    
-    public const int sortingOrderDefault = 5000;
+    public const int sortingOrderDefault = 5000; // Code Monkey Utils --> Will be moving to another script like utils.cs...
     
     private int _cellsize;
     private T [,] _grid;
@@ -29,19 +28,18 @@ public class Grid<T>
         Debug.DrawLine(GridToWorldPosition(new Vector2Int(0, _cellsize)), GridToWorldPosition(new Vector2Int(_cellsize, _cellsize)), Color.white, 100f);
         Debug.DrawLine(GridToWorldPosition(new Vector2Int(_cellsize, 0)), GridToWorldPosition(new Vector2Int(_cellsize, _cellsize)), Color.white, 100f);
     }
-
-
+    
     public void SetItem(Vector2Int gridPosition, T item)
     {
         _grid[gridPosition.x, gridPosition.y] = item;
         _debugText[gridPosition.x, gridPosition.y].text = _grid[gridPosition.x, gridPosition.y].ToString();
     }
 
-    // public void SetItem(Vector3 worldPosition, T item)
-    // {
-    //     Vector2Int gridPosition = WorldToGridPosition(worldPosition);
-    //     SetItem(gridPosition, item);
-    // }
+    public void SetItem(Vector3 worldPosition, T item)
+    {
+        Vector2Int gridPosition = WorldToGridPosition(worldPosition);
+        SetItem(gridPosition, item);
+    }
 
     public T GetItem(Vector2Int gridPosition)
     {
@@ -75,14 +73,12 @@ public class Grid<T>
     }
     
     
-    
-    
+    // Code Monkey Utils --> Will be moving to another script like utils.cs...
     public static TextMesh CreateWorldText(string text, Transform parent = null, Vector3 localPosition = default(Vector3), int fontSize = 40, Color? color = null, TextAnchor textAnchor = TextAnchor.UpperLeft, TextAlignment textAlignment = TextAlignment.Left, int sortingOrder = sortingOrderDefault) {
         if (color == null) color = Color.white;
         return CreateWorldText(parent, text, localPosition, fontSize, (Color)color, textAnchor, textAlignment, sortingOrder);
     }
-        
-    // Create Text in the World
+    
     public static TextMesh CreateWorldText(Transform parent, string text, Vector3 localPosition, int fontSize, Color color, TextAnchor textAnchor, TextAlignment textAlignment, int sortingOrder) {
         GameObject gameObject = new GameObject("World_Text", typeof(TextMesh));
         Transform transform = gameObject.transform;
