@@ -24,13 +24,13 @@ public class Grid<T>
         {
             for (int z = 0; z < _grid.GetLength(1); z++)
             {
-                _debugText[x,z] = CreateWorldText(_grid[x, z].ToString(), null, GridToWorldPosition(new Vector2Int(x, z)) + new Vector3(_cellsize, 0, _cellsize) * .5f, 20, Color.white, TextAnchor.MiddleCenter);
-                Debug.DrawLine(GridToWorldPosition(new Vector2Int(x, z)), GridToWorldPosition(new Vector2Int(x, z + 1)), Color.white, 100f);
-                Debug.DrawLine(GridToWorldPosition(new Vector2Int(x, z)), GridToWorldPosition(new Vector2Int(x + 1, z)), Color.white, 100f);
+                _debugText[x,z] = CreateWorldText(_grid[x, z].ToString(), null, GridToWorldPosition(new Vector2Int(x, z)), 20, Color.white, TextAnchor.MiddleCenter);
+                Debug.DrawLine(GridToWorldPositionDrawLine(new Vector2Int(x, z)), GridToWorldPositionDrawLine(new Vector2Int(x, z + 1)), Color.white, 100f);
+                Debug.DrawLine(GridToWorldPositionDrawLine(new Vector2Int(x, z)), GridToWorldPositionDrawLine(new Vector2Int(x + 1, z)), Color.white, 100f);
             }
         }
-        Debug.DrawLine(GridToWorldPosition(new Vector2Int(0, _height)), GridToWorldPosition(new Vector2Int(_width, _height)), Color.white, 100f);
-        Debug.DrawLine(GridToWorldPosition(new Vector2Int(_width, 0)), GridToWorldPosition(new Vector2Int(_width, _height)), Color.white, 100f);
+        Debug.DrawLine(GridToWorldPositionDrawLine(new Vector2Int(0, _height)), GridToWorldPositionDrawLine(new Vector2Int(_width, _height)) , Color.white, 100f);
+        Debug.DrawLine(GridToWorldPositionDrawLine(new Vector2Int(_width, 0)), GridToWorldPositionDrawLine(new Vector2Int(_width, _height)), Color.white, 100f);
     }
     
     public void SetItem(Vector2Int gridPosition, T item)
@@ -59,6 +59,11 @@ public class Grid<T>
     }
     
     public Vector3 GridToWorldPosition(Vector2Int gridPosition)
+    {
+        return new Vector3(gridPosition.x, 0, gridPosition.y) * _cellsize + new Vector3(1, 0, 1) * (_cellsize * 0.5f);
+    }
+    
+    private Vector3 GridToWorldPositionDrawLine(Vector2Int gridPosition)
     {
         return new Vector3(gridPosition.x, 0, gridPosition.y) * _cellsize;
     }
