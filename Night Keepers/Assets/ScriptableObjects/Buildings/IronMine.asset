@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
-  m_Name: Lumberjack
+  m_Name: IronMine
   m_EditorClassIdentifier: 
-  name: Lumberjack
+  name: Iron Mine
   health: 100
-  placableTileTypes: 02000000
+  placableTileTypes: 03000000
   wood: 100
-  stone: 0
+  stone: 100
   iron: 0
   food: 0

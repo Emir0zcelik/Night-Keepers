@@ -9,9 +9,15 @@ public class Grid<T>
     private int _width;
     private int _height;
     private int _cellsize;
-    private T [,] _grid;
+    public T [,] _grid;
     private TextMesh[,] _debugText;
 
+    public T this[Vector2Int gridPosition]
+    {
+        get => _grid[gridPosition.x, gridPosition.y];
+        set => _grid[gridPosition.x, gridPosition.y] = value;
+    }
+    
     public Grid(int width, int height, int cellsize)
     {
         _width = width;
@@ -53,9 +59,7 @@ public class Grid<T>
     public T GetItem(Vector3 worldPosition)
     {
         Vector2Int gridPosition = WorldToGridPosition(worldPosition);
-        T value = GetItem(gridPosition);
-
-        return value;
+        return GetItem(gridPosition);
     }
     
     public Vector3 GridToWorldPosition(Vector2Int gridPosition)
@@ -103,5 +107,4 @@ public class Grid<T>
         textMesh.GetComponent<MeshRenderer>().sortingOrder = sortingOrder;
         return textMesh;
     }
-    
 }
