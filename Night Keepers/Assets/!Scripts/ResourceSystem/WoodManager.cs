@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WoodManager : MonoBehaviour
 {
-    private int woodAmount;
-    private int woodLimit;
+    [SerializeField] private int woodAmount;
+    [SerializeField] private int woodLimit;
 
     void Start()
     {
