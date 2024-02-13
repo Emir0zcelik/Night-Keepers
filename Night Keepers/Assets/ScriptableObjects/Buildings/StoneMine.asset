@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Stone Mine
   health: 10
   placableTileTypes: 01000000
+  widthHeight: {x: 1, y: 1}
   wood: 100
   stone: 100
   iron: 0

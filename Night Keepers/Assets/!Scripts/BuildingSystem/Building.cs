@@ -5,4 +5,5 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     public BuildingData buildingData;
+    public BuildingData.Dir direction = BuildingData.Dir.Down;
 }
