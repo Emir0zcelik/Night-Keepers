@@ -72,23 +72,23 @@ namespace NightKeepers.Research
 
         public bool MeleeUnitsBuffActive()
         {
-            return _upgrades.TryUnlock(Upgrades.ResearchUpgrades.MeleeUnitsBuff);
+            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.MeleeUnitsBuff);
         }
         public bool MeleeUnitsBuff2Active()
         {
-            return _upgrades.TryUnlock(Upgrades.ResearchUpgrades.MeleeUnitsBuff2);
+            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.MeleeUnitsBuff2);
         }
         public bool RangeUnitsBuffActive()
         {
-            return _upgrades.TryUnlock(Upgrades.ResearchUpgrades.RangeUnitsBuff);
+            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.RangeUnitsBuff);
         }
         public bool BuildingsBuffActive()
         {
-            return _upgrades.TryUnlock(Upgrades.ResearchUpgrades.BuildingsBuff);
+            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.BuildingsBuff);
         }
         public bool OthersBuffActive()
         {
-            return _upgrades.TryUnlock(Upgrades.ResearchUpgrades.OthersBuff);
+            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.OthersBuff);
         }
 
     }
