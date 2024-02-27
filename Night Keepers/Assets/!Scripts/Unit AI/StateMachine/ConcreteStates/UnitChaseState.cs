@@ -36,7 +36,7 @@ public class UnitChaseState : UnitState
 
         if (DidTargetMove())
         {
-            unit.MoveUnit(GetValidPositionAroundTarget());
+            unit.MoveUnit(unit.GetValidPositionAroundTarget());
         }
     }
 
@@ -53,16 +53,5 @@ public class UnitChaseState : UnitState
         }
         _previousTargetPosition = unit.GetCurrentTargetPosition();
         return true;
-    }
-
-    Vector3 GetValidPositionAroundTarget()
-    {
-        Vector3 randomDirection = Random.insideUnitSphere;
-        randomDirection += unit.GetCurrentTargetPosition();
-
-        NavMeshHit hit;
-        NavMesh.SamplePosition(randomDirection, out hit, 5f, NavMesh.AllAreas);
-
-        return hit.position;
     }
 }

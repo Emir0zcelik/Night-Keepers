@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,17 +13,21 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
     public UnitChaseState ChaseState { get; set; }
     public UnitAttackState AttackState { get; set; }
 
-    public bool isAggroed { get; set; }
-    public bool isInAttackingDistance { get; set; }
+    [field: SerializeField]public bool isAggroed { get; set; }
+    [field: SerializeField]public bool isInAttackingDistance { get; set; }
 
     private TargetPreference _favouriteTarget;
 
-    private GameObject Target;
+    [field: SerializeField] private GameObject Target;
     private Vector3 TargetPosition;
     private Unit CurrentTargetUnit;
     private NavMeshAgent navAgent;
 
+    NavMeshPath tempPath;
+
     [field: SerializeField] public UnitScriptableObject UnitData { get; set; }
+
+    public static event Action onBuildingDestroyed;
 
     private void Awake()
     {
@@ -47,6 +52,8 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
         FindFavouriteTarget();
 
         StateMachine.Initialize(IdleState);
+
+        tempPath = new NavMeshPath();
     }
 
     private void Update()
@@ -71,6 +78,10 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
     public void Die()
     {
+        if (UnitData.Type == UnitType.Building)
+        {
+            onBuildingDestroyed?.Invoke();
+        }
         Destroy(gameObject);
     }
 
@@ -130,6 +141,11 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
         return Target;
     }
 
+    public UnitType GetTypeOfOtherUnit(Unit unit)
+    {
+        return unit.UnitData.Type;
+    }
+
     public Vector3 GetCurrentTargetPosition()
     {
         return TargetPosition;
@@ -166,10 +182,13 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
     public void SetAggroStatusAndTarget(bool isAggroed, Unit target)
     {
-        this.isAggroed = isAggroed;
-        Target = target.gameObject;
-        TargetPosition = target.transform.position;
-        CurrentTargetUnit = target;
+        if (IsTargetReachable(target))
+        {
+            this.isAggroed = isAggroed;
+            Target = target.gameObject;
+            TargetPosition = target.transform.position;
+            CurrentTargetUnit = target;
+        }
     }
 
     public void ClearAggroStatus()
@@ -187,5 +206,27 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
     public void SetAttackingStatus(bool isInAttackingDistance)
     {
         this.isInAttackingDistance = isInAttackingDistance;
+    }
+
+    public Vector3 GetValidPositionAroundTarget()
+    {
+        Vector3 randomDirection = UnityEngine.Random.insideUnitSphere;
+        randomDirection += GetCurrentTargetPosition();
+
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, 5f, NavMesh.AllAreas);
+
+        return hit.position;
+    }
+
+
+    public bool IsTargetReachable(Unit unit)
+    {
+        if (GetTypeOfOtherUnit(unit) == UnitType.Building)
+        {
+            return navAgent.CalculatePath(unit.transform.position, tempPath);
+        }
+        navAgent.CalculatePath(unit.transform.position, tempPath);
+        return  tempPath.status == NavMeshPathStatus.PathComplete;
     }
 }

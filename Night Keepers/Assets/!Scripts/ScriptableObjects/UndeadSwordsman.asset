@@ -17,7 +17,7 @@ MonoBehaviour:
   TimeBetweenAttacks: 1.5
   DetectionRangeRadius: 20
   AttackRangeRadius: 1.5
-  movementSpeed: 6
+  movementSpeed: 20
   targetPreferences:
   - unitType: 0
     weight: 1

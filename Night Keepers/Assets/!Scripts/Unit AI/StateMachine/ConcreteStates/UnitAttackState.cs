@@ -66,52 +66,39 @@ public class UnitAttackState : UnitState
     private void LookForNewTarget()
     {
         Collider[] colliders = Physics.OverlapSphere(unit.transform.position, unit.UnitData.DetectionRangeRadius, playerLayer);
-        List<Unit> eligibleTargets = new List<Unit>();
+        Unit bestTarget = null;
+        int maxWeight = int.MinValue;
+
         foreach (Collider col in colliders)
         {
-            if (col.TryGetComponent(out Unit targetUnit))
-            {
-                eligibleTargets.Add(targetUnit);
-            }
-        }
-
-        if (eligibleTargets.Count > 0)
-        {
-            int maxValue = int.MinValue;
-            Unit tempTarget = null;
-            foreach (Unit possibleTarget in eligibleTargets)
+            if (col.TryGetComponent(out Unit possibleTarget))
             {
                 if (possibleTarget.GetUnitType() == unit.GetFavouriteTarget())
                 {
                     unit.SetAggroStatusAndTarget(true, possibleTarget);
-                    break;
+                    return;
                 }
 
                 TargetPreference targetPreference = unit.GetTargetPreferenceList().Find(T => T.unitType == possibleTarget.GetUnitType());
-                if (targetPreference == null) continue;
-                if (targetPreference.weight > maxValue)
+                if (targetPreference != null && targetPreference.weight > maxWeight)
                 {
-                    maxValue = targetPreference.weight;
-                    tempTarget = possibleTarget;
+                    maxWeight = targetPreference.weight;
+                    bestTarget = possibleTarget;
                 }
             }
-            //idk if these are necessary
-            if (tempTarget != null)
-            {
-                unit.SetAggroStatusAndTarget(true, tempTarget);
-            }
-            else
-            {
-                unit.StateMachine.ChangeState(unit.IdleState);
-                // failed to find target
-            }
+        }
+
+        if (bestTarget != null)
+        {
+            unit.SetAggroStatusAndTarget(true, bestTarget);
         }
         else
         {
             unit.StateMachine.ChangeState(unit.IdleState);
-            // no target in sight
+            // failed to find target
         }
     }
+
 
     public override void PhysicsUpdateState()
     {

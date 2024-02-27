@@ -41,7 +41,6 @@ public class UnitAggroCheck : MonoBehaviour
                         if (other.CompareTag("EnemyUnit")) return;
                         if (!other.transform.TryGetComponent(out Unit attackingNewTarget)) return;
 
-
                         if (_thisUnit.IsNewTargetBetter(attackingNewTarget.GetUnitType()))
                         {
                             _thisUnit.ClearAttackStatusAndTarget();
