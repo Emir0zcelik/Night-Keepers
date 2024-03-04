@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TempPlayerUnitMelee
   m_EditorClassIdentifier: 
   MaxHealth: 100
-  Damage: 25
+  Damage: 20
   TimeBetweenAttacks: 1.5
   DetectionRangeRadius: 20
   AttackRangeRadius: 1.5
