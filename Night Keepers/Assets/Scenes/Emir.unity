@@ -180,121 +180,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827bf441bed4d434d91cde5b9e74dd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
-  height: 10
+  width: 500
+  height: 500
   cellSize: 10
+  grassProbability: 0
+  rockProbability: 0
+  waterProbability: 0
+  woodProbability: 0
+  ironProbability: 0
   building:
   - {fileID: 5486441257105310043, guid: 6f41f80c090f866478cc72e33d06236b, type: 3}
   - {fileID: 2719336066864652485, guid: 0f0b262ec50ec884884837414166d855, type: 3}
   - {fileID: 8330685427325949554, guid: f511d78839323f4449aab8cb623290d6, type: 3}
   - {fileID: 2692736109484692394, guid: a8a33721085a4ac458db523672cb11a7, type: 3}
   - {fileID: 3531529327772665375, guid: ab402a812b7fa2d479d94973aed9f85d, type: 3}
---- !u!1 &1347864737
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1347864741}
-  - component: {fileID: 1347864740}
-  - component: {fileID: 1347864739}
-  - component: {fileID: 1347864738}
-  m_Layer: 0
-  m_Name: Ground
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!64 &1347864738
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347864737}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1347864739
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347864737}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1347864740
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347864737}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1347864741
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347864737}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: 0, z: 50}
-  m_LocalScale: {x: 10, y: 1, z: 10}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  tilePrefabs:
+  - {fileID: 7101122890135902830, guid: e52a237af4195d742a34add7e3a838d4, type: 3}
+  - {fileID: 7544858745873268653, guid: ba69519d94ab8b5409c7ddbe32f8b633, type: 3}
+  - {fileID: 1197828385681279654, guid: bd1ce549c3582fb4d8dc16085b948dc6, type: 3}
+  - {fileID: 8374549972984234659, guid: 9152b0d259d8af84c82dbc0283bab91e, type: 3}
+  - {fileID: 6158549227335794656, guid: c5d7894f752499946ab243ab2d058946, type: 3}
 --- !u!1 &1361135982
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +354,7 @@ Camera:
   m_GameObject: {fileID: 2134385396}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.26330546, g: 0.38470343, b: 0.5754717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -557,4 +462,3 @@ SceneRoots:
   - {fileID: 2134385399}
   - {fileID: 1361135984}
   - {fileID: 1002844173}
-  - {fileID: 1347864741}
