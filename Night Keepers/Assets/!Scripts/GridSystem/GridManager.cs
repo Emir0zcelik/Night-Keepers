@@ -17,6 +17,18 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int woodProbability;
     [SerializeField] private int ironProbability;
 
+    [SerializeField] private int grassPropagation;
+    [SerializeField] private int rockPropagation;
+    [SerializeField] private int waterPropagation;
+    [SerializeField] private int woodPropagation;
+    [SerializeField] private int ironPropagation;
+
+    [SerializeField] private float grassNoise;
+    [SerializeField] private float rockNoise;
+    [SerializeField] private float waterNoise;
+    [SerializeField] private float woodNoise;
+    [SerializeField] private float ironNoise;
+
     [SerializeField] private List<Building> building;
     [SerializeField] private List<GameObject> tilePrefabs;
 
@@ -81,67 +93,75 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    void AroundTheBaseTile(int x, int z, TileType tileType, Color color)
+    {
+        if (_grid.IsInDimensions(new Vector2Int(x, z)) && _grid._grid[x,z].tileType == TileType.Empty)
+        {
+            _grid._grid[x,z].tileType = tileType;
+            _debugText[x, z].text = _grid._grid[x, z].tileType.ToString();
+            InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), tileType);
+            _debugText[x, z].color = color;
+        }
+    }
+
+    void TilePropagation (int x, int z, TileType tileType, Color color, int size, float noise)
+    {
+        // for (int i = 0; i < count; i++)
+        // {
+        //     // AroundTheBaseTile(x + i, z, tileType, color);
+        //     // AroundTheBaseTile(x, z + i, tileType, color);
+        //     // AroundTheBaseTile(x + i, z + i, tileType, color);
+        //     // AroundTheBaseTile(x - i, z, tileType, color);
+        //     // AroundTheBaseTile(x, z - i, tileType, color);
+        //     // AroundTheBaseTile(x - i, z - i, tileType, color);
+        //     // AroundTheBaseTile(x + i, z - i, tileType, color);
+        //     // AroundTheBaseTile(x - i, z + i, tileType, color);
+
+        //     AroundTheBaseTile(x + i, z, tileType, color);
+        //     AroundTheBaseTile(x, z + i, tileType, color);
+        //     AroundTheBaseTile(x - i, z, tileType, color);
+        //     AroundTheBaseTile(x, z - i, tileType, color);
+        // }
+
+    for (int i = x - size; i <= x + size; i++)
+    {
+        for (int j = z - size; j <= z + size; j++)
+        {
+            if (Random.value < noise) // Eğer rastgele noise değeri, belirlediğimiz noise oranından küçükse, bu kareyi boş bırak.
+            {
+                continue;
+            }
+            AroundTheBaseTile(i, j, tileType, color);
+        }
+    }
+    }
 
     void GenerateMap(int x, int z)
     {
         TileType tileType = _grid._grid[x, z].tileType;
-        GameObject middleTile;
-        GameObject tile;
         
         switch (tileType)
         {
             case TileType.Grass:
                 
                 _debugText[x, z].color = Color.green;
-                middleTile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
+                InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
-                if (_grid.IsInDimensions(new Vector2Int(x + 1, z)) && _grid._grid[x + 1, z].tileType == TileType.Empty)
-                {
-                    _grid._grid[x + 1, z].tileType = TileType.Grass;
-                    _debugText[x + 1, z].text = _grid._grid[x + 1, z].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x + 1, z)), _grid._grid[x, z].tileType);
-                    _debugText[x + 1, z].color = Color.green;
-                }
-                
-                if (_grid.IsInDimensions(new Vector2Int(x, z + 1)) && _grid._grid[x, z + 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x, z + 1].tileType = TileType.Grass;
-                    _debugText[x, z + 1].text = _grid._grid[x, z + 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z + 1)), _grid._grid[x, z].tileType);
-                    _debugText[x, z + 1].color = Color.green;
-                }
 
-                if (_grid.IsInDimensions(new Vector2Int(x + 1, z + 1)) && _grid._grid[x + 1, z + 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x + 1, z + 1].tileType = TileType.Grass;
-                    _debugText[x + 1, z + 1].text = _grid._grid[x + 1, z + 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x + 1, z + 1)), _grid._grid[x, z].tileType);
-                    _debugText[x + 1, z + 1].color = Color.green;
-                }
+                TilePropagation(x, z, tileType, Color.green, Random.Range(1, grassPropagation), grassNoise);
 
-                if (_grid.IsInDimensions(new Vector2Int(x - 1, z)) && _grid._grid[x - 1, z].tileType == TileType.Empty)
-                {
-                    _grid._grid[x - 1, z].tileType = TileType.Grass;
-                    _debugText[x - 1, z].text = _grid._grid[x - 1, z].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x - 1, z)), _grid._grid[x, z].tileType);
-                    _debugText[x - 1, z].color = Color.green;
-                }
-                
-                if (_grid.IsInDimensions(new Vector2Int(x, z - 1)) && _grid._grid[x, z - 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x, z - 1].tileType = TileType.Grass;
-                    _debugText[x, z - 1].text = _grid._grid[x, z - 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z - 1)), _grid._grid[x, z].tileType);
-                    _debugText[x, z - 1].color = Color.green;
-                }
+                // for (int i = 0; i < grassPropagation; i++)
+                // {
+                //     AroundTheBaseTile(x + i, z, tileType, Color.green);
+                //     AroundTheBaseTile(x, z + i, tileType, Color.green);
+                //     AroundTheBaseTile(x + i, z + i, tileType, Color.green);
+                //     AroundTheBaseTile(x - i, z, tileType, Color.green);
+                //     AroundTheBaseTile(x, z - i, tileType, Color.green);
+                //     AroundTheBaseTile(x - i, z - i, tileType, Color.green);
+                //     AroundTheBaseTile(x + i, z - i, tileType, Color.green);
+                //     AroundTheBaseTile(x - i, z + i, tileType, Color.green);
+                // }
 
-                if (_grid.IsInDimensions(new Vector2Int(x - 1, z - 1)) && _grid._grid[x - 1, z - 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x - 1, z - 1].tileType = TileType.Grass;
-                    _debugText[x - 1, z - 1].text = _grid._grid[x - 1, z - 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x - 1, z - 1)), _grid._grid[x, z].tileType);
-                    _debugText[x - 1, z - 1].color = Color.green;
-                }
 
 
                 break;
@@ -149,222 +169,92 @@ public class GridManager : MonoBehaviour
             case TileType.Rock:
                 
                 _debugText[x, z].color = Color.yellow;
-                middleTile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
+                InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
-                if (_grid.IsInDimensions(new Vector2Int(x + 1, z)) && _grid._grid[x + 1, z].tileType == TileType.Empty)
-                {
-                    _grid._grid[x + 1, z].tileType = TileType.Rock;
-                    _debugText[x + 1, z].text = _grid._grid[x + 1, z].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x + 1, z)), _grid._grid[x, z].tileType);
-                    _debugText[x + 1, z].color = Color.yellow;
-                }
-                
-                if (_grid.IsInDimensions(new Vector2Int(x, z + 1)) && _grid._grid[x, z + 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x, z + 1].tileType = TileType.Rock;
-                    _debugText[x, z + 1].text = _grid._grid[x, z + 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z + 1)), _grid._grid[x, z].tileType);
-                    _debugText[x, z + 1].color = Color.yellow;
-                }
+                TilePropagation(x, z, tileType, Color.green, Random.Range(1, rockPropagation), rockNoise);
 
-                if (_grid.IsInDimensions(new Vector2Int(x + 1, z + 1)) && _grid._grid[x + 1, z + 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x + 1, z + 1].tileType = TileType.Rock;
-                    _debugText[x + 1, z + 1].text = _grid._grid[x + 1, z + 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x + 1, z + 1)), _grid._grid[x, z].tileType);
-                    _debugText[x + 1, z + 1].color = Color.yellow;
-                }
+                // for (int i = 0; i < rockPropagation; i++)
+                // {
+                //     AroundTheBaseTile(x + i, z, tileType, Color.yellow);
+                //     AroundTheBaseTile(x, z + i, tileType, Color.yellow);
+                //     AroundTheBaseTile(x + i, z + i, tileType, Color.yellow);
+                //     AroundTheBaseTile(x - i, z, tileType, Color.yellow);
+                //     AroundTheBaseTile(x, z - i, tileType, Color.yellow);
+                //     AroundTheBaseTile(x - i, z - i, tileType, Color.yellow);
+                //     AroundTheBaseTile(x + i, z - i, tileType, Color.yellow);
+                //     AroundTheBaseTile(x - i, z + i, tileType, Color.yellow);
+                // }
 
-                if (_grid.IsInDimensions(new Vector2Int(x - 1, z)) && _grid._grid[x - 1, z].tileType == TileType.Empty)
-                {
-                    _grid._grid[x - 1, z].tileType = TileType.Rock;
-                    _debugText[x - 1, z].text = _grid._grid[x - 1, z].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x - 1, z)), _grid._grid[x, z].tileType);
-                    _debugText[x - 1, z].color = Color.yellow;
-                }
-                
-                if (_grid.IsInDimensions(new Vector2Int(x, z - 1)) && _grid._grid[x, z - 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x, z - 1].tileType = TileType.Rock;
-                    _debugText[x, z - 1].text = _grid._grid[x, z - 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z - 1)), _grid._grid[x, z].tileType);
-                    _debugText[x, z - 1].color = Color.yellow;
-                }
 
-                if (_grid.IsInDimensions(new Vector2Int(x - 1, z - 1)) && _grid._grid[x - 1, z - 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x - 1, z - 1].tileType = TileType.Rock;
-                    _debugText[x - 1, z - 1].text = _grid._grid[x - 1, z - 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x - 1, z - 1)), _grid._grid[x, z].tileType);
-                    _debugText[x - 1, z - 1].color = Color.yellow;
-                }
                 
                 break;
             
             case TileType.Water:
                 
                 _debugText[x, z].color = Color.blue;
-                middleTile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
+                InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
-                if (_grid.IsInDimensions(new Vector2Int(x + 1, z)) && _grid._grid[x + 1, z].tileType == TileType.Empty)
-                {
-                    _grid._grid[x + 1, z].tileType = TileType.Water;
-                    _debugText[x + 1, z].text = _grid._grid[x + 1, z].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x + 1, z)), _grid._grid[x, z].tileType);
-                    _debugText[x + 1, z].color = Color.blue;
-                }
-                
-                if (_grid.IsInDimensions(new Vector2Int(x, z + 1)) && _grid._grid[x, z + 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x, z + 1].tileType = TileType.Water;
-                    _debugText[x, z + 1].text = _grid._grid[x, z + 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z + 1)), _grid._grid[x, z].tileType);
-                    _debugText[x, z + 1].color = Color.blue;
-                }
+                TilePropagation(x, z, tileType, Color.green, Random.Range(3, waterPropagation), waterNoise);
 
-                if (_grid.IsInDimensions(new Vector2Int(x + 1, z + 1)) && _grid._grid[x + 1, z + 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x + 1, z + 1].tileType = TileType.Water;
-                    _debugText[x + 1, z + 1].text = _grid._grid[x + 1, z + 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x + 1, z + 1)), _grid._grid[x, z].tileType);
-                    _debugText[x + 1, z + 1].color = Color.blue;
-                }
+                // for (int i = 0; i < waterPropagation; i++)
+                // {
+                //     AroundTheBaseTile(x + i, z, tileType, Color.blue);
+                //     AroundTheBaseTile(x, z + i, tileType, Color.blue);
+                //     AroundTheBaseTile(x + i, z + i, tileType, Color.blue);
+                //     AroundTheBaseTile(x - i, z, tileType, Color.blue);
+                //     AroundTheBaseTile(x, z - i, tileType, Color.blue);
+                //     AroundTheBaseTile(x - i, z - i, tileType, Color.blue);
+                //     AroundTheBaseTile(x + i, z - i, tileType, Color.blue);
+                //     AroundTheBaseTile(x - i, z + i, tileType, Color.blue);
+                // }
 
-                if (_grid.IsInDimensions(new Vector2Int(x - 1, z)) && _grid._grid[x - 1, z].tileType == TileType.Empty)
-                {
-                    _grid._grid[x - 1, z].tileType = TileType.Water;
-                    _debugText[x - 1, z].text = _grid._grid[x - 1, z].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x - 1, z)), _grid._grid[x, z].tileType);
-                    _debugText[x - 1, z].color = Color.blue;
-                }
-                
-                if (_grid.IsInDimensions(new Vector2Int(x, z - 1)) && _grid._grid[x, z - 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x, z - 1].tileType = TileType.Water;
-                    _debugText[x, z - 1].text = _grid._grid[x, z - 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z - 1)), _grid._grid[x, z].tileType);
-                    _debugText[x, z - 1].color = Color.blue;
-                }
 
-                if (_grid.IsInDimensions(new Vector2Int(x - 1, z - 1)) && _grid._grid[x - 1, z - 1].tileType == TileType.Empty)
-                {
-                    _grid._grid[x - 1, z - 1].tileType = TileType.Water;
-                    _debugText[x - 1, z - 1].text = _grid._grid[x - 1, z - 1].tileType.ToString();
-                    tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x - 1, z - 1)), _grid._grid[x, z].tileType);
-                    _debugText[x - 1, z - 1].color = Color.blue;
-                }
 
                 break;
 
-                case TileType.Wood:
+            case TileType.Wood:
 
-                    _debugText[x, z].color = Color.red;
-                    middleTile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
+                _debugText[x, z].color = Color.red;
+                InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
-                    if (_grid.IsInDimensions(new Vector2Int(x + 1, z)) && _grid._grid[x + 1, z].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x + 1, z].tileType = TileType.Wood;
-                        _debugText[x + 1, z].text = _grid._grid[x + 1, z].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x + 1, z)), _grid._grid[x, z].tileType);
-                        _debugText[x + 1, z].color = Color.red;
-                    }
+                TilePropagation(x, z, tileType, Color.green, Random.Range(1, woodPropagation), woodNoise);
 
-                    if (_grid.IsInDimensions(new Vector2Int(x, z + 1)) && _grid._grid[x, z + 1].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x, z + 1].tileType = TileType.Wood;
-                        _debugText[x, z + 1].text = _grid._grid[x, z + 1].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z + 1)), _grid._grid[x, z].tileType);
-                        _debugText[x, z + 1].color = Color.red;
-                    }
+                // for (int i = 0; i < woodPropagation; i++)
+                // {
+                //     AroundTheBaseTile(x + i, z, tileType, Color.red);
+                //     AroundTheBaseTile(x, z + i, tileType, Color.red);
+                //     AroundTheBaseTile(x + i, z + i, tileType, Color.red);
+                //     AroundTheBaseTile(x - i, z, tileType, Color.red);
+                //     AroundTheBaseTile(x, z - i, tileType, Color.red);
+                //     AroundTheBaseTile(x - i, z - i, tileType, Color.red);
+                //     AroundTheBaseTile(x + i, z - i, tileType, Color.red);
+                //     AroundTheBaseTile(x - i, z + i, tileType, Color.red);
+                // }
 
-                    if (_grid.IsInDimensions(new Vector2Int(x + 1, z + 1)) && _grid._grid[x + 1, z + 1].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x + 1, z + 1].tileType = TileType.Wood;
-                        _debugText[x + 1, z + 1].text = _grid._grid[x + 1, z + 1].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x + 1, z + 1)), _grid._grid[x, z].tileType);
-                        _debugText[x + 1, z + 1].color = Color.red;
-                    }
 
-                    if (_grid.IsInDimensions(new Vector2Int(x - 1, z)) && _grid._grid[x - 1, z].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x - 1, z].tileType = TileType.Wood;
-                        _debugText[x - 1, z].text = _grid._grid[x - 1, z].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x - 1, z)), _grid._grid[x, z].tileType);
-                        _debugText[x - 1, z].color = Color.red;
-                    }
+                break;
 
-                    if (_grid.IsInDimensions(new Vector2Int(x, z - 1)) && _grid._grid[x, z - 1].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x, z - 1].tileType = TileType.Wood;
-                        _debugText[x, z - 1].text = _grid._grid[x, z - 1].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z - 1)), _grid._grid[x, z].tileType);
-                        _debugText[x, z - 1].color = Color.red;
-                    }
+            case TileType.Iron:
 
-                    if (_grid.IsInDimensions(new Vector2Int(x - 1, z - 1)) && _grid._grid[x - 1, z - 1].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x - 1, z - 1].tileType = TileType.Wood;
-                        _debugText[x - 1, z - 1].text = _grid._grid[x - 1, z - 1].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x - 1, z - 1)), _grid._grid[x, z].tileType);
-                        _debugText[x - 1, z - 1].color = Color.red;
-                    }
+                _debugText[x, z].color = Color.magenta;
+                InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
-                    break;
+                TilePropagation(x, z, tileType, Color.green, Random.Range(1, ironPropagation), ironNoise);
 
-                case TileType.Iron:
+                // for (int i = 0; i < ironPropagation; i++)
+                // {
+                //     AroundTheBaseTile(x + i, z, tileType, Color.magenta);
+                //     AroundTheBaseTile(x, z + i, tileType, Color.magenta);
+                //     AroundTheBaseTile(x + i, z + i, tileType, Color.magenta);
+                //     AroundTheBaseTile(x - i, z, tileType, Color.magenta);
+                //     AroundTheBaseTile(x, z - i, tileType, Color.magenta);
+                //     AroundTheBaseTile(x - i, z - i, tileType, Color.magenta);
+                //     AroundTheBaseTile(x + i, z - i, tileType, Color.magenta);
+                //     AroundTheBaseTile(x - i, z + i, tileType, Color.magenta);
+                // }
 
-                    _debugText[x, z].color = Color.magenta;
-                    middleTile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
-                    if (_grid.IsInDimensions(new Vector2Int(x + 1, z)) && _grid._grid[x + 1, z].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x + 1, z].tileType = TileType.Iron;
-                        _debugText[x + 1, z].text = _grid._grid[x + 1, z].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x + 1, z)), _grid._grid[x, z].tileType);
-                        _debugText[x + 1, z].color = Color.magenta;
-                    }
-
-                    if (_grid.IsInDimensions(new Vector2Int(x, z + 1)) && _grid._grid[x, z + 1].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x, z + 1].tileType = TileType.Iron;
-                        _debugText[x, z + 1].text = _grid._grid[x, z + 1].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z + 1)), _grid._grid[x, z].tileType);
-                        _debugText[x, z + 1].color = Color.magenta;
-                    }
-
-                    if (_grid.IsInDimensions(new Vector2Int(x + 1, z + 1)) && _grid._grid[x + 1, z + 1].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x + 1, z + 1].tileType = TileType.Iron;
-                        _debugText[x + 1, z + 1].text = _grid._grid[x + 1, z + 1].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x + 1, z + 1)), _grid._grid[x, z].tileType);
-                        _debugText[x + 1, z + 1].color = Color.magenta;
-                    }
-
-                    if (_grid.IsInDimensions(new Vector2Int(x - 1, z)) && _grid._grid[x - 1, z].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x - 1, z].tileType = TileType.Iron;
-                        _debugText[x - 1, z].text = _grid._grid[x - 1, z].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x - 1, z)), _grid._grid[x, z].tileType);
-                        _debugText[x - 1, z].color = Color.magenta;
-                    }
-
-                    if (_grid.IsInDimensions(new Vector2Int(x, z - 1)) && _grid._grid[x, z - 1].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x, z - 1].tileType = TileType.Iron;
-                        _debugText[x, z - 1].text = _grid._grid[x, z - 1].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z - 1)), _grid._grid[x, z].tileType);
-                        _debugText[x, z - 1].color = Color.magenta;
-                    }
-
-                    if (_grid.IsInDimensions(new Vector2Int(x - 1, z - 1)) && _grid._grid[x - 1, z - 1].tileType == TileType.Empty)
-                    {
-                        _grid._grid[x - 1, z - 1].tileType = TileType.Iron;
-                        _debugText[x - 1, z - 1].text = _grid._grid[x - 1, z - 1].tileType.ToString();
-                        tile = InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x - 1, z - 1)), _grid._grid[x, z].tileType);
-                        _debugText[x - 1, z - 1].color = Color.magenta;
-                    }
-
-                    break;
+                break;
         }
         
     }
@@ -425,27 +315,27 @@ public class GridManager : MonoBehaviour
         TileType tileType = TileType.Empty;
         int randomNumber = Random.Range(0, 100);
 
-        if (randomNumber <= 75)
+        if (randomNumber <= grassProbability)
         {
             tileType = TileType.Grass;
         }
 
-        if (randomNumber > 75 && randomNumber <= 85)
+        if (randomNumber > grassProbability && randomNumber <= rockProbability)
         {
             tileType = TileType.Rock;
         }
 
-        if (randomNumber > 85 && randomNumber <= 95)
+        if (randomNumber > rockProbability && randomNumber <= waterProbability)
         {
             tileType = TileType.Water;
         }
 
-        if (randomNumber > 95 && randomNumber <= 98)
+        if (randomNumber > waterProbability && randomNumber <= woodProbability)
         {
             tileType = TileType.Wood;
         }
 
-        if (randomNumber > 98 && randomNumber <= 100)
+        if (randomNumber > woodProbability && randomNumber <= ironProbability)
         {
             tileType = TileType.Iron;
         }
@@ -453,7 +343,6 @@ public class GridManager : MonoBehaviour
         return tileType;
     }
     
-
     private void DebugLines()
     {
         _debugText = new TextMesh[width, height];
