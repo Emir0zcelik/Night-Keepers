@@ -17,6 +17,7 @@ public class UnitIdleState : UnitState
 
     public override void EnterState()
     {
+        unit.currentStateName = "Idle";
         base.EnterState();
         if (unit.UnitData.Side != UnitSide.Enemy) return;
         if (EnemySpawnManager.Instance.targetPlayerBase != null)

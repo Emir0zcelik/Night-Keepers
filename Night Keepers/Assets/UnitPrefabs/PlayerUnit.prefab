@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 213360133753626436}
-  - component: {fileID: 8208706033065589460}
+  - component: {fileID: 3704776514807524823}
   - component: {fileID: 878568868471718918}
   - component: {fileID: 815108492184137533}
   - component: {fileID: 7228552632248322986}
@@ -286,7 +286,7 @@ Transform:
   - {fileID: 3297045309299663669}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!54 &8208706033065589460
+--- !u!54 &3704776514807524823
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -309,7 +309,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   <isAggroed>k__BackingField: 0
   <isInAttackingDistance>k__BackingField: 0
   Target: {fileID: 0}
-  <UnitData>k__BackingField: {fileID: 11400000, guid: f1d192e4a17e2794d8119e1622451f99,
+  <UnitData>k__BackingField: {fileID: 11400000, guid: 9ab82825b984f68428a96cb3feea290d,
     type: 2}
 --- !u!195 &7228552632248322986
 NavMeshAgent:
