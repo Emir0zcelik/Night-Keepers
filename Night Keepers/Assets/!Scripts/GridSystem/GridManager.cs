@@ -9,7 +9,7 @@ public class GridManager : MonoBehaviour
 {
     [SerializeField] private int width;
     [SerializeField] private int height;
-    [SerializeField] private int cellSize;
+    [SerializeField] public int cellSize;
 
     [SerializeField] private int grassProbability;
     [SerializeField] private int rockProbability;
@@ -35,7 +35,7 @@ public class GridManager : MonoBehaviour
     private bool isGenerated = false;
 
     private External _external;
-    private Grid<Tile> _grid;
+    public Grid<Tile> _grid;
     private TextMesh[,] _debugText;
     public const int sortingOrderDefault = 5000;
     private const int batchInstantiateSize = 1000;
@@ -48,23 +48,7 @@ public class GridManager : MonoBehaviour
 
     private void Update()
     {  
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
-            {
-                Vector2Int gridPosition = _grid.WorldToGridPosition(raycastHit.point);
-                Debug.Log(_grid._grid[gridPosition.x, gridPosition.y].tileType);
-            }
-        }
-        
-        // !!!! Rotate action for building 
-        
-        // if (Input.GetKeyDown(KeyCode.R))
-        // {
-        //     building[4].direction = BuildingData.GetNextDir(building[4].direction);
-        // }
+   
     }
 
     void InstantiateMap()
@@ -106,34 +90,17 @@ public class GridManager : MonoBehaviour
 
     void TilePropagation (int x, int z, TileType tileType, Color color, int size, float noise)
     {
-        // for (int i = 0; i < count; i++)
-        // {
-        //     // AroundTheBaseTile(x + i, z, tileType, color);
-        //     // AroundTheBaseTile(x, z + i, tileType, color);
-        //     // AroundTheBaseTile(x + i, z + i, tileType, color);
-        //     // AroundTheBaseTile(x - i, z, tileType, color);
-        //     // AroundTheBaseTile(x, z - i, tileType, color);
-        //     // AroundTheBaseTile(x - i, z - i, tileType, color);
-        //     // AroundTheBaseTile(x + i, z - i, tileType, color);
-        //     // AroundTheBaseTile(x - i, z + i, tileType, color);
-
-        //     AroundTheBaseTile(x + i, z, tileType, color);
-        //     AroundTheBaseTile(x, z + i, tileType, color);
-        //     AroundTheBaseTile(x - i, z, tileType, color);
-        //     AroundTheBaseTile(x, z - i, tileType, color);
-        // }
-
-    for (int i = x - size; i <= x + size; i++)
-    {
-        for (int j = z - size; j <= z + size; j++)
+        for (int i = x - size; i <= x + size; i++)
         {
-            if (Random.value < noise) // Eğer rastgele noise değeri, belirlediğimiz noise oranından küçükse, bu kareyi boş bırak.
+            for (int j = z - size; j <= z + size; j++)
             {
-                continue;
+                if (Random.value < noise) 
+                {
+                    continue;
+                }
+                AroundTheBaseTile(i, j, tileType, color);
             }
-            AroundTheBaseTile(i, j, tileType, color);
         }
-    }
     }
 
     void GenerateMap(int x, int z)
@@ -150,20 +117,6 @@ public class GridManager : MonoBehaviour
 
                 TilePropagation(x, z, tileType, Color.green, Random.Range(1, grassPropagation), grassNoise);
 
-                // for (int i = 0; i < grassPropagation; i++)
-                // {
-                //     AroundTheBaseTile(x + i, z, tileType, Color.green);
-                //     AroundTheBaseTile(x, z + i, tileType, Color.green);
-                //     AroundTheBaseTile(x + i, z + i, tileType, Color.green);
-                //     AroundTheBaseTile(x - i, z, tileType, Color.green);
-                //     AroundTheBaseTile(x, z - i, tileType, Color.green);
-                //     AroundTheBaseTile(x - i, z - i, tileType, Color.green);
-                //     AroundTheBaseTile(x + i, z - i, tileType, Color.green);
-                //     AroundTheBaseTile(x - i, z + i, tileType, Color.green);
-                // }
-
-
-
                 break;
             
             case TileType.Rock:
@@ -173,20 +126,6 @@ public class GridManager : MonoBehaviour
 
                 TilePropagation(x, z, tileType, Color.green, Random.Range(1, rockPropagation), rockNoise);
 
-                // for (int i = 0; i < rockPropagation; i++)
-                // {
-                //     AroundTheBaseTile(x + i, z, tileType, Color.yellow);
-                //     AroundTheBaseTile(x, z + i, tileType, Color.yellow);
-                //     AroundTheBaseTile(x + i, z + i, tileType, Color.yellow);
-                //     AroundTheBaseTile(x - i, z, tileType, Color.yellow);
-                //     AroundTheBaseTile(x, z - i, tileType, Color.yellow);
-                //     AroundTheBaseTile(x - i, z - i, tileType, Color.yellow);
-                //     AroundTheBaseTile(x + i, z - i, tileType, Color.yellow);
-                //     AroundTheBaseTile(x - i, z + i, tileType, Color.yellow);
-                // }
-
-
-                
                 break;
             
             case TileType.Water:
@@ -195,20 +134,6 @@ public class GridManager : MonoBehaviour
                 InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
                 TilePropagation(x, z, tileType, Color.green, Random.Range(3, waterPropagation), waterNoise);
-
-                // for (int i = 0; i < waterPropagation; i++)
-                // {
-                //     AroundTheBaseTile(x + i, z, tileType, Color.blue);
-                //     AroundTheBaseTile(x, z + i, tileType, Color.blue);
-                //     AroundTheBaseTile(x + i, z + i, tileType, Color.blue);
-                //     AroundTheBaseTile(x - i, z, tileType, Color.blue);
-                //     AroundTheBaseTile(x, z - i, tileType, Color.blue);
-                //     AroundTheBaseTile(x - i, z - i, tileType, Color.blue);
-                //     AroundTheBaseTile(x + i, z - i, tileType, Color.blue);
-                //     AroundTheBaseTile(x - i, z + i, tileType, Color.blue);
-                // }
-
-
 
                 break;
 
@@ -219,19 +144,6 @@ public class GridManager : MonoBehaviour
 
                 TilePropagation(x, z, tileType, Color.green, Random.Range(1, woodPropagation), woodNoise);
 
-                // for (int i = 0; i < woodPropagation; i++)
-                // {
-                //     AroundTheBaseTile(x + i, z, tileType, Color.red);
-                //     AroundTheBaseTile(x, z + i, tileType, Color.red);
-                //     AroundTheBaseTile(x + i, z + i, tileType, Color.red);
-                //     AroundTheBaseTile(x - i, z, tileType, Color.red);
-                //     AroundTheBaseTile(x, z - i, tileType, Color.red);
-                //     AroundTheBaseTile(x - i, z - i, tileType, Color.red);
-                //     AroundTheBaseTile(x + i, z - i, tileType, Color.red);
-                //     AroundTheBaseTile(x - i, z + i, tileType, Color.red);
-                // }
-
-
                 break;
 
             case TileType.Iron:
@@ -240,19 +152,6 @@ public class GridManager : MonoBehaviour
                 InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
                 TilePropagation(x, z, tileType, Color.green, Random.Range(1, ironPropagation), ironNoise);
-
-                // for (int i = 0; i < ironPropagation; i++)
-                // {
-                //     AroundTheBaseTile(x + i, z, tileType, Color.magenta);
-                //     AroundTheBaseTile(x, z + i, tileType, Color.magenta);
-                //     AroundTheBaseTile(x + i, z + i, tileType, Color.magenta);
-                //     AroundTheBaseTile(x - i, z, tileType, Color.magenta);
-                //     AroundTheBaseTile(x, z - i, tileType, Color.magenta);
-                //     AroundTheBaseTile(x - i, z - i, tileType, Color.magenta);
-                //     AroundTheBaseTile(x + i, z - i, tileType, Color.magenta);
-                //     AroundTheBaseTile(x - i, z + i, tileType, Color.magenta);
-                // }
-
 
                 break;
         }

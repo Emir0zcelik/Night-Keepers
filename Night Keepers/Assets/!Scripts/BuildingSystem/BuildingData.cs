@@ -22,7 +22,12 @@ public class BuildingData : ScriptableObject
         Up, Down, Left, Right
     }
     
-    public new string  name;
+    public enum BuildingType
+    {
+        Empty, StoneMine, IronMine, Lumberjack, TownHall, Test     
+    }
+
+    public BuildingType buildingTypes;
     public int health;
     public List<TileType> placableTileTypes;
     public Vector2Int widthHeight;
