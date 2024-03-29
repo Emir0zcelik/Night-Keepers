@@ -3,9 +3,8 @@ using UnityEngine;
 using System.Linq;
 using System.Collections;
 
-public class EnemySpawnManager : Singleton<EnemySpawnManager>
+public class EnemySpawnManager : MonoBehaviour
 {
-    private List<GameObject> _playerBaseList = new List<GameObject>();
     public Vector3 targetPlayerBase;
 
     private List<Transform> _spawnPointList = new List<Transform>();
@@ -32,12 +31,7 @@ public class EnemySpawnManager : Singleton<EnemySpawnManager>
     private void Start()
     {
         _spawnPointList.AddRange(from Transform child in transform select child);
-        if (_playerBaseList.Count > 0)
-        {
-            // for now it only picks the first base in the list later we will have to create a logic to pick one and spawn enemies according to that and pick the base according to that
-            targetPlayerBase = _playerBaseList[0].transform.position;
-        }
-
+        targetPlayerBase = PlayerBaseManager.Instance.GetBasePosition();
         PickSpawnPoint();
     }
 

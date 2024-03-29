@@ -31,6 +31,7 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
     public static event Action onBuildingDestroyed;
 
+    [HideInInspector]
     public LayerMask playerLayer;
 
     private void Awake()

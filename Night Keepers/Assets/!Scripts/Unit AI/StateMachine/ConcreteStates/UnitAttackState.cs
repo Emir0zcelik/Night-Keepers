@@ -17,7 +17,6 @@ public class UnitAttackState : UnitState
 
     public override void EnterState()
     {
-        Debug.Log("Started attacking");
         unit.currentStateName = "Attack";
         base.EnterState();
         _target = unit.GetCurrentTarget().GetComponent<Unit>();
