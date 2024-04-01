@@ -35,16 +35,16 @@ namespace NightKeepers.Camera
 
             input = (right + forward).normalized;
 
-            // Rotate camera left with 'Q'
+            
             if (Input.GetKey(KeyCode.Q))
             {
-                targetAngle -= speed * 4; // Adjust the rotation speed as needed
+                targetAngle -= speed * 4; 
             }
 
-            // Rotate camera right with 'E'
+            
             if (Input.GetKey(KeyCode.E))
             {
-                targetAngle += speed * 4; // Adjust the rotation speed as needed
+                targetAngle += speed * 4; 
             }
 
             // Existing mouse rotation code
