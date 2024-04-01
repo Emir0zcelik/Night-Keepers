@@ -10,12 +10,12 @@ public class BuildingUI : MonoBehaviour
     {
         buildingManager.SetBuildingType(BuildingData.BuildingType.Lumberjack);
     }
-    
+
     public void StoneMine()
     {
         buildingManager.SetBuildingType(BuildingData.BuildingType.StoneMine);
     }
-    
+
     public void IronMine()
     {
         buildingManager.SetBuildingType(BuildingData.BuildingType.IronMine);
