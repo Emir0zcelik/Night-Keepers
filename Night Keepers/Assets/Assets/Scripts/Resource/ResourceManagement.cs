@@ -9,13 +9,13 @@ namespace NightKeepers
     {
         public BuildingData buildingData;
 
-        enum ResourceType
+        /*enum ResourceType
         {
             Wood,
             Food,
             Stone,
             Iron
-        }
+        }*/ //Will be use.
 
         public int wood, food, stone, iron;
         /*private int stoneMinesCount;
