@@ -12,13 +12,13 @@ public class BuildingManager : MonoBehaviour
 
     private int buildingNumber;
 
-    private void Update() 
+    private void Update()
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
-        
+
         SelectBuilding();
         if (Input.GetMouseButton(0))
         {
@@ -32,23 +32,23 @@ public class BuildingManager : MonoBehaviour
         {
             case BuildingData.BuildingType.StoneMine:
                 buildingNumber = 0;
-            break;
+                break;
 
             case BuildingData.BuildingType.IronMine:
                 buildingNumber = 1;
-            break;
+                break;
 
             case BuildingData.BuildingType.Lumberjack:
                 buildingNumber = 2;
-            break;
+                break;
 
             case BuildingData.BuildingType.TownHall:
                 buildingNumber = 3;
-            break;
+                break;
 
             case BuildingData.BuildingType.Test:
                 buildingNumber = 4;
-            break;
+                break;
         }
     }
 
@@ -59,7 +59,7 @@ public class BuildingManager : MonoBehaviour
         {
             Vector2Int gridPosition = _gridManager._grid.WorldToGridPosition(raycastHit.point);
             List<Vector2Int> gridPositionList = building[count].buildingData.GetGridPositionList(gridPosition, building[count].direction);
-            
+
             bool canBuild = true;
 
             foreach (Vector2Int position in gridPositionList)
@@ -77,9 +77,9 @@ public class BuildingManager : MonoBehaviour
                 Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
                 Building instantiatedBuilding = Instantiate(
                         building[count],
-                        instantiatedBuildingWorldPosition, 
+                        instantiatedBuildingWorldPosition,
                         Quaternion.Euler(0, building[count].buildingData.GetRotationAngle(building[count].direction), 0));
-                
+
                 foreach (Vector2Int position in gridPositionList)
                 {
                     Tile tile = new Tile()
