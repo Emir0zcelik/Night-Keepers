@@ -32,6 +32,8 @@ public class GridManager : MonoBehaviour
     [SerializeField] private List<Building> building;
     [SerializeField] private List<GameObject> tilePrefabs;
 
+    public static event Action onWorldGenerationDone;
+
     private bool isGenerated = false;
 
     private External _external;
@@ -75,6 +77,7 @@ public class GridManager : MonoBehaviour
 
             emptyTileCount = GetEmptyTileCount();
         }
+        onWorldGenerationDone?.Invoke();
     }
 
     void AroundTheBaseTile(int x, int z, TileType tileType, Color color)

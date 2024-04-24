@@ -10,6 +10,8 @@ public class EnemySpawnManager : MonoBehaviour
     // temp
     [SerializeField] private GameObject _enemyPrefab;
 
+    [SerializeField] private Vector3 _newOrigin;
+
     [Header("Map Size From Origin to One Edge of the Map")]
     [SerializeField] private int _mapSizeFromOrigin;
 
@@ -59,9 +61,9 @@ public class EnemySpawnManager : MonoBehaviour
     }
     void AlignSpawnPoints()
     {
-        _spawnPointList[0].position = new Vector3(_mapSizeFromOrigin, 0, _targetPlayerBase.z);
-        _spawnPointList[1].position = new Vector3(-_mapSizeFromOrigin, 0, _targetPlayerBase.z);
-        _spawnPointList[2].position = new Vector3(_targetPlayerBase.x, 0, _mapSizeFromOrigin);
-        _spawnPointList[3].position = new Vector3(_targetPlayerBase.x, 0, -_mapSizeFromOrigin);
+        _spawnPointList[0].position = new Vector3(_newOrigin.x + _mapSizeFromOrigin, 0, _targetPlayerBase.z);
+        _spawnPointList[1].position = new Vector3(_newOrigin.x - _mapSizeFromOrigin, 0, _targetPlayerBase.z);
+        _spawnPointList[2].position = new Vector3(_targetPlayerBase.x, 0, _newOrigin.z + _mapSizeFromOrigin);
+        _spawnPointList[3].position = new Vector3(_targetPlayerBase.x, 0, _newOrigin.z - _mapSizeFromOrigin);
     }
 }

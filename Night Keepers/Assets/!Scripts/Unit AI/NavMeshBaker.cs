@@ -21,11 +21,13 @@ public class NavMeshBaker : MonoBehaviour
     private void OnEnable()
     {
         Unit.onBuildingDestroyed += OnBuildingDestroyed;
+        GridManager.onWorldGenerationDone += OnWorldGenerationDone;
     }
 
     private void OnDisable()
     {
         Unit.onBuildingDestroyed -= OnBuildingDestroyed;
+        GridManager.onWorldGenerationDone -= OnWorldGenerationDone;
     }
 
     private void OnBuildingDestroyed()
@@ -35,6 +37,12 @@ public class NavMeshBaker : MonoBehaviour
             StopCoroutine(bakeCoroutine);
         }
         bakeCoroutine = StartCoroutine(BakeNavMeshWithDelay());
+    }
+
+    private void OnWorldGenerationDone()
+    {
+        BakeNavMesh();
+        Debug.Log("bake done");
     }
 
     private IEnumerator BakeNavMeshWithDelay()
