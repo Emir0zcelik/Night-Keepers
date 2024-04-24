@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace NightKeepers.Camera
@@ -10,6 +11,8 @@ namespace NightKeepers.Camera
         [SerializeField] private float speed = 1f;
         [SerializeField] private float smoothing = 5f;
         [SerializeField] private Vector2 range = new(70, 70);
+
+        [SerializeField] private Vector3 startingPosition;
          
         private Vector3 targetPosition;
         private Vector3 input;
@@ -19,6 +22,7 @@ namespace NightKeepers.Camera
        
         private void Awake()
         {
+            transform.position = startingPosition;
             targetPosition = transform.position;
             targetAngle = transform.eulerAngles.y;
             angle = targetAngle;
@@ -69,10 +73,10 @@ namespace NightKeepers.Camera
         
         private bool IsInBounds(Vector3 position)
         {
-            return position.x > -range.x && 
-                position.x < range.x &&
-                position.z < range.y && 
-                position.z > -range.y;
+            return position.x > startingPosition.x - range.x && 
+                position.x < startingPosition.x + range.x &&
+                position.z < startingPosition.z + range.y && 
+                position.z > startingPosition.z -range.y;
         }
        
         private void Update()
