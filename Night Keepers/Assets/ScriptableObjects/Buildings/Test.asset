@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  name: Test
+  buildingTypes: 0
   health: 0
   placableTileTypes: 00000000
-  widthHeight: {x: 20, y: 1}
+  widthHeight: {x: 2, y: 1}
   wood: 0
   stone: 0
   iron: 0
   food: 0
+  earn: 0

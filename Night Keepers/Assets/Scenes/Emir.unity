@@ -419,6 +419,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3996589456990200737, guid: 0bc3ca387210fda4a93e00e57d8e0ef9,
         type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996589456990200737, guid: 0bc3ca387210fda4a93e00e57d8e0ef9,
+        type: 3}
       propertyPath: _gridManager
       value: 
       objectReference: {fileID: 1002844174}
@@ -426,6 +431,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CameraParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140991616317051111, guid: 0bc3ca387210fda4a93e00e57d8e0ef9,
+        type: 3}
+      propertyPath: range.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140991616317051111, guid: 0bc3ca387210fda4a93e00e57d8e0ef9,
+        type: 3}
+      propertyPath: zoomSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2139,6 +2154,36 @@ PrefabInstance:
       propertyPath: _gridManager
       value: 
       objectReference: {fileID: 1002844174}
+    - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
+      propertyPath: building.Array.data[0]
+      value: 
+      objectReference: {fileID: 8330685427325949554, guid: f511d78839323f4449aab8cb623290d6,
+        type: 3}
+    - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
+      propertyPath: building.Array.data[1]
+      value: 
+      objectReference: {fileID: 5486441257105310043, guid: 6f41f80c090f866478cc72e33d06236b,
+        type: 3}
+    - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
+      propertyPath: building.Array.data[2]
+      value: 
+      objectReference: {fileID: 2719336066864652485, guid: 0f0b262ec50ec884884837414166d855,
+        type: 3}
+    - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
+      propertyPath: building.Array.data[3]
+      value: 
+      objectReference: {fileID: 2692736109484692394, guid: a8a33721085a4ac458db523672cb11a7,
+        type: 3}
+    - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
+      propertyPath: building.Array.data[4]
+      value: 
+      objectReference: {fileID: 3531529327772665375, guid: ab402a812b7fa2d479d94973aed9f85d,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,9 +9,13 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private GridManager _gridManager;
     [SerializeField] private List<Building> building;
     private BuildingData.BuildingType buildingType;
-    private bool canBuild;
+    private bool canBuild = false;
+
+    private bool isRotated = false;
 
     private int buildingNumber;
+
+    // private int count = 0;
 
     private void Update()
     {
@@ -20,9 +25,15 @@ public class BuildingManager : MonoBehaviour
         }
 
         SelectBuilding();
-        if (Input.GetMouseButton(0))
+
+        if (Input.GetMouseButton(0) && canBuild)
         {
             PlaceBuilding(buildingNumber);
+            canBuild = false;
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            isRotated = true;
         }
     }
 
@@ -54,6 +65,14 @@ public class BuildingManager : MonoBehaviour
 
     private void PlaceBuilding(int count)
     {
+
+        if (isRotated)
+        {
+            building[count].direction = BuildingData.GetNextDir(building[count].direction);
+            Debug.Log("direction changed" + building[count].direction);
+            isRotated = false;
+        }
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
         {
@@ -95,5 +114,6 @@ public class BuildingManager : MonoBehaviour
     public void SetBuildingType(BuildingData.BuildingType buildingType)
     {
         this.buildingType = buildingType;
+        canBuild = true;
     }
 }
