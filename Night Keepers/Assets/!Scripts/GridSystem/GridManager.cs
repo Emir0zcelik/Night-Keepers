@@ -36,7 +36,7 @@ public class GridManager : MonoBehaviour
 
     private bool isGenerated = false;
 
-    private External _external;
+    // private External _external;
     public Grid<Tile> _grid;
     private TextMesh[,] _debugText;
     public const int sortingOrderDefault = 5000;
@@ -186,6 +186,8 @@ public class GridManager : MonoBehaviour
                 tilePrefab = Instantiate(tilePrefabs[4], position, quaternion.identity);
                 break;
         }
+        
+        tilePrefab.transform.localScale = new Vector3((float)cellSize / 10, (float)cellSize / 10, (float)cellSize / 10);
 
         return tilePrefab;
     }

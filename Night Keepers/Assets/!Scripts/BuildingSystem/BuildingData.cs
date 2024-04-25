@@ -31,6 +31,7 @@ public class BuildingData : ScriptableObject
     public int health;
     public List<TileType> placableTileTypes;
     public Vector2Int widthHeight;
+    public Transform visual;
 
     public int wood;
     public int stone;
