@@ -98,6 +98,7 @@ public class BuildingManager : MonoBehaviour
                         building[count],
                         instantiatedBuildingWorldPosition,
                         Quaternion.Euler(0, building[count].buildingData.GetRotationAngle(building[count].direction), 0));
+                instantiatedBuilding.transform.localScale = new Vector3(instantiatedBuilding.transform.localScale.x * _gridManager.cellSize / 10, instantiatedBuilding.transform.localScale.y * _gridManager.cellSize / 10, instantiatedBuilding.transform.localScale.z * _gridManager.cellSize / 10);
 
                 foreach (Vector2Int position in gridPositionList)
                 {
