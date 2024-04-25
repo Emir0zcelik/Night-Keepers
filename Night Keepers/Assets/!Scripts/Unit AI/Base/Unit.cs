@@ -115,6 +115,11 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
         return UnitData.Type;
     }
 
+    public int GetUnitPowerPoints()
+    {
+        return UnitData.UnitPowerPoints;
+    }
+
     public List<TargetPreference> GetTargetPreferenceList()
     {
         return UnitData.targetPreferences;
@@ -172,7 +177,7 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
     public bool IsNewTargetBetter(UnitType newTargetType)
     {
-        if (newTargetType == GetFavouriteTarget())
+        if (newTargetType == GetFavouriteTarget() && GetCurrentTargetUnitType() != GetFavouriteTarget())
         {
             return true;
         }

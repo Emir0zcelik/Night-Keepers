@@ -13,6 +13,8 @@ public class UnitScriptableObject : ScriptableObject
     public float movementSpeed = 0f;
     public List<TargetPreference> targetPreferences = new List<TargetPreference>();
 
+    public int UnitPowerPoints = 1;
+
     public enum UnitSide
     {
         Player,
