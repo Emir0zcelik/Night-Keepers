@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
   m_Name: TownHall
   m_EditorClassIdentifier: 
-  name: Town Hall
+  buildingTypes: 0
   health: 0
-  placableTileTypes: 00000000
+  placableTileTypes: 01000000
   widthHeight: {x: 2, y: 2}
+  visual: {fileID: 0}
   wood: 0
   stone: 0
   iron: 0
   food: 0
+  earn: 0

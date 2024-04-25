@@ -88,6 +88,12 @@ public class BuildingManager : MonoBehaviour
                     canBuild = false;
                     break;
                 }
+
+                if (building[count].buildingData.placableTileTypes[0] != _gridManager._grid[position].tileType)
+                {
+                    canBuild = false;
+                    break;
+                }
             }
 
             if (canBuild)

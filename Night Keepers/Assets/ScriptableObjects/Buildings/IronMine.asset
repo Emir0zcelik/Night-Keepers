@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
   m_Name: IronMine
   m_EditorClassIdentifier: 
-  name: Iron Mine
+  buildingTypes: 0
   health: 100
-  placableTileTypes: 03000000
+  placableTileTypes: 04000000
   widthHeight: {x: 1, y: 1}
+  visual: {fileID: 0}
   wood: 100
   stone: 100
   iron: 0
   food: 0
+  earn: 0
