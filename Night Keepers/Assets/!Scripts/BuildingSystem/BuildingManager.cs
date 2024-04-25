@@ -9,15 +9,15 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private GridManager _gridManager;
     [SerializeField] private List<Building> building;
     [SerializeField] private List<GameObject> buildingPreviews;
+    [SerializeField] private Material validPreviewMaterial;
+    [SerializeField] private Material invalidPreviewMaterial;
     private BuildingData.BuildingType buildingType;
-    private bool canBuild = false;
-
     private bool isRotated = false;
 
     private int buildingNumber;
-
-    bool isPreview = false;
     bool isPreviewRotated = false;
+
+    bool isPlaced = false;
 
     private void Start() {
         foreach (var building in buildingPreviews)
@@ -34,14 +34,19 @@ public class BuildingManager : MonoBehaviour
         }
 
         SelectBuilding();
-
-        PreviewBuilding();
-
-        if (Input.GetMouseButton(0) && canBuild)
+        
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
         {
-            PlaceBuilding(buildingNumber);
-            canBuild = false;
+            Vector2Int gridPosition = _gridManager._grid.WorldToGridPosition(raycastHit.point);
+
+            Debug.Log("Grid Pos: " + gridPosition);
+
+            PreviewBuilding(gridPosition);
+
+            PlaceBuilding(gridPosition);
         }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             isRotated = true;
@@ -54,60 +59,67 @@ public class BuildingManager : MonoBehaviour
         switch (buildingType)
         {
             case BuildingData.BuildingType.StoneMine:
+                isPlaced = false;
                 buildingNumber = 0;
-                buildingPreviews[0].SetActive(true);
-                buildingPreviews[1].SetActive(false);
-                buildingPreviews[2].SetActive(false);
-                buildingPreviews[3].SetActive(false);
-                buildingPreviews[4].SetActive(false);
+                BuildingPreviewsActivate(buildingNumber);
                 break;
 
             case BuildingData.BuildingType.IronMine:
+                isPlaced = false;
                 buildingNumber = 1;
-                buildingPreviews[1].SetActive(true);
-                buildingPreviews[0].SetActive(false);
-                buildingPreviews[2].SetActive(false);
-                buildingPreviews[3].SetActive(false);
-                buildingPreviews[4].SetActive(false);
+                BuildingPreviewsActivate(buildingNumber);
                 break;
 
             case BuildingData.BuildingType.Lumberjack:
+                isPlaced = false;
                 buildingNumber = 2;
-                buildingPreviews[2].SetActive(true);
-                buildingPreviews[0].SetActive(false);
-                buildingPreviews[1].SetActive(false);
-                buildingPreviews[3].SetActive(false);
-                buildingPreviews[4].SetActive(false);
+                BuildingPreviewsActivate(buildingNumber);
                 
                 break;
 
             case BuildingData.BuildingType.TownHall:
+                isPlaced = false;
                 buildingNumber = 3;
-                buildingPreviews[3].SetActive(true);
-                buildingPreviews[0].SetActive(false);
-                buildingPreviews[1].SetActive(false);
-                buildingPreviews[2].SetActive(false);
-                buildingPreviews[4].SetActive(false);
+                BuildingPreviewsActivate(buildingNumber);
                 break;
 
             case BuildingData.BuildingType.Test:
+                isPlaced = false;
                 buildingNumber = 4;
-                buildingPreviews[4].SetActive(true);
-                buildingPreviews[0].SetActive(false);
-                buildingPreviews[1].SetActive(false);
-                buildingPreviews[2].SetActive(false);
-                buildingPreviews[3].SetActive(false);
+                BuildingPreviewsActivate(buildingNumber);
                 break;
+        }
+
+    }
+
+    private void BuildingPreviewsActivate(int active)
+    {
+        for (int i = 0; i < buildingPreviews.Count; i++)
+        {
+            if (i == active)
+            {
+                buildingPreviews[i].SetActive(true);
+            }
+            else
+            {
+                buildingPreviews[i].SetActive(false);
+            }
+
         }
     }
 
-    private void PreviewBuilding()
+    private void PreviewBuilding(Vector2Int gridPosition)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
+        if(!isPlaced)
         {
-            Vector2Int gridPosition = _gridManager._grid.WorldToGridPosition(raycastHit.point);
-            
+            if (TryBuild(building[buildingNumber], building[buildingNumber].buildingData.GetGridPositionList(gridPosition, building[buildingNumber].direction)))
+            {
+                buildingPreviews[buildingNumber].GetComponent<MeshRenderer>().material = validPreviewMaterial;
+            }
+            else
+            {
+                buildingPreviews[buildingNumber].GetComponent<MeshRenderer>().material = invalidPreviewMaterial;                
+            }
             buildingPreviews[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
             if (isPreviewRotated)
             {
@@ -116,55 +128,33 @@ public class BuildingManager : MonoBehaviour
                 isPreviewRotated = false;
             }
         }
-
+        
     }
 
-    private void PlaceBuilding(int count)
+    private void PlaceBuilding(Vector2Int gridPosition)
     {
-
         if (isRotated)
         {
-            building[count].direction = BuildingData.GetNextDir(building[count].direction);
+            building[buildingNumber].direction = BuildingData.GetNextDir(building[buildingNumber].direction);
             isRotated = false;
         }
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
+        if (Input.GetMouseButton(0))
         {
-            Vector2Int gridPosition = _gridManager._grid.WorldToGridPosition(raycastHit.point);
-            List<Vector2Int> gridPositionList = building[count].buildingData.GetGridPositionList(gridPosition, building[count].direction);
+            List<Vector2Int> gridPositionList = building[buildingNumber].buildingData.GetGridPositionList(gridPosition, building[buildingNumber].direction);
+            building[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
 
-            building[count].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
-
-            bool canBuild = true;
-
-            foreach (Vector2Int position in gridPositionList)
-            {
-                if (_gridManager._grid[position].building != null)
-                {
-                    canBuild = false;
-                    break;
-                }
-
-                if (building[count].buildingData.placableTileTypes[0] != _gridManager._grid[position].tileType)
-                {
-                    canBuild = false;
-                    break;
-                }
-            }
-
-            if (canBuild)
+            if (TryBuild(building[buildingNumber], gridPositionList))
             {                
-                Vector2Int rotationOffset = building[count].buildingData.GetRotationOffset(building[count].direction);
+                Vector2Int rotationOffset = building[buildingNumber].buildingData.GetRotationOffset(building[buildingNumber].direction);
                 Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
                 Building instantiatedBuilding = Instantiate(
-                        building[count],
+                        building[buildingNumber],
                         instantiatedBuildingWorldPosition,
-                        Quaternion.Euler(0, building[count].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].GetComponent<Building>().direction), 0));
-                
-                
+                        Quaternion.Euler(0, building[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].GetComponent<Building>().direction), 0));
+        
                 instantiatedBuilding.transform.localScale = new Vector3(instantiatedBuilding.transform.localScale.x * _gridManager.cellSize / 10, instantiatedBuilding.transform.localScale.y * _gridManager.cellSize / 10, instantiatedBuilding.transform.localScale.z * _gridManager.cellSize / 10);
-
+               
                 foreach (Vector2Int position in gridPositionList)
                 {
                     Tile tile = new Tile()
@@ -175,11 +165,30 @@ public class BuildingManager : MonoBehaviour
                 }
             }
         }
+        
     }
 
     public void SetBuildingType(BuildingData.BuildingType buildingType)
     {
         this.buildingType = buildingType;
-        canBuild = true;
+    }
+
+    private bool TryBuild(Building building, List<Vector2Int> gridPositionList)
+    {
+        foreach (Vector2Int position in gridPositionList)
+        {
+            if (_gridManager._grid[position].building != null)
+            {
+                return false;
+            }
+            if (building.buildingData.placableTileTypes[0] != _gridManager._grid[position].tileType)
+            {
+                return false;
+            }
+        }
+
+        isPlaced = true;
+        
+        return true;
     }
 }

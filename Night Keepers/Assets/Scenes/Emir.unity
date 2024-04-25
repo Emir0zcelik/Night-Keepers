@@ -2601,6 +2601,11 @@ PrefabInstance:
       objectReference: {fileID: 1002844174}
     - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
         type: 3}
+      propertyPath: validPreviewMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 04231e7a189848a40b9ffe6c675863df, type: 2}
+    - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
       propertyPath: building.Array.data[0]
       value: 
       objectReference: {fileID: 8330685427325949554, guid: f511d78839323f4449aab8cb623290d6,
@@ -2629,6 +2634,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3531529327772665375, guid: ab402a812b7fa2d479d94973aed9f85d,
         type: 3}
+    - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
+      propertyPath: invalidPreviewMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 902c2023408f1d54caabe103d524e052, type: 2}
     - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
         type: 3}
       propertyPath: buildingPreviews.Array.size
