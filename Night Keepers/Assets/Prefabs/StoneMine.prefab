@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 13934852383324092}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 89, y: 0, z: 123}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119,3 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData: {fileID: 11400000, guid: 444037f846e84f340ad368c2bb6a6b2f, type: 2}
+  direction: 1
+  buildingType: 0
