@@ -12,12 +12,16 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private Material validPreviewMaterial;
     [SerializeField] private Material invalidPreviewMaterial;
     private BuildingData.BuildingType buildingType;
+
+    private Vector2Int gridPosition;
     private bool isRotated = false;
 
     private int buildingNumber;
     bool isPreviewRotated = false;
 
     bool isPlaced = false;
+
+    bool isPlaceBuilding = false;
 
     private void Start() {
         foreach (var building in buildingPreviews)
@@ -26,7 +30,7 @@ public class BuildingManager : MonoBehaviour
             building.SetActive(false);
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
@@ -38,19 +42,27 @@ public class BuildingManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
         {
-            Vector2Int gridPosition = _gridManager._grid.WorldToGridPosition(raycastHit.point);
-
-            Debug.Log("Grid Pos: " + gridPosition);
+            isPlaceBuilding = true;
+            gridPosition = _gridManager._grid.WorldToGridPosition(raycastHit.point);
 
             PreviewBuilding(gridPosition);
-
-            PlaceBuilding(gridPosition);
+        }
+        else{
+            isPlaceBuilding = false;
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             isRotated = true;
             isPreviewRotated = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (isPlaceBuilding)
+        {
+            PlaceBuilding(gridPosition);
         }
     }
 
@@ -139,8 +151,9 @@ public class BuildingManager : MonoBehaviour
             isRotated = false;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
+            print("sa");
             List<Vector2Int> gridPositionList = building[buildingNumber].buildingData.GetGridPositionList(gridPosition, building[buildingNumber].direction);
             building[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
 
