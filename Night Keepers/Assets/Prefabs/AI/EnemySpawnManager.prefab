@@ -174,4 +174,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _newOrigin: {x: 0, y: 0, z: 0}
   _mapSizeFromOrigin: 70
+  _currentWaveNumber: 1
   _spawnManagerData: {fileID: 11400000, guid: ca88553d425acfc409281289715197bb, type: 2}

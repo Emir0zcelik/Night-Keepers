@@ -15,7 +15,6 @@ MonoBehaviour:
   _spawnDelay: 2
   _zOffset: 10
   _lowPowerPointThreshold: 5
-  _wavePowerPoints: 20
   _maxAmountOfWaves: 50
   _wavePowerAtMax: 200
   _wavePowerAtStart: 10
@@ -23,14 +22,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 1
       value: 10
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.95707524
+      outSlope: 0.95707524
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.110999
     - serializedVersion: 3
       time: 50
       value: 200

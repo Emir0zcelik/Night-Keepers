@@ -15,7 +15,6 @@ namespace NightKeepers
         [Header("Spawn Count Settings")]
         // temp threshold
         public int _lowPowerPointThreshold = 5;
-        public int _wavePowerPoints = 10;
         public int _maxAmountOfWaves = 50;
         public int _wavePowerAtMax = 200;
         public int _wavePowerAtStart = 10;

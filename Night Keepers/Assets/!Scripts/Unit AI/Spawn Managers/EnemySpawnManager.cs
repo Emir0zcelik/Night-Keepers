@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Linq;
 using System.Collections;
 using NightKeepers;
+using Unity.Mathematics;
 
 public class EnemySpawnManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     private WaitForSeconds _waitForSeconds;
 
-    private int _currentWaveNumber;
+    [SerializeField] private int _currentWaveNumber;
 
     [SerializeField] private SpawnManagerScriptableObject _spawnManagerData;
 
@@ -41,18 +42,19 @@ public class EnemySpawnManager : MonoBehaviour
     private void PickSpawnPointAndSpawn()
     {
         AlignSpawnPoints();
-        int randomIndex = Random.Range(0, _spawnPointList.Count);
+        int randomIndex = UnityEngine.Random.Range(0, _spawnPointList.Count);
         StartCoroutine(SpawnEnemyWithDelay(_spawnPointList[randomIndex]));
     }
 
     IEnumerator SpawnEnemyWithDelay(Transform spawnPoint)
     {
-        int currentWavePowerPoints = _spawnManagerData._wavePowerPoints;
+        float currentWavePowerPoints = math.floor(_spawnManagerData._spawnCurve.Evaluate(_currentWaveNumber) + 0.5f);
+        print("Power Point: " + currentWavePowerPoints);
         while ( currentWavePowerPoints > 0)
         {
-            Unit selectedEnemyUnit = SelectEnemyToSpawn(currentWavePowerPoints);
+            Unit selectedEnemyUnit = SelectEnemyToSpawn((int)currentWavePowerPoints);
             currentWavePowerPoints -= selectedEnemyUnit.GetUnitPowerPoints();
-            float randomZOffset = Random.Range(-_spawnManagerData._zOffset, _spawnManagerData._zOffset);
+            float randomZOffset = UnityEngine.Random.Range(-_spawnManagerData._zOffset, _spawnManagerData._zOffset);
             Vector3 spawnPosition = spawnPoint.position + spawnPoint.forward * randomZOffset;
 
             Instantiate(selectedEnemyUnit.gameObject, spawnPosition, Quaternion.identity);
@@ -67,7 +69,7 @@ public class EnemySpawnManager : MonoBehaviour
         {
             while (true)
             {
-                Unit randomEnemyUnit = _spawnManagerData.EnemyList[Random.Range(0, _spawnManagerData.EnemyList.Count)];
+                Unit randomEnemyUnit = _spawnManagerData.EnemyList[UnityEngine.Random.Range(0, _spawnManagerData.EnemyList.Count)];
 
                 if (randomEnemyUnit.GetUnitPowerPoints() <= currentWavePowerPoints)
                 {
