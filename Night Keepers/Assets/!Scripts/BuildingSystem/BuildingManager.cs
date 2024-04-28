@@ -7,8 +7,11 @@ using UnityEngine.EventSystems;
 public class BuildingManager : MonoBehaviour
 {
     [SerializeField] private GridManager _gridManager;
-    [SerializeField] private List<Building> building;
-    [SerializeField] private List<GameObject> buildingPreviews;
+    [SerializeField] private List<Building> buildings;
+    [SerializeField] private List<GameObject> previews; 
+    [SerializeField] private List<Building> buildingPreviews; 
+    [SerializeField] private List<MeshRenderer> meshRendererPreviews; 
+    [SerializeField] private List<Material> baseMaterials;
     [SerializeField] private Material validPreviewMaterial;
     [SerializeField] private Material invalidPreviewMaterial;
     private BuildingData.BuildingType buildingType;
@@ -17,17 +20,32 @@ public class BuildingManager : MonoBehaviour
     private bool isRotated = false;
 
     private int buildingNumber;
-    bool isPreviewRotated = false;
-
     bool isPlaced = false;
 
     bool isPlaceBuilding = false;
 
-    private void Start() {
-        foreach (var building in buildingPreviews)
+    private void Awake() {
+        foreach (var building in buildings)
         {
-            building.transform.localScale = new Vector3(building.transform.localScale.x * _gridManager.cellSize / 10, building.transform.localScale.y * _gridManager.cellSize / 10, building.transform.localScale.z * _gridManager.cellSize / 10);
-            building.SetActive(false);
+            baseMaterials.Add(building.GetComponentInChildren<MeshRenderer>().material);
+        }
+
+        foreach (var preview in previews)
+        {
+            buildingPreviews.Add(preview.GetComponentInChildren<Building>());
+        }
+        int i = 0;
+        foreach (var buildingPreview in buildingPreviews)
+        {
+            meshRendererPreviews.Add(buildingPreviews[i++].GetComponentInChildren<MeshRenderer>());
+        }
+    }
+
+    private void Start() {
+        foreach (var preview in previews)
+        {
+            preview.transform.localScale = new Vector3(preview.transform.localScale.x * _gridManager.cellSize / 10, preview.transform.localScale.y * _gridManager.cellSize / 10, preview.transform.localScale.z * _gridManager.cellSize / 10);
+            preview.SetActive(false);
         }
     }
     private void FixedUpdate()
@@ -51,15 +69,15 @@ public class BuildingManager : MonoBehaviour
             isPlaceBuilding = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            isRotated = true;
-            isPreviewRotated = true;
-        }
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            isRotated = true;
+        }
+
         if (isPlaceBuilding)
         {
             PlaceBuilding(gridPosition);
@@ -106,15 +124,15 @@ public class BuildingManager : MonoBehaviour
 
     private void BuildingPreviewsActivate(int active)
     {
-        for (int i = 0; i < buildingPreviews.Count; i++)
+        for (int i = 0; i < previews.Count; i++)
         {
             if (i == active)
             {
-                buildingPreviews[i].SetActive(true);
+                previews[i].SetActive(true);
             }
             else
             {
-                buildingPreviews[i].SetActive(false);
+                previews[i].SetActive(false);
             }
 
         }
@@ -124,50 +142,43 @@ public class BuildingManager : MonoBehaviour
     {
         if(!isPlaced)
         {
-            if (TryBuild(building[buildingNumber], building[buildingNumber].buildingData.GetGridPositionList(gridPosition, building[buildingNumber].direction)))
+            if (TryBuild(buildings[buildingNumber], buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction)))
             {
-                buildingPreviews[buildingNumber].GetComponent<MeshRenderer>().material = validPreviewMaterial;
+                meshRendererPreviews[buildingNumber].material = validPreviewMaterial;
             }
             else
             {
-                buildingPreviews[buildingNumber].GetComponent<MeshRenderer>().material = invalidPreviewMaterial;                
+                meshRendererPreviews[buildingNumber].material = invalidPreviewMaterial;          
             }
-            buildingPreviews[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
-            if (isPreviewRotated)
+
+            previews[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
+            if (isRotated)
             {
-                buildingPreviews[buildingNumber].GetComponent<Building>().direction = BuildingData.GetNextDir(buildingPreviews[buildingNumber].GetComponent<Building>().direction);
-                buildingPreviews[buildingNumber].transform.rotation = Quaternion.Euler(0, buildingPreviews[buildingNumber].GetComponent<Building>().buildingData.GetRotationAngle(buildingPreviews[buildingNumber].GetComponent<Building>().direction), 0);                
-                isPreviewRotated = false;
+                buildingPreviews[buildingNumber].direction = BuildingData.GetNextDir(buildingPreviews[buildingNumber].direction);
+                previews[buildingNumber].transform.rotation = Quaternion.Euler(0, buildingPreviews[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0);                
+                isRotated = false;
             }
-        }
-        
+        }    
     }
 
     private void PlaceBuilding(Vector2Int gridPosition)
     {
-        if (isRotated)
-        {
-            building[buildingNumber].direction = BuildingData.GetNextDir(building[buildingNumber].direction);
-            isRotated = false;
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
-            print("sa");
-            List<Vector2Int> gridPositionList = building[buildingNumber].buildingData.GetGridPositionList(gridPosition, building[buildingNumber].direction);
-            building[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
+            List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction);
+            buildings[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
 
-            if (TryBuild(building[buildingNumber], gridPositionList))
+            if (TryBuild(buildings[buildingNumber], gridPositionList))
             {                
-                Vector2Int rotationOffset = building[buildingNumber].buildingData.GetRotationOffset(building[buildingNumber].direction);
-                Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
+                // Vector2Int rotationOffset = buildings[buildingNumber].buildingData.GetRotationOffset(buildings[buildingNumber].direction);
+                // Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
                 Building instantiatedBuilding = Instantiate(
-                        building[buildingNumber],
-                        instantiatedBuildingWorldPosition,
-                        Quaternion.Euler(0, building[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].GetComponent<Building>().direction), 0));
-        
-                instantiatedBuilding.transform.localScale = new Vector3(instantiatedBuilding.transform.localScale.x * _gridManager.cellSize / 10, instantiatedBuilding.transform.localScale.y * _gridManager.cellSize / 10, instantiatedBuilding.transform.localScale.z * _gridManager.cellSize / 10);
-               
+                        buildings[buildingNumber],
+                        _gridManager._grid.GridToWorldPosition(gridPosition),
+                        Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
+
+                instantiatedBuilding.GetComponentInChildren<MeshRenderer>().material = baseMaterials[buildingNumber];
+
                 foreach (Vector2Int position in gridPositionList)
                 {
                     Tile tile = new Tile()
