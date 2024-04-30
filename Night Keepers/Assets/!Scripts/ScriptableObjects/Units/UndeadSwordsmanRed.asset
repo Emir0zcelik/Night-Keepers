@@ -25,6 +25,6 @@ MonoBehaviour:
     weight: 2
   - unitType: 2
     weight: 2
-  UnitPowerPoint: 1
+  UnitPowerPoints: 1
   Side: 1
   Type: 1

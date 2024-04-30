@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 4166691148735597849}
   - component: {fileID: 6184577682564966690}
   - component: {fileID: 3321801069288531494}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: PlayerUnitModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,9 +262,9 @@ GameObject:
   - component: {fileID: 815108492184137533}
   - component: {fileID: 7228552632248322986}
   - component: {fileID: 8691045495723552829}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: PlayerUnitGreen
-  m_TagString: PlayerUnit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,7 +309,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
@@ -348,11 +348,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20309ebf50ec9a3458625d05597a683f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <currentStateName>k__BackingField: Idle
+  <CurrentHealth>k__BackingField: 0
   <isAggroed>k__BackingField: 0
   <isInAttackingDistance>k__BackingField: 0
   Target: {fileID: 0}
-  <UnitData>k__BackingField: {fileID: 11400000, guid: 9ab82825b984f68428a96cb3feea290d,
+  <UnitData>k__BackingField: {fileID: 11400000, guid: f1d192e4a17e2794d8119e1622451f99,
     type: 2}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!195 &7228552632248322986
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7813698016427865167}
   - component: {fileID: 2200442822843568047}
   - component: {fileID: 6232027087115740177}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: AggroRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 7493789013640738183}
   - component: {fileID: 4471094394127107328}
   - component: {fileID: 181854772819764713}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5160867719822863918}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: TriggerChecks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 7069368676813866213}
   - component: {fileID: 3419061929319310311}
   - component: {fileID: 831913938035463273}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: AttackDistance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,9 +283,9 @@ GameObject:
   - component: {fileID: 8846593138032247870}
   - component: {fileID: 5422213758170375104}
   - component: {fileID: 478359509232283246}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyUnitRed
-  m_TagString: EnemyUnit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,11 +342,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12823f65ded42e49a52a0b05d757df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <currentStateName>k__BackingField: Idle
   <isAggroed>k__BackingField: 0
   <isInAttackingDistance>k__BackingField: 0
   Target: {fileID: 0}
   <UnitData>k__BackingField: {fileID: 11400000, guid: e4a0f1d92ad76a242a0a2299ec4296c3,
     type: 2}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!195 &5422213758170375104
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -399,9 +403,9 @@ GameObject:
   - component: {fileID: 5348980425683216748}
   - component: {fileID: 1664041273239558103}
   - component: {fileID: 2740701851611834036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UnitModel
-  m_TagString: EnemyUnit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

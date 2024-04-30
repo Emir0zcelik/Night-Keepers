@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5907047840489782641}
   - component: {fileID: 2042100932186331681}
   - component: {fileID: 8317013150937880140}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: PlayerBuildingWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 7989795736126343813}
   - component: {fileID: 5863612403193974891}
   - component: {fileID: 2112370718744292663}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Building 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

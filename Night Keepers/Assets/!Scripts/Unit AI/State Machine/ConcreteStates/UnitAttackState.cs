@@ -19,7 +19,7 @@ public class UnitAttackState : UnitState
     {
         unit.currentStateName = "Attack";
         base.EnterState();
-        _target = unit.GetCurrentTarget().GetComponent<Unit>();
+        _target = unit.GetCurrentTargetUnit().GetComponent<Unit>();
         unit.StopUnit(true);
         unit.MoveUnit(unit.transform.position);
         Vector3 direction = _target.transform.position - unit.transform.position;
@@ -37,12 +37,14 @@ public class UnitAttackState : UnitState
     {
         base.UpdateState();
 
-        if (!unit.GetCurrentTarget())
+        if (!unit.GetCurrentTargetUnit())
         {
             //target died clear target
             unit.ClearAttackStatusAndTarget();
-            //check for new target
-            unit.LookForNewTarget();
+            if (!unit.LookForNewAttackTarget())
+            {
+                unit.LookForNewChaseTarget();
+            }
         }
 
         if (_timer > unit.UnitData.TimeBetweenAttacks)

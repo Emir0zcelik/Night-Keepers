@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ad304ca4ae95f4e99310481ddd3af7, type: 3}
   m_Name: UndeadSwordsmanWhite
   m_EditorClassIdentifier: 
-  MaxHealth: 100
-  Damage: 20
+  MaxHealth: 200
+  Damage: 50
   TimeBetweenAttacks: 1.5
   DetectionRangeRadius: 20
   AttackRangeRadius: 1.5
