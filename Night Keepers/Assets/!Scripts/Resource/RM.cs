@@ -20,7 +20,7 @@ namespace NightKeepers
         public Button farmButton;
         public Button lumberJackButton;
 
-        private Dictionary<string, int> buildingCounts = new Dictionary<string, int>();
+        public Dictionary<string, int> buildingCounts = new Dictionary<string, int>();
 
         void Start()
         {

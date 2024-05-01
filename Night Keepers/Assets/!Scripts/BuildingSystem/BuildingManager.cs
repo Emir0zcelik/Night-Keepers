@@ -1,3 +1,4 @@
+using NightKeepers;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -18,6 +19,8 @@ public class BuildingManager : MonoBehaviour
 
     private Vector2Int gridPosition;
     private bool isRotated = false;
+
+    public RM rm;
 
     private int buildingNumber;
     bool isPlaced = false;
@@ -210,9 +213,15 @@ public class BuildingManager : MonoBehaviour
                 return false;
             }
         }
-
+        string buildingType = building.buildingData.name;
+        if (rm.buildingCounts.ContainsKey(buildingType))
+        {
+            rm.buildingCounts[buildingType]++;
+        }// In RM.cs buildingCounts will increase with respect of building name.
+        
         isPlaced = true;
         
+
         return true;
     }
 }

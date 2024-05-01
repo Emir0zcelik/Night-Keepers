@@ -23,15 +23,7 @@ namespace NightKeepers
         private bool isProductionStarted = false;
         private Dictionary<string, Coroutine> productionCoroutines = new Dictionary<string, Coroutine>();
 
-        /*public void StartResourceProduction()
-        {
-
-            if (!isProductionStarted)
-            {
-                StartCoroutine(ProduceResources());
-                isProductionStarted = true;
-            }
-        }*/
+        
         public void StartResourceProduction(BuildingData buildingData)
         {
             
