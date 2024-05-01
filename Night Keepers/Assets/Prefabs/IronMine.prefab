@@ -119,3 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData: {fileID: 11400000, guid: 45ea82ea1632ab04b94653297df09750, type: 2}
+  direction: 1
+  buildingType: 0
