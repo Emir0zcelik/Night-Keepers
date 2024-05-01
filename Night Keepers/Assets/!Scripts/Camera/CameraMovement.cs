@@ -10,9 +10,9 @@ namespace NightKeepers.Camera
     {
         [SerializeField] private float speed = 1f;
         [SerializeField] private float smoothing = 5f;
-        [SerializeField] private Vector2 range = new(70, 70);
-
-        [SerializeField] private Vector3 startingPosition;
+        [SerializeField] private Vector2 range;
+        [SerializeField] private GridManager _gridManager;
+        private Vector3 startingPosition;
          
         private Vector3 targetPosition;
         private Vector3 input;
@@ -20,12 +20,14 @@ namespace NightKeepers.Camera
         private float targetAngle;
         private float angle;
        
-        private void Awake()
+        private void Start()
         {
+            startingPosition = _gridManager._grid.GetCenterOfGrid();
             transform.position = startingPosition;
             targetPosition = transform.position;
             targetAngle = transform.eulerAngles.y;
             angle = targetAngle;
+            range = _gridManager._grid.GetXZRanges();
             
         }
 

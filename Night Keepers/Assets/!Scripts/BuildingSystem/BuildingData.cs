@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +32,7 @@ public class BuildingData : ScriptableObject
     public int health;
     public List<TileType> placableTileTypes;
     public Vector2Int widthHeight;
+    public Transform visual;
 
     public int Workforce;
     public ResourceCost Cost;
