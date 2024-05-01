@@ -10,11 +10,6 @@ public class UnitAttackState : UnitState
 
     }
 
-    public override void AnimationTriggerEvent(Unit.AnimationTriggerType triggerType)
-    {
-        base.AnimationTriggerEvent(triggerType);
-    }
-
     public override void EnterState()
     {
         unit.currentStateName = "Attack";
@@ -25,6 +20,7 @@ public class UnitAttackState : UnitState
         Vector3 direction = _target.transform.position - unit.transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
         unit.transform.rotation = rotation;
+        unit._animation.CrossFade("UndeadAttack1");
     }
 
     public override void ExitState()

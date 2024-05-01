@@ -15,8 +15,8 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
     public UnitChaseState ChaseState { get; set; }
     public UnitAttackState AttackState { get; set; }
 
-    [field: SerializeField]public bool isAggroed { get; set; }
-    [field: SerializeField]public bool isInAttackingDistance { get; set; }
+    [field: SerializeField] public bool isAggroed { get; set; }
+    [field: SerializeField] public bool isInAttackingDistance { get; set; }
 
     private TargetPreference _favouriteTarget;
 
@@ -28,10 +28,13 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
     [field: SerializeField] public UnitScriptableObject UnitData { get; set; }
 
+    [field: SerializeField] public Animation _animation { get; set; }
+
     public static event Action onBuildingDestroyed;
 
     [HideInInspector]
     public LayerMask playerLayer;
+    [HideInInspector]
     public LayerMask enemyLayer;
 
     private void Awake()
@@ -193,11 +196,6 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
         return targetPreference.weight > GetCurrentTargetWeight() ? true : false;
     }
 
-    private void AnimationTriggerEvent(AnimationTriggerType triggerType)
-    {
-        StateMachine.CurrentUnitState.AnimationTriggerEvent(triggerType);
-    }
-
     public void SetAggroStatusAndTarget(bool isAggroed, Unit target)
     {
         if (IsTargetReachable(target))
@@ -243,7 +241,6 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
         return hit.position;
     }
-
 
     public bool IsTargetReachable(Unit unit)
     {

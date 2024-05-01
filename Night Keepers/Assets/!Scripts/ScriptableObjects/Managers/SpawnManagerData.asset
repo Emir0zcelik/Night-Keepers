@@ -40,4 +40,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   EnemyList:
-  - {fileID: 8846593138032247870, guid: 4cde2cad9bb8e2e46815834411c583c3, type: 3}
+  - {fileID: 333135734097797818, guid: 4cde2cad9bb8e2e46815834411c583c3, type: 3}

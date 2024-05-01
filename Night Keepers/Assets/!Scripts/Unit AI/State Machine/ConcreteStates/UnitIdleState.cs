@@ -11,23 +11,26 @@ public class UnitIdleState : UnitState
 
     }
 
-    public override void AnimationTriggerEvent(Unit.AnimationTriggerType triggerType)
-    {
-        base.AnimationTriggerEvent(triggerType);
-    }
-
     public override void EnterState()
     {
         unit.currentStateName = "Idle";
         base.EnterState();
 
-        if (unit.UnitData.Side != UnitSide.Enemy) return;
+        if (unit.GetUnitType() == UnitType.Building) return;
 
-        _targetBasePosition = PlayerBaseManager.Instance.GetSelectedBasePosition();
-        Vector3 directionToTargetBase = (_targetBasePosition - unit.transform.position).normalized;
-        float distanceToTargetBase = Vector3.Distance(unit.transform.position, _targetBasePosition);
-        Vector3 straightLinePosition = unit.transform.position + directionToTargetBase * (distanceToTargetBase * 0.9f);
-        unit.MoveUnit(straightLinePosition);
+        if (unit.UnitData.Side != UnitSide.Enemy)
+        {
+            unit._animation.CrossFade("SoldierIdle1");
+        }
+        else
+        {
+            _targetBasePosition = PlayerBaseManager.Instance.GetSelectedBasePosition();
+            Vector3 directionToTargetBase = (_targetBasePosition - unit.transform.position).normalized;
+            float distanceToTargetBase = Vector3.Distance(unit.transform.position, _targetBasePosition);
+            Vector3 straightLinePosition = unit.transform.position + directionToTargetBase * (distanceToTargetBase * 0.9f);
+            unit.MoveUnit(straightLinePosition);
+            unit._animation.Play("UndeadRun1");
+        }
     }
 
     public override void ExitState()

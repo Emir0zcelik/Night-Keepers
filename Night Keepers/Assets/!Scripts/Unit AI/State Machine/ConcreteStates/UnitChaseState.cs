@@ -1,4 +1,3 @@
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class UnitChaseState : UnitState
@@ -10,15 +9,11 @@ public class UnitChaseState : UnitState
 
     }
 
-    public override void AnimationTriggerEvent(Unit.AnimationTriggerType triggerType)
-    {
-        base.AnimationTriggerEvent(triggerType);
-    }
-
     public override void EnterState()
     {
         unit.currentStateName = "Chase";
         base.EnterState();
+        unit._animation.CrossFade("UndeadRun1");
     }
 
     public override void ExitState()
