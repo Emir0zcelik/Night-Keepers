@@ -1,123 +1,113 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection.Emit;
+using UnityEditor;
 using UnityEngine;
+
 
 namespace NightKeepers
 {
     public class ResourceManagement : MonoBehaviour
     {
+        [System.Serializable]
+        public class ResourceHave
+        {
+            public int Wood = 500;
+            public int Stone = 500;
+            public int Iron = 500;
+            public int Food = 500;
+        }
+        public ResourceHave resources = new ResourceHave();
         public BuildingData buildingData;
 
-        /*enum ResourceType
+        private bool isProductionStarted = false;
+        private Dictionary<string, Coroutine> productionCoroutines = new Dictionary<string, Coroutine>();
+
+        /*public void StartResourceProduction()
         {
-            Wood,
-            Food,
-            Stone,
-            Iron
-        }*/ //Will be use.
 
-        public int wood, food, stone, iron;
-        /*private int stoneMinesCount;
-        private int ironMinesCount;
-        private int lumberjacksCount;
-        private int farmCount;*/  //There will be changes in the future.
-
-        private Dictionary<BuildingData.BuildingType, Coroutine> resourceCoroutines = new Dictionary<BuildingData.BuildingType, Coroutine>();
-
-        private void Start()
-        {
-            wood = 0;
-            food = 0;
-            stone = 0;
-            iron = 0;
-
-        }
-
-        public void Constructbuild(BuildingData buildingData)
-        {
-            switch (buildingData.buildingTypes)
+            if (!isProductionStarted)
             {
-                case BuildingData.BuildingType.StoneMine:
-                    if (wood >= buildingData.wood && stone >= buildingData.stone)
-                    {
-                        
-                        wood -= buildingData.wood;
-                        stone -= buildingData.stone;
-                        iron -= buildingData.iron;
-                        food -= buildingData.food;
-                    }
-                    break;
-
-                case BuildingData.BuildingType.IronMine:
-                    if (wood >= buildingData.wood && stone >= buildingData.stone)
-                    {
-                        wood -= buildingData.wood;
-                        stone -= buildingData.stone;
-                        iron -= buildingData.iron;
-                        food -= buildingData.food;
-                    }
-                    break;
-
-                case BuildingData.BuildingType.Lumberjack:
-                    if (wood >= buildingData.wood)
-                    {
-                        wood -= buildingData.wood;
-                        stone -= buildingData.stone;
-                        iron -= buildingData.iron;
-                        food -= buildingData.food;
-                    }
-                    break;
-
-                case BuildingData.BuildingType.TownHall:
-                    if (wood >= buildingData.wood && stone >= buildingData.stone)
-                    {
-                        wood -= buildingData.wood;
-                        stone -= buildingData.stone;
-                        iron -= buildingData.iron;
-                        food -= buildingData.food;
-                    }
-                    break;
+                StartCoroutine(ProduceResources());
+                isProductionStarted = true;
             }
-            if (!resourceCoroutines.ContainsKey(buildingData.buildingTypes))
+        }*/
+        public void StartResourceProduction(BuildingData buildingData)
+        {
+            
+            if (!productionCoroutines.ContainsKey(buildingData.name))
             {
-                Coroutine coroutine = StartCoroutine(GenerateResource(buildingData));
-                resourceCoroutines.Add(buildingData.buildingTypes, coroutine);
+                productionCoroutines[buildingData.name] = StartCoroutine(ProduceResources(buildingData));
+            }
+            else if (productionCoroutines[buildingData.name] == null)
+            {
+                productionCoroutines[buildingData.name] = StartCoroutine(ProduceResources(buildingData));
             }
         }
-        private IEnumerator GenerateResource(BuildingData building)
+
+
+        private IEnumerator ProduceResources(BuildingData buildingData)
         {
+            Debug.Log("IE");
             while (true)
             {
-                yield return new WaitForSeconds(1); 
-
-                
-                switch (building.buildingTypes)
+                while (buildingData == null)
                 {
-                    case BuildingData.BuildingType.StoneMine:
-                        stone += building.earn;
-                        break;
-                    case BuildingData.BuildingType.IronMine:
-                        iron += building.earn;
-                        break;
-                    case BuildingData.BuildingType.Lumberjack:
-                        wood += building.earn;
-                        break;
-                    case BuildingData.BuildingType.TownHall:
-                        food += building.earn;
-                        break;
-                        
+                    yield return null;
                 }
+                Debug.Log(resources.Iron);
+                yield return new WaitForSeconds(1);
+                switch (buildingData.name)
+                {
+                    case "IronMine":
+                        resources.Iron += buildingData.Workforce * buildingData.ProductionAmount;
+                        break;
+                    case "StoneMine":
+                        resources.Stone += buildingData.Workforce * buildingData.ProductionAmount;
+                        break;
+                    case "Farm":
+                        resources.Food += buildingData.Workforce * buildingData.ProductionAmount;
+                        break;
+                    case "LumberJack":
+                        resources.Wood += buildingData.Workforce * buildingData.ProductionAmount;
+                        break;
+                    
+                    default:
+                        Debug.LogError("Unknown building type!");
+                        break;
+                }
+
             }
         }
 
-        public void StopGeneratingResource(BuildingData building)
+        public void HasEnoughResources()
         {
-            if (resourceCoroutines.TryGetValue(building.buildingTypes, out Coroutine coroutine))
+
+            if (resources.Wood >= buildingData.Cost.wood &&
+                resources.Stone >= buildingData.Cost.stone &&
+                resources.Iron >= buildingData.Cost.iron &&
+                resources.Food >= buildingData.Cost.food)
             {
-                StopCoroutine(coroutine);
-                resourceCoroutines.Remove(building.buildingTypes);
+                Debug.Log(buildingData.Cost.wood + " " + resources.Wood);
+                DeductResources();
+
             }
+            else
+            {
+                Debug.LogError("Insufficient Resources");
+            }
+        }
+        private void DeductResources()
+        {
+
+            resources.Wood -= buildingData.Cost.wood;
+            resources.Stone -= buildingData.Cost.stone;
+            resources.Iron -= buildingData.Cost.iron;
+            resources.Food -= buildingData.Cost.food;
+            Debug.Log("Deduct is called");
+        }
+        private void Start()
+        {
+            StartResourceProduction(buildingData);
         }
 
     }

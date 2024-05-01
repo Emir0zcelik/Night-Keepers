@@ -34,13 +34,23 @@ public class BuildingData : ScriptableObject
     public Vector2Int widthHeight;
     public Transform visual;
 
-    public int wood;
-    public int stone;
-    public int iron;
-    public int food;
-    public int earn;
+    public int Workforce;
+    public ResourceCost Cost;
+    public int ProductionAmount;
 
-    public int GetRotationAngle(Dir dir)
+    [System.Serializable]
+    public class ResourceCost
+    {
+        public int wood;
+        public int stone;
+        public int iron;
+        public int food;
+    }
+    // Restored
+
+
+
+public int GetRotationAngle(Dir dir)
     {
         switch (dir)
         {
