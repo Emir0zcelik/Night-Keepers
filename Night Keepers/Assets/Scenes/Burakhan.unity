@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cf689983019c3499f298bec3ebdf82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 270390606}
   ironMineData: {fileID: 11400000, guid: 45ea82ea1632ab04b94653297df09750, type: 2}
   stoneMineData: {fileID: 11400000, guid: 444037f846e84f340ad368c2bb6a6b2f, type: 2}
   farmData: {fileID: 11400000, guid: 41afb6cb5b4c15a4bac746a84548539e, type: 2}
