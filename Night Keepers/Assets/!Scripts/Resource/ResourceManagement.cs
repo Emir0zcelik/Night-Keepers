@@ -18,6 +18,7 @@ namespace NightKeepers
         }
         public ResourceHave resources = new ResourceHave();
         public BuildingData buildingData;
+        public RM rm;
 
         private bool isProductionStarted = false;
         private Dictionary<string, Coroutine> productionCoroutines = new Dictionary<string, Coroutine>();
@@ -60,15 +61,19 @@ namespace NightKeepers
                 {
                     case "IronMine":
                         resources.Iron += buildingData.Workforce * buildingData.ProductionAmount;
+                        
                         break;
                     case "StoneMine":
                         resources.Stone += buildingData.Workforce * buildingData.ProductionAmount;
+                        
                         break;
                     case "Farm":
                         resources.Food += buildingData.Workforce * buildingData.ProductionAmount;
+                        
                         break;
                     case "LumberJack":
                         resources.Wood += buildingData.Workforce * buildingData.ProductionAmount;
+                        
                         break;
                     
                     default:

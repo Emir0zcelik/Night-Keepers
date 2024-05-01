@@ -620,6 +620,7 @@ MonoBehaviour:
     Iron: 500
     Food: 500
   buildingData: {fileID: 0}
+  rm: {fileID: 270390605}
 --- !u!1 &306582757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2981,6 +2982,7 @@ MonoBehaviour:
   speed: 1
   smoothing: 5
   range: {x: 100, y: 100}
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1357495268
 MonoBehaviour:
   m_ObjectHideFlags: 0
