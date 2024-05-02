@@ -198,6 +198,7 @@ public class BuildingManager : MonoBehaviour
     public void SetBuildingType(BuildingData.BuildingType buildingType)
     {
         this.buildingType = buildingType;
+        Debug.Log("Type Selected :" + buildingType);
     }
 
     private bool TryBuild(Building building, List<Vector2Int> gridPositionList)
@@ -213,12 +214,13 @@ public class BuildingManager : MonoBehaviour
                 return false;
             }
         }
-        string buildingType = building.buildingData.name;
-        if (rm.buildingCounts.ContainsKey(buildingType))
-        {
-            rm.buildingCounts[buildingType]++;
-        }// In RM.cs buildingCounts will increase with respect of building name.
-        
+        Debug.Log(building.buildingData.name);
+        string buildingName = building.buildingData.name;
+         if (rm.buildingCounts.ContainsKey(buildingName))
+         {
+             rm.buildingCounts[buildingName]++;
+         }// In RM.cs buildingCounts will increase with respect of building name.
+
         isPlaced = true;
         
 

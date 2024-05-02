@@ -29,14 +29,11 @@ namespace NightKeepers
             buildingCounts["Farm"] = 0;
             buildingCounts["LumberJack"] = 0;
 
-            ironMineButton.onClick.AddListener(() => SetBuildingData(ironMineData));
-            //ironMineButton.onClick.AddListener(() => Icount++);
-            stoneMineButton.onClick.AddListener(() => SetBuildingData(stoneMineData));
-           // stoneMineButton.onClick.AddListener(() => Scount++);
-            farmButton.onClick.AddListener(() => SetBuildingData(farmData));
-           // farmButton.onClick.AddListener(() => Fcount++);
+            ironMineButton.onClick.AddListener(() => SetBuildingData(ironMineData));           
+            stoneMineButton.onClick.AddListener(() => SetBuildingData(stoneMineData));           
+            farmButton.onClick.AddListener(() => SetBuildingData(farmData));           
             lumberJackButton.onClick.AddListener(() => SetBuildingData(lumberJackData));
-            //lumberJackButton.onClick.AddListener(() => Lcount++);
+            
         }
 
         void SetBuildingData(BuildingData data)
