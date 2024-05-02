@@ -28,29 +28,15 @@ public class GridManager : MonoBehaviour
     [SerializeField] private float waterNoise;
     [SerializeField] private float woodNoise;
     [SerializeField] private float ironNoise;
-
-    [SerializeField] private List<Building> building;
     [SerializeField] private List<GameObject> tilePrefabs;
 
     public static event Action onWorldGenerationDone;
-
-    private bool isGenerated = false;
-
-    private External _external;
     public Grid<Tile> _grid;
-    private TextMesh[,] _debugText;
-    public const int sortingOrderDefault = 5000;
     private const int batchInstantiateSize = 1000;
     private void Awake()
     {
         _grid = new Grid<Tile>(width, height, cellSize);
-        // DebugLines();
         InstantiateMap();
-    }
-
-    private void Update()
-    {  
-   
     }
 
     void InstantiateMap()
@@ -67,10 +53,7 @@ public class GridManager : MonoBehaviour
 
                 if (IsTileTypeEmpty(gridPosition.x, gridPosition.y))
                 {
-                    _grid._grid[gridPosition.x, gridPosition.y].tileType = GetRandomTileType();
-
-                    // _debugText[gridPosition.x, gridPosition.y].text = _grid._grid[gridPosition.x, gridPosition.y].tileType.ToString();
-                    
+                    _grid._grid[gridPosition.x, gridPosition.y].tileType = GetRandomTileType();                    
                     GenerateMap(gridPosition.x, gridPosition.y);
                 }
             }
@@ -80,18 +63,16 @@ public class GridManager : MonoBehaviour
         onWorldGenerationDone?.Invoke();
     }
 
-    void AroundTheBaseTile(int x, int z, TileType tileType, Color color)
+    void AroundTheBaseTile(int x, int z, TileType tileType)
     {
         if (_grid.IsInDimensions(new Vector2Int(x, z)) && _grid._grid[x,z].tileType == TileType.Empty)
         {
             _grid._grid[x,z].tileType = tileType;
-            // _debugText[x, z].text = _grid._grid[x, z].tileType.ToString();
             InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), tileType);
-            // _debugText[x, z].color = color;
         }
     }
 
-    void TilePropagation (int x, int z, TileType tileType, Color color, int size, float noise)
+    void TilePropagation (int x, int z, TileType tileType, int size, float noise)
     {
         for (int i = x - size; i <= x + size; i++)
         {
@@ -101,7 +82,7 @@ public class GridManager : MonoBehaviour
                 {
                     continue;
                 }
-                AroundTheBaseTile(i, j, tileType, color);
+                AroundTheBaseTile(i, j, tileType);
             }
         }
     }
@@ -112,49 +93,43 @@ public class GridManager : MonoBehaviour
         
         switch (tileType)
         {
-            case TileType.Grass:
-                
-                // _debugText[x, z].color = Color.green;
+            case TileType.Grass:                
                 InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
 
-                TilePropagation(x, z, tileType, Color.green, Random.Range(1, grassPropagation), grassNoise);
+                TilePropagation(x, z, tileType, Random.Range(1, grassPropagation), grassNoise);
 
                 break;
             
             case TileType.Rock:
                 
-                // _debugText[x, z].color = Color.yellow;
                 InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
-                TilePropagation(x, z, tileType, Color.green, Random.Range(1, rockPropagation), rockNoise);
+                TilePropagation(x, z, tileType, Random.Range(1, rockPropagation), rockNoise);
 
                 break;
             
             case TileType.Water:
                 
-                // _debugText[x, z].color = Color.blue;
                 InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
-                TilePropagation(x, z, tileType, Color.green, Random.Range(3, waterPropagation), waterNoise);
+                TilePropagation(x, z, tileType, Random.Range(3, waterPropagation), waterNoise);
 
                 break;
 
             case TileType.Wood:
 
-                // _debugText[x, z].color = Color.red;
                 InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
-                TilePropagation(x, z, tileType, Color.green, Random.Range(1, woodPropagation), woodNoise);
+                TilePropagation(x, z, tileType, Random.Range(1, woodPropagation), woodNoise);
 
                 break;
 
             case TileType.Iron:
 
-                // _debugText[x, z].color = Color.magenta;
                 InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
-                TilePropagation(x, z, tileType, Color.green, Random.Range(1, ironPropagation), ironNoise);
+                TilePropagation(x, z, tileType, Random.Range(1, ironPropagation), ironNoise);
 
                 break;
         }
@@ -186,6 +161,8 @@ public class GridManager : MonoBehaviour
                 tilePrefab = Instantiate(tilePrefabs[4], position, quaternion.identity);
                 break;
         }
+        
+        tilePrefab.transform.localScale = new Vector3((float)cellSize / 10, (float)cellSize / 10, (float)cellSize / 10);
 
         return tilePrefab;
     }
@@ -244,43 +221,4 @@ public class GridManager : MonoBehaviour
 
         return tileType;
     }
-    
-    // private void DebugLines()
-    // {
-    //     _debugText = new TextMesh[width, height];
-
-    //     for (int x = 0; x < width; x++)
-    //     {
-    //         for (int z = 0; z < height; z++)
-    //         {
-    //             _debugText[x,z] = CreateWorldText(_grid._grid[x,z].tileType.ToString(), null, _grid.GridToWorldPosition(new Vector2Int(x, z)), 20, Color.white, TextAnchor.MiddleCenter);
-    //             _debugText[x, z].color = Color.white;
-    //             Debug.DrawLine(_grid.GridToWorldPositionDrawLine(new Vector2Int(x, z)), _grid.GridToWorldPositionDrawLine(new Vector2Int(x, z + 1)), Color.white, 100f);
-    //             Debug.DrawLine(_grid.GridToWorldPositionDrawLine(new Vector2Int(x, z)), _grid.GridToWorldPositionDrawLine(new Vector2Int(x + 1, z)), Color.white, 100f);
-    //         }
-    //     }
-    //     Debug.DrawLine(_grid.GridToWorldPositionDrawLine(new Vector2Int(0, height)), _grid.GridToWorldPositionDrawLine(new Vector2Int(width, height)) , Color.white, 100f);
-    //     Debug.DrawLine(_grid.GridToWorldPositionDrawLine(new Vector2Int(width, 0)), _grid.GridToWorldPositionDrawLine(new Vector2Int(width, height)), Color.white, 100f);
-    // }
-    
-    // public static TextMesh CreateWorldText(string text, Transform parent = null, Vector3 localPosition = default(Vector3), int fontSize = 40, Color? color = null, TextAnchor textAnchor = TextAnchor.UpperLeft, TextAlignment textAlignment = TextAlignment.Left, int sortingOrder = sortingOrderDefault) {
-    //     if (color == null) color = Color.white;
-    //     return CreateWorldText(parent, text, localPosition, fontSize, (Color)color, textAnchor, textAlignment, sortingOrder);
-    // }
-    
-    // public static TextMesh CreateWorldText(Transform parent, string text, Vector3 localPosition, int fontSize, Color color, TextAnchor textAnchor, TextAlignment textAlignment, int sortingOrder) {
-    //     GameObject gameObject = new GameObject("World_Text", typeof(TextMesh));
-    //     Transform transform = gameObject.transform;
-    //     transform.rotation = Quaternion.Euler(90f, 0, 0);
-    //     transform.SetParent(parent, false);
-    //     transform.localPosition = localPosition;
-    //     TextMesh textMesh = gameObject.GetComponent<TextMesh>();
-    //     textMesh.anchor = textAnchor;
-    //     textMesh.alignment = textAlignment;
-    //     textMesh.text = text;
-    //     textMesh.fontSize = fontSize;
-    //     textMesh.color = color;
-    //     textMesh.GetComponent<MeshRenderer>().sortingOrder = sortingOrder;
-    //     return textMesh;
-    // }
 }
