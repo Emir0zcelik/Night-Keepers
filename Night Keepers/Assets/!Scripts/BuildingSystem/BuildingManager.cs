@@ -145,7 +145,7 @@ public class BuildingManager : MonoBehaviour
     {
         if(!isPlaced)
         {
-            if (TryBuild(buildings[buildingNumber], buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction)))
+            if (TryBuild(buildings[buildingNumber], buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction),rm))
             {
                 meshRendererPreviews[buildingNumber].material = validPreviewMaterial;
             }
@@ -171,7 +171,7 @@ public class BuildingManager : MonoBehaviour
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction);
             buildings[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
 
-            if (TryBuild(buildings[buildingNumber], gridPositionList))
+            if (TryBuild(buildings[buildingNumber], gridPositionList,rm))
             {                
                 // Vector2Int rotationOffset = buildings[buildingNumber].buildingData.GetRotationOffset(buildings[buildingNumber].direction);
                 // Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
@@ -201,7 +201,7 @@ public class BuildingManager : MonoBehaviour
         Debug.Log("Type Selected :" + buildingType);
     }
 
-    private bool TryBuild(Building building, List<Vector2Int> gridPositionList)
+    private bool TryBuild(Building building, List<Vector2Int> gridPositionList, RM rmInstance)
     {
         foreach (Vector2Int position in gridPositionList)
         {
@@ -215,13 +215,14 @@ public class BuildingManager : MonoBehaviour
             }
         }
         Debug.Log(building.buildingData.name);
-        string buildingName = building.buildingData.name;
+        /*string buildingName = building.buildingData.name;
          if (rm.buildingCounts.ContainsKey(buildingName))
          {
              rm.buildingCounts[buildingName]++;
-         }// In RM.cs buildingCounts will increase with respect of building name.
+         }// In RM.cs buildingCounts will increase with respect of building name.*/
 
         isPlaced = true;
+        rmInstance.SetBuildingData(building.buildingData);
         
 
         return true;
