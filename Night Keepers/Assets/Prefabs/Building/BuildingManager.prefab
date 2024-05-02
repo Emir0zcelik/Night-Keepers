@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7957532826960230100}
   - component: {fileID: 9194757620622397249}
-  - component: {fileID: 1574591142197004788}
   m_Layer: 0
   m_Name: BuildingManager
   m_TagString: Untagged
@@ -46,26 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gridManager: {fileID: 0}
-  building:
-  - {fileID: 5486441257105310043, guid: 6f41f80c090f866478cc72e33d06236b, type: 3}
-  - {fileID: 2719336066864652485, guid: 0f0b262ec50ec884884837414166d855, type: 3}
-  - {fileID: 8330685427325949554, guid: f511d78839323f4449aab8cb623290d6, type: 3}
-  - {fileID: 3531529327772665375, guid: ab402a812b7fa2d479d94973aed9f85d, type: 3}
-  - {fileID: 2692736109484692394, guid: a8a33721085a4ac458db523672cb11a7, type: 3}
---- !u!114 &1574591142197004788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8236614990380524617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e53b94b20f591345a58ef3e78078b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingData: {fileID: 0}
-  wood: 0
-  food: 0
-  stone: 0
-  iron: 0
+  buildings: []
+  previews: []
+  buildingPreviews: []
+  meshRendererPreviews: []
+  baseMaterials: []
+  validPreviewMaterial: {fileID: 0}
+  invalidPreviewMaterial: {fileID: 0}
+  rm: {fileID: 0}
