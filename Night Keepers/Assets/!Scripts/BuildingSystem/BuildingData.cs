@@ -38,6 +38,8 @@ public class BuildingData : ScriptableObject
     public ResourceCost Cost;
     public int ProductionAmount;
 
+    public int resourceTileSize;
+
     [System.Serializable]
     public class ResourceCost
     {

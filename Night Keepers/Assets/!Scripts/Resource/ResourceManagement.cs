@@ -20,6 +20,8 @@ namespace NightKeepers
         public BuildingData buildingData;
         public RM rm;
 
+        private int resourceTileCount;
+
         private bool isProductionStarted = false;
         private Dictionary<string, Coroutine> productionCoroutines = new Dictionary<string, Coroutine>();
 

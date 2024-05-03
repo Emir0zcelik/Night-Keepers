@@ -27,6 +27,8 @@ public class BuildingManager : MonoBehaviour
 
     bool isPlaceBuilding = false;
 
+    private int sameTileCount = 0;
+
     private void Awake() {
         foreach (var building in buildings)
         {
@@ -209,17 +211,29 @@ public class BuildingManager : MonoBehaviour
 
     private bool TryBuild(Building building, List<Vector2Int> gridPositionList, RM rmInstance)
     {
+        sameTileCount = 0;
         foreach (Vector2Int position in gridPositionList)
         {
             if (_gridManager._grid[position].building != null)
             {
                 return false;
             }
-            if (building.buildingData.placableTileTypes[0] != _gridManager._grid[position].tileType)
+            if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
             {
                 return false;
             }
+
+            if (building.buildingData.placableTileTypes[0] == _gridManager._grid[position].tileType)
+            {
+                sameTileCount++;
+            }
         }
+
+        if (sameTileCount == 0)
+        {
+            return false;
+        }
+
         /*string buildingName = building.buildingData.name;
          if (rm.buildingCounts.ContainsKey(buildingName))
          {
@@ -227,6 +241,7 @@ public class BuildingManager : MonoBehaviour
          }// In RM.cs buildingCounts will increase with respect of building name.*/
 
         isPlaced = true;
+
         if (Input.GetMouseButtonDown(0))
         {
             rmInstance.SetBuildingData(building.buildingData);
