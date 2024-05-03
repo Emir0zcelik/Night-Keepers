@@ -22,13 +22,13 @@ namespace NightKeepers
         private void OnEnable()
         {
             BarracksButton.onButtonPressed += OnButtonPressed;
-            Barracks.onQueueUpdated += OnQueueUpdated;
+            Barracks.onListUpdated += OnListUpdated;
         }
 
         private void OnDisable()
         {
             BarracksButton.onButtonPressed -= OnButtonPressed;
-            Barracks.onQueueUpdated -= OnQueueUpdated;
+            Barracks.onListUpdated -= OnListUpdated;
         }
 
         private void OnButtonPressed(Unit unitToProduce)
@@ -36,14 +36,14 @@ namespace NightKeepers
             ProduceUnit(unitToProduce);
         }
 
-        // should update the UI when a different barrack is selected not on validate
+        // should update the UI when a different barrack is selected not on validate this causes an error right now at the start because it runs too early
         private void OnValidate()
         {
             //Debug.Log("Barrack has been changed in the inspector! Or something else.");
             //OnQueueUpdated();
         }
 
-        private void OnQueueUpdated()
+        private void OnListUpdated()
         {
             foreach (Image image in _queueImageList)
             {
@@ -53,16 +53,19 @@ namespace NightKeepers
             for (int i = 0; i < _selectedBarrack.GetCurrentListCount(); i++)
             {
                 _queueImageList[i].gameObject.SetActive(true);
+            }
+        }
 
-                //// temporary image change units needs their image to put insted of colors
-                //if (_selectedBarrack.GetLastElementOfList().UnitData.UnitName == "Green")
-                //{
-                //    _queueImageList[_selectedBarrack.GetCurrentListCount()].color = Color.green;
-                //}
-                //else if (_selectedBarrack.GetLastElementOfList().UnitData.UnitName == "Purple")
-                //{
-                //    _queueImageList[_selectedBarrack.GetCurrentListCount()].color = Color.magenta;
-                //}
+        private void UpdateImages()
+        {
+            // temporary. Normally units needs their image to put insted of colors
+            if (_selectedBarrack.GetLastElementOfList().UnitData.UnitName == "Green")
+            {
+                _queueImageList[_selectedBarrack.GetCurrentListCount() - 1].color = Color.green;
+            }
+            else if (_selectedBarrack.GetLastElementOfList().UnitData.UnitName == "Purple")
+            {
+                _queueImageList[_selectedBarrack.GetCurrentListCount() - 1].color = Color.magenta;
             }
         }
 
@@ -71,6 +74,7 @@ namespace NightKeepers
             if (_selectedBarrack.GetCurrentNumberOfProductions() < 5)
             {
                 _selectedBarrack.InsertUnitToList(unitToProduce);
+                UpdateImages();
             }
         }
     }
