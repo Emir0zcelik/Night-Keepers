@@ -38,6 +38,8 @@ public class BuildingData : ScriptableObject
     public ResourceCost Cost;
     public int ProductionAmount;
 
+    public int resourceTileSize;
+
     [System.Serializable]
     public class ResourceCost
     {
@@ -68,9 +70,9 @@ public int GetRotationAngle(Dir dir)
         {
             default:
             case Dir.Down: return new Vector2Int(0, 0);
-            case Dir.Left: return new Vector2Int(0, widthHeight.y);
-            case Dir.Up: return new Vector2Int(widthHeight.y, 0);
-            case Dir.Right: return new Vector2Int(0, 0);
+            case Dir.Left: return new Vector2Int(0, widthHeight.x / 2);
+            case Dir.Up: return new Vector2Int(widthHeight.x /2, widthHeight.y / 2);
+            case Dir.Right: return new Vector2Int(widthHeight.y / 2, 0);
         }
     }
 

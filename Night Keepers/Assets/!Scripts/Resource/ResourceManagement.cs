@@ -20,13 +20,14 @@ namespace NightKeepers
         public BuildingData buildingData;
         public RM rm;
 
+        private int resourceTileCount;
+
         private bool isProductionStarted = false;
         private Dictionary<string, Coroutine> productionCoroutines = new Dictionary<string, Coroutine>();
 
         
         public void StartResourceProduction(BuildingData buildingData)
         {
-            
             if (!productionCoroutines.ContainsKey(buildingData.name))
             {
                 productionCoroutines[buildingData.name] = StartCoroutine(ProduceResources(buildingData));
@@ -40,14 +41,12 @@ namespace NightKeepers
 
         private IEnumerator ProduceResources(BuildingData buildingData)
         {
-            Debug.Log("IE");
             while (true)
             {
                 while (buildingData == null)
                 {
                     yield return null;
                 }
-                Debug.Log(resources.Iron);
                 yield return new WaitForSeconds(1);
                 switch (buildingData.name)
                 {
@@ -69,7 +68,7 @@ namespace NightKeepers
                         break;
                     
                     default:
-                        Debug.LogError("Unknown building type!");
+                        // Debug.LogError("Unknown building type!");
                         break;
                 }
 
@@ -84,13 +83,13 @@ namespace NightKeepers
                 resources.Iron >= buildingData.Cost.iron &&
                 resources.Food >= buildingData.Cost.food)
             {
-                Debug.Log(buildingData.Cost.wood + " " + resources.Wood);
+                // Debug.Log(buildingData.Cost.wood + " " + resources.Wood);
                 DeductResources();
 
             }
             else
             {
-                Debug.LogError("Insufficient Resources");
+                // Debug.LogError("Insufficient Resources");
             }
         }
         private void DeductResources()
@@ -100,7 +99,7 @@ namespace NightKeepers
             resources.Stone -= buildingData.Cost.stone;
             resources.Iron -= buildingData.Cost.iron;
             resources.Food -= buildingData.Cost.food;
-            Debug.Log("Deduct is called");
+            // Debug.Log("Deduct is called");
         }
         private void Start()
         {

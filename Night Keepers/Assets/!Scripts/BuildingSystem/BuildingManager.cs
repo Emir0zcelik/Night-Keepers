@@ -27,6 +27,8 @@ public class BuildingManager : MonoBehaviour
 
     bool isPlaceBuilding = false;
 
+    private int sameTileCount = 0;
+
     private void Awake() {
         foreach (var building in buildings)
         {
@@ -153,8 +155,9 @@ public class BuildingManager : MonoBehaviour
             {
                 meshRendererPreviews[buildingNumber].material = invalidPreviewMaterial;          
             }
-
-            previews[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
+            Vector2Int rotationOffset = buildingPreviews[buildingNumber].buildingData.GetRotationOffset(buildingPreviews[buildingNumber].direction);
+            Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
+            previews[buildingNumber].transform.position = instantiatedBuildingWorldPosition;
             if (isRotated)
             {
                 buildingPreviews[buildingNumber].direction = BuildingData.GetNextDir(buildingPreviews[buildingNumber].direction);
@@ -171,13 +174,19 @@ public class BuildingManager : MonoBehaviour
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction);
             buildings[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
 
+            foreach (var item in gridPositionList)
+            {
+                Debug.Log(item);
+            }
+
+
             if (TryBuild(buildings[buildingNumber], gridPositionList,rm))
             {                
-                // Vector2Int rotationOffset = buildings[buildingNumber].buildingData.GetRotationOffset(buildings[buildingNumber].direction);
-                // Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
+                Vector2Int rotationOffset = buildings[buildingNumber].buildingData.GetRotationOffset(buildings[buildingNumber].direction);
+                Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
                 Building instantiatedBuilding = Instantiate(
                         buildings[buildingNumber],
-                        _gridManager._grid.GridToWorldPosition(gridPosition),
+                        instantiatedBuildingWorldPosition,
                         Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
 
                 instantiatedBuilding.GetComponentInChildren<MeshRenderer>().material = baseMaterials[buildingNumber];
@@ -198,23 +207,33 @@ public class BuildingManager : MonoBehaviour
     public void SetBuildingType(BuildingData.BuildingType buildingType)
     {
         this.buildingType = buildingType;
-        Debug.Log("Type Selected :" + buildingType);
     }
 
     private bool TryBuild(Building building, List<Vector2Int> gridPositionList, RM rmInstance)
     {
+        sameTileCount = 0;
         foreach (Vector2Int position in gridPositionList)
         {
             if (_gridManager._grid[position].building != null)
             {
                 return false;
             }
-            if (building.buildingData.placableTileTypes[0] != _gridManager._grid[position].tileType)
+            if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
             {
                 return false;
             }
+
+            if (building.buildingData.placableTileTypes[0] == _gridManager._grid[position].tileType)
+            {
+                sameTileCount++;
+            }
         }
-        Debug.Log(building.buildingData.name);
+
+        if (sameTileCount == 0)
+        {
+            return false;
+        }
+
         /*string buildingName = building.buildingData.name;
          if (rm.buildingCounts.ContainsKey(buildingName))
          {
@@ -222,7 +241,11 @@ public class BuildingManager : MonoBehaviour
          }// In RM.cs buildingCounts will increase with respect of building name.*/
 
         isPlaced = true;
-        rmInstance.SetBuildingData(building.buildingData);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            rmInstance.SetBuildingData(building.buildingData);
+        }
         
 
         return true;
