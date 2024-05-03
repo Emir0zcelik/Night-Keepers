@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97ad304ca4ae95f4e99310481ddd3af7, type: 3}
-  m_Name: TempPlayerUnitMelee
+  m_Name: UndeadSwordsmanWhite
   m_EditorClassIdentifier: 
-  MaxHealth: 100
-  Damage: 20
+  MaxHealth: 200
+  Damage: 50
   TimeBetweenAttacks: 1.5
   DetectionRangeRadius: 20
-  AttackRangeRadius: 1.5
+  AttackRangeRadius: 2.5
   movementSpeed: 6
   targetPreferences:
   - unitType: 0
-    weight: 1
+    weight: 2
   - unitType: 1
     weight: 1
   - unitType: 2
     weight: 1
-  Side: 0
+  UnitPowerPoints: 10
+  Side: 1
   Type: 1

@@ -2,63 +2,107 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System.Collections;
+using NightKeepers;
+using Unity.Mathematics;
 
 public class EnemySpawnManager : MonoBehaviour
 {
     private Vector3 _targetPlayerBase;
 
-    // temp
-    [SerializeField] private GameObject _enemyPrefab;
-
     [SerializeField] private Vector3 _newOrigin;
 
     [Header("Map Size From Origin to One Edge of the Map")]
-    [SerializeField] private int _mapSizeFromOrigin;
+    public int _mapSizeFromOrigin;
 
     private List<Transform> _spawnPointList = new List<Transform>();
 
     private WaitForSeconds _waitForSeconds;
-    [Header("Spawn Time Settings")]
-    [SerializeField] private float _spawnDelay = .2f;
 
-    [Header("Spawn Position Settings")]
-    [SerializeField] private float _zOffset = 10f;
+    [SerializeField] private int _currentWaveNumber;
 
-    // temp
-    [Header("Spawn Count Settings")]
-    [SerializeField] private int _spawnCount = 50;
+    [SerializeField] private SpawnManagerScriptableObject _spawnManagerData;
 
     private void OnEnable()
     {
-        _waitForSeconds = new WaitForSeconds(_spawnDelay);
+        _waitForSeconds = new WaitForSeconds(_spawnManagerData._spawnDelay);
     }
 
     private void Start()
     {
+        _spawnManagerData.EnemyList.Sort((a, b) => a.GetComponent<Unit>().GetUnitPowerPoints().CompareTo(b.GetComponent<Unit>().GetUnitPowerPoints()));
+
         _spawnPointList.AddRange(from Transform child in transform select child);
         _targetPlayerBase = PlayerBaseManager.Instance.GetSelectedBasePosition();
-        AlignSpawnPoints();
-        PickSpawnPoint();
+        // for now we do it in start but we will do it when the night comes
+        PickSpawnPointAndSpawn();
     }
 
-    private void PickSpawnPoint()
+    private void PickSpawnPointAndSpawn()
     {
-        int randomIndex = Random.Range(0, _spawnPointList.Count);
-        StartCoroutine(SpawnEnemyWithDelay(_spawnPointList[randomIndex]));
+        AlignSpawnPoints();
+        int randomIndex = UnityEngine.Random.Range(0, _spawnPointList.Count);
+        StartCoroutine(SpawnEnemyWithDelay(_spawnPointList[3]));
     }
 
     IEnumerator SpawnEnemyWithDelay(Transform spawnPoint)
     {
-        for (int i = 0; i < _spawnCount; i++)
+        float currentWavePowerPoints = math.floor(_spawnManagerData._spawnCurve.Evaluate(_currentWaveNumber) + 0.5f);
+        while ( currentWavePowerPoints > 0)
         {
-            float randomZOffset = Random.Range(-_zOffset, _zOffset);
+            Unit selectedEnemyUnit = SelectEnemyToSpawn((int)currentWavePowerPoints);
+            currentWavePowerPoints -= selectedEnemyUnit.GetUnitPowerPoints();
+            float randomZOffset = UnityEngine.Random.Range(-_spawnManagerData._zOffset, _spawnManagerData._zOffset);
             Vector3 spawnPosition = spawnPoint.position + spawnPoint.forward * randomZOffset;
 
-            Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
+            Instantiate(selectedEnemyUnit.gameObject, spawnPosition, Quaternion.identity);
 
             yield return _waitForSeconds;
         }
     }
+
+    private Unit SelectEnemyToSpawn(int currentWavePowerPoints)
+    {
+        if (currentWavePowerPoints > _spawnManagerData._lowPowerPointThreshold)
+        {
+            while (true)
+            {
+                Unit randomEnemyUnit = _spawnManagerData.EnemyList[UnityEngine.Random.Range(0, _spawnManagerData.EnemyList.Count)];
+
+                if (randomEnemyUnit.GetUnitPowerPoints() <= currentWavePowerPoints)
+                {
+                    return randomEnemyUnit;
+                }
+            }
+        }
+        else
+        {
+            return GetHighestPowerEnemyBelowThreshold(currentWavePowerPoints);
+        }
+    }
+
+    private Unit GetHighestPowerEnemyBelowThreshold(int currentWavePowerPoints)
+    {
+        Unit highestPowerEnemy = null;
+        int highestPowerPoints = 0;
+
+        foreach (Unit enemyUnit in _spawnManagerData.EnemyList)
+        {
+            int enemyPowerPoints = enemyUnit.GetUnitPowerPoints();
+
+            if (enemyPowerPoints > currentWavePowerPoints)
+            {
+                return highestPowerEnemy;
+            }
+            if (enemyPowerPoints <= _spawnManagerData._lowPowerPointThreshold && enemyPowerPoints > highestPowerPoints)
+            {
+                highestPowerPoints = enemyPowerPoints;
+                highestPowerEnemy = enemyUnit;
+            }
+        }
+        return highestPowerEnemy;
+    }
+
+
     void AlignSpawnPoints()
     {
         _spawnPointList[0].position = new Vector3(_newOrigin.x + _mapSizeFromOrigin, 0, _targetPlayerBase.z);
