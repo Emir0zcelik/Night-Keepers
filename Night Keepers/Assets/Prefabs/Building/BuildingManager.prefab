@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7957532826960230100}
   - component: {fileID: 9194757620622397249}
+  - component: {fileID: 5411096954508611090}
   m_Layer: 0
   m_Name: BuildingManager
   m_TagString: Untagged
@@ -45,11 +46,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gridManager: {fileID: 0}
-  buildings: []
-  previews: []
+  _wallManager: {fileID: 5411096954508611090}
+  buildings:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  previews:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   buildingPreviews: []
   meshRendererPreviews: []
   baseMaterials: []
-  validPreviewMaterial: {fileID: 0}
-  invalidPreviewMaterial: {fileID: 0}
+  validPreviewMaterial: {fileID: 2100000, guid: 04231e7a189848a40b9ffe6c675863df,
+    type: 2}
+  invalidPreviewMaterial: {fileID: 2100000, guid: 902c2023408f1d54caabe103d524e052,
+    type: 2}
+  walls: []
   rm: {fileID: 0}
+--- !u!114 &5411096954508611090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236614990380524617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1419bbcabc94b7745a2abf3c9bef4747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gridManager: {fileID: 0}
+  _parentWalls:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

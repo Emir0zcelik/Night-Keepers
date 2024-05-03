@@ -30,6 +30,8 @@ namespace NightKeepers
             buildingCounts["LumberJack"] = 0;
             buildingCounts["TownHall"] = 0;
             buildingCounts["Test"] = 0;
+            buildingCounts["Wall"] = 0;
+            buildingCounts["House"] = 0;
 
            /* ironMineButton.onClick.AddListener(() => SetBuildingData(ironMineData));           
             stoneMineButton.onClick.AddListener(() => SetBuildingData(stoneMineData));           
