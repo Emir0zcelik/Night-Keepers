@@ -57,7 +57,7 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
         if (GetUnitType() != UnitType.Building)
         {
-            navAgent.speed = UnitData.movementSpeed;
+            navAgent.speed = UnitData.MovementSpeed;
         }
 
         FindFavouriteTarget();

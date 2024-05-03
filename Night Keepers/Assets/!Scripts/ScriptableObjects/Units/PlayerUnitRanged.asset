@@ -17,7 +17,7 @@ MonoBehaviour:
   TimeBetweenAttacks: 1.5
   DetectionRangeRadius: 20
   AttackRangeRadius: 1.5
-  movementSpeed: 6
+  MovementSpeed: 0
   targetPreferences:
   - unitType: 0
     weight: 1
@@ -25,6 +25,7 @@ MonoBehaviour:
     weight: 1
   - unitType: 2
     weight: 1
-  UnitPowerPoint: 1
-  Side: 0
+  UnitPowerPoints: 1
   Type: 2
+  Side: 0
+  ProductionTime: 3

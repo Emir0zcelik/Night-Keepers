@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ad304ca4ae95f4e99310481ddd3af7, type: 3}
   m_Name: UndeadSwordsmanBlue
   m_EditorClassIdentifier: 
+  UnitName: Blue
   MaxHealth: 140
   Damage: 35
   TimeBetweenAttacks: 1.5
   DetectionRangeRadius: 20
   AttackRangeRadius: 2.5
-  movementSpeed: 6
+  MovementSpeed: 0
   targetPreferences:
   - unitType: 0
     weight: 1
@@ -26,5 +27,6 @@ MonoBehaviour:
   - unitType: 2
     weight: 2
   UnitPowerPoints: 5
-  Side: 1
   Type: 1
+  Side: 1
+  ProductionTime: 0
