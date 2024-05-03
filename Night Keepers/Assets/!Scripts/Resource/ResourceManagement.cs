@@ -104,6 +104,7 @@ namespace NightKeepers
         }
         private void Start()
         {
+            buildingData = null;
             StartResourceProduction(buildingData);
         }
 
