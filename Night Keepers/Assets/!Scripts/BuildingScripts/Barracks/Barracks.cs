@@ -26,14 +26,14 @@ namespace NightKeepers
             }
         }
 
-        public Unit TransferUnitFromProductionToReady()
+        public void TransferUnitFromProductionToReady()
         {
             Unit unit = _unitProductionList[0];
             _unitProductionList.RemoveAt(0);
             onListUpdated?.Invoke();
             _currentNumberOfProductions--;
             PlayerUnitManager.Instance.AddUnitToReadyList(unit);
-            return unit;
+            //return unit;
         }
 
         IEnumerator ProduceUnit()
@@ -42,8 +42,7 @@ namespace NightKeepers
             while (_unitProductionList.Count > 0)
             {
                 yield return new WaitForSeconds(_unitProductionList[0].UnitData.ProductionTime);
-                Unit unit = TransferUnitFromProductionToReady();
-                print(unit.name + " unit produced!");
+                TransferUnitFromProductionToReady();
             }
             _isInProduction = false;
         }
