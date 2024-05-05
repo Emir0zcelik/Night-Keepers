@@ -12,7 +12,7 @@ namespace NightKeepers
         private Transform selection;
         private RaycastHit raycastHit;
 
-        private bool isSelected = false;
+        private Building selectedBuilding;
 
         private void Update() {
 
@@ -21,8 +21,18 @@ namespace NightKeepers
             if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
             {
                 Vector2Int gridPosition = GridManager.Instance._grid.WorldToGridPosition(raycastHit.point);
+
                 OutlineSelection();
+                SelectedBuilding(gridPosition);
                 DeleteBuilding(gridPosition);
+            }
+        }
+
+        private void SelectedBuilding(Vector2Int gridPosition)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                selectedBuilding = GridManager.Instance._grid[gridPosition].building;
             }
         }
 
