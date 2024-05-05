@@ -30,6 +30,8 @@ public class UnitScriptableObject : ScriptableObject
     }
     public UnitSide Side;
 
+    public GameObject UnitImagePrefab;
+
     [Header("Only For Player Units!")]
     public float ProductionTime = 0f;
 }

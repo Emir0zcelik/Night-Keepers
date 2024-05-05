@@ -1,22 +1,19 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace NightKeepers
 {
     public class BarracksUI : MonoBehaviour
     {
         [SerializeField] private Barracks _selectedBarrack;
-        [SerializeField] private List<Image> _queueImageList = new List<Image>();
         [SerializeField] private RectTransform queueHolder;
 
         private void Start()
         {
-            foreach (RectTransform image in queueHolder)
-            {
-                _queueImageList.Add(image.GetComponent<Image>());
-                image.gameObject.SetActive(false);
-            }
+            //foreach (RectTransform image in queueHolder)
+            //{
+            //    _queueImageList.Add(image.GetComponent<Image>());
+            //    image.gameObject.SetActive(false);
+            //}
         }
 
         private void OnEnable()
@@ -40,32 +37,26 @@ namespace NightKeepers
         private void OnValidate()
         {
             //Debug.Log("Barrack has been changed in the inspector! Or something else.");
-            //OnQueueUpdated();
+            //OnListUpdated();
         }
 
         private void OnListUpdated()
         {
-            foreach (Image image in _queueImageList)
-            {
-                image.gameObject.SetActive(false);
-            }
-
-            for (int i = 0; i < _selectedBarrack.GetCurrentListCount(); i++)
-            {
-                _queueImageList[i].gameObject.SetActive(true);
-            }
+            UpdateImages();
         }
 
         private void UpdateImages()
         {
-            // temporary. Normally units needs their image to put insted of colors
-            if (_selectedBarrack.GetLastElementOfList().UnitData.UnitName == "Green")
+            // temporary. Normally units needs their image to put insted of colors. Needs pooling.
+
+            foreach(RectTransform image in queueHolder)
             {
-                _queueImageList[_selectedBarrack.GetCurrentListCount() - 1].color = Color.green;
+                Destroy(image.gameObject);
             }
-            else if (_selectedBarrack.GetLastElementOfList().UnitData.UnitName == "Purple")
+
+            foreach(Unit unit in _selectedBarrack.GetProductionList())
             {
-                _queueImageList[_selectedBarrack.GetCurrentListCount() - 1].color = Color.magenta;
+                Instantiate(unit.UnitData.UnitImagePrefab, queueHolder);
             }
         }
 

@@ -29,4 +29,6 @@ MonoBehaviour:
   UnitPowerPoints: 1
   Type: 1
   Side: 0
+  UnitImagePrefab: {fileID: 7878379943576522196, guid: f85e5bfdb1149db40a52fb3edc447328,
+    type: 3}
   ProductionTime: 10

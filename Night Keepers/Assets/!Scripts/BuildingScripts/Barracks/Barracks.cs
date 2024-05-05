@@ -47,6 +47,11 @@ namespace NightKeepers
             _isInProduction = false;
         }
 
+        public List<Unit> GetProductionList()
+        {
+            return _unitProductionList;
+        }
+
         public int GetCurrentListCount()
         {
             return _unitProductionList.Count;
