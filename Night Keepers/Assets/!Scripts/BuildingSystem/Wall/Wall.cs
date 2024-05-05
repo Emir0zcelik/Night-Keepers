@@ -141,6 +141,10 @@ namespace NightKeepers
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
                     transform.rotation = Quaternion.Euler(0, 270, 0);
                     childTransform.transform.localPosition = new Vector3(1.672363f, 0, -1.672364f);
+                    if (RightWall.UpWall == null)
+                    {
+                        isVertical = false;
+                    }
                 }
             }
 
