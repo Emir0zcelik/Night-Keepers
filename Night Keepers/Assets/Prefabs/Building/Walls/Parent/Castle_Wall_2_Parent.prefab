@@ -69,6 +69,7 @@ MonoBehaviour:
   Down: 0
   Left: 0
   Right: 0
+  isVertical: 0
 --- !u!1001 &1098175539202033839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85,17 +86,17 @@ PrefabInstance:
     - target: {fileID: 5417959034789877267, guid: e40acbbc8d988de498e867d2231a6927,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.672353
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5417959034789877267, guid: e40acbbc8d988de498e867d2231a6927,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000002384186
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5417959034789877267, guid: e40acbbc8d988de498e867d2231a6927,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.672355
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5417959034789877267, guid: e40acbbc8d988de498e867d2231a6927,
         type: 3}

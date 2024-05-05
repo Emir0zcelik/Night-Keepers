@@ -12,8 +12,10 @@ namespace NightKeepers
         public Wall RightWall;
 
         private MeshFilter meshFilter;
-
+        [SerializeField] private Transform childTransform;
         public bool Up, Down, Left, Right;
+
+        public bool isVertical;
 
         private void Awake() {
             meshFilter = GetComponentInChildren<MeshFilter>();
@@ -21,37 +23,55 @@ namespace NightKeepers
 
         private void Start() {
 
+            CheckVertical();
             CheckAllSides();
             
             if (UpWall != null)
             {
+                UpWall.CheckVertical();
                 UpWall.CheckAllSides();
             }
 
             if (DownWall != null)
             {
+                DownWall.CheckVertical();
                 DownWall.CheckAllSides();
+
             }
 
             if (LeftWall != null)
             {
+                LeftWall.CheckVertical();
                 LeftWall.CheckAllSides();
             }
 
             if (RightWall != null)
             {
+                RightWall.CheckVertical();
                 RightWall.CheckAllSides();
             }
+
         }
 
         public void CheckAllSides()
         {
-            Debug.Log("atmaca");
             CheckUp(GridManager.Instance._grid.WorldToGridPosition(transform.position));
             CheckDown(GridManager.Instance._grid.WorldToGridPosition(transform.position));
             CheckLeft(GridManager.Instance._grid.WorldToGridPosition(transform.position));
             CheckRight(GridManager.Instance._grid.WorldToGridPosition(transform.position));
             UpdateWall();
+        }
+
+        public void CheckVertical()
+        {
+            if (transform.rotation == Quaternion.Euler(0, 0, 0))
+            {
+                isVertical = true;                
+            }
+            if (transform.rotation == Quaternion.Euler(0, 270, 0) || transform.rotation == Quaternion.Euler(0, 90, 0))
+            {
+                isVertical = false;
+            }
         }
         
 
@@ -116,48 +136,90 @@ namespace NightKeepers
         {
             if (Up && Right)
             {
-                meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
+                if (UpWall.isVertical && !RightWall.isVertical)
+                {
+                    meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
+                    transform.rotation = Quaternion.Euler(0, 270, 0);
+                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, -1.672364f);
+                }
             }
 
             if (Up && Left)
             {
-                meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
-                // 180
+                if (UpWall.isVertical && !LeftWall.isVertical)
+                {
+                    meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
+                    transform.rotation = Quaternion.Euler(0 , 180, 0);        
+                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, -1.672364f);
+        
+                }
             }
 
             if (Down && Right)
-            {
-                meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
+            {                 
+                if (DownWall.isVertical && !RightWall.isVertical)
+                {
+                    meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, -1.672364f);
+                }
             }
 
             if (Down && Left)
             {
-                meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
+                if (DownWall.isVertical && !LeftWall.isVertical)
+                {
+                    meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
+                    transform.rotation = Quaternion.Euler(0, 90, 0);
+                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, -1.672364f);
+                }
             }
 
             if (Up && Right && Left)
             {
-                meshFilter.mesh = WallManager.Instance._wallMeshFilters[1].mesh;
+                if (UpWall.isVertical && !RightWall.isVertical && !LeftWall.isVertical)
+                {
+                    meshFilter.mesh = WallManager.Instance._wallMeshFilters[1].mesh;
+                    transform.rotation = Quaternion.Euler(0 , 270, 0);
+                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, -3.829598e-05f);
+                }
             }
 
             if (Up && Right && Down)
             {
-                meshFilter.mesh = WallManager.Instance._wallMeshFilters[1].mesh;
+                if (UpWall.isVertical && DownWall.isVertical && !RightWall.isVertical)
+                {
+                    meshFilter.mesh = WallManager.Instance._wallMeshFilters[1].mesh;
+                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, 1.490116e-07f);
+                }
             }
 
             if (Right && Down && Left)
             {
-                meshFilter.mesh = WallManager.Instance._wallMeshFilters[1].mesh;
+                if (DownWall.isVertical && !LeftWall.isVertical && !RightWall.isVertical)
+                {
+                    meshFilter.mesh = WallManager.Instance._wallMeshFilters[1].mesh;
+                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, 1.490116e-07f);
+                }
             }
 
             if (Down && Left && Up)
             {
-                meshFilter.mesh = WallManager.Instance._wallMeshFilters[1].mesh;
+                if (UpWall.isVertical && DownWall.isVertical && !LeftWall.isVertical)
+                {
+                    meshFilter.mesh = WallManager.Instance._wallMeshFilters[1].mesh;
+                    transform.rotation = Quaternion.Euler(0 , 180, 0);
+                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, 1.490116e-07f);
+                }   
             }
 
             if (Up && Down && Right && Left)
             {
-                meshFilter.mesh = WallManager.Instance._wallMeshFilters[2].mesh;
+                if (UpWall.isVertical && DownWall.isVertical && !RightWall.isVertical && !LeftWall.isVertical)
+                {
+                    meshFilter.mesh = WallManager.Instance._wallMeshFilters[2].mesh;
+                    childTransform.transform.localPosition = new Vector3(0, 0, 0);
+                }
             }
 
 
