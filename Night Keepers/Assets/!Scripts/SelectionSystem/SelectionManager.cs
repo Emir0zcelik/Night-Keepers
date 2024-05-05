@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace NightKeepers
 {
     public class SelectionManager : Singleton<SelectionManager>
     {
+        private Transform highlight;
+        private Transform selection;
+        private RaycastHit raycastHit;
+
+        private bool isSelected = false;
 
         private void Update() {
 
@@ -15,20 +21,42 @@ namespace NightKeepers
             if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
             {
                 Vector2Int gridPosition = GridManager.Instance._grid.WorldToGridPosition(raycastHit.point);
-
+                OutlineSelection();
                 DeleteBuilding(gridPosition);
             }
         }
 
-        private void OutlineSelection(Vector2Int gridPosition)
+        private void OutlineSelection()
         {
-            if (!GridManager.Instance._grid[gridPosition].building.CompareTag("Selectable"))
-                return;
-
-            GridManager.Instance._grid[gridPosition].building.gameObject.GetComponent<Outline>().enabled = true;
-
-            
-        }                    
+            if (highlight != null)
+            {
+                highlight.gameObject.GetComponent<Outline>().enabled = false;
+                highlight = null;
+            }
+            Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit)) 
+            {
+                highlight = raycastHit.transform;
+                if (highlight.CompareTag("Selectable") && highlight != selection)
+                {
+                    if (highlight.gameObject.GetComponent<Outline>() != null)
+                    {
+                        highlight.gameObject.GetComponent<Outline>().enabled = true;
+                    }
+                    else
+                    {
+                        Outline outline = highlight.gameObject.AddComponent<Outline>();
+                        outline.enabled = true;
+                        highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
+                        highlight.gameObject.GetComponent<Outline>().OutlineWidth = 5.0f;
+                    }
+                }
+                else
+                {
+                    highlight = null;
+                }
+            }        
+        }                  
 
         private void DeleteBuilding(Vector2Int gridPosition)
         {
