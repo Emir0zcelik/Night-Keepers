@@ -30,4 +30,14 @@ public class BuildingUI : MonoBehaviour
     {
         buildingManager.SetBuildingType(BuildingData.BuildingType.Test);
     }
+
+    public void Wall()
+    {
+        buildingManager.SetBuildingType(BuildingData.BuildingType.Wall);
+    }
+
+    public void House()
+    {
+        buildingManager.SetBuildingType(BuildingData.BuildingType.House);
+    }
 }

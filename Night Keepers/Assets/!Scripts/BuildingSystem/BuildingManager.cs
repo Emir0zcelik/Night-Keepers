@@ -5,9 +5,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BuildingManager : MonoBehaviour
+public class BuildingManager : Singleton<BuildingManager>
 {
     [SerializeField] private GridManager _gridManager;
+    [SerializeField] private WallManager _wallManager;
     [SerializeField] private List<Building> buildings;
     [SerializeField] private List<GameObject> previews; 
     [SerializeField] private List<Building> buildingPreviews; 
@@ -15,6 +16,11 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private List<Material> baseMaterials;
     [SerializeField] private Material validPreviewMaterial;
     [SerializeField] private Material invalidPreviewMaterial;
+
+    public Vector2Int gridPositonForWall;
+
+
+    public List<Building> walls;
     private BuildingData.BuildingType buildingType;
 
     private Vector2Int gridPosition;
@@ -109,7 +115,6 @@ public class BuildingManager : MonoBehaviour
                 isPlaced = false;
                 buildingNumber = 2;
                 BuildingPreviewsActivate(buildingNumber);
-                
                 break;
 
             case BuildingData.BuildingType.TownHall:
@@ -121,6 +126,16 @@ public class BuildingManager : MonoBehaviour
             case BuildingData.BuildingType.Test:
                 isPlaced = false;
                 buildingNumber = 4;
+                BuildingPreviewsActivate(buildingNumber);
+                break;
+            case BuildingData.BuildingType.Wall:
+                isPlaced = false;
+                buildingNumber = 5;
+                BuildingPreviewsActivate(buildingNumber);
+                break;
+            case BuildingData.BuildingType.House:
+                isPlaced = false;
+                buildingNumber = 6;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
         }
@@ -174,11 +189,6 @@ public class BuildingManager : MonoBehaviour
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction);
             buildings[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
 
-            foreach (var item in gridPositionList)
-            {
-                Debug.Log(item);
-            }
-
 
             if (TryBuild(buildings[buildingNumber], gridPositionList,rm))
             {                
@@ -191,6 +201,7 @@ public class BuildingManager : MonoBehaviour
 
                 instantiatedBuilding.GetComponentInChildren<MeshRenderer>().material = baseMaterials[buildingNumber];
 
+
                 foreach (Vector2Int position in gridPositionList)
                 {
                     Tile tile = new Tile()
@@ -199,9 +210,19 @@ public class BuildingManager : MonoBehaviour
                     };
                     _gridManager._grid[position] = tile;
                 }
+
+                if (buildingNumber == 5)
+                {
+                    SetGridPositionForWall(_gridManager._grid.WorldToGridPosition(instantiatedBuilding.transform.position));
+                }
             }
         }
         
+    }
+
+    public void SetGridPositionForWall(Vector2Int gridPosition)
+    {
+        gridPositonForWall = gridPosition;
     }
 
     public void SetBuildingType(BuildingData.BuildingType buildingType)
@@ -218,10 +239,10 @@ public class BuildingManager : MonoBehaviour
             {
                 return false;
             }
-            if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
-            {
-                return false;
-            }
+            // if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
+            // {
+            //     return false;
+            // }
 
             if (building.buildingData.placableTileTypes[0] == _gridManager._grid[position].tileType)
             {
