@@ -58,6 +58,11 @@ namespace NightKeepers
 
         public void CheckAllSides()
         {
+            if (!GridManager.Instance._grid.IsInDimensions(GridManager.Instance._grid.WorldToGridPosition(transform.position)))
+            {
+                return;
+            }
+            
             CheckUp(GridManager.Instance._grid.WorldToGridPosition(transform.position));
             CheckDown(GridManager.Instance._grid.WorldToGridPosition(transform.position));
             CheckLeft(GridManager.Instance._grid.WorldToGridPosition(transform.position));
