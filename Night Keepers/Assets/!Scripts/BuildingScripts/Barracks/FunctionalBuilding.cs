@@ -4,6 +4,6 @@ namespace NightKeepers
 {
     public class FunctionalBuilding : MonoBehaviour
     {
-
+        
     }
 }

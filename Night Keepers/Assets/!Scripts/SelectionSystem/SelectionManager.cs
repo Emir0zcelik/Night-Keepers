@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,6 +14,8 @@ namespace NightKeepers
         private RaycastHit raycastHit;
 
         private Building selectedBuilding;
+
+        public static event Action<FunctionalBuilding> onBuildingSelected;  
 
         private void Update() {
 
@@ -30,9 +33,15 @@ namespace NightKeepers
 
         private void SelectedBuilding(Vector2Int gridPosition)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && GridManager.Instance._grid[gridPosition].building != null)
             {
-                selectedBuilding = GridManager.Instance._grid[gridPosition].building;
+
+                
+
+                if (GridManager.Instance._grid[gridPosition].building.TryGetComponent<FunctionalBuilding>(out var func))
+                {
+                    onBuildingSelected?.Invoke(func);
+                }
             }
         }
 

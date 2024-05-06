@@ -263,7 +263,7 @@ public class BuildingManager : Singleton<BuildingManager>
         {
             if (_gridManager._grid[position].building != null)
             {
-                return false;
+                return false; 
             }
             // if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
             // {
@@ -276,10 +276,10 @@ public class BuildingManager : Singleton<BuildingManager>
             }
         }
 
-        // if (sameTileCount == 0)
-        // {
-        //     return false;
-        // }
+        if (sameTileCount == 0)
+        {
+            return false;
+        }
 
         /*string buildingName = building.buildingData.name;
          if (rm.buildingCounts.ContainsKey(buildingName))
