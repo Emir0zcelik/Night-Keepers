@@ -12,22 +12,23 @@ namespace NightKeepers.Research
     {
 
         [SerializeField] private TMP_Text resourceValue;
-        private Upgrades _upgrades;
+        public Upgrades _upgrades;
+        public BuildingUI buildui;
 
-        private void Awake()
+        public void Awake()
         {
-            
-            transform.Find("MeleeUnitT1").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.MeleeUnitsBuff));
-            transform.Find("MeleeUnitT2").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.MeleeUnitsBuff2));
-            transform.Find("RangeUnit").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.RangeUnitsBuff));
-            transform.Find("BuildingsBuff").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.BuildingsBuff));
-            transform.Find("OthersBuff").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.OthersBuff));
+
+            transform.Find("Lumberjack1").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Lumberjack1));
+            transform.Find("Lumberjack2").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Lumberjack2));
+            transform.Find("Farm").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Farm));
+            transform.Find("IronMine").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.IronMine));
+            transform.Find("StoneMine").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.StoneMine));           
         }
 
         public void SetActiveSkills(Upgrades upgrades)
         {
             this._upgrades = upgrades;
-            
+            buildui.upgrades = upgrades;
         }
     }
 }

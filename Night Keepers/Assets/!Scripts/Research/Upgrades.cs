@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 using static NightKeepers.Research.Canvas;
 
@@ -14,7 +16,6 @@ namespace NightKeepers.Research
     public class Upgrades : MonoBehaviour
     {
         public event EventHandler<OnResearchUnlockedEventArgs> OnResearchUnlocked;
-
         public class OnResearchUnlockedEventArgs : EventArgs
         {
             public ResearchUpgrades researchUpgrades;
@@ -22,10 +23,11 @@ namespace NightKeepers.Research
         public enum ResearchUpgrades
         {
             None,
-            MeleeUnitsBuff,
-            MeleeUnitsBuff2,
-            RangeUnitsBuff,
-            BuildingsBuff,
+            Lumberjack1,
+            Lumberjack2,
+            Farm,
+            StoneMine,
+            IronMine,
             OthersBuff
         }
 
@@ -34,24 +36,31 @@ namespace NightKeepers.Research
         {
             unlockedUpgrades = new List<ResearchUpgrades>();
         }
-        private void UnlockUpgrades(ResearchUpgrades upgrades)
+        public void UnlockUpgrades(ResearchUpgrades upgrades)
         {
-            if (!IsUnlocked(upgrades))
-            {
-                unlockedUpgrades.Add(upgrades);
-                OnResearchUnlocked?.Invoke(this, new OnResearchUnlockedEventArgs { researchUpgrades = upgrades });
-            }          
+             if (!IsUnlocked(upgrades))
+             {
+
+                 unlockedUpgrades.Add(upgrades);
+                 OnResearchUnlocked?.Invoke(this, new OnResearchUnlockedEventArgs { researchUpgrades = upgrades });
+             }
+ 
+
         }
         public bool IsUnlocked(ResearchUpgrades upgrades)
         {
+            Debug.Log(upgrades);
+            Debug.Log(unlockedUpgrades.Count);
+            Debug.Log($"List of characters: [{string.Join(", ", unlockedUpgrades)}]");
             return unlockedUpgrades.Contains(upgrades);
         }
-       public ResearchUpgrades GetResearchRequirement(ResearchUpgrades upgrades)
+        
+        public ResearchUpgrades GetResearchRequirement(ResearchUpgrades upgrades)
         {
             switch (upgrades)
             {
-                case ResearchUpgrades.MeleeUnitsBuff2:
-                    return ResearchUpgrades.MeleeUnitsBuff;              
+                case ResearchUpgrades.Lumberjack2:
+                    return ResearchUpgrades.Lumberjack1;              
             }
             return ResearchUpgrades.None;
         }
@@ -66,14 +75,18 @@ namespace NightKeepers.Research
                     return true;
                 }
                 else
+                {
                     Debug.Log("You need to unlock " + requirement + " first");
                     return false;
-            }else
+                }
+            }
+            else
             {
                 UnlockUpgrades(upgrades);
                 return true;
             }
         }
+
 
     }
 

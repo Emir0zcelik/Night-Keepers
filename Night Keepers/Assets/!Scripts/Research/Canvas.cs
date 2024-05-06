@@ -9,21 +9,21 @@ namespace NightKeepers.Research
     public class Canvas : MonoBehaviour
     {
         public  TMP_Text text;
-        private Upgrades _upgrades;      
+        private Upgrades _upgrades;
+
         public enum CanvasButtons
         {
-            MeleeUnits,
-            MeleeUnits2,
-            RangeUnits,
-            Buildings,
+            Lumberjack,
+            Lumberjack2,
+            Farm,
+            IronMine,
+            StoneMine,
             Others
         }
-       
-        //Do list of CanvasButtons
-        
+
         void Start()
         {
-            //text.text will increase every 2 seconds by 1-4.
+
             text.text = text.GetComponent<TMP_Text>().text;
             StartCoroutine(UpdateText());
         }
@@ -46,17 +46,20 @@ namespace NightKeepers.Research
         {
             switch (e.researchUpgrades)
             {
-                case Upgrades.ResearchUpgrades.MeleeUnitsBuff:
-                    Debug.Log("MeleeUnitsBuff = Activated");
+                case Upgrades.ResearchUpgrades.Lumberjack1:
+                    Debug.Log("Lumberjack1 = Activated");
                     break;
-                case Upgrades.ResearchUpgrades.MeleeUnitsBuff2: 
-                    Debug.Log("MeleeUnitsBuff2 = Activated");
+                case Upgrades.ResearchUpgrades.Lumberjack2: 
+                    Debug.Log("Lumberjack2 = Activated");
                     break;
-                case Upgrades.ResearchUpgrades.RangeUnitsBuff:
-                    Debug.Log("RangeUnitsBuff = Activated");
+                case Upgrades.ResearchUpgrades.Farm:
+                    Debug.Log("Farm = Activated");
                     break;
-                case Upgrades.ResearchUpgrades.BuildingsBuff:
-                    Debug.Log("BuildingsBuff = Activated");
+                case Upgrades.ResearchUpgrades.IronMine:
+                    Debug.Log("IronMine = Activated");
+                    break;
+                case Upgrades.ResearchUpgrades.StoneMine:
+                    Debug.Log("StoneMine = Activated");
                     break;
                 case Upgrades.ResearchUpgrades.OthersBuff:
                     Debug.Log("OthersBuff = Activated");
@@ -70,25 +73,25 @@ namespace NightKeepers.Research
             return _upgrades;
         }
 
-        public bool MeleeUnitsBuffActive()
+        public bool Lumberjack1Active()
         {
-            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.MeleeUnitsBuff);
+            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.Lumberjack1);
         }
-        public bool MeleeUnitsBuff2Active()
+        public bool Lumberjack2Active()
         {
-            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.MeleeUnitsBuff2);
+            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.Lumberjack2);
         }
-        public bool RangeUnitsBuffActive()
+        public bool FarmActive()
         {
-            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.RangeUnitsBuff);
+            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.Farm);
         }
-        public bool BuildingsBuffActive()
+        public bool IronMineActive()
         {
-            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.BuildingsBuff);
+            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.IronMine);
         }
-        public bool OthersBuffActive()
+        public bool StoneMineActive()
         {
-            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.OthersBuff);
+            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.StoneMine);
         }
 
     }

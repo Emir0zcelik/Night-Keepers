@@ -44,7 +44,8 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
-    private void Start() {
+    private void Start() 
+    {
         foreach (var preview in previews)
         {
             preview.transform.localScale = new Vector3(preview.transform.localScale.x * _gridManager.cellSize / 10, preview.transform.localScale.y * _gridManager.cellSize / 10, preview.transform.localScale.z * _gridManager.cellSize / 10);
@@ -121,6 +122,17 @@ public class BuildingManager : MonoBehaviour
                 buildingNumber = 4;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
+            case BuildingData.BuildingType.Lumberjack1:
+                isPlaced = false;
+                buildingNumber = 5;
+                BuildingPreviewsActivate(buildingNumber);
+                break;        
+            case BuildingData.BuildingType.Lumberjack2:
+                isPlaced = false;
+                buildingNumber = 6;
+                BuildingPreviewsActivate(buildingNumber);
+                break;
+
         }
 
     }
@@ -215,12 +227,7 @@ public class BuildingManager : MonoBehaviour
             }
         }
         Debug.Log(building.buildingData.name);
-        /*string buildingName = building.buildingData.name;
-         if (rm.buildingCounts.ContainsKey(buildingName))
-         {
-             rm.buildingCounts[buildingName]++;
-         }// In RM.cs buildingCounts will increase with respect of building name.*/
-
+      
         isPlaced = true;
         rmInstance.SetBuildingData(building.buildingData);
         

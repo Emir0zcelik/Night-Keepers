@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &87658923
 RectTransform:
   m_ObjectHideFlags: 0
@@ -565,7 +565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &270390604
 Transform:
   m_ObjectHideFlags: 0
@@ -594,14 +594,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 270390606}
-  ironMineData: {fileID: 11400000, guid: 45ea82ea1632ab04b94653297df09750, type: 2}
-  stoneMineData: {fileID: 11400000, guid: 444037f846e84f340ad368c2bb6a6b2f, type: 2}
-  farmData: {fileID: 11400000, guid: 41afb6cb5b4c15a4bac746a84548539e, type: 2}
-  lumberJackData: {fileID: 11400000, guid: 19a3a0ebbc3aa1d43b509bb30d6683a4, type: 2}
-  ironMineButton: {fileID: 1180317905}
-  stoneMineButton: {fileID: 1490202847}
-  farmButton: {fileID: 306582761}
-  lumberJackButton: {fileID: 2024094556}
 --- !u!114 &270390606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,7 +631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &306582758
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1289,7 +1281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &662480787
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1335,7 +1327,7 @@ GameObject:
   - component: {fileID: 700322122}
   - component: {fileID: 700322121}
   m_Layer: 5
-  m_Name: RangeUnit
+  m_Name: Farm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1736,7 +1728,7 @@ GameObject:
   - component: {fileID: 962134941}
   - component: {fileID: 962134940}
   m_Layer: 5
-  m_Name: MeleeUnitT1
+  m_Name: Lumberjack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2111,7 +2103,7 @@ GameObject:
   - component: {fileID: 1062357677}
   - component: {fileID: 1062357676}
   m_Layer: 5
-  m_Name: MeleeUnitT2
+  m_Name: Lumberjack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2496,7 +2488,7 @@ GameObject:
   - component: {fileID: 1139579605}
   - component: {fileID: 1139579604}
   m_Layer: 5
-  m_Name: BuildingsBuff
+  m_Name: IronMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2634,7 +2626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1180317902
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2982,7 +2974,7 @@ MonoBehaviour:
   speed: 1
   smoothing: 5
   range: {x: 100, y: 100}
-  startingPosition: {x: 0, y: 0, z: 0}
+  _gridManager: {fileID: 0}
 --- !u!114 &1357495268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3017,7 +3009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1490202844
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3133,7 +3125,7 @@ GameObject:
   - component: {fileID: 1516654497}
   - component: {fileID: 1516654496}
   m_Layer: 5
-  m_Name: OthersBuff
+  m_Name: StoneMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3753,7 +3745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1628224481
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4256,7 +4248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1875359566
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4294,6 +4286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceValue: {fileID: 1979018603}
+  _upgrades: {fileID: 662480788}
 --- !u!1 &1875848002
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,7 +4379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1979018602
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4521,7 +4514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2024094556
 MonoBehaviour:
   m_ObjectHideFlags: 0

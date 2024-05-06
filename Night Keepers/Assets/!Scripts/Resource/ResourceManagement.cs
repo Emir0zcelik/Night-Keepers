@@ -105,7 +105,15 @@ namespace NightKeepers
         private void Start()
         {
             buildingData = null;
-            StartResourceProduction(buildingData);
+            if (buildingData != null)
+            {
+                StartResourceProduction(buildingData);
+            }
+            else
+            {
+                Debug.Log("BuildingData is null. Resource production cannot be started.");
+            }
+            /*StartResourceProduction(buildingData);*/
         }
 
     }
