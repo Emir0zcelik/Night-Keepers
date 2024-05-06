@@ -265,10 +265,10 @@ public class BuildingManager : Singleton<BuildingManager>
             {
                 return false; 
             }
-            // if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
-            // {
-            //     return false;
-            // }
+            if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
+            {
+                return false;
+            }
 
             if (building.buildingData.placableTileTypes[0] == _gridManager._grid[position].tileType)
             {

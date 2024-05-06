@@ -35,9 +35,6 @@ namespace NightKeepers
         {
             if (Input.GetMouseButtonDown(0) && GridManager.Instance._grid[gridPosition].building != null)
             {
-
-                
-
                 if (GridManager.Instance._grid[gridPosition].building.TryGetComponent<FunctionalBuilding>(out var func))
                 {
                     onBuildingSelected?.Invoke(func);
