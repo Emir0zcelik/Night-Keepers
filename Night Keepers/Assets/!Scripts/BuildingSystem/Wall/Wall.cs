@@ -11,6 +11,9 @@ namespace NightKeepers
         public Wall LeftWall;
         public Wall RightWall;
 
+        private Vector3 cornerOffset = new Vector3(1.672363f, 0, -1.672364f);
+        private Vector3 tripleOffset = new Vector3(1.672363f, 0, 1.490116e-07f);
+
         private MeshFilter meshFilter;
         [SerializeField] private Transform childTransform;
         public bool Up, Down, Left, Right;
@@ -140,7 +143,11 @@ namespace NightKeepers
                 {
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
                     transform.rotation = Quaternion.Euler(0, 270, 0);
-                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, -1.672364f);
+                    childTransform.transform.localPosition = cornerOffset;
+                    if (RightWall.UpWall == null)
+                    {
+                        isVertical = false;
+                    }
                 }
             }
 
@@ -150,7 +157,7 @@ namespace NightKeepers
                 {
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
                     transform.rotation = Quaternion.Euler(0 , 180, 0);        
-                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, -1.672364f);
+                    childTransform.transform.localPosition = cornerOffset;
         
                 }
             }
@@ -161,7 +168,7 @@ namespace NightKeepers
                 {
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
                     transform.rotation = Quaternion.Euler(0, 0, 0);
-                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, -1.672364f);
+                    childTransform.transform.localPosition = cornerOffset;
                 }
             }
 
@@ -171,7 +178,7 @@ namespace NightKeepers
                 {
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
                     transform.rotation = Quaternion.Euler(0, 90, 0);
-                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, -1.672364f);
+                    childTransform.transform.localPosition = cornerOffset;
                 }
             }
 
@@ -190,7 +197,7 @@ namespace NightKeepers
                 if (UpWall.isVertical && DownWall.isVertical && !RightWall.isVertical)
                 {
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[1].mesh;
-                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, 1.490116e-07f);
+                    childTransform.transform.localPosition = tripleOffset;
                 }
             }
 
@@ -199,7 +206,7 @@ namespace NightKeepers
                 if (DownWall.isVertical && !LeftWall.isVertical && !RightWall.isVertical)
                 {
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[1].mesh;
-                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, 1.490116e-07f);
+                    childTransform.transform.localPosition = tripleOffset;
                 }
             }
 
@@ -209,7 +216,7 @@ namespace NightKeepers
                 {
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[1].mesh;
                     transform.rotation = Quaternion.Euler(0 , 180, 0);
-                    childTransform.transform.localPosition = new Vector3(1.672363f, 0, 1.490116e-07f);
+                    childTransform.transform.localPosition = tripleOffset;
                 }   
             }
 
@@ -218,7 +225,6 @@ namespace NightKeepers
                 if (UpWall.isVertical && DownWall.isVertical && !RightWall.isVertical && !LeftWall.isVertical)
                 {
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[2].mesh;
-                    childTransform.transform.localPosition = new Vector3(0, 0, 0);
                 }
             }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6802883624914731260}
   m_Layer: 0
   m_Name: TownHallBase
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingData: {fileID: 11400000, guid: b8bd2274bfdabaf4caef59dbae4b72ce, type: 2}
   direction: 1
-  buildingType: 0
+  buildingType: 4
 --- !u!1001 &3137375931490702081
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -33,6 +33,8 @@ public class BuildingManager : Singleton<BuildingManager>
 
     bool isPlaceBuilding = false;
 
+    bool isBuildingMode = true;
+
     private int sameTileCount = 0;
 
     private void Awake() {
@@ -71,10 +73,16 @@ public class BuildingManager : Singleton<BuildingManager>
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
         {
-            isPlaceBuilding = true;
             gridPosition = _gridManager._grid.WorldToGridPosition(raycastHit.point);
-
-            PreviewBuilding(gridPosition);
+            if (isBuildingMode)
+            {                
+                isPlaceBuilding = true;
+                PreviewBuilding(gridPosition);
+            }
+            else
+            {
+                previews[buildingNumber].transform.position = Vector3.zero;
+            }
         }
         else{
             isPlaceBuilding = false;
@@ -89,7 +97,19 @@ public class BuildingManager : Singleton<BuildingManager>
             isRotated = true;
         }
 
-        if (isPlaceBuilding)
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Debug.Log("Building Mode:" + isBuildingMode);
+            isBuildingMode = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Debug.Log("Building Mode:" + isBuildingMode);
+            isBuildingMode = true;
+        }
+
+        if (isPlaceBuilding && isBuildingMode)
         {
             PlaceBuilding(gridPosition);
         }
@@ -182,6 +202,12 @@ public class BuildingManager : Singleton<BuildingManager>
         }    
     }
 
+    public Vector2Int GetPreviewPosition()
+    {
+        Debug.Log(_gridManager._grid.WorldToGridPosition(previews[buildingNumber].transform.position));
+        return _gridManager._grid.WorldToGridPosition(previews[buildingNumber].transform.position);
+    }
+
     private void PlaceBuilding(Vector2Int gridPosition)
     {
         if (Input.GetMouseButtonDown(0))
@@ -250,10 +276,10 @@ public class BuildingManager : Singleton<BuildingManager>
             }
         }
 
-        if (sameTileCount == 0)
-        {
-            return false;
-        }
+        // if (sameTileCount == 0)
+        // {
+        //     return false;
+        // }
 
         /*string buildingName = building.buildingData.name;
          if (rm.buildingCounts.ContainsKey(buildingName))

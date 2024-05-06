@@ -1909,6 +1909,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593591732}
   m_CullTransparentMesh: 1
+--- !u!1 &1628324427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1628324429}
+  - component: {fileID: 1628324428}
+  m_Layer: 0
+  m_Name: SelectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1628324428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628324427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b191dacb2fd027478143e9d0135d211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1628324429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628324427}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 705.0707, y: 519.5789, z: 144.87732}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1636110131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,17 +3013,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 797071215624524368, guid: 5be900bf191d1ae4faefeac77add1d7c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797071215624524368, guid: 5be900bf191d1ae4faefeac77add1d7c,
+        type: 3}
+      propertyPath: outlineWidth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3931576779378130441, guid: 5be900bf191d1ae4faefeac77add1d7c,
         type: 3}
       propertyPath: m_Name
       value: IronMineBase
       objectReference: {fileID: 0}
-    - target: {fileID: 8167521406150457605, guid: 5be900bf191d1ae4faefeac77add1d7c,
+    - target: {fileID: 3931576779378130441, guid: 5be900bf191d1ae4faefeac77add1d7c,
         type: 3}
-      propertyPath: buildingType
-      value: 2
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4229443214467719033, guid: 5be900bf191d1ae4faefeac77add1d7c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Selectable
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 797071215624524368, guid: 5be900bf191d1ae4faefeac77add1d7c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3108,6 +3168,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1249959897}
     m_Modifications:
+    - target: {fileID: 700320612367296191, guid: d7ca947743354724b952734a7af05fa9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 700320612367296191, guid: d7ca947743354724b952734a7af05fa9,
+        type: 3}
+      propertyPath: outlineWidth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 901134750798860105, guid: d7ca947743354724b952734a7af05fa9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3158,17 +3228,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1268634703167157293, guid: d7ca947743354724b952734a7af05fa9,
+    - target: {fileID: 7488257158142499172, guid: d7ca947743354724b952734a7af05fa9,
         type: 3}
-      propertyPath: buildingType
-      value: 3
+      propertyPath: m_TagString
+      value: Selectable
       objectReference: {fileID: 0}
     - target: {fileID: 9025847561835886657, guid: d7ca947743354724b952734a7af05fa9,
         type: 3}
       propertyPath: m_Name
       value: LumberjackBase
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9025847561835886657, guid: d7ca947743354724b952734a7af05fa9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 700320612367296191, guid: d7ca947743354724b952734a7af05fa9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3311,35 +3387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseParent
       objectReference: {fileID: 0}
-    - target: {fileID: 1623288848659088973, guid: 15424969059af374fbebd72b13a9a5c3,
+    - target: {fileID: 791249885829743462, guid: 15424969059af374fbebd72b13a9a5c3,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1623288848659088973, guid: 15424969059af374fbebd72b13a9a5c3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1623288848659088973, guid: 15424969059af374fbebd72b13a9a5c3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1665785984441019724, guid: 15424969059af374fbebd72b13a9a5c3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1665785984441019724, guid: 15424969059af374fbebd72b13a9a5c3,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1665785984441019724, guid: 15424969059af374fbebd72b13a9a5c3,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1665785984441019724, guid: 15424969059af374fbebd72b13a9a5c3,
         type: 3}
@@ -3391,17 +3442,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1665785984441019724, guid: 15424969059af374fbebd72b13a9a5c3,
+    - target: {fileID: 2147306866653125879, guid: 15424969059af374fbebd72b13a9a5c3,
         type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
+      propertyPath: m_TagString
+      value: Selectable
       objectReference: {fileID: 0}
-    - target: {fileID: 2372149197767740968, guid: 15424969059af374fbebd72b13a9a5c3,
-        type: 3}
-      propertyPath: buildingData
-      value: 
-      objectReference: {fileID: 11400000, guid: f6512fdd73d588f4aab006f38bdb7cd5,
-        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3420,10 +3465,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: TownHallBase
       objectReference: {fileID: 0}
-    - target: {fileID: 6802883624914731260, guid: aff70cad4967366438455fbe18bb3659,
+    - target: {fileID: 1462845469361398276, guid: aff70cad4967366438455fbe18bb3659,
         type: 3}
-      propertyPath: buildingType
-      value: 4
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4411681373033989263, guid: aff70cad4967366438455fbe18bb3659,
+        type: 3}
+      propertyPath: m_TagString
+      value: Selectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843287889213173113, guid: aff70cad4967366438455fbe18bb3659,
+        type: 3}
+      propertyPath: outlineWidth
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7964376924650922341, guid: aff70cad4967366438455fbe18bb3659,
         type: 3}
@@ -3475,7 +3530,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5843287889213173113, guid: aff70cad4967366438455fbe18bb3659, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3578,17 +3634,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2411556421893056226, guid: daad74a23070dfc43b804c9d12e8a0d2,
+    - target: {fileID: 8283276115521043585, guid: daad74a23070dfc43b804c9d12e8a0d2,
         type: 3}
-      propertyPath: buildingType
-      value: 1
+      propertyPath: m_TagString
+      value: Selectable
       objectReference: {fileID: 0}
     - target: {fileID: 8508886740924791097, guid: daad74a23070dfc43b804c9d12e8a0d2,
         type: 3}
       propertyPath: m_Name
       value: StoneMineBase
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8508886740924791097, guid: daad74a23070dfc43b804c9d12e8a0d2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950529254202779277, guid: daad74a23070dfc43b804c9d12e8a0d2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950529254202779277, guid: daad74a23070dfc43b804c9d12e8a0d2,
+        type: 3}
+      propertyPath: outlineWidth
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8950529254202779277, guid: daad74a23070dfc43b804c9d12e8a0d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4137,15 +4209,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1249959897}
     m_Modifications:
-    - target: {fileID: 1451363122182117621, guid: cd53c84429d446e4a9bf872f678b8c5c,
+    - target: {fileID: 338266617875533721, guid: cd53c84429d446e4a9bf872f678b8c5c,
         type: 3}
-      propertyPath: buildingType
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338266617875533721, guid: cd53c84429d446e4a9bf872f678b8c5c,
+        type: 3}
+      propertyPath: outlineWidth
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2608523661056864540, guid: cd53c84429d446e4a9bf872f678b8c5c,
         type: 3}
       propertyPath: m_Name
       value: TestBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608523661056864540, guid: cd53c84429d446e4a9bf872f678b8c5c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032192005394664701, guid: cd53c84429d446e4a9bf872f678b8c5c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Selectable
       objectReference: {fileID: 0}
     - target: {fileID: 7901167604092948532, guid: cd53c84429d446e4a9bf872f678b8c5c,
         type: 3}
@@ -4197,7 +4284,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 338266617875533721, guid: cd53c84429d446e4a9bf872f678b8c5c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4236,3 +4324,4 @@ SceneRoots:
   - {fileID: 268319908}
   - {fileID: 1249959897}
   - {fileID: 1659119523}
+  - {fileID: 1628324429}
