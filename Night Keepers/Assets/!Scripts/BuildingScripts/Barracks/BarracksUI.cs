@@ -31,10 +31,12 @@ namespace NightKeepers
         {
             if (barracks.GetType() == typeof(Barracks))
             {
-                Debug.Log("deneme");
+                _selectedBarrack = (Barracks)barracks;
                 UIHolder.SetActive(true);
+                OnListUpdated();
             }
             else{
+                _selectedBarrack = null;
                 UIHolder.SetActive(false);
             }
         }
