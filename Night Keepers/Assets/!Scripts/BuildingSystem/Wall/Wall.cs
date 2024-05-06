@@ -230,6 +230,7 @@ namespace NightKeepers
                 if (UpWall.isVertical && DownWall.isVertical && !RightWall.isVertical && !LeftWall.isVertical)
                 {
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[2].mesh;
+                    childTransform.transform.localPosition = new Vector3(3.790855e-05f , 0 , 2.812286e-09f);
                 }
             }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingTypes: 0
   health: 10
-  placableTileTypes: 01000000
+  placableTileTypes: 0100000005000000
   widthHeight: {x: 2, y: 2}
   visual: {fileID: 0}
   Workforce: 0
@@ -24,3 +24,4 @@ MonoBehaviour:
     iron: 0
     food: 0
   ProductionAmount: 2
+  resourceTileSize: 0

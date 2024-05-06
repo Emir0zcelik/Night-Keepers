@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
   m_Name: Farm
   m_EditorClassIdentifier: 
-  name: Stone Mine
+  buildingTypes: 0
   health: 10
-  placableTileTypes: 01000000
+  placableTileTypes: 0100000005000000
   widthHeight: {x: 1, y: 1}
-  wood: 100
-  stone: 100
-  iron: 0
-  food: 0
+  visual: {fileID: 0}
+  Workforce: 0
+  Cost:
+    wood: 0
+    stone: 0
+    iron: 0
+    food: 0
+  ProductionAmount: 0
+  resourceTileSize: 0
