@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1190365221445479703}
   m_Layer: 0
   m_Name: Castle_Wall_1_Parent
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,10 +65,12 @@ MonoBehaviour:
   DownWall: {fileID: 0}
   LeftWall: {fileID: 0}
   RightWall: {fileID: 0}
+  childTransform: {fileID: 0}
   Up: 0
   Down: 0
   Left: 0
   Right: 0
+  isVertical: 0
 --- !u!1001 &5148518407594793400
 PrefabInstance:
   m_ObjectHideFlags: 0

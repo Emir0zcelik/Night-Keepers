@@ -97,15 +97,15 @@ public class BuildingManager : Singleton<BuildingManager>
             isRotated = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Building Mode:" + isBuildingMode);
+            // Debug.Log("Building Mode:" + isBuildingMode);
             isBuildingMode = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.B))
         {
-            Debug.Log("Building Mode:" + isBuildingMode);
+            // Debug.Log("Building Mode:" + isBuildingMode);
             isBuildingMode = true;
         }
 
@@ -204,7 +204,6 @@ public class BuildingManager : Singleton<BuildingManager>
 
     public Vector2Int GetPreviewPosition()
     {
-        Debug.Log(_gridManager._grid.WorldToGridPosition(previews[buildingNumber].transform.position));
         return _gridManager._grid.WorldToGridPosition(previews[buildingNumber].transform.position);
     }
 
@@ -232,7 +231,8 @@ public class BuildingManager : Singleton<BuildingManager>
                 {
                     Tile tile = new Tile()
                     {
-                        building = instantiatedBuilding
+                        building = instantiatedBuilding,
+                        tileType = _gridManager._grid[gridPosition].tileType,
                     };
                     _gridManager._grid[position] = tile;
                 }
@@ -263,29 +263,27 @@ public class BuildingManager : Singleton<BuildingManager>
         {
             if (_gridManager._grid[position].building != null)
             {
+                // Debug.Log("Null deil");
                 return false; 
             }
             if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
             {
+                // Debug.Log("su degil");
                 return false;
             }
 
             if (building.buildingData.placableTileTypes[0] == _gridManager._grid[position].tileType)
             {
+                // Debug.Log("same tile count > 0");
                 sameTileCount++;
             }
         }
 
         if (sameTileCount == 0)
         {
+            // Debug.Log("same tile count == 0");
             return false;
         }
-
-        /*string buildingName = building.buildingData.name;
-         if (rm.buildingCounts.ContainsKey(buildingName))
-         {
-             rm.buildingCounts[buildingName]++;
-         }// In RM.cs buildingCounts will increase with respect of building name.*/
 
         isPlaced = true;
 

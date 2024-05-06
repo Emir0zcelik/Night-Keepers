@@ -10,7 +10,6 @@ namespace NightKeepers
     public class SelectionManager : Singleton<SelectionManager>
     {
         private Transform highlight;
-        private Transform selection;
         private RaycastHit raycastHit;
 
         private Building selectedBuilding;
@@ -53,7 +52,7 @@ namespace NightKeepers
             if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit)) 
             {
                 highlight = raycastHit.transform;
-                if (highlight.CompareTag("Selectable") && highlight != selection)
+                if (highlight.CompareTag("Selectable"))
                 {
                     if (highlight.gameObject.GetComponent<Outline>() != null)
                     {
@@ -61,10 +60,11 @@ namespace NightKeepers
                     }
                     else
                     {
+                        print(highlight.gameObject);
                         Outline outline = highlight.gameObject.AddComponent<Outline>();
                         outline.enabled = true;
                         highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
-                        highlight.gameObject.GetComponent<Outline>().OutlineWidth = 5.0f;
+                        highlight.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
                     }
                 }
                 else
@@ -81,6 +81,7 @@ namespace NightKeepers
                 Tile tile = new Tile()
                 {
                     building = null,
+                    tileType = GridManager.Instance._grid[gridPosition].tileType
                 };
 
                 if (GridManager.Instance._grid[gridPosition].building != null)
