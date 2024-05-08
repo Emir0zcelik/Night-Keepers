@@ -11,7 +11,7 @@ namespace NightKeepers.Research
     public class Buttons : MonoBehaviour
     {
 
-        [SerializeField] private TMP_Text resourceValue;
+        //[SerializeField] TMP_Text resourceValue;
         public Upgrades _upgrades;
         public BuildingUI buildui;
 

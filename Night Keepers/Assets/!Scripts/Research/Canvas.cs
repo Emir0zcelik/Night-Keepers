@@ -8,9 +8,9 @@ namespace NightKeepers.Research
 {
     public class Canvas : MonoBehaviour
     {
-        public  TMP_Text text;
+        public  TMP_Text researchText;
         private Upgrades _upgrades;
-
+        private int cost;
         public enum CanvasButtons
         {
             Lumberjack,
@@ -24,7 +24,7 @@ namespace NightKeepers.Research
         void Start()
         {
 
-            text.text = text.GetComponent<TMP_Text>().text;
+            researchText.text = researchText.GetComponent<TMP_Text>().text;
             StartCoroutine(UpdateText());
         }
 
@@ -33,7 +33,7 @@ namespace NightKeepers.Research
             while (true)
             {
                 yield return new WaitForSeconds(2);
-                text.text = (int.Parse(text.text) + Random.Range(1, 4)).ToString();
+                researchText.text = (int.Parse(researchText.text) + Random.Range(1, 4)).ToString();
             }
         }
         private void Awake()
@@ -44,13 +44,31 @@ namespace NightKeepers.Research
 
         private void Upgrades_OnResearchUnlocked(object sender, Upgrades.OnResearchUnlockedEventArgs e)
         {
+            int currentResearchValue;
+            int.TryParse(researchText.text, out currentResearchValue);
             switch (e.researchUpgrades)
             {
                 case Upgrades.ResearchUpgrades.Lumberjack1:
-                    Debug.Log("Lumberjack1 = Activated");
+                    if(currentResearchValue >= 20)
+                    {
+                        researchText.text = (currentResearchValue - 20).ToString();
+                        Debug.Log("Lumberjack1 = Activated");
+                    }
+                    else
+                    {
+                        Debug.Log("Insufficient research value to unlock Lumberjack1.");
+                    }
                     break;
-                case Upgrades.ResearchUpgrades.Lumberjack2: 
-                    Debug.Log("Lumberjack2 = Activated");
+                case Upgrades.ResearchUpgrades.Lumberjack2:
+                    if(currentResearchValue >= 50)
+                    {
+                        researchText.text = (currentResearchValue - 50).ToString();
+                        Debug.Log("Lumberjack2 = Activated");
+                    }
+                   else
+                    {
+                        Debug.Log("Insufficient research value to unlock Lumberjack2.");
+                    }
                     break;
                 case Upgrades.ResearchUpgrades.Farm:
                     Debug.Log("Farm = Activated");
@@ -73,7 +91,7 @@ namespace NightKeepers.Research
             return _upgrades;
         }
 
-        public bool Lumberjack1Active()
+        /*public bool Lumberjack1Active()
         {
             return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.Lumberjack1);
         }
@@ -92,7 +110,7 @@ namespace NightKeepers.Research
         public bool StoneMineActive()
         {
             return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.StoneMine);
-        }
+        }*/
 
     }
 }

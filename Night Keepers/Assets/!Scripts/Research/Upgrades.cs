@@ -30,8 +30,9 @@ namespace NightKeepers.Research
             IronMine,
             OthersBuff
         }
-
+ 
         public List<ResearchUpgrades> unlockedUpgrades;
+
         public Upgrades()
         {
             unlockedUpgrades = new List<ResearchUpgrades>();
@@ -42,16 +43,15 @@ namespace NightKeepers.Research
              {
 
                  unlockedUpgrades.Add(upgrades);
-                 OnResearchUnlocked?.Invoke(this, new OnResearchUnlockedEventArgs { researchUpgrades = upgrades });
-             }
- 
-
+                 OnResearchUnlocked?.Invoke(this, new OnResearchUnlockedEventArgs { researchUpgrades = upgrades });           
+            }
+            
         }
+
         public bool IsUnlocked(ResearchUpgrades upgrades)
         {
             Debug.Log(upgrades);
             Debug.Log(unlockedUpgrades.Count);
-            Debug.Log($"List of characters: [{string.Join(", ", unlockedUpgrades)}]");
             return unlockedUpgrades.Contains(upgrades);
         }
         
@@ -66,25 +66,27 @@ namespace NightKeepers.Research
         }
         public bool TryUnlock(ResearchUpgrades upgrades)
         {
-            ResearchUpgrades requirement = GetResearchRequirement(upgrades);
+            ResearchUpgrades requirement = GetResearchRequirement(upgrades);         
             if (requirement != ResearchUpgrades.None)
-            {
-                if (IsUnlocked(requirement))
+                {
+                    if (IsUnlocked(requirement))
+                    {
+                        UnlockUpgrades(upgrades);
+                    Debug.Log($"List of characters: [{string.Join(", ", unlockedUpgrades)}]");
+                    return true;
+                    }
+                    else
+                    {
+                        Debug.Log("You need to unlock " + requirement + " first");
+                        return false;
+                    }
+                }
+                else
                 {
                     UnlockUpgrades(upgrades);
                     return true;
                 }
-                else
-                {
-                    Debug.Log("You need to unlock " + requirement + " first");
-                    return false;
-                }
-            }
-            else
-            {
-                UnlockUpgrades(upgrades);
-                return true;
-            }
+
         }
 
 
