@@ -14,12 +14,10 @@ public class BuildingManager : Singleton<BuildingManager>
     [SerializeField] private List<GameObject> previews; 
     [SerializeField] private List<Building> buildingPreviews; 
     [SerializeField] private List<MeshRenderer> meshRendererPreviews; 
-    [SerializeField] private List<Material> baseMaterials;
     [SerializeField] private Material validPreviewMaterial;
     [SerializeField] private Material invalidPreviewMaterial;
 
     public Vector2Int gridPositonForWall;
-
     public static event Action<GameObject> OnMainBuildingPlaced;
 
     public List<Building> walls;
@@ -40,13 +38,9 @@ public class BuildingManager : Singleton<BuildingManager>
     //private int sameTileCount = 0;
     public int sameTileCount { get; private set; }
 
+    // Dictionary<int, List<Material>> Materi
     
     private void Awake() {
-        foreach (var building in buildings)
-        {
-            baseMaterials.Add(building.GetComponentInChildren<MeshRenderer>().sharedMaterial);
-        }
-
         foreach (var preview in previews)
         {
             buildingPreviews.Add(preview.GetComponentInChildren<Building>());
@@ -103,13 +97,11 @@ public class BuildingManager : Singleton<BuildingManager>
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Debug.Log("Building Mode:" + isBuildingMode);
             isBuildingMode = false;
         }
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-            // Debug.Log("Building Mode:" + isBuildingMode);
             isBuildingMode = true;
         }
 
@@ -187,12 +179,22 @@ public class BuildingManager : Singleton<BuildingManager>
         if(!isPlaced)
         {
             if (TryBuild(buildings[buildingNumber], buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction),rm))
-            {
-                meshRendererPreviews[buildingNumber].material = validPreviewMaterial;
+            {   
+                var yourMaterials = new Material[]
+                {
+                    validPreviewMaterial, validPreviewMaterial
+                };
+
+                meshRendererPreviews[buildingNumber].materials = yourMaterials;
             }
             else
             {
-                meshRendererPreviews[buildingNumber].material = invalidPreviewMaterial;          
+                var yourMaterials = new Material[]
+                {
+                    invalidPreviewMaterial, invalidPreviewMaterial
+                };
+
+                meshRendererPreviews[buildingNumber].materials = yourMaterials;        
             }
             Vector2Int rotationOffset = buildingPreviews[buildingNumber].buildingData.GetRotationOffset(buildingPreviews[buildingNumber].direction);
             Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
@@ -222,13 +224,11 @@ public class BuildingManager : Singleton<BuildingManager>
             if (TryBuild(buildings[buildingNumber], gridPositionList,rm))
             {                
                 Vector2Int rotationOffset = buildings[buildingNumber].buildingData.GetRotationOffset(buildings[buildingNumber].direction);
-                Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
+                Vector3 instantiatedBuildingWorldPosition = previews[buildingNumber].transform.position;
                 Building instantiatedBuilding = Instantiate(
                         buildings[buildingNumber],
                         instantiatedBuildingWorldPosition,
                         Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
-
-                // instantiatedBuilding.GetComponentInChildren<MeshRenderer>().material = baseMaterials[buildingNumber];
 
 
                 foreach (Vector2Int position in gridPositionList)
