@@ -8,17 +8,7 @@ namespace NightKeepers
     {
         public ResourceManagement resourceManager;
 
-       /* public BuildingData ironMineData;
-        public BuildingData stoneMineData;
-        public BuildingData farmData;
-        public BuildingData lumberJackData;*/
-
-        //public int Icount, Lcount, Fcount, Scount;
-
-        /*public Button ironMineButton;
-        public Button stoneMineButton;
-        public Button farmButton;
-        public Button lumberJackButton;*/
+  
 
         public Dictionary<string, int> buildingCounts = new Dictionary<string, int>();
 
@@ -33,11 +23,7 @@ namespace NightKeepers
             buildingCounts["Wall"] = 0;
             buildingCounts["House"] = 0;
 
-           /* ironMineButton.onClick.AddListener(() => SetBuildingData(ironMineData));           
-            stoneMineButton.onClick.AddListener(() => SetBuildingData(stoneMineData));           
-            farmButton.onClick.AddListener(() => SetBuildingData(farmData));           
-            lumberJackButton.onClick.AddListener(() => SetBuildingData(lumberJackData));*/
-            
+ 
         }
 
         public void SetBuildingData(BuildingData data)

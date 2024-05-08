@@ -37,8 +37,10 @@ public class BuildingManager : Singleton<BuildingManager>
 
     bool isBuildingMode = true;
 
-    private int sameTileCount = 0;
+    //private int sameTileCount = 0;
+    public int sameTileCount { get; private set; }
 
+    
     private void Awake() {
         foreach (var building in buildings)
         {
@@ -262,6 +264,8 @@ public class BuildingManager : Singleton<BuildingManager>
     {
         this.buildingType = buildingType;
     }
+
+    
 
     private bool TryBuild(Building building, List<Vector2Int> gridPositionList, RM rmInstance)
     {
