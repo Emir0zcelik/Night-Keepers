@@ -103,7 +103,13 @@ namespace NightKeepers
         }
         private void Start()
         {
-            StartResourceProduction(buildingData);
+            buildingData = null;
+            if (buildingData != null)
+            {
+                StartResourceProduction(buildingData);
+            }
+            
+            /*StartResourceProduction(buildingData);*/
         }
 
     }
