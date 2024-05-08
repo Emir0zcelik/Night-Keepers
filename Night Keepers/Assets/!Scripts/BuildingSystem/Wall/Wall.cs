@@ -11,6 +11,8 @@ namespace NightKeepers
         public Wall LeftWall;
         public Wall RightWall;
 
+        [SerializeField] private bool isPreview = false;
+
         private Vector3 cornerOffset = new Vector3(1.672363f, 0, -1.672364f);
         private Vector3 tripleOffset = new Vector3(1.672363f, 0, 1.490116e-07f);
 
@@ -25,6 +27,10 @@ namespace NightKeepers
         }
 
         private void Start() {
+
+            if (isPreview) {
+                return;
+            }
 
             CheckVertical();
             CheckAllSides();
@@ -146,6 +152,7 @@ namespace NightKeepers
             {
                 if (UpWall.isVertical && !RightWall.isVertical)
                 {
+                    Debug.Log(meshFilter.mesh);
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
                     transform.rotation = Quaternion.Euler(0, 270, 0);
                     childTransform.transform.localPosition = cornerOffset;

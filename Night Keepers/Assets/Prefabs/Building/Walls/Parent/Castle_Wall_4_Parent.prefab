@@ -49,6 +49,7 @@ MonoBehaviour:
   buildingData: {fileID: 11400000, guid: f9648ddd8d4160f48b6a4bd9e8be3544, type: 2}
   direction: 1
   buildingType: 0
+  sameTileCount: 0
 --- !u!114 &5170211333781799884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,10 +66,12 @@ MonoBehaviour:
   DownWall: {fileID: 0}
   LeftWall: {fileID: 0}
   RightWall: {fileID: 0}
+  childTransform: {fileID: 3489438300375188628}
   Up: 0
   Down: 0
   Left: 0
   Right: 0
+  isVertical: 0
 --- !u!1001 &5361710301039244348
 PrefabInstance:
   m_ObjectHideFlags: 0

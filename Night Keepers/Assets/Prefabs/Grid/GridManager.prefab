@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7987915510276431226}
+  - component: {fileID: 1537138583371703022}
   - component: {fileID: 6410684311430121414}
   m_Layer: 0
   m_Name: GridManager
@@ -32,6 +33,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1537138583371703022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086393026546529161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d9d57bba22122408089aaf7912e26a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameSeed: BOK
+  CurrentSeed: 0
 --- !u!114 &6410684311430121414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827bf441bed4d434d91cde5b9e74dd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
-  height: 10
-  cellSize: 10
+  width: 100
+  height: 100
+  cellSize: 2
   grassProbability: 89
   rockProbability: 92
   waterProbability: 94
@@ -62,12 +77,6 @@ MonoBehaviour:
   waterNoise: 0
   woodNoise: 0.3
   ironNoise: 0
-  building:
-  - {fileID: 5486441257105310043, guid: 6f41f80c090f866478cc72e33d06236b, type: 3}
-  - {fileID: 2719336066864652485, guid: 0f0b262ec50ec884884837414166d855, type: 3}
-  - {fileID: 8330685427325949554, guid: f511d78839323f4449aab8cb623290d6, type: 3}
-  - {fileID: 2692736109484692394, guid: a8a33721085a4ac458db523672cb11a7, type: 3}
-  - {fileID: 3531529327772665375, guid: ab402a812b7fa2d479d94973aed9f85d, type: 3}
   tilePrefabs:
   - {fileID: 7101122890135902830, guid: e52a237af4195d742a34add7e3a838d4, type: 3}
   - {fileID: 7544858745873268653, guid: ba69519d94ab8b5409c7ddbe32f8b633, type: 3}

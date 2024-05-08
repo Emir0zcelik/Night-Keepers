@@ -70,6 +70,7 @@ MonoBehaviour:
     type: 2}
   invalidPreviewMaterial: {fileID: 2100000, guid: 902c2023408f1d54caabe103d524e052,
     type: 2}
+  gridPositonForWall: {x: 0, y: 0}
   walls: []
   rm: {fileID: 0}
 --- !u!114 &5411096954508611090
@@ -85,7 +86,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gridManager: {fileID: 0}
-  _parentWalls:
+  _parentWallsList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _buildingManager: {fileID: 9194757620622397249}
+  _wallMeshFilters:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
