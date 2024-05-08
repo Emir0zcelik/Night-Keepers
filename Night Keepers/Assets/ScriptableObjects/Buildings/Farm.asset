@@ -15,7 +15,7 @@ MonoBehaviour:
   buildingTypes: 0
   health: 10
   placableTileTypes: 0100000005000000
-  widthHeight: {x: 1, y: 1}
+  widthHeight: {x: 1, y: 2}
   visual: {fileID: 0}
   Workforce: 0
   Cost:
@@ -24,4 +24,3 @@ MonoBehaviour:
     iron: 0
     food: 0
   ProductionAmount: 0
-  resourceTileSize: 0

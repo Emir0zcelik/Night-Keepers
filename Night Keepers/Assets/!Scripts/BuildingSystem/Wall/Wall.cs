@@ -176,16 +176,6 @@ namespace NightKeepers
                     {
                         isVertical = false;
                     }
-                    
-                    if (LeftWall.UpWall.isVertical == true)
-                    {
-                        isVertical = false;
-                    }
-
-                    if (LeftWall.UpWall.isVertical == false)
-                    {
-                        isVertical = true;
-                    }
 
                 }
             }
@@ -203,10 +193,6 @@ namespace NightKeepers
                         isVertical = false;
                     }
 
-                    if (RightWall.DownWall != null)
-                    {
-                        isVertical = false;
-                    }
                 }
             }
 
@@ -223,10 +209,6 @@ namespace NightKeepers
                         isVertical = false;
                     }
 
-                    if (LeftWall.DownWall != null)
-                    {
-                        isVertical = false;
-                    }
                 }
             }
 
@@ -272,14 +254,10 @@ namespace NightKeepers
             {
                 if (UpWall.isVertical && DownWall.isVertical && !RightWall.isVertical && !LeftWall.isVertical)
                 {
-                    print("sa");
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[2].mesh;
                     childTransform.transform.localPosition = new Vector3(3.790855e-05f , 0 , 2.812286e-09f);
                 }
             }
-
-
-
         }
     }
 }
