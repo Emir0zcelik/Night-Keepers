@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 namespace NightKeepers
@@ -32,40 +33,41 @@ namespace NightKeepers
                 return;
             }
 
+
             CheckVertical();
             CheckAllSides();
             
             if (UpWall != null)
             {
-                UpWall.CheckVertical();
+                // UpWall.CheckVertical();
                 UpWall.CheckAllSides();
             }
 
             if (DownWall != null)
             {
-                DownWall.CheckVertical();
+                // DownWall.CheckVertical();
                 DownWall.CheckAllSides();
 
             }
 
             if (LeftWall != null)
             {
-                LeftWall.CheckVertical();
+                // LeftWall.CheckVertical();
                 LeftWall.CheckAllSides();
             }
 
             if (RightWall != null)
             {
-                RightWall.CheckVertical();
+                // RightWall.CheckVertical();
                 RightWall.CheckAllSides();
             }
-
         }
 
         public void CheckAllSides()
         {
             if (!GridManager.Instance._grid.IsInDimensions(GridManager.Instance._grid.WorldToGridPosition(transform.position)))
             {
+                print("check cikti");
                 return;
             }
             
@@ -78,7 +80,7 @@ namespace NightKeepers
 
         public void CheckVertical()
         {
-            if (transform.rotation == Quaternion.Euler(0, 0, 0))
+            if (transform.rotation == Quaternion.Euler(0, 0, 0) || transform.rotation == Quaternion.Euler(0, 180, 0))
             {
                 isVertical = true;                
             }
@@ -152,10 +154,10 @@ namespace NightKeepers
             {
                 if (UpWall.isVertical && !RightWall.isVertical)
                 {
-                    Debug.Log(meshFilter.mesh);
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
                     transform.rotation = Quaternion.Euler(0, 270, 0);
                     childTransform.transform.localPosition = cornerOffset;
+
                     if (RightWall.UpWall == null)
                     {
                         isVertical = false;
@@ -173,11 +175,14 @@ namespace NightKeepers
         
                 }
             }
-
+            
+            print("Update");
             if (Down && Right)
-            {                 
+            {     
+                print("Down Right");            
                 if (DownWall.isVertical && !RightWall.isVertical)
                 {
+                    print("Inside if");
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[0].mesh;
                     transform.rotation = Quaternion.Euler(0, 0, 0);
                     childTransform.transform.localPosition = cornerOffset;
@@ -236,6 +241,7 @@ namespace NightKeepers
             {
                 if (UpWall.isVertical && DownWall.isVertical && !RightWall.isVertical && !LeftWall.isVertical)
                 {
+                    print("sa");
                     meshFilter.mesh = WallManager.Instance._wallMeshFilters[2].mesh;
                     childTransform.transform.localPosition = new Vector3(3.790855e-05f , 0 , 2.812286e-09f);
                 }

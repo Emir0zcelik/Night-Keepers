@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6706090816041609177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 101, y: 0, z: 99}
+  m_LocalPosition: {x: 97, y: 0, z: 103}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -49,6 +49,7 @@ MonoBehaviour:
   buildingData: {fileID: 11400000, guid: f9648ddd8d4160f48b6a4bd9e8be3544, type: 2}
   direction: 1
   buildingType: 6
+  sameTileCount: 0
 --- !u!114 &1190365221445479703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,7 +66,8 @@ MonoBehaviour:
   DownWall: {fileID: 0}
   LeftWall: {fileID: 0}
   RightWall: {fileID: 0}
-  childTransform: {fileID: 0}
+  isPreview: 0
+  childTransform: {fileID: 4681930843311193683}
   Up: 0
   Down: 0
   Left: 0
@@ -133,7 +135,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 04231e7a189848a40b9ffe6c675863df, type: 2}
+      objectReference: {fileID: 5561349426305759274, guid: 92335f5bb47b11c46933a8f1adcf8463,
+        type: 3}
     - target: {fileID: 919132149155446097, guid: 92335f5bb47b11c46933a8f1adcf8463,
         type: 3}
       propertyPath: m_Name

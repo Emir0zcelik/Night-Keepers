@@ -60,7 +60,6 @@ namespace NightKeepers
                     }
                     else
                     {
-                        print(highlight.gameObject);
                         Outline outline = highlight.gameObject.AddComponent<Outline>();
                         outline.enabled = true;
                         highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;

@@ -42,7 +42,7 @@ public class BuildingManager : Singleton<BuildingManager>
     private void Awake() {
         foreach (var building in buildings)
         {
-            baseMaterials.Add(building.GetComponentInChildren<MeshRenderer>().material);
+            baseMaterials.Add(building.GetComponentInChildren<MeshRenderer>().sharedMaterial);
         }
 
         foreach (var preview in previews)
@@ -226,7 +226,7 @@ public class BuildingManager : Singleton<BuildingManager>
                         instantiatedBuildingWorldPosition,
                         Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
 
-                instantiatedBuilding.GetComponentInChildren<MeshRenderer>().material = baseMaterials[buildingNumber];
+                // instantiatedBuilding.GetComponentInChildren<MeshRenderer>().material = baseMaterials[buildingNumber];
 
 
                 foreach (Vector2Int position in gridPositionList)

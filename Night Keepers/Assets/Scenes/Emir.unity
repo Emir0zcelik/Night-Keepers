@@ -837,18 +837,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 127675566795222841}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2085752225 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7818181944385099973, guid: 4e53985df042fdd46b50711a08b641a8,
-    type: 3}
-  m_PrefabInstance: {fileID: 127675566795222841}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085752223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05a8dc6249ae9a4bb3b10127581160a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &24747011501498579 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 303773471907228369, guid: 4e53985df042fdd46b50711a08b641a8,
@@ -1458,7 +1446,8 @@ PrefabInstance:
         type: 3}
       propertyPath: buildings.Array.data[5]
       value: 
-      objectReference: {fileID: 2085752225}
+      objectReference: {fileID: 8519823669154503373, guid: 0dda5728a6a87964dad3e4d04dab4170,
+        type: 3}
     - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
         type: 3}
       propertyPath: buildings.Array.data[6]
