@@ -8,16 +8,17 @@ namespace NightKeepers.Research
 {
     public class Canvas : MonoBehaviour
     {
-        public  TMP_Text researchText;
+        public TMP_Text researchText;
         private Upgrades _upgrades;
         private int cost;
         public enum CanvasButtons
         {
             Lumberjack,
-            Lumberjack2,
+            Lumberjack1,
             Farm,
             IronMine,
             StoneMine,
+            Wall,
             Others
         }
 
@@ -49,7 +50,7 @@ namespace NightKeepers.Research
             switch (e.researchUpgrades)
             {
                 case Upgrades.ResearchUpgrades.Lumberjack1:
-                    if(currentResearchValue >= 20)
+                    if (currentResearchValue >= 20)
                     {
                         researchText.text = (currentResearchValue - 20).ToString();
                         Debug.Log("Lumberjack1 = Activated");
@@ -60,24 +61,59 @@ namespace NightKeepers.Research
                     }
                     break;
                 case Upgrades.ResearchUpgrades.Lumberjack2:
-                    if(currentResearchValue >= 50)
+                    if (currentResearchValue >= 50)
                     {
                         researchText.text = (currentResearchValue - 50).ToString();
                         Debug.Log("Lumberjack2 = Activated");
                     }
-                   else
+                    else
                     {
                         Debug.Log("Insufficient research value to unlock Lumberjack2.");
                     }
                     break;
                 case Upgrades.ResearchUpgrades.Farm:
-                    Debug.Log("Farm = Activated");
+                    if (currentResearchValue >= 10)
+                    {
+                        researchText.text = (currentResearchValue - 10).ToString();
+                        Debug.Log("Farm = Activated");
+                    }
+                    else
+                    {
+                        Debug.Log("Insufficient research value to unlock Farm.");
+                    }
                     break;
                 case Upgrades.ResearchUpgrades.IronMine:
-                    Debug.Log("IronMine = Activated");
+                    if (currentResearchValue >= 10)
+                    {
+                        researchText.text = (currentResearchValue - 10).ToString();
+                        Debug.Log("IronMine = Activated");
+                    }
+                    else
+                    {
+                        Debug.Log("Insufficient research value to unlock IronMine.");
+                    }
                     break;
                 case Upgrades.ResearchUpgrades.StoneMine:
-                    Debug.Log("StoneMine = Activated");
+                    if (currentResearchValue >= 10)
+                    {
+                        researchText.text = (currentResearchValue - 10).ToString();
+                        Debug.Log("StoneMine = Activated");
+                    }
+                    else
+                    {
+                        Debug.Log("Insufficient research value to unlock StoneMine.");
+                    }
+                    break;
+                case Upgrades.ResearchUpgrades.Wall:
+                    if (currentResearchValue >= 10)
+                    {
+                        researchText.text = (currentResearchValue - 10).ToString();
+                        Debug.Log("Wall = Activated");
+                    }
+                    else
+                    {
+                        Debug.Log("Insufficient research value to unlock Wall.");
+                    }
                     break;
                 case Upgrades.ResearchUpgrades.OthersBuff:
                     Debug.Log("OthersBuff = Activated");
@@ -91,7 +127,7 @@ namespace NightKeepers.Research
             return _upgrades;
         }
 
-       
+
 
     }
 }

@@ -108,10 +108,7 @@ namespace NightKeepers
             {
                 StartResourceProduction(buildingData);
             }
-            else
-            {
-                Debug.Log("BuildingData is null. Resource production cannot be started.");
-            }
+            
             /*StartResourceProduction(buildingData);*/
         }
 
