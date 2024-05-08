@@ -69,7 +69,6 @@ namespace NightKeepers
                         break;
                     
                     default:
-                        // Debug.LogError("Unknown building type!");
                         break;
                 }
 

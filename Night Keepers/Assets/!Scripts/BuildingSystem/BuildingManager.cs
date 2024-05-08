@@ -196,6 +196,7 @@ public class BuildingManager : Singleton<BuildingManager>
 
                 meshRendererPreviews[buildingNumber].materials = yourMaterials;        
             }
+            
             Vector2Int rotationOffset = buildingPreviews[buildingNumber].buildingData.GetRotationOffset(buildingPreviews[buildingNumber].direction);
             Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
             previews[buildingNumber].transform.position = instantiatedBuildingWorldPosition;
@@ -217,17 +218,27 @@ public class BuildingManager : Singleton<BuildingManager>
     {
         if (Input.GetMouseButtonDown(0))
         {
+            // if (buildings[buildingNumber].buildingData.widthHeight.x == buildings[buildingNumber].buildingData.widthHeight.y)
+            // {
+
+            // }
+            // if (buildings[buildingNumber].buildingData.widthHeight.x > buildings[buildingNumber].buildingData.widthHeight.y)
+            // {
+                
+            // }
+            // if (buildings[buildingNumber].buildingData.widthHeight.x < buildings[buildingNumber].buildingData.widthHeight.y)
+            // {
+                
+            // }
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction);
             buildings[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
 
 
             if (TryBuild(buildings[buildingNumber], gridPositionList,rm))
             {                
-                Vector2Int rotationOffset = buildings[buildingNumber].buildingData.GetRotationOffset(buildings[buildingNumber].direction);
-                Vector3 instantiatedBuildingWorldPosition = previews[buildingNumber].transform.position;
                 Building instantiatedBuilding = Instantiate(
                         buildings[buildingNumber],
-                        instantiatedBuildingWorldPosition,
+                        previews[buildingNumber].transform.position,
                         Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
 
 
@@ -249,6 +260,11 @@ public class BuildingManager : Singleton<BuildingManager>
                 if (buildingNumber == 3)
                 {
                     OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
+                }
+
+                foreach (var item in gridPositionList)
+                {
+                    print(item);
                 }
             }
         }
