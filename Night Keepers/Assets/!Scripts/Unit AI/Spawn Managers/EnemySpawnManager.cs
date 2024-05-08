@@ -26,6 +26,13 @@ public class EnemySpawnManager : Singleton<EnemySpawnManager>
     private void OnEnable()
     {
         _waitForSeconds = new WaitForSeconds(_spawnManagerData._spawnDelay);
+
+        TimeManager.OnNightArrived += OnNightArrived;
+    }
+
+    private void OnDisable()
+    {
+        TimeManager.OnNightArrived -= OnNightArrived;
     }
 
     private void Start()
@@ -36,9 +43,13 @@ public class EnemySpawnManager : Singleton<EnemySpawnManager>
         _spawnManagerData.EnemyList.Sort((a, b) => a.GetComponent<Unit>().GetUnitPowerPoints().CompareTo(b.GetComponent<Unit>().GetUnitPowerPoints()));
 
         _spawnPointList.AddRange(from Transform child in transform select child);
+    }
+
+    private void OnNightArrived()
+    {
         _targetPlayerBase = PlayerBaseManager.Instance.GetSelectedBasePosition();
-        // for now we do it in start but we will do it when the night comes
         PickSpawnPointAndSpawn();
+        _currentWaveNumber++;
     }
 
     private void PickSpawnPointAndSpawn()
