@@ -48,31 +48,36 @@ namespace NightKeepers
                 {
                     yield return null;
                 }
-                yield return new WaitForSeconds(1);
-                switch (buildingData.name)
+                if (TimeManager.Instance.IsDay)
                 {
-                    case "IronMine":
-                        resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
-                        
-                        break;
-                    case "StoneMine":
-                        resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
-                        
-                        break;
-                    case "Farm":
-                        resources.Food += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
-                        
-                        break;
-                    case "LumberJack":
-                        resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
-                        
-                        break;
-                    
-                    default:
-                        // Debug.LogError("Unknown building type!");
-                        break;
-                }
 
+                    yield return new WaitForSeconds(1);
+                    switch (buildingData.name)
+                    {
+                        case "IronMine":
+                            resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
+
+                            break;
+                        case "StoneMine":
+                            resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
+
+                            break;
+                        case "Farm":
+                            resources.Food += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
+
+                            break;
+                        case "LumberJack":
+                            resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
+
+                            break;
+
+                        default:
+                            // Debug.LogError("Unknown building type!");
+                            break;
+                    }
+                }
+                else
+                    yield return null;
             }
         }
 
