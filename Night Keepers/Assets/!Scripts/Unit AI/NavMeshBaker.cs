@@ -10,9 +10,13 @@ public class NavMeshBaker : MonoBehaviour
 
     private Coroutine bakeCoroutine;
 
-    private void Start()
+    private void Awake()
     {
         meshSurface = GetComponent<NavMeshSurface>();
+    }
+
+    private void Start()
+    {
         BakeNavMesh();
 
         waitForSeconds = new WaitForSeconds(bakeDelay);
@@ -42,7 +46,6 @@ public class NavMeshBaker : MonoBehaviour
     private void OnWorldGenerationDone()
     {
         BakeNavMesh();
-        Debug.Log("bake done");
     }
 
     private IEnumerator BakeNavMeshWithDelay()
