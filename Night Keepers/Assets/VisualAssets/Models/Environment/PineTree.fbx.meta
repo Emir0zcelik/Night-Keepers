@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 1da448cdec59b434a824c07e22faf7c8
+guid: 518ace342116b374c8ca95a64d01f48f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PineTree_Branch_MAT
+    second: {fileID: 2100000, guid: e8bdbf7fe52a7b5478d9b38a00b4fe3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PineTree_Trunk_MAT
+    second: {fileID: 2100000, guid: 6d68505482d5e3444a09e45c08ee96a3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
