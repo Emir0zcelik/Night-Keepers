@@ -85,12 +85,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1419bbcabc94b7745a2abf3c9bef4747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gridManager: {fileID: 0}
   _parentWallsList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _buildingManager: {fileID: 9194757620622397249}
+  - {fileID: 7329001920216223356, guid: b45c24359d567b348b997f8356af1c83, type: 3}
+  - {fileID: 8238157612322165032, guid: b51340ca68d0770479a5929cee90794e, type: 3}
+  - {fileID: 1791534010613607669, guid: 8643d27989bde8642a51b232441e36c7, type: 3}
   _wallMeshFilters:
   - {fileID: 0}
   - {fileID: 0}

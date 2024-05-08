@@ -172,7 +172,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce03fd2b8de2954a87c7305efe876f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _newOrigin: {x: 0, y: 0, z: 0}
-  _mapSizeFromOrigin: 70
   _currentWaveNumber: 1
   _spawnManagerData: {fileID: 11400000, guid: ca88553d425acfc409281289715197bb, type: 2}
