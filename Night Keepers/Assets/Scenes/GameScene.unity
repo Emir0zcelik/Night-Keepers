@@ -226,7 +226,7 @@ PrefabInstance:
     - target: {fileID: 2695977855438721184, guid: 4e53985df042fdd46b50711a08b641a8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 2695977855438721184, guid: 4e53985df042fdd46b50711a08b641a8,
         type: 3}
@@ -278,6 +278,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingPreviews
       objectReference: {fileID: 0}
+    - target: {fileID: 6229715484792784561, guid: 4e53985df042fdd46b50711a08b641a8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229715484792784561, guid: 4e53985df042fdd46b50711a08b641a8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229715484792784561, guid: 4e53985df042fdd46b50711a08b641a8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -291,10 +306,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 5167774938603989947, guid: 4e53985df042fdd46b50711a08b641a8,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3633623133804038961, guid: 4e53985df042fdd46b50711a08b641a8,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -383,6 +394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerBaseManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682712938236466506, guid: a48afdbd2ba24264d866e6fdba15fb06,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8196356449512519227, guid: a48afdbd2ba24264d866e6fdba15fb06,
         type: 3}
@@ -541,7 +557,8 @@ PrefabInstance:
         type: 3}
       propertyPath: buildings.Array.data[3]
       value: 
-      objectReference: {fileID: 1540821435}
+      objectReference: {fileID: 5060818446536936548, guid: aff70cad4967366438455fbe18bb3659,
+        type: 3}
     - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
         type: 3}
       propertyPath: buildings.Array.data[4]
@@ -551,7 +568,8 @@ PrefabInstance:
         type: 3}
       propertyPath: buildings.Array.data[5]
       value: 
-      objectReference: {fileID: 937497839}
+      objectReference: {fileID: 8519823669154503373, guid: 0dda5728a6a87964dad3e4d04dab4170,
+        type: 3}
     - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
         type: 3}
       propertyPath: buildings.Array.data[6]
@@ -725,7 +743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &512379735
 Transform:
   m_ObjectHideFlags: 0
@@ -1240,6 +1258,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawnManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8569535620854704011, guid: f8b2314d3e8c3034ab3e216a847cfa26,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1405,18 +1428,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 221596441}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &937497839 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7818181944385099973, guid: 4e53985df042fdd46b50711a08b641a8,
-    type: 3}
-  m_PrefabInstance: {fileID: 221596441}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937497836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05a8dc6249ae9a4bb3b10127581160a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1004565669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,18 +1742,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 221596441}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1540821435 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7393768447465531176, guid: 4e53985df042fdd46b50711a08b641a8,
-    type: 3}
-  m_PrefabInstance: {fileID: 221596441}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540821432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05a8dc6249ae9a4bb3b10127581160a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1545393942 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4159687580380053128, guid: 7e1398f47d8c0d347af7c3ba16ddf3b1,
@@ -1863,6 +1862,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NavMesh Surface
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351454323733771845, guid: a2649abedef83d5439ac31fcf5e0b94f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

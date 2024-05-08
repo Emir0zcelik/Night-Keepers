@@ -44,12 +44,10 @@ namespace NightKeepers
                 {
                     timeLenght = nightTimeLenght;
                     OnNightArrived?.Invoke();
-                    Debug.Log("Day Time Ended.");
                 }
                 else
                 {
                     timeLenght = dayTimeLenght;
-                    Debug.Log("Night Time Ended.");
                 }
             }
         }

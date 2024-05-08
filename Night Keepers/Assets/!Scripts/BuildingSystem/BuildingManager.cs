@@ -39,12 +39,8 @@ public class BuildingManager : Singleton<BuildingManager>
 
     private int sameTileCount = 0;
 
-    private void Awake() {
-        foreach (var building in buildings)
-        {
-            baseMaterials.Add(building.GetComponentInChildren<MeshRenderer>().sharedMaterial);
-        }
 
+    private void Awake() {
         foreach (var preview in previews)
         {
             buildingPreviews.Add(preview.GetComponentInChildren<Building>());
@@ -101,13 +97,11 @@ public class BuildingManager : Singleton<BuildingManager>
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Debug.Log("Building Mode:" + isBuildingMode);
             isBuildingMode = false;
         }
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-            // Debug.Log("Building Mode:" + isBuildingMode);
             isBuildingMode = true;
         }
 
@@ -216,18 +210,16 @@ public class BuildingManager : Singleton<BuildingManager>
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction);
             buildings[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
 
-
             if (TryBuild(buildings[buildingNumber], gridPositionList,rm))
             {                
                 Vector2Int rotationOffset = buildings[buildingNumber].buildingData.GetRotationOffset(buildings[buildingNumber].direction);
-                Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
+                Vector3 instantiatedBuildingWorldPosition = previews[buildingNumber].transform.position;
                 Building instantiatedBuilding = Instantiate(
                         buildings[buildingNumber],
                         instantiatedBuildingWorldPosition,
                         Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
 
-                // instantiatedBuilding.GetComponentInChildren<MeshRenderer>().material = baseMaterials[buildingNumber];
-
+                // instantiatedBuilding.transform.localScale = new Vector3(instantiatedBuilding.transform.localScale.x * _gridManager.cellSize / 10, instantiatedBuilding.transform.localScale.y * _gridManager.cellSize / 10, instantiatedBuilding.transform.localScale.z * _gridManager.cellSize / 10);
 
                 foreach (Vector2Int position in gridPositionList)
                 {
@@ -270,25 +262,21 @@ public class BuildingManager : Singleton<BuildingManager>
         {
             if (_gridManager._grid[position].building != null)
             {
-                // Debug.Log("Null deil");
                 return false; 
             }
             if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
             {
-                // Debug.Log("su degil");
                 return false;
             }
 
             if (building.buildingData.placableTileTypes[0] == _gridManager._grid[position].tileType)
             {
-                // Debug.Log("same tile count > 0");
                 sameTileCount++;
             }
         }
 
         if (sameTileCount == 0)
         {
-            // Debug.Log("same tile count == 0");
             return false;
         }
 

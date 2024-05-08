@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7964376924650922341}
-  - component: {fileID: 6802883624914731260}
+  - component: {fileID: 5060818446536936548}
   m_Layer: 0
   m_Name: TownHallBase
   m_TagString: Selectable
@@ -26,14 +26,14 @@ Transform:
   m_GameObject: {fileID: 1462845469361398276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 159, y: 0, z: 69}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5750169089917670259}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6802883624914731260
+--- !u!114 &5060818446536936548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,7 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingData: {fileID: 11400000, guid: b8bd2274bfdabaf4caef59dbae4b72ce, type: 2}
   direction: 1
-  buildingType: 4
+  buildingType: 0
+  sameTileCount: 0
 --- !u!1001 &3137375931490702081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,17 +85,17 @@ PrefabInstance:
     - target: {fileID: 7225610655957794930, guid: 061fb74f34609184d9b85723ae000dd7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7225610655957794930, guid: 061fb74f34609184d9b85723ae000dd7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7225610655957794930, guid: 061fb74f34609184d9b85723ae000dd7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7225610655957794930, guid: 061fb74f34609184d9b85723ae000dd7,
         type: 3}
@@ -111,8 +112,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5688511021830390854, guid: 061fb74f34609184d9b85723ae000dd7, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
