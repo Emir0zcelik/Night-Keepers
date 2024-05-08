@@ -17,6 +17,7 @@ namespace NightKeepers
             public int Food = 500;
         }
         public ResourceHave resources = new ResourceHave();
+        public BuildingManager buildingManager;
         public BuildingData buildingData;
         public RM rm;
 
@@ -51,19 +52,19 @@ namespace NightKeepers
                 switch (buildingData.name)
                 {
                     case "IronMine":
-                        resources.Iron += buildingData.Workforce * buildingData.ProductionAmount;
+                        resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
                         
                         break;
                     case "StoneMine":
-                        resources.Stone += buildingData.Workforce * buildingData.ProductionAmount;
+                        resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
                         
                         break;
                     case "Farm":
-                        resources.Food += buildingData.Workforce * buildingData.ProductionAmount;
+                        resources.Food += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
                         
                         break;
                     case "LumberJack":
-                        resources.Wood += buildingData.Workforce * buildingData.ProductionAmount;
+                        resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
                         
                         break;
                     
@@ -103,7 +104,13 @@ namespace NightKeepers
         }
         private void Start()
         {
-            StartResourceProduction(buildingData);
+            buildingData = null;
+            if (buildingData != null)
+            {
+                StartResourceProduction(buildingData);
+            }
+            
+            /*StartResourceProduction(buildingData);*/
         }
 
     }
