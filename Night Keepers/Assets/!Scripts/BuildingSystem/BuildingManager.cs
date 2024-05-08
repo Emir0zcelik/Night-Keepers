@@ -1,4 +1,5 @@
 using NightKeepers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -19,6 +20,7 @@ public class BuildingManager : Singleton<BuildingManager>
 
     public Vector2Int gridPositonForWall;
 
+    public static event Action<GameObject> OnMainBuildingPlaced;
 
     public List<Building> walls;
     private BuildingData.BuildingType buildingType;
@@ -240,6 +242,11 @@ public class BuildingManager : Singleton<BuildingManager>
                 if (buildingNumber == 5)
                 {
                     SetGridPositionForWall(_gridManager._grid.WorldToGridPosition(instantiatedBuilding.transform.position));
+                }
+
+                if (buildingNumber == 3)
+                {
+                    OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
                 }
             }
         }
