@@ -126,8 +126,5 @@ namespace NightKeepers.Research
         {
             return _upgrades;
         }
-
-
-
     }
 }
