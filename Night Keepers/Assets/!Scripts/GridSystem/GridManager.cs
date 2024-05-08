@@ -5,7 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class GridManager : MonoBehaviour
+public class GridManager : Singleton<GridManager>
 {
     [SerializeField] private int width;
     [SerializeField] private int height;
@@ -220,5 +220,10 @@ public class GridManager : MonoBehaviour
         }
 
         return tileType;
+    }
+
+    public int GetMapSizeFromCenter()
+    {
+        return width;
     }
 }

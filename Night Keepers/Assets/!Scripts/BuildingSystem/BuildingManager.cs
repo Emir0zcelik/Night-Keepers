@@ -1,13 +1,15 @@
 using NightKeepers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BuildingManager : MonoBehaviour
+public class BuildingManager : Singleton<BuildingManager>
 {
     [SerializeField] private GridManager _gridManager;
+    [SerializeField] private WallManager _wallManager;
     [SerializeField] private List<Building> buildings;
     [SerializeField] private List<GameObject> previews; 
     [SerializeField] private List<Building> buildingPreviews; 
@@ -15,6 +17,12 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private List<Material> baseMaterials;
     [SerializeField] private Material validPreviewMaterial;
     [SerializeField] private Material invalidPreviewMaterial;
+
+    public Vector2Int gridPositonForWall;
+
+    public static event Action<GameObject> OnMainBuildingPlaced;
+
+    public List<Building> walls;
     private BuildingData.BuildingType buildingType;
 
     private Vector2Int gridPosition;
@@ -26,6 +34,10 @@ public class BuildingManager : MonoBehaviour
     bool isPlaced = false;
 
     bool isPlaceBuilding = false;
+
+    bool isBuildingMode = true;
+
+    private int sameTileCount = 0;
 
     private void Awake() {
         foreach (var building in buildings)
@@ -44,8 +56,7 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
-    private void Start() 
-    {
+    private void Start() {
         foreach (var preview in previews)
         {
             preview.transform.localScale = new Vector3(preview.transform.localScale.x * _gridManager.cellSize / 10, preview.transform.localScale.y * _gridManager.cellSize / 10, preview.transform.localScale.z * _gridManager.cellSize / 10);
@@ -64,10 +75,16 @@ public class BuildingManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
         {
-            isPlaceBuilding = true;
             gridPosition = _gridManager._grid.WorldToGridPosition(raycastHit.point);
-
-            PreviewBuilding(gridPosition);
+            if (isBuildingMode)
+            {                
+                isPlaceBuilding = true;
+                PreviewBuilding(gridPosition);
+            }
+            else
+            {
+                previews[buildingNumber].transform.position = Vector3.zero;
+            }
         }
         else{
             isPlaceBuilding = false;
@@ -82,7 +99,19 @@ public class BuildingManager : MonoBehaviour
             isRotated = true;
         }
 
-        if (isPlaceBuilding)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Debug.Log("Building Mode:" + isBuildingMode);
+            isBuildingMode = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            // Debug.Log("Building Mode:" + isBuildingMode);
+            isBuildingMode = true;
+        }
+
+        if (isPlaceBuilding && isBuildingMode)
         {
             PlaceBuilding(gridPosition);
         }
@@ -108,7 +137,6 @@ public class BuildingManager : MonoBehaviour
                 isPlaced = false;
                 buildingNumber = 2;
                 BuildingPreviewsActivate(buildingNumber);
-                
                 break;
 
             case BuildingData.BuildingType.TownHall:
@@ -122,17 +150,16 @@ public class BuildingManager : MonoBehaviour
                 buildingNumber = 4;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
-            case BuildingData.BuildingType.Lumberjack1:
+            case BuildingData.BuildingType.Wall:
                 isPlaced = false;
                 buildingNumber = 5;
                 BuildingPreviewsActivate(buildingNumber);
-                break;        
-            case BuildingData.BuildingType.Lumberjack2:
+                break;
+            case BuildingData.BuildingType.House:
                 isPlaced = false;
                 buildingNumber = 6;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
-
         }
 
     }
@@ -165,8 +192,9 @@ public class BuildingManager : MonoBehaviour
             {
                 meshRendererPreviews[buildingNumber].material = invalidPreviewMaterial;          
             }
-
-            previews[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
+            Vector2Int rotationOffset = buildingPreviews[buildingNumber].buildingData.GetRotationOffset(buildingPreviews[buildingNumber].direction);
+            Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
+            previews[buildingNumber].transform.position = instantiatedBuildingWorldPosition;
             if (isRotated)
             {
                 buildingPreviews[buildingNumber].direction = BuildingData.GetNextDir(buildingPreviews[buildingNumber].direction);
@@ -176,6 +204,11 @@ public class BuildingManager : MonoBehaviour
         }    
     }
 
+    public Vector2Int GetPreviewPosition()
+    {
+        return _gridManager._grid.WorldToGridPosition(previews[buildingNumber].transform.position);
+    }
+
     private void PlaceBuilding(Vector2Int gridPosition)
     {
         if (Input.GetMouseButtonDown(0))
@@ -183,53 +216,88 @@ public class BuildingManager : MonoBehaviour
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction);
             buildings[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
 
+
             if (TryBuild(buildings[buildingNumber], gridPositionList,rm))
             {                
-                // Vector2Int rotationOffset = buildings[buildingNumber].buildingData.GetRotationOffset(buildings[buildingNumber].direction);
-                // Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
+                Vector2Int rotationOffset = buildings[buildingNumber].buildingData.GetRotationOffset(buildings[buildingNumber].direction);
+                Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
                 Building instantiatedBuilding = Instantiate(
                         buildings[buildingNumber],
-                        _gridManager._grid.GridToWorldPosition(gridPosition),
+                        instantiatedBuildingWorldPosition,
                         Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
 
                 instantiatedBuilding.GetComponentInChildren<MeshRenderer>().material = baseMaterials[buildingNumber];
+
 
                 foreach (Vector2Int position in gridPositionList)
                 {
                     Tile tile = new Tile()
                     {
-                        building = instantiatedBuilding
+                        building = instantiatedBuilding,
+                        tileType = _gridManager._grid[gridPosition].tileType,
                     };
                     _gridManager._grid[position] = tile;
+                }
+
+                if (buildingNumber == 5)
+                {
+                    SetGridPositionForWall(_gridManager._grid.WorldToGridPosition(instantiatedBuilding.transform.position));
+                }
+
+                if (buildingNumber == 3)
+                {
+                    OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
                 }
             }
         }
         
     }
 
+    public void SetGridPositionForWall(Vector2Int gridPosition)
+    {
+        gridPositonForWall = gridPosition;
+    }
+
     public void SetBuildingType(BuildingData.BuildingType buildingType)
     {
         this.buildingType = buildingType;
-        Debug.Log("Type Selected :" + buildingType);
     }
 
     private bool TryBuild(Building building, List<Vector2Int> gridPositionList, RM rmInstance)
     {
+        sameTileCount = 0;
         foreach (Vector2Int position in gridPositionList)
         {
             if (_gridManager._grid[position].building != null)
             {
+                // Debug.Log("Null deil");
+                return false; 
+            }
+            if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
+            {
+                // Debug.Log("su degil");
                 return false;
             }
-            if (building.buildingData.placableTileTypes[0] != _gridManager._grid[position].tileType)
+
+            if (building.buildingData.placableTileTypes[0] == _gridManager._grid[position].tileType)
             {
-                return false;
+                // Debug.Log("same tile count > 0");
+                sameTileCount++;
             }
         }
-        Debug.Log(building.buildingData.name);
-      
+
+        if (sameTileCount == 0)
+        {
+            // Debug.Log("same tile count == 0");
+            return false;
+        }
+
         isPlaced = true;
-        rmInstance.SetBuildingData(building.buildingData);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            rmInstance.SetBuildingData(building.buildingData);
+        }
         
 
         return true;

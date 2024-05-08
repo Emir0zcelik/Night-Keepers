@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2411556421893056226}
   m_Layer: 0
   m_Name: StoneMineBase
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingData: {fileID: 11400000, guid: 444037f846e84f340ad368c2bb6a6b2f, type: 2}
   direction: 1
-  buildingType: 0
+  buildingType: 1
 --- !u!1001 &8082021853161618294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ PrefabInstance:
     - target: {fileID: 7751138035812202381, guid: 09a11962b3b81d848b455324f643c7a1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7751138035812202381, guid: 09a11962b3b81d848b455324f643c7a1,
         type: 3}
@@ -74,7 +74,7 @@ PrefabInstance:
     - target: {fileID: 7751138035812202381, guid: 09a11962b3b81d848b455324f643c7a1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7751138035812202381, guid: 09a11962b3b81d848b455324f643c7a1,
         type: 3}

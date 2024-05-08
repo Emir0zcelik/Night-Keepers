@@ -7,6 +7,7 @@ TagManager:
   - PlayerUnit
   - EnemyUnit
   - Building
+  - Selectable
   layers:
   - Default
   - TransparentFX
@@ -14,10 +15,10 @@ TagManager:
   - 
   - Water
   - UI
-  - TriggerChecks
+  - TriggerCheckPlayer
+  - TriggerCheckEnemy
   - PlayerLayer
-  - 
-  - 
+  - EnemyLayer
   - 
   - 
   - 

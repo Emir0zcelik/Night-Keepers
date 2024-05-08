@@ -91,26 +91,7 @@ namespace NightKeepers.Research
             return _upgrades;
         }
 
-        /*public bool Lumberjack1Active()
-        {
-            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.Lumberjack1);
-        }
-        public bool Lumberjack2Active()
-        {
-            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.Lumberjack2);
-        }
-        public bool FarmActive()
-        {
-            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.Farm);
-        }
-        public bool IronMineActive()
-        {
-            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.IronMine);
-        }
-        public bool StoneMineActive()
-        {
-            return _upgrades.IsUnlocked(Upgrades.ResearchUpgrades.StoneMine);
-        }*/
+       
 
     }
 }

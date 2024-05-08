@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1268634703167157293}
   m_Layer: 0
   m_Name: LumberjackBase
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingData: {fileID: 11400000, guid: 19a3a0ebbc3aa1d43b509bb30d6683a4, type: 2}
   direction: 1
-  buildingType: 0
+  buildingType: 3
 --- !u!1001 &5897024900211446595
 PrefabInstance:
   m_ObjectHideFlags: 0

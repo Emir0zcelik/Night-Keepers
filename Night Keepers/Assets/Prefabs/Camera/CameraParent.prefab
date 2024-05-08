@@ -215,9 +215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a2fc2d30c1d4147bb0678bfc68499b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
   smoothing: 5
-  range: {x: 100, y: 100}
+  range: {x: 250, y: 250}
+  _gridManager: {fileID: 0}
 --- !u!114 &8140991616317051111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79b6d7d29f246f4196ad45d8e59a157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 2
+  zoomSpeed: 50
   smoothing: 5
-  range: {x: 30, y: 70}
+  range: {x: 30, y: 200}
   cameraHolder: {fileID: 6032843171907076510}
