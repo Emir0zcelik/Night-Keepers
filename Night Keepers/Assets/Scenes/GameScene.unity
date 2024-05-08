@@ -1978,16 +1978,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NavMesh Surface
       objectReference: {fileID: 0}
-    - target: {fileID: 7524025810785775486, guid: a2649abedef83d5439ac31fcf5e0b94f,
-        type: 3}
-      propertyPath: m_TileSize
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 7524025810785775486, guid: a2649abedef83d5439ac31fcf5e0b94f,
-        type: 3}
-      propertyPath: m_VoxelSize
-      value: 0.33
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
