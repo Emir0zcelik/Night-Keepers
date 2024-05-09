@@ -147,6 +147,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 518838578449918999}
     m_Modifications:
+    - target: {fileID: 374050699534449783, guid: f2c7a248dd185d7469db38500806a9d2,
+        type: 3}
+      propertyPath: m_Name
+      value: GreenUnitButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2629923659742203622, guid: f2c7a248dd185d7469db38500806a9d2,
         type: 3}
       propertyPath: m_Pivot.x
@@ -225,12 +230,12 @@ PrefabInstance:
     - target: {fileID: 2629923659742203622, guid: f2c7a248dd185d7469db38500806a9d2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -5
+      value: 1425
       objectReference: {fileID: 0}
     - target: {fileID: 2629923659742203622, guid: f2c7a248dd185d7469db38500806a9d2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2629923659742203622, guid: f2c7a248dd185d7469db38500806a9d2,
         type: 3}
@@ -247,10 +252,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3232920869156915696, guid: f2c7a248dd185d7469db38500806a9d2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.100006
+      objectReference: {fileID: 0}
     - target: {fileID: 4236585369738373266, guid: f2c7a248dd185d7469db38500806a9d2,
         type: 3}
       propertyPath: m_Name
       value: ReadyUnitHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238164865783945130, guid: f2c7a248dd185d7469db38500806a9d2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.099998474
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152035639473326587, guid: f2c7a248dd185d7469db38500806a9d2,
+        type: 3}
+      propertyPath: m_margin.x
+      value: 49.851612
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152035639473326587, guid: f2c7a248dd185d7469db38500806a9d2,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 50.038734
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187106445737910829, guid: f2c7a248dd185d7469db38500806a9d2,
+        type: 3}
+      propertyPath: m_Name
+      value: PurpleUnitButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
