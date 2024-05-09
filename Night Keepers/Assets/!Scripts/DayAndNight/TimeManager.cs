@@ -15,12 +15,12 @@ namespace NightKeepers
 
         public static event Action OnNightArrived;
 
-        public float GlobalTime // Use Access the time from other scripts
+        public float GlobalTime 
         {
             get { return _globalTime; }
         }
 
-        public bool IsDay // Use Access the day events from other scripts
+        public bool IsDay 
         {
             get { return _isDay; }
         }

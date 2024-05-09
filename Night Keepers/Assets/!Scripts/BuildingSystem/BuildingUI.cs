@@ -10,34 +10,34 @@ public class BuildingUI : MonoBehaviour
     public Upgrades upgrades;
     public void Lumberjack()
     {
-        buildingManager.SetBuildingType(BuildingType.Lumberjack);
-        // if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.Lumberjack2))
-        // {
-        //     buildingManager.SetBuildingType(BuildingType.Lumberjack2);
-        //     Debug.Log("LB2");
-        // }
-        // if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.Lumberjack1))
-        // {
-        //     buildingManager.SetBuildingType(BuildingType.Lumberjack1);
-        //     Debug.Log("LB1");
-        // }
-        // else
-        // {
+        //buildingManager.SetBuildingType(BuildingType.Lumberjack);
+         if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.Lumberjack2))
+         {
+             buildingManager.SetBuildingType(BuildingType.Lumberjack2);
+             Debug.Log("LB2");
+         }
+         if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.Lumberjack1))
+         {
+             buildingManager.SetBuildingType(BuildingType.Lumberjack1);
+             Debug.Log("LB1");
+         }
+         else
+         {
             
-        //     Debug.Log("LB");
-        // }
+             Debug.Log("LB");
+         }
 
     }
     public void StoneMine()
     {
-        buildingManager.SetBuildingType(BuildingData.BuildingType.StoneMine);
+       // buildingManager.SetBuildingType(BuildingData.BuildingType.StoneMine);
 
-        // if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.StoneMine))
-        // {
-        //     Debug.Log("STONEMINE");
-        // }
-        // else
-        //     Debug.Log("Cannot build StoneMine, Research first!");
+         if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.StoneMine))
+         {
+             Debug.Log("STONEMINE");
+         }
+         else
+             Debug.Log("Cannot build StoneMine, Research first!");
     }
 
     public void IronMine()

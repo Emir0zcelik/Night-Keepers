@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: dd8017d74fc36da469ce31e06c6bc6da
+guid: 39930e09a8aa7dd4d9c78c2b6f091167
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PineTree_Branch_MAT
+    second: {fileID: 2100000, guid: e8bdbf7fe52a7b5478d9b38a00b4fe3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PineTree_Trunk_MAT
+    second: {fileID: 2100000, guid: 6d68505482d5e3444a09e45c08ee96a3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -32,7 +42,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
