@@ -46,11 +46,8 @@ public class BuildingData : ScriptableObject
         public int iron;
         public int food;
     }
-    // Restored
 
-
-
-public int GetRotationAngle(Dir dir)
+    public int GetRotationAngle(Dir dir)
     {
         switch (dir)
         {

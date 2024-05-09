@@ -34,11 +34,7 @@ public class BuildingManager : Singleton<BuildingManager>
     bool isPlaceBuilding = false;
 
     bool isBuildingMode = true;
-
-    //private int sameTileCount = 0;
     public int sameTileCount { get; private set; }
-
-    // Dictionary<int, List<Material>> Materi
     
     private void Awake() {
         foreach (var preview in previews)
@@ -218,19 +214,7 @@ public class BuildingManager : Singleton<BuildingManager>
     {
         if (Input.GetMouseButtonDown(0))
         {
-            // if (buildings[buildingNumber].buildingData.widthHeight.x == buildings[buildingNumber].buildingData.widthHeight.y)
-            // {
-
-            // }
-            // if (buildings[buildingNumber].buildingData.widthHeight.x > buildings[buildingNumber].buildingData.widthHeight.y)
-            // {
-                
-            // }
-            // if (buildings[buildingNumber].buildingData.widthHeight.x < buildings[buildingNumber].buildingData.widthHeight.y)
-            // {
-                
-            // }
-            List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction);
+            List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildingPreviews[buildingNumber].direction);
             buildings[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
 
 
@@ -261,11 +245,6 @@ public class BuildingManager : Singleton<BuildingManager>
                 {
                     OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
                 }
-
-                foreach (var item in gridPositionList)
-                {
-                    print(item);
-                }
             }
         }
         
@@ -290,25 +269,21 @@ public class BuildingManager : Singleton<BuildingManager>
         {
             if (_gridManager._grid[position].building != null)
             {
-                // Debug.Log("Null deil");
                 return false; 
             }
             if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
             {
-                // Debug.Log("su degil");
                 return false;
             }
 
             if (building.buildingData.placableTileTypes[0] == _gridManager._grid[position].tileType)
             {
-                // Debug.Log("same tile count > 0");
                 sameTileCount++;
             }
         }
 
         if (sameTileCount == 0)
         {
-            // Debug.Log("same tile count == 0");
             return false;
         }
 
