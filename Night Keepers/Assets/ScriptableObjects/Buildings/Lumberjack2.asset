@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
-  m_Name: LumberJack
+  m_Name: Lumberjack2
   m_EditorClassIdentifier: 
   buildingTypes: 0
   health: 100
-  placableTileTypes: 0300000005000000
-  widthHeight: {x: 2, y: 2}
+  placableTileTypes: 02000000
+  widthHeight: {x: 1, y: 1}
   visual: {fileID: 0}
-  Workforce: 2
+  Workforce: 3
   Cost:
-    wood: 20
-    stone: 20
+    wood: 30
+    stone: 30
     iron: 0
     food: 0
-  ProductionAmount: 1
+  ProductionAmount: 5

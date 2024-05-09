@@ -477,6 +477,7 @@ MonoBehaviour:
     Stone: 500
     Iron: 500
     Food: 500
+  buildingManager: {fileID: 0}
   buildingData: {fileID: 0}
   rm: {fileID: 270390605}
 --- !u!1 &416244083
@@ -3517,7 +3518,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upgrades: {fileID: 662480788}
-  buildui: {fileID: 0}
+  builduis: []
+  researchText: {fileID: 0}
 --- !u!1 &1875848002
 GameObject:
   m_ObjectHideFlags: 0
