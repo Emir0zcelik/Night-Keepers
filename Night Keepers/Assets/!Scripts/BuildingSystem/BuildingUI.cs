@@ -10,7 +10,6 @@ public class BuildingUI : MonoBehaviour
     public Upgrades upgrades;
     public void Lumberjack()
     {
-        //buildingManager.SetBuildingType(BuildingType.Lumberjack);
          if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.Lumberjack2))
          {
              buildingManager.SetBuildingType(BuildingType.Lumberjack2);
@@ -23,17 +22,16 @@ public class BuildingUI : MonoBehaviour
          }
          else
          {
-            
+            buildingManager.SetBuildingType(BuildingType.Lumberjack);
              Debug.Log("LB");
          }
 
     }
     public void StoneMine()
     {
-       // buildingManager.SetBuildingType(BuildingData.BuildingType.StoneMine);
-
          if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.StoneMine))
          {
+            buildingManager.SetBuildingType(BuildingData.BuildingType.StoneMine);
              Debug.Log("STONEMINE");
          }
          else
