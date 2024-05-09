@@ -23,5 +23,5 @@ MonoBehaviour:
     stone: 0
     iron: 0
     food: 0
-  ProductionAmount: 2
+  ProductionAmount: 96
   resourceTileSize: 0

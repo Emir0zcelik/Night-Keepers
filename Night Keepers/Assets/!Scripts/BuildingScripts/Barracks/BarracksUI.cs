@@ -6,26 +6,39 @@ namespace NightKeepers
     {
         [SerializeField] private Barracks _selectedBarrack;
         [SerializeField] private RectTransform queueHolder;
+        [SerializeField] private GameObject UIHolder;
 
         private void Start()
         {
-            //foreach (RectTransform image in queueHolder)
-            //{
-            //    _queueImageList.Add(image.GetComponent<Image>());
-            //    image.gameObject.SetActive(false);
-            //}
+            UIHolder.SetActive(false);
         }
 
         private void OnEnable()
         {
             BarracksButton.onButtonPressed += OnButtonPressed;
             Barracks.onListUpdated += OnListUpdated;
+            SelectionManager.onBuildingSelected += OnBuildingSelected;
         }
 
         private void OnDisable()
         {
             BarracksButton.onButtonPressed -= OnButtonPressed;
             Barracks.onListUpdated -= OnListUpdated;
+            SelectionManager.onBuildingSelected -= OnBuildingSelected;
+        }
+
+        private void OnBuildingSelected(FunctionalBuilding barracks)
+        {
+            if (barracks.GetType() == typeof(Barracks))
+            {
+                _selectedBarrack = (Barracks)barracks;
+                UIHolder.SetActive(true);
+                OnListUpdated();
+            }
+            else{
+                _selectedBarrack = null;
+                UIHolder.SetActive(false);
+            }
         }
 
         private void OnButtonPressed(Unit unitToProduce)

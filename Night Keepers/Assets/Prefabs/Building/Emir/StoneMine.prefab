@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 545099461223655976}
   - component: {fileID: 1053696785161376613}
   - component: {fileID: 3979203923273562951}
-  - component: {fileID: 6537176385168494464}
   m_Layer: 0
   m_Name: StoneMine
   m_TagString: Untagged
@@ -107,21 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6537176385168494464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206329625771476983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05a8dc6249ae9a4bb3b10127581160a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingData: {fileID: 11400000, guid: 444037f846e84f340ad368c2bb6a6b2f, type: 2}
-  direction: 1
-  buildingType: 0
 --- !u!1 &2978047036782875225
 GameObject:
   m_ObjectHideFlags: 0

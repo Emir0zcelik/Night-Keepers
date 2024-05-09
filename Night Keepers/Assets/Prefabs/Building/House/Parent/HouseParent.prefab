@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2372149197767740968}
   m_Layer: 0
   m_Name: HouseParent
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,9 +26,9 @@ Transform:
   m_GameObject: {fileID: 791249885829743462}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0961218, y: 4.224073, z: 0.6272454}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 5, y: 0, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1623288848659088973}
   m_Father: {fileID: 0}
@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05a8dc6249ae9a4bb3b10127581160a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingData: {fileID: 0}
+  buildingData: {fileID: 11400000, guid: f6512fdd73d588f4aab006f38bdb7cd5, type: 2}
   direction: 1
   buildingType: 7
+  sameTileCount: 0
 --- !u!1001 &1666197487991745003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59,17 +60,17 @@ PrefabInstance:
     - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.0961218
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.224073
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.6272454
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
         type: 3}

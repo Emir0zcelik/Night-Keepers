@@ -25,7 +25,7 @@ public class BuildingData : ScriptableObject
 
     public enum BuildingType
     {
-        Empty, StoneMine, IronMine, Lumberjack, TownHall, Test, Wall, House
+        Empty, StoneMine, IronMine,Lumberjack2, Lumberjack1, Lumberjack, TownHall, Test, Wall, House
     }
 
     public BuildingType buildingTypes;
@@ -37,8 +37,6 @@ public class BuildingData : ScriptableObject
     public int Workforce;
     public ResourceCost Cost;
     public int ProductionAmount;
-
-    public int resourceTileSize;
 
     [System.Serializable]
     public class ResourceCost
@@ -71,7 +69,7 @@ public int GetRotationAngle(Dir dir)
             default:
             case Dir.Down: return new Vector2Int(0, 0);
             case Dir.Left: return new Vector2Int(0, widthHeight.x / 2);
-            case Dir.Up: return new Vector2Int(widthHeight.x /2, widthHeight.y / 2);
+            case Dir.Up: return new Vector2Int(widthHeight.x / 2, widthHeight.y / 2);
             case Dir.Right: return new Vector2Int(widthHeight.y / 2, 0);
         }
     }

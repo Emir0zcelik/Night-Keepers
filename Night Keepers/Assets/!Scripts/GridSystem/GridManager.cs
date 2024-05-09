@@ -221,4 +221,9 @@ public class GridManager : Singleton<GridManager>
 
         return tileType;
     }
+
+    public int GetMapSizeFromCenter()
+    {
+        return width;
+    }
 }

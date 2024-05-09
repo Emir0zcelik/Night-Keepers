@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8167521406150457605}
   m_Layer: 0
   m_Name: IronMineBase
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingData: {fileID: 11400000, guid: 45ea82ea1632ab04b94653297df09750, type: 2}
   direction: 1
-  buildingType: 0
+  buildingType: 2
 --- !u!1001 &8587633969208723628
 PrefabInstance:
   m_ObjectHideFlags: 0
