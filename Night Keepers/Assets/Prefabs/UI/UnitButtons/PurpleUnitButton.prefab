@@ -111,7 +111,7 @@ PrefabInstance:
     - target: {fileID: 2877538126342939245, guid: 5c5dbd964127d1b418f525f48fb87028,
         type: 3}
       propertyPath: m_Name
-      value: PurpleUnitImage
+      value: PurpleUnitButton
       objectReference: {fileID: 0}
     - target: {fileID: 5307546703434139846, guid: 5c5dbd964127d1b418f525f48fb87028,
         type: 3}

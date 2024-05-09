@@ -46,13 +46,6 @@ namespace NightKeepers
             ProduceUnit(unitToProduce);
         }
 
-        // should update the UI when a different barrack is selected not on validate this causes an error right now at the start because it runs too early
-        private void OnValidate()
-        {
-            //Debug.Log("Barrack has been changed in the inspector! Or something else.");
-            //OnListUpdated();
-        }
-
         private void OnListUpdated()
         {
             UpdateImages();
@@ -60,7 +53,7 @@ namespace NightKeepers
 
         private void UpdateImages()
         {
-            // temporary. Normally units needs their image to put insted of colors. Needs pooling.
+            // Needs pooling.
 
             foreach(RectTransform image in queueHolder)
             {
@@ -69,7 +62,7 @@ namespace NightKeepers
 
             foreach(Unit unit in _selectedBarrack.GetProductionList())
             {
-                Instantiate(unit.UnitData.UnitImagePrefab, queueHolder);
+                Instantiate(unit.UnitData.UnitButtonPrefab, queueHolder);
             }
         }
 
