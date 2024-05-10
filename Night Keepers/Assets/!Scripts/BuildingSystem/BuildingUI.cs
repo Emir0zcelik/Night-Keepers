@@ -12,6 +12,8 @@ public class BuildingUI : MonoBehaviour
     [SerializeField] private GameObject resourceBuildingButtons;
     [SerializeField] private GameObject militartDefenseButtons;
     [SerializeField] private GameObject backButton;
+    [SerializeField] private Animator notResearchedAnimation;
+
 
     public Upgrades upgrades;
 
@@ -54,6 +56,7 @@ public class BuildingUI : MonoBehaviour
     public void House()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.House);
+        //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void StorageBuilding()
@@ -64,31 +67,50 @@ public class BuildingUI : MonoBehaviour
     public void TownHall()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.TownHall);
+        //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void ResearchBuilding()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.ResearchBuilding);
+        //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void LumberJack()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.Lumberjack);
+        //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void Farm()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.Farm);
+        //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void StoneMine()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.StoneMine);
+        notResearchedAnimation.SetBool("shouldPlayAnimation", true);
+        /*if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.StoneMine))
+        {
+            BuildingManager.Instance.SetBuildingType(BuildingType.StoneMine);
+        }
+        else
+        notResearchedAnimation.SetBool("shouldPlayAnimation", true);
+             */
+
     }
 
     public void IronMine()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.IronMine);
+        /*if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.IronMine))
+         {
+             BuildingManager.Instance.SetBuildingType(BuildingType.StoneMine);            
+         }
+         else
+             notResearchedAnimation.SetBool("shouldPlayAnimation", true);*/
     }
 
     public void FishingHouse()
@@ -104,78 +126,19 @@ public class BuildingUI : MonoBehaviour
     public void Walls()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.Wall);
+        /* if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.Wall))
+              {
+             BuildingManager.Instance.SetBuildingType(BuildingType.Wall);
+             Debug.Log("WALL");
+              }
+           else
+               notEnoughResourceAnimation.Play("Resourcenotenough");;*/
     }
 
     public void Traps()
     {
         // BuildingManager.Instance.SetBuildingType(BuildingType.Traps);
     }
-
-
-    
-    
-    // public void Lumberjack()
-    // {
-    //      if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.Lumberjack2))
-    //      {
-    //          buildingManager.SetBuildingType(BuildingType.Lumberjack2);
-    //          Debug.Log("LB2");
-    //      }
-    //      if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.Lumberjack1))
-    //      {
-    //          buildingManager.SetBuildingType(BuildingType.Lumberjack1);
-    //          Debug.Log("LB1");
-    //      }
-    //      else
-    //      {
-    //         buildingManager.SetBuildingType(BuildingType.Lumberjack);
-    //          Debug.Log("LB");
-    //      }
-
-    // }
-    // public void StoneMine()
-    // {
-    //      if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.StoneMine))
-    //      {
-    //         buildingManager.SetBuildingType(BuildingData.BuildingType.StoneMine);
-    //          Debug.Log("STONEMINE");
-    //      }
-    //      else
-    //          Debug.Log("Cannot build StoneMine, Research first!");
-    // }
-
-    // public void IronMine()
-    // {
-    //     if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.IronMine))
-    //     {
-    //         buildingManager.SetBuildingType(BuildingData.BuildingType.IronMine);
-    //         Debug.Log("IRONMINE");
-    //     }
-    //     else
-    //         Debug.Log("Cannot build IronMine, Research first!");
-    // }
-
-    // public void TownHall()
-    // {
-    //     buildingManager.SetBuildingType(BuildingData.BuildingType.TownHall);
-    // }
-
-    // public void Test()
-    // {
-    //     buildingManager.SetBuildingType(BuildingData.BuildingType.Test);
-    // }
-
-    // public void Wall()
-    // {
-
-    //     if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.Wall))
-    //         {
-    //         buildingManager.SetBuildingType(BuildingData.BuildingType.Wall);
-    //         Debug.Log("WALL");
-    //         }
-    //      else
-    //          Debug.Log("Cannot build Wall, Research first!");        
-    // }
 
     // public void House()
     // {
