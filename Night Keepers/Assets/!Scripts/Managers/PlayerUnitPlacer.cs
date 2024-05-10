@@ -62,7 +62,7 @@ namespace NightKeepers
             _spawnedUnit.enabled = true;
             _spawnedUnitAgent.enabled = true;
             PlayerUnitManager.Instance.DecreaseUnitCount(_unitReferance);
-            // activate the unit
+            PlayerUnitManager.Instance.AddToPlacedUnitList(_spawnedUnitObject);
         }
     }
 }

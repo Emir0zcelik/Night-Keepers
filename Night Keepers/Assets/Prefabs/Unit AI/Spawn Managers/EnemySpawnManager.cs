@@ -21,6 +21,7 @@ public class EnemySpawnManager : Singleton<EnemySpawnManager>
 
     [SerializeField] private SpawnManagerScriptableObject _spawnManagerData;
 
+    private List<GameObject> _enemyList = new List<GameObject>();
     private int _aliveEnemyCount = 0;
 
     private void OnEnable()
@@ -28,11 +29,13 @@ public class EnemySpawnManager : Singleton<EnemySpawnManager>
         _waitForSeconds = new WaitForSeconds(_spawnManagerData._spawnDelay);
 
         TimeManager.OnNightArrived += OnNightArrived;
+        TimeManager.OnDayArrived += OnDayArrived;
     }
 
     private void OnDisable()
     {
         TimeManager.OnNightArrived -= OnNightArrived;
+        TimeManager.OnDayArrived -= OnDayArrived;
     }
 
     private void Start()
@@ -52,6 +55,11 @@ public class EnemySpawnManager : Singleton<EnemySpawnManager>
         _currentWaveNumber++;
     }
 
+    private void OnDayArrived()
+    {
+        RemoveAllEnemies();
+    }
+
     private void PickSpawnPointAndSpawn()
     {
         AlignSpawnPoints();
@@ -69,7 +77,8 @@ public class EnemySpawnManager : Singleton<EnemySpawnManager>
             float randomZOffset = UnityEngine.Random.Range(-_spawnManagerData._zOffset, _spawnManagerData._zOffset);
             Vector3 spawnPosition = spawnPoint.position + spawnPoint.forward * randomZOffset;
 
-            Instantiate(selectedEnemyUnit.gameObject, spawnPosition, Quaternion.identity);
+            _enemyList.Add(Instantiate(selectedEnemyUnit.gameObject, spawnPosition, Quaternion.identity));
+
             _aliveEnemyCount++;
 
             yield return _waitForSeconds;
@@ -134,5 +143,14 @@ public class EnemySpawnManager : Singleton<EnemySpawnManager>
         {
             Debug.Log("All Enemies Died.");
         }
+    }
+
+    public void RemoveAllEnemies()
+    {
+        foreach (GameObject enemy in _enemyList)
+        {
+            Destroy(enemy);
+        }
+        _enemyList.Clear();
     }
 }
