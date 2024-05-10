@@ -15,7 +15,7 @@ MonoBehaviour:
   buildingTypes: 4
   health: 0
   placableTileTypes: 0100000005000000
-  widthHeight: {x: 2, y: 3}
+  widthHeight: {x: 3, y: 3}
   visual: {fileID: 0}
   Workforce: 0
   Cost:
