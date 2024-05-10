@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
   m_Name: Wall
   m_EditorClassIdentifier: 
-  buildingTypes: 6
+  buildingTypes: 11
   health: 0
   placableTileTypes: 0100000005000000
   widthHeight: {x: 1, y: 1}
@@ -24,4 +24,3 @@ MonoBehaviour:
     iron: 0
     food: 0
   ProductionAmount: 0
-  resourceTileSize: 0

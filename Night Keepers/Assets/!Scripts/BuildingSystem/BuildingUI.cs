@@ -7,7 +7,6 @@ using static BuildingData;
 
 public class BuildingUI : MonoBehaviour
 {
-    [SerializeField] BuildingManager buildingManager;
     [SerializeField] private GameObject buildingMainMenuButtons;
     [SerializeField] private GameObject generalBuildingButtons;
     [SerializeField] private GameObject resourceBuildingButtons;
@@ -54,62 +53,62 @@ public class BuildingUI : MonoBehaviour
 
     public void House()
     {
-        Debug.Log("House Selected");
+        BuildingManager.Instance.SetBuildingType(BuildingType.House);
     }
 
     public void StorageBuilding()
     {
-        Debug.Log("Storage Building Selected");
+        // BuildingManager.Instance.SetBuildingType(BuildingType.StorageBuilding);
     }
 
     public void TownHall()
     {
-        Debug.Log("Town Hall Selected");
+        BuildingManager.Instance.SetBuildingType(BuildingType.TownHall);
     }
 
     public void ResearchBuilding()
     {
-        Debug.Log("Research Building Selected");
+        BuildingManager.Instance.SetBuildingType(BuildingType.ResearchBuilding);
     }
 
     public void LumberJack()
     {
-        Debug.Log("Lumberjack Building Selected");
+        BuildingManager.Instance.SetBuildingType(BuildingType.Lumberjack);
     }
 
     public void Farm()
     {
-        Debug.Log("Farm Building Selected");
+        BuildingManager.Instance.SetBuildingType(BuildingType.Farm);
     }
 
     public void StoneMine()
     {
-        Debug.Log("Stone Mine Building Selected");
+        BuildingManager.Instance.SetBuildingType(BuildingType.StoneMine);
     }
 
     public void IronMine()
     {
-        Debug.Log("Iron Mine Building Selected");
+        BuildingManager.Instance.SetBuildingType(BuildingType.IronMine);
     }
 
     public void FishingHouse()
     {
-        Debug.Log("Fishing House Building Selected");
+        // BuildingManager.Instance.SetBuildingType(BuildingType.FishingHouse);
     }
 
     public void Barracks()
     {
-        Debug.Log("Barracks Building Selected");
+        BuildingManager.Instance.SetBuildingType(BuildingType.Barracks);
     }
 
     public void Walls()
     {
-        Debug.Log("Wall Building Selected");
+        BuildingManager.Instance.SetBuildingType(BuildingType.Wall);
     }
 
     public void Traps()
     {
-        Debug.Log("Traps Building Selected");
+        // BuildingManager.Instance.SetBuildingType(BuildingType.Traps);
     }
 
 

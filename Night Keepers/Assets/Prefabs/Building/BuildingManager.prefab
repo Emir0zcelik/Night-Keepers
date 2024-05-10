@@ -48,14 +48,18 @@ MonoBehaviour:
   _gridManager: {fileID: 0}
   _wallManager: {fileID: 5411096954508611090}
   buildings:
+  - {fileID: 2411556421893056226, guid: daad74a23070dfc43b804c9d12e8a0d2, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1268634703167157293, guid: d7ca947743354724b952734a7af05fa9, type: 3}
+  - {fileID: 5060818446536936548, guid: aff70cad4967366438455fbe18bb3659, type: 3}
+  - {fileID: 7344031187767561164, guid: f8cf705f90dbada45b105865ebda485b, type: 3}
+  - {fileID: 8519823669154503373, guid: 0dda5728a6a87964dad3e4d04dab4170, type: 3}
+  - {fileID: 2372149197767740968, guid: 15424969059af374fbebd72b13a9a5c3, type: 3}
+  - {fileID: 3364409013440261831, guid: 2cc632b7971cb854aad69a0880755bd0, type: 3}
+  - {fileID: 630163238887072471, guid: 0cc9c5cace514d64eb2ae2ca7952af04, type: 3}
   previews:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -65,7 +69,6 @@ MonoBehaviour:
   - {fileID: 0}
   buildingPreviews: []
   meshRendererPreviews: []
-  baseMaterials: []
   validPreviewMaterial: {fileID: 2100000, guid: 04231e7a189848a40b9ffe6c675863df,
     type: 2}
   invalidPreviewMaterial: {fileID: 2100000, guid: 902c2023408f1d54caabe103d524e052,
@@ -86,9 +89,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentWallsList:
-  - {fileID: 7329001920216223356, guid: b45c24359d567b348b997f8356af1c83, type: 3}
-  - {fileID: 8238157612322165032, guid: b51340ca68d0770479a5929cee90794e, type: 3}
-  - {fileID: 1791534010613607669, guid: 8643d27989bde8642a51b232441e36c7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _wallMeshFilters:
   - {fileID: 0}
   - {fileID: 0}

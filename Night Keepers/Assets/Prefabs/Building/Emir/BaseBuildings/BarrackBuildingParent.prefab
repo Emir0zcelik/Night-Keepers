@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &791249885829743462
+--- !u!1 &2339816135518201060
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,118 +8,118 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1665785984441019724}
-  - component: {fileID: 2372149197767740968}
+  - component: {fileID: 375214031347162708}
+  - component: {fileID: 630163238887072471}
   m_Layer: 0
-  m_Name: HouseParent
-  m_TagString: Selectable
+  m_Name: BarrackBuildingParent
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1665785984441019724
+--- !u!4 &375214031347162708
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791249885829743462}
+  m_GameObject: {fileID: 2339816135518201060}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: 0, z: 1}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13, y: 0, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1623288848659088973}
+  - {fileID: 9051943970274706828}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2372149197767740968
+--- !u!114 &630163238887072471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791249885829743462}
+  m_GameObject: {fileID: 2339816135518201060}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a05a8dc6249ae9a4bb3b10127581160a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingData: {fileID: 11400000, guid: f6512fdd73d588f4aab006f38bdb7cd5, type: 2}
+  buildingData: {fileID: 11400000, guid: a465b6e68a5633d42b0e248d569483ae, type: 2}
   direction: 1
-  buildingType: 7
+  buildingType: 0
   sameTileCount: 0
---- !u!1001 &1666197487991745003
+--- !u!1001 &8796742187527955047
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1665785984441019724}
+    m_TransformParent: {fileID: 375214031347162708}
     m_Modifications:
-    - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+    - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+    - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+    - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+    - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+    - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+    - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+    - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+    - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+    - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+    - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 780039721655514396, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+    - target: {fileID: 919132149155446097, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_Name
-      value: House
+      value: Barrack_Building_Level0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc, type: 3}
---- !u!4 &1623288848659088973 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: ccba01776b27c1d42adc4c4216d80283, type: 3}
+--- !u!4 &9051943970274706828 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 115001575852273574, guid: 2e4ebd3f2e51cc447b43c9b1ba7a3dfc,
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
     type: 3}
-  m_PrefabInstance: {fileID: 1666197487991745003}
+  m_PrefabInstance: {fileID: 8796742187527955047}
   m_PrefabAsset: {fileID: 0}

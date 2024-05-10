@@ -25,7 +25,22 @@ public class BuildingData : ScriptableObject
 
     public enum BuildingType
     {
-        Empty, StoneMine, IronMine,Lumberjack2, Lumberjack1, Lumberjack, TownHall, Test, Wall, House
+        Empty, 
+        TownHall, 
+        House,
+        StorageBuilding,
+        ResearchBuilding,
+        Lumberjack, 
+        StoneMine, 
+        IronMine,
+        Farm,
+        FishingHouse,
+        Barracks,
+        Wall, 
+        Traps,
+        Test, 
+        // Lumberjack2, 
+        // Lumberjack1, 
     }
 
     public BuildingType buildingTypes;

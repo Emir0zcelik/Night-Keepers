@@ -22,6 +22,8 @@ namespace NightKeepers
             buildingCounts["Test"] = 0;
             buildingCounts["Wall"] = 0;
             buildingCounts["House"] = 0;
+            buildingCounts["ResearchBuilding"] = 0;
+            buildingCounts["Barrack"] = 0;
 
  
         }

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
-  m_Name: IronMine
+  m_Name: Barrack
   m_EditorClassIdentifier: 
-  buildingTypes: 7
-  health: 100
-  placableTileTypes: 0400000005000000
-  widthHeight: {x: 1, y: 1}
+  buildingTypes: 10
+  health: 0
+  placableTileTypes: 0100000005000000
+  widthHeight: {x: 2, y: 2}
   visual: {fileID: 0}
-  Workforce: 2
+  Workforce: 0
   Cost:
-    wood: 50
-    stone: 50
+    wood: 0
+    stone: 0
     iron: 0
     food: 0
-  ProductionAmount: 973078528
+  ProductionAmount: 0

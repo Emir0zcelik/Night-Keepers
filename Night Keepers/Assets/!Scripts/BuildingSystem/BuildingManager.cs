@@ -135,7 +135,7 @@ public class BuildingManager : Singleton<BuildingManager>
                 BuildingPreviewsActivate(buildingNumber);
                 break;
 
-            case BuildingData.BuildingType.Test:
+            case BuildingData.BuildingType.Farm:
                 isPlaced = false;
                 buildingNumber = 4;
                 BuildingPreviewsActivate(buildingNumber);
@@ -148,6 +148,16 @@ public class BuildingManager : Singleton<BuildingManager>
             case BuildingData.BuildingType.House:
                 isPlaced = false;
                 buildingNumber = 6;
+                BuildingPreviewsActivate(buildingNumber);
+                break;
+            case BuildingData.BuildingType.ResearchBuilding:
+                isPlaced = false;
+                buildingNumber = 7;
+                BuildingPreviewsActivate(buildingNumber);
+                break;
+            case BuildingData.BuildingType.Barracks:
+                isPlaced = false;
+                buildingNumber = 8;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
         }
