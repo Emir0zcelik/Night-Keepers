@@ -54,9 +54,13 @@ namespace NightKeepers
             {
 
                 resourceManager.buildingData = data;
-                resourceManager.HasEnoughResources();
+                //resourceManager.HasEnoughResources();
                 resourceManager.StartResourceProduction(data);
-                buildingCounts[data.name]++;
+                if (resourceManager.HasEnoughResources())
+                {
+                    buildingCounts[data.name]++;
+                }
+
 
             }
         }
