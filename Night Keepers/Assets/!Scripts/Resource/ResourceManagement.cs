@@ -118,7 +118,6 @@ namespace NightKeepers
                 return false;
             }
         }
-     
         private void DeductResources()
         {
 
@@ -135,10 +134,6 @@ namespace NightKeepers
             {
                 StartResourceProduction(buildingData);
             }
-            
-        }
-        private void Update()
-        {
             UpdateText();
         }
 

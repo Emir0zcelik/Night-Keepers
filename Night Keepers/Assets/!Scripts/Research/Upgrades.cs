@@ -133,23 +133,111 @@ namespace NightKeepers.Research
                     Debug.Log($"Upgrade {upgrades} unlocked!");
                     return true;
                 }
-                else if (upgrades == ResearchUpgrades.Wall && currentResearchValue >= 10)
-                {
-
-                    UnlockUpgrades(upgrades);
-                    Debug.Log($"Upgrade {upgrades} unlocked!");
-                    return true;
-                }
                 else
                 {
-                   // researchPointAnimation.SetBool("shouldPlayAnimation", true);
+                    researchPointAnimation.SetBool("shouldPlayAnimation", true);
                    // Debug.Log("Insufficient ResearchPoint");
                     return false;
                 }
             }
         }
 
-        
+        /* public bool TryUnlock(ResearchUpgrades upgrades, TMP_Text researchText)
+         {
+
+             ResearchUpgrades requirement = GetResearchRequirement(upgrades);
+             int currentResearchValue;
+             int.TryParse(researchText.text, out currentResearchValue);
+
+             if (requirement != ResearchUpgrades.None)
+             {
+                 if (IsUnlocked(requirement))
+                 {
+                     if(upgrades == ResearchUpgrades.Lumberjack1)
+                     {
+                         if(currentResearchValue >= 20)
+                         {
+                             UnlockUpgrades(upgrades);
+                             Debug.Log($"List of characters: [{string.Join(", ", unlockedUpgrades)}]");
+                             return true;
+                         }
+                         else
+                         {
+                             Debug.Log("Insufficient Point");
+                             return false;
+                         }
+                     }
+                     else if(upgrades == ResearchUpgrades.Lumberjack2)
+                     {
+                         if (currentResearchValue >= 50)
+                         {
+                             UnlockUpgrades(upgrades);
+                             Debug.Log($"List of characters: [{string.Join(", ", unlockedUpgrades)}]");
+                             return true;
+                         }
+                         else
+                         {
+                             Debug.Log("Insufficient Point");
+                             return false;
+                         }
+                     }
+                     else if (upgrades == ResearchUpgrades.StoneMine)
+                     {
+                         if (currentResearchValue >= 10)
+                         {
+                             UnlockUpgrades(upgrades);
+                             Debug.Log($"List of characters: [{string.Join(", ", unlockedUpgrades)}]");
+                             return true;
+                         }
+                         else
+                         {
+                             Debug.Log("Insufficient Point");
+                             return false;
+                         }
+                     }
+                     else if (upgrades == ResearchUpgrades.IronMine)
+                     {
+                         if (currentResearchValue >= 10)
+                         {
+                             UnlockUpgrades(upgrades);
+                             Debug.Log($"List of characters: [{string.Join(", ", unlockedUpgrades)}]");
+                             return true;
+                         }
+                         else
+                         {
+                             Debug.Log("Insufficient Point");
+                             return false;
+                         }
+                     }
+                     else if (upgrades == ResearchUpgrades.Farm)
+                     {
+                         if (currentResearchValue >= 10)
+                         {
+                             UnlockUpgrades(upgrades);
+                             Debug.Log($"List of characters: [{string.Join(", ", unlockedUpgrades)}]");
+                             return true;
+                         }
+                         else
+                         {
+                             Debug.Log("Insufficient Point");
+                             return false;
+                         }
+                     }
+
+                 }
+                 else
+                 {
+                     Debug.Log("You need to unlock " + requirement + " first");
+                     return false;
+                 }
+             }
+             else
+             {            
+                     UnlockUpgrades(upgrades);
+                     return true;  
+             }
+
+         }*/
 
 
     }
