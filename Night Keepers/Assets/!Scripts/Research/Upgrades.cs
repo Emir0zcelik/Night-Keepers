@@ -36,6 +36,7 @@ namespace NightKeepers.Research
         }
 
         public List<ResearchUpgrades> unlockedUpgrades;
+        [SerializeField] private Animator researchPointAnimation;
 
         public Upgrades()
         {
@@ -133,7 +134,8 @@ namespace NightKeepers.Research
                 }
                 else
                 {
-                    Debug.Log("Insufficient ResearchPoint");
+                    researchPointAnimation.SetBool("shouldPlayAnimation", true);
+                   // Debug.Log("Insufficient ResearchPoint");
                     return false;
                 }
             }
