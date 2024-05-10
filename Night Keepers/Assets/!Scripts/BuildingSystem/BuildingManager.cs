@@ -270,7 +270,7 @@ public class BuildingManager : Singleton<BuildingManager>
 
     private bool TryBuild(Building building, List<Vector2Int> gridPositionList, RM rmInstance)
     {
-        sameTileCount = 0;
+        int localSameTileCount = 0;
         foreach (Vector2Int position in gridPositionList)
         {
             if (GridManager.Instance._grid[position].building != null)
@@ -284,11 +284,11 @@ public class BuildingManager : Singleton<BuildingManager>
 
             if (building.buildingData.placableTileTypes[0] == GridManager.Instance._grid[position].tileType)
             {
-                sameTileCount++;
+                localSameTileCount++;
             }
         }
 
-        if (sameTileCount == 0)
+        if (localSameTileCount == 0)
         {
             return false;
         }
@@ -298,6 +298,7 @@ public class BuildingManager : Singleton<BuildingManager>
         if (Input.GetMouseButtonDown(0))
         {
             rmInstance.SetBuildingData(building.buildingData);
+            BuildingManager.Instance.sameTileCount = localSameTileCount;
         }
         
 
