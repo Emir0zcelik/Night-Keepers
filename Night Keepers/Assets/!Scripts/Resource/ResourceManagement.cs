@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using TMPro;
 
 
 namespace NightKeepers
@@ -16,6 +17,10 @@ namespace NightKeepers
             public int Iron = 500;
             public int Food = 500;
         }
+        public TMP_Text woodText;
+        public TMP_Text foodText;
+        public TMP_Text stoneText;
+
         public ResourceHave resources = new ResourceHave();
         public BuildingManager buildingManager;
         public BuildingData buildingData;
@@ -39,6 +44,12 @@ namespace NightKeepers
             }
         }
 
+        private void UpdateText()
+        {
+            woodText.text = resources.Wood.ToString();
+            foodText.text = resources.Food.ToString();
+            stoneText.text = resources.Stone.ToString();
+        }
 
         private IEnumerator ProduceResources(BuildingData buildingData)
         {
@@ -108,7 +119,7 @@ namespace NightKeepers
             {
                 StartResourceProduction(buildingData);
             }
-
+            UpdateText();
         }
 
     }

@@ -11,6 +11,7 @@ namespace NightKeepers.Research
         public TMP_Text researchText;
         private Upgrades _upgrades;
         private int cost;
+        [SerializeField] GameObject researchUI;
         public enum CanvasButtons
         {
             Lumberjack,
@@ -41,6 +42,15 @@ namespace NightKeepers.Research
         {
             _upgrades = new Upgrades();
             _upgrades.OnResearchUnlocked += Upgrades_OnResearchUnlocked;
+        }
+
+        public void openResearchUI()
+        {
+            researchUI.SetActive(true);
+        }
+        public void closeResearchUI()
+        {
+            researchUI.SetActive(false);
         }
 
         private void Upgrades_OnResearchUnlocked(object sender, Upgrades.OnResearchUnlockedEventArgs e)
