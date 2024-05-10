@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Unity.VisualScripting;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -26,7 +24,7 @@ namespace NightKeepers
             {
                 Vector2Int gridPosition = GridManager.Instance._grid.WorldToGridPosition(raycastHit.point);
 
-                OutlineSelection(gridPosition);
+                OutlineSelection();
                 SelectedBuilding(gridPosition);
                 DeleteBuilding(gridPosition);
             }
@@ -36,52 +34,43 @@ namespace NightKeepers
         {
             if (Input.GetMouseButtonDown(0) && GridManager.Instance._grid[gridPosition].building != null)
             {
-                if (GridManager.Instance._grid[gridPosition].building.transform.GetChild(0).TryGetComponent<FunctionalBuilding>(out var func))
+                if (GridManager.Instance._grid[gridPosition].building.TryGetComponent<FunctionalBuilding>(out var func))
                 {
-                    print(func);
                     onBuildingSelected?.Invoke(func);
                 }
             }
         }
 
-        private void OutlineSelection(Vector2Int gridPosition)
+        private void OutlineSelection()
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
+            if (highlight != null)
             {
-                
-
-                if (GridManager.Instance._grid[gridPosition].building == null)
-                {
-                    if (highlight != null)
-                    {
-                        highlight.gameObject.GetComponentInChildren<Outline>().enabled = false;
-                    }
-                    return;
-                }
-                
-
-                highlight = GridManager.Instance._grid[gridPosition].building.transform;
-
+                highlight.gameObject.GetComponent<Outline>().enabled = false;
+                highlight = null;
+            }
+            Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit)) 
+            {
+                highlight = raycastHit.transform;
                 if (highlight.CompareTag("Selectable"))
                 {
-                    if (highlight.gameObject.GetComponentInChildren<Outline>() != null)
+                    if (highlight.gameObject.GetComponent<Outline>() != null)
                     {
-                        highlight.gameObject.GetComponentInChildren<Outline>().enabled = true;
+                        highlight.gameObject.GetComponent<Outline>().enabled = true;
                     }
                     else
                     {
-                        print("else");
-                        Outline outline = highlight.gameObject.transform.GetChild(0).AddComponent<Outline>();
+                        Outline outline = highlight.gameObject.AddComponent<Outline>();
                         outline.enabled = true;
-                        highlight.gameObject.GetComponentInChildren<Outline>().OutlineColor = Color.white;
-                        highlight.gameObject.GetComponentInChildren<Outline>().OutlineWidth = 7.0f;
+                        highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
+                        highlight.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
                     }
                 }
                 else
                 {
                     highlight = null;
                 }
-            }      
+            }        
         }                  
 
         private void DeleteBuilding(Vector2Int gridPosition)
