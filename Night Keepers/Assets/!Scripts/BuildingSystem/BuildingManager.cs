@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 
 public class BuildingManager : Singleton<BuildingManager>
 {
-    [SerializeField] private GridManager _gridManager;
     [SerializeField] private WallManager _wallManager;
     [SerializeField] private List<Building> buildings;
     [SerializeField] private List<GameObject> previews; 
@@ -51,7 +50,7 @@ public class BuildingManager : Singleton<BuildingManager>
     private void Start() {
         foreach (var preview in previews)
         {
-            preview.transform.localScale = new Vector3(preview.transform.localScale.x * _gridManager.cellSize / 10, preview.transform.localScale.y * _gridManager.cellSize / 10, preview.transform.localScale.z * _gridManager.cellSize / 10);
+            preview.transform.localScale = new Vector3(preview.transform.localScale.x * GridManager.Instance.cellSize / 10, preview.transform.localScale.y * GridManager.Instance.cellSize / 10, preview.transform.localScale.z * GridManager.Instance.cellSize / 10);
             preview.SetActive(false);
         }
     }
@@ -67,7 +66,7 @@ public class BuildingManager : Singleton<BuildingManager>
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
         {
-            gridPosition = _gridManager._grid.WorldToGridPosition(raycastHit.point);
+            gridPosition = GridManager.Instance._grid.WorldToGridPosition(raycastHit.point);
             if (isBuildingMode)
             {                
                 isPlaceBuilding = true;
@@ -204,7 +203,7 @@ public class BuildingManager : Singleton<BuildingManager>
             }
             
             Vector2Int rotationOffset = buildingPreviews[buildingNumber].buildingData.GetRotationOffset(buildingPreviews[buildingNumber].direction);
-            Vector3 instantiatedBuildingWorldPosition = _gridManager._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _gridManager.cellSize;
+            Vector3 instantiatedBuildingWorldPosition = GridManager.Instance._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * GridManager.Instance.cellSize;
             previews[buildingNumber].transform.position = instantiatedBuildingWorldPosition;
             if (isRotated)
             {
@@ -217,7 +216,7 @@ public class BuildingManager : Singleton<BuildingManager>
 
     public Vector2Int GetPreviewPosition()
     {
-        return _gridManager._grid.WorldToGridPosition(previews[buildingNumber].transform.position);
+        return GridManager.Instance._grid.WorldToGridPosition(previews[buildingNumber].transform.position);
     }
 
     private void PlaceBuilding(Vector2Int gridPosition)
@@ -225,7 +224,7 @@ public class BuildingManager : Singleton<BuildingManager>
         if (Input.GetMouseButtonDown(0))
         {
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildingPreviews[buildingNumber].direction);
-            buildings[buildingNumber].transform.position = _gridManager._grid.GridToWorldPosition(gridPosition);
+            buildings[buildingNumber].transform.position = GridManager.Instance._grid.GridToWorldPosition(gridPosition);
 
 
             if (TryBuild(buildings[buildingNumber], gridPositionList,rm))
@@ -241,19 +240,24 @@ public class BuildingManager : Singleton<BuildingManager>
                     Tile tile = new Tile()
                     {
                         building = instantiatedBuilding,
-                        tileType = _gridManager._grid[gridPosition].tileType,
+                        tileType = GridManager.Instance._grid[gridPosition].tileType,
                     };
-                    _gridManager._grid[position] = tile;
+                    GridManager.Instance._grid[position] = tile;
                 }
 
                 if (buildingNumber == 5)
                 {
-                    SetGridPositionForWall(_gridManager._grid.WorldToGridPosition(instantiatedBuilding.transform.position));
+                    SetGridPositionForWall(GridManager.Instance._grid.WorldToGridPosition(instantiatedBuilding.transform.position));
                 }
 
                 if (buildingNumber == 3)
                 {
                     OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
+                }
+
+                foreach (var item in gridPositionList)
+                {
+                    print(item);
                 }
             }
         }
@@ -277,16 +281,16 @@ public class BuildingManager : Singleton<BuildingManager>
         sameTileCount = 0;
         foreach (Vector2Int position in gridPositionList)
         {
-            if (_gridManager._grid[position].building != null)
+            if (GridManager.Instance._grid[position].building != null)
             {
                 return false; 
             }
-            if (building.buildingData.placableTileTypes[1] == _gridManager._grid[position].tileType)
+            if (building.buildingData.placableTileTypes[1] == GridManager.Instance._grid[position].tileType)
             {
                 return false;
             }
 
-            if (building.buildingData.placableTileTypes[0] == _gridManager._grid[position].tileType)
+            if (building.buildingData.placableTileTypes[0] == GridManager.Instance._grid[position].tileType)
             {
                 sameTileCount++;
             }
