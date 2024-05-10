@@ -57,9 +57,13 @@ Material:
     - _NormalInfluence: 1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _RIMLIGHT: 0
+    - _RimLightEdgePower: 3.72
     - _SSSIntensity: 0.53
     - _SSSPower: 1
     - _SUBSURFACE: 1
+    - _ShadowPower: 1
+    - _Strenght: 0.53
     - _WIND: 1
     - _WindBend: 4
     - _WindDirection: 1
@@ -67,6 +71,7 @@ Material:
     m_Colors:
     - _Input: {r: 0, g: 0, b: 0, a: 0}
     - _MainColor: {r: 1, g: 1, b: 1, a: 0}
+    - _RimLightColor: {r: 1, g: 1, b: 1, a: 0}
     - _SSSColor: {r: 0.9015293, g: 1, b: 0.21698096, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4745318847886051059

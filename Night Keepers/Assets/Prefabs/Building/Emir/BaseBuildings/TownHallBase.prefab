@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7964376924650922341}
   - component: {fileID: 5060818446536936548}
-  m_Layer: 0
+  - component: {fileID: 7134723908670594913}
+  m_Layer: 8
   m_Name: TownHallBase
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1462845469361398276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 97, y: 0, z: 65}
+  m_LocalPosition: {x: 99, y: 0, z: 97}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -47,8 +48,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingData: {fileID: 11400000, guid: b8bd2274bfdabaf4caef59dbae4b72ce, type: 2}
   direction: 1
-  buildingType: 0
+  buildingType: 1
   sameTileCount: 0
+--- !u!114 &7134723908670594913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462845469361398276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <currentStateName>k__BackingField: Idle
+  <CurrentHealth>k__BackingField: 0
+  <isAggroed>k__BackingField: 0
+  <isInAttackingDistance>k__BackingField: 0
+  Target: {fileID: 0}
+  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
+    type: 2}
+  <_animation>k__BackingField: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &3137375931490702081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,6 +88,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TownHall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635723778476152718, guid: 061fb74f34609184d9b85723ae000dd7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7225610655957794930, guid: 061fb74f34609184d9b85723ae000dd7,
         type: 3}
@@ -115,8 +147,45 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1635723778476152718, guid: 061fb74f34609184d9b85723ae000dd7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 681290217229933883}
   m_SourcePrefab: {fileID: 100100000, guid: 061fb74f34609184d9b85723ae000dd7, type: 3}
+--- !u!1 &4411681373033989263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1635723778476152718, guid: 061fb74f34609184d9b85723ae000dd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 3137375931490702081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &681290217229933883
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4411681373033989263}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &5750169089917670259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7225610655957794930, guid: 061fb74f34609184d9b85723ae000dd7,

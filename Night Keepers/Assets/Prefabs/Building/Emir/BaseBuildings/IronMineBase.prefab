@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 278367683844129875}
   - component: {fileID: 8167521406150457605}
-  m_Layer: 0
+  - component: {fileID: 859766739213702326}
+  m_Layer: 8
   m_Name: IronMineBase
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -48,6 +49,33 @@ MonoBehaviour:
   buildingData: {fileID: 11400000, guid: 45ea82ea1632ab04b94653297df09750, type: 2}
   direction: 1
   buildingType: 2
+  sameTileCount: 0
+--- !u!114 &859766739213702326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931576779378130441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <currentStateName>k__BackingField: Idle
+  <CurrentHealth>k__BackingField: 0
+  <isAggroed>k__BackingField: 0
+  <isInAttackingDistance>k__BackingField: 0
+  Target: {fileID: 0}
+  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
+    type: 2}
+  <_animation>k__BackingField: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &8587633969208723628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56,6 +84,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 278367683844129875}
     m_Modifications:
+    - target: {fileID: 3342998921136173052, guid: 0a4699fd6ea89fa4490cc0757a349138,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5030773299992729012, guid: 0a4699fd6ea89fa4490cc0757a349138,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -110,6 +143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IronMine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593303239640176597, guid: 0a4699fd6ea89fa4490cc0757a349138,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7499366238111233988, guid: 0a4699fd6ea89fa4490cc0757a349138, type: 3}

@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 375214031347162708}
   - component: {fileID: 630163238887072471}
-  m_Layer: 0
+  - component: {fileID: -7740863980157266902}
+  - component: {fileID: 5683358305420081825}
+  m_Layer: 8
   m_Name: BarrackBuildingParent
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2339816135518201060}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33, y: 0, z: 3}
+  m_LocalPosition: {x: 103, y: 0, z: 93}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -49,6 +51,44 @@ MonoBehaviour:
   direction: 1
   buildingType: 0
   sameTileCount: 0
+--- !u!114 &-7740863980157266902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339816135518201060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <currentStateName>k__BackingField: Idle
+  <CurrentHealth>k__BackingField: 0
+  <isAggroed>k__BackingField: 0
+  <isInAttackingDistance>k__BackingField: 0
+  Target: {fileID: 0}
+  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
+    type: 2}
+  <_animation>k__BackingField: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &5683358305420081825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339816135518201060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f121613a56cc945909a2b63efe2468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8796742187527955047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,11 +152,83 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrack_Building_Level0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ccba01776b27c1d42adc4c4216d80283,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ccba01776b27c1d42adc4c4216d80283,
+        type: 3}
+      propertyPath: m_TagString
+      value: Selectable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ccba01776b27c1d42adc4c4216d80283,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7084894518212614162}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ccba01776b27c1d42adc4c4216d80283,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7270943412038489988}
   m_SourcePrefab: {fileID: 100100000, guid: ccba01776b27c1d42adc4c4216d80283, type: 3}
+--- !u!1 &8562793939626024758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ccba01776b27c1d42adc4c4216d80283,
+    type: 3}
+  m_PrefabInstance: {fileID: 8796742187527955047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7084894518212614162
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8562793939626024758}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.942076, y: 14.044922, z: 17.879272}
+  m_Center: {x: -0.28696823, y: 6.866235, z: -0.22512579}
+--- !u!54 &7270943412038489988
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8562793939626024758}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &9051943970274706828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
