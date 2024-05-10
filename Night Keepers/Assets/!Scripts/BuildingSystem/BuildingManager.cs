@@ -8,11 +8,10 @@ using UnityEngine.EventSystems;
 
 public class BuildingManager : Singleton<BuildingManager>
 {
-    [SerializeField] private WallManager _wallManager;
     [SerializeField] private List<Building> buildings;
     [SerializeField] private List<GameObject> previews; 
-    [SerializeField] private List<Building> buildingPreviews; 
-    [SerializeField] private List<MeshRenderer> meshRendererPreviews; 
+    private List<Building> buildingPreviews = new List<Building>(); 
+    private List<MeshRenderer> meshRendererPreviews = new List<MeshRenderer>(); 
     [SerializeField] private Material validPreviewMaterial;
     [SerializeField] private Material invalidPreviewMaterial;
 
@@ -24,9 +23,6 @@ public class BuildingManager : Singleton<BuildingManager>
 
     private Vector2Int gridPosition;
     private bool isRotated = false;
-
-    public RM rm;
-
     private int buildingNumber;
     bool isPlaced = false;
 
@@ -35,7 +31,8 @@ public class BuildingManager : Singleton<BuildingManager>
     bool isBuildingMode = true;
     public int sameTileCount { get; private set; }
     
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
         foreach (var preview in previews)
         {
             buildingPreviews.Add(preview.GetComponentInChildren<Building>());
@@ -183,7 +180,7 @@ public class BuildingManager : Singleton<BuildingManager>
     {
         if(!isPlaced)
         {
-            if (TryBuild(buildings[buildingNumber], buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction),rm))
+            if (TryBuild(buildings[buildingNumber], buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction),RM.Instance))
             {   
                 var yourMaterials = new Material[]
                 {
@@ -227,7 +224,7 @@ public class BuildingManager : Singleton<BuildingManager>
             buildings[buildingNumber].transform.position = GridManager.Instance._grid.GridToWorldPosition(gridPosition);
 
 
-            if (TryBuild(buildings[buildingNumber], gridPositionList,rm))
+            if (TryBuild(buildings[buildingNumber], gridPositionList,RM.Instance))
             {                
                 Building instantiatedBuilding = Instantiate(
                         buildings[buildingNumber],
@@ -302,7 +299,6 @@ public class BuildingManager : Singleton<BuildingManager>
         }
 
         isPlaced = true;
-
         if (Input.GetMouseButtonDown(0))
         {
             rmInstance.SetBuildingData(building.buildingData);

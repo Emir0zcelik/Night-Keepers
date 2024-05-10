@@ -91,7 +91,7 @@ public class BuildingUI : MonoBehaviour
     public void StoneMine()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.StoneMine);
-        notResearchedAnimation.SetBool("shouldPlayAnimation", true);
+        // notResearchedAnimation.SetBool("shouldPlayAnimation", true);
         /*if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.StoneMine))
         {
             BuildingManager.Instance.SetBuildingType(BuildingType.StoneMine);

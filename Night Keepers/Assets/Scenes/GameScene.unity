@@ -305,7 +305,55 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2487415687582488209, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1011058030}
+    - targetCorrespondingSourceObject: {fileID: 8848182204439453854, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 927956927}
+    - targetCorrespondingSourceObject: {fileID: 737604054468230601, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1750749042}
+    - targetCorrespondingSourceObject: {fileID: 2867545705939096184, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 809196401}
+    - targetCorrespondingSourceObject: {fileID: 6713433975736647171, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1699117424}
+    - targetCorrespondingSourceObject: {fileID: 8164809036045702851, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1522139974}
+    - targetCorrespondingSourceObject: {fileID: 1978468518822841920, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 624253970}
+    - targetCorrespondingSourceObject: {fileID: 5580211509064804429, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 460993130}
+    - targetCorrespondingSourceObject: {fileID: 5503722876434422523, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 495940175}
+    - targetCorrespondingSourceObject: {fileID: 8709563235905171717, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125104988}
+    - targetCorrespondingSourceObject: {fileID: 8341544014563585100, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1247297758}
+    - targetCorrespondingSourceObject: {fileID: 1080234020077075594, guid: 59788680a0653d94d94b2360d265432b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1311391456}
   m_SourcePrefab: {fileID: 100100000, guid: 59788680a0653d94d94b2360d265432b, type: 3}
 --- !u!224 &80609060 stripped
 RectTransform:
@@ -1513,6 +1561,34 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5411096954508611090, guid: cf21413c21737af40ba8dd68505fac44,
         type: 3}
+      propertyPath: _parentWallsList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411096954508611090, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
+      propertyPath: _wallMeshFilters.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411096954508611090, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
+      propertyPath: _parentWallsList.Array.data[0]
+      value: 
+      objectReference: {fileID: 7329001920216223356, guid: b45c24359d567b348b997f8356af1c83,
+        type: 3}
+    - target: {fileID: 5411096954508611090, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
+      propertyPath: _parentWallsList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8238157612322165032, guid: b51340ca68d0770479a5929cee90794e,
+        type: 3}
+    - target: {fileID: 5411096954508611090, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
+      propertyPath: _parentWallsList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1791534010613607669, guid: 8643d27989bde8642a51b232441e36c7,
+        type: 3}
+    - target: {fileID: 5411096954508611090, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
       propertyPath: _wallMeshFilters.Array.data[0]
       value: 
       objectReference: {fileID: 1629127457}
@@ -1525,7 +1601,8 @@ PrefabInstance:
         type: 3}
       propertyPath: _wallMeshFilters.Array.data[2]
       value: 
-      objectReference: {fileID: 2101599023}
+      objectReference: {fileID: 5596774959829597965, guid: 5ac1a5f477484ad4d95bd08647e32600,
+        type: 3}
     - target: {fileID: 7957532826960230100, guid: cf21413c21737af40ba8dd68505fac44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1694,6 +1771,31 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 323610801}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &460993125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5580211509064804429, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &460993130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460993125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
 --- !u!1001 &462487984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1702,6 +1804,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1171612994}
     m_Modifications:
+    - target: {fileID: 517835297877048775, guid: 6fadef02792299342bfd65497a16a06a,
+        type: 3}
+      propertyPath: notEnoughResourceAnimation
+      value: 
+      objectReference: {fileID: 1987584355}
     - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
         type: 3}
       propertyPath: foodText
@@ -1862,6 +1969,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0200bbf367a524048b708fde0edbb71c, type: 3}
+--- !u!1 &487636859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6709350172813299792, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &495940170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5503722876434422523, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &495940175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495940170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
 --- !u!1 &512379734
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,6 +2246,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 887269153}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &624253965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1978468518822841920, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &624253970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624253965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
 --- !u!1 &645457231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,7 +2301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unlockedUpgrades: 
-  researchPointAnimation: {fileID: 0}
+  researchPointAnimation: {fileID: 1273238112}
 --- !u!224 &645457233
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2238,6 +2401,31 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 900476655}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &809196396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2867545705939096184, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &809196401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809196396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
 --- !u!1001 &827101051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3322,6 +3510,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &927956922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8848182204439453854, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &927956927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927956922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
 --- !u!1 &937497836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5139574075000251857, guid: 4e53985df042fdd46b50711a08b641a8,
@@ -3431,6 +3644,7 @@ RectTransform:
   - {fileID: 827101052}
   - {fileID: 447585200}
   - {fileID: 80609060}
+  - {fileID: 1439055046}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3444,6 +3658,31 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4300763032637149847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1011058025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2487415687582488209, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1011058030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011058025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
 --- !u!1 &1059282632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,6 +4075,58 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bc3ca387210fda4a93e00e57d8e0ef9, type: 3}
+--- !u!1 &1247297753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341544014563585100, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1247297758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247297753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
+--- !u!1 &1273238111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7033665021432242716, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1454290549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1273238112
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273238111}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb3c8b57b740bcd4b845b40c29ada153, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1282013746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3904,6 +4195,31 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fc922e35c4fbca4988f51abcf23615b, type: 3}
+--- !u!1 &1311391451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1080234020077075594, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1311391456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311391451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
 --- !u!1001 &1343733058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4123,6 +4439,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 115693372}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1379777633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5148611933385375096, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1379855677 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 74592225377428388, guid: e65014169a2b56f479188f78d8319c5c,
@@ -4135,6 +4457,124 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 900476655}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1439055046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1454290549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1454290549
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1004565673}
+    m_Modifications:
+    - target: {fileID: 3600462566155648758, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_Name
+      value: ErrorHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5269203
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5269203
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5269203
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2413.085
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 859.0065
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 176.87494
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780778722441594795, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7033665021432242716, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1273238112}
+  m_SourcePrefab: {fileID: 100100000, guid: 18a44668cc376f346acb0fe6ac4a2e2a, type: 3}
+--- !u!1 &1522139969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164809036045702851, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1522139974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522139969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
 --- !u!1 &1540821432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3224104077250168272, guid: 4e53985df042fdd46b50711a08b641a8,
@@ -4327,6 +4767,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636747598}
   m_CullTransparentMesh: 1
+--- !u!1 &1699117419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6713433975736647171, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1699117424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699117419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
 --- !u!1001 &1704868164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4400,6 +4865,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2649abedef83d5439ac31fcf5e0b94f, type: 3}
+--- !u!1 &1710528108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3642849336397650693, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1750749037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 737604054468230601, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1750749042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750749037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
 --- !u!114 &1803742824 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
@@ -5021,6 +5517,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976093011}
   m_CullTransparentMesh: 1
+--- !u!95 &1987584355 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3563017388858164107, guid: 18a44668cc376f346acb0fe6ac4a2e2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1454290549}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1993959428 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2404991199047530777, guid: e65014169a2b56f479188f78d8319c5c,
@@ -5033,11 +5535,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1922543355}
   m_PrefabAsset: {fileID: 0}
---- !u!33 &2101599023 stripped
-MeshFilter:
-  m_CorrespondingSourceObject: {fileID: 1957048079938915605, guid: 4e53985df042fdd46b50711a08b641a8,
+--- !u!1 &2097616590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5633724841047726088, guid: 59788680a0653d94d94b2360d265432b,
     type: 3}
-  m_PrefabInstance: {fileID: 221596441}
+  m_PrefabInstance: {fileID: 80609059}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2113874137 stripped
 Transform:
@@ -5045,6 +5547,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 167278770}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2120111066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4545952895833320305, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2125104983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8709563235905171717, guid: 59788680a0653d94d94b2360d265432b,
+    type: 3}
+  m_PrefabInstance: {fileID: 80609059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2125104988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125104983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd7fae6402d15f4db32e8652f4203ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingMainMenuButtons: {fileID: 2097616590}
+  generalBuildingButtons: {fileID: 1710528108}
+  resourceBuildingButtons: {fileID: 1379777633}
+  militartDefenseButtons: {fileID: 2120111066}
+  backButton: {fileID: 487636859}
+  notResearchedAnimation: {fileID: 1273238112}
+  upgrades: {fileID: 645457232}
 --- !u!1 &2126514068 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 711846565964886714, guid: e65014169a2b56f479188f78d8319c5c,
@@ -5071,6 +5604,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 417084366553064918, guid: 909a5d140d1c05e42aca8a3b68b0244a,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3274391543254666333, guid: 909a5d140d1c05e42aca8a3b68b0244a,
         type: 3}
       propertyPath: m_Name
@@ -5080,6 +5618,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142306392190541359, guid: 909a5d140d1c05e42aca8a3b68b0244a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6294503281450409396, guid: 909a5d140d1c05e42aca8a3b68b0244a,
         type: 3}
@@ -5274,7 +5817,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upgrades: {fileID: 645457232}
-  builduis: []
+  builduis:
+  - {fileID: 1011058030}
+  - {fileID: 927956927}
+  - {fileID: 1750749042}
+  - {fileID: 809196401}
+  - {fileID: 1699117424}
+  - {fileID: 1522139974}
+  - {fileID: 624253970}
+  - {fileID: 460993130}
+  - {fileID: 495940175}
+  - {fileID: 2125104988}
+  - {fileID: 1247297758}
+  - {fileID: 1311391456}
   researchText: {fileID: 1059282634}
   buildingsArray:
   - {fileID: 232843114}

@@ -86,21 +86,37 @@ namespace NightKeepers
             }
         }
 
-        public bool HasEnoughResources()
-        {
+        // public bool HasEnoughResources()
+        // {
+        //     if (resources.Wood >= buildingData.Cost.wood &&
+        //         resources.Stone >= buildingData.Cost.stone &&
+        //         resources.Iron >= buildingData.Cost.iron &&
+        //         resources.Food >= buildingData.Cost.food)
+        //     {
 
+        //         DeductResources();
+        //         return true;
+        //     }
+        //     else
+        //     {
+        //         return false;
+        //     }
+        // }
+
+        public void HasEnoughResources()
+        {
             if (resources.Wood >= buildingData.Cost.wood &&
                 resources.Stone >= buildingData.Cost.stone &&
                 resources.Iron >= buildingData.Cost.iron &&
                 resources.Food >= buildingData.Cost.food)
             {
-
+            
                 DeductResources();
-                return true;
+
             }
             else
             {
-                return false;
+            
             }
         }
         private void DeductResources()

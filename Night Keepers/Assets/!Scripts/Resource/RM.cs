@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace NightKeepers
 {
-    public class RM : MonoBehaviour
+    public class RM : Singleton<RM>
     {
         public ResourceManagement resourceManager;
         [SerializeField] private Animator notEnoughResourceAnimation;
@@ -52,20 +52,20 @@ namespace NightKeepers
             }
             else
             {
-                if(resourceManager.HasEnoughResources())
-                {
-                    resourceManager.buildingData = data;
-                    resourceManager.StartResourceProduction(data);
-                    buildingCounts[data.name]++;
-                }
-                else
-                {
-                    notEnoughResourceAnimation.SetBool("shouldPlayAnimation", true);
-                }
+                // if(resourceManager.HasEnoughResources())
+                // {
                 
-                //resourceManager.HasEnoughResources();
+                //}
+                // else
+                // {
+                //     notEnoughResourceAnimation.SetBool("shouldPlayAnimation", true);
+                // }
 
-                
+                resourceManager.HasEnoughResources();
+                resourceManager.buildingData = data;
+                resourceManager.StartResourceProduction(data);
+                buildingCounts[data.name]++;
+
             }
         }
         void UpdateExistingBuilding(BuildingData data)
