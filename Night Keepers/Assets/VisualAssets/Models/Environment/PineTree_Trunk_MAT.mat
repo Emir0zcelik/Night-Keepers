@@ -13,6 +13,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _RIMLIGHT
   - _WIND
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -53,12 +54,16 @@ Material:
     - _LeafFrequency: 0
     - _LeafSpeed: 0
     - _LeafWave: 0
-    - _NormalInfluence: 0
+    - _NormalInfluence: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SSSIntensity: 0
-    - _SSSPower: 0
+    - _RIMLIGHT: 1
+    - _RimLightEdgePower: 3.98
+    - _SSSIntensity: 1.45
+    - _SSSPower: 1
     - _SUBSURFACE: 0
+    - _ShadowPower: 12.17
+    - _Strenght: 0.5
     - _WIND: 1
     - _WindBend: 4
     - _WindDirection: 1
@@ -66,6 +71,7 @@ Material:
     m_Colors:
     - _Input: {r: 0, g: 0, b: 0, a: 0}
     - _MainColor: {r: 1, g: 1, b: 1, a: 0}
+    - _RimLightColor: {r: 0.80817604, g: 0.9315089, b: 1, a: 0}
     - _SSSColor: {r: 0.9015293, g: 1, b: 0.21698096, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4745318847886051059
