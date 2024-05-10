@@ -7,8 +7,8 @@ namespace NightKeepers
     public class RM : MonoBehaviour
     {
         public ResourceManagement resourceManager;
+        [SerializeField] private Animator notEnoughResourceAnimation;
 
-  
 
         public Dictionary<string, int> buildingCounts = new Dictionary<string, int>();
 
@@ -52,21 +52,27 @@ namespace NightKeepers
             }
             else
             {
+                if(resourceManager.HasEnoughResources())
+                {
+                    resourceManager.buildingData = data;
+                    resourceManager.StartResourceProduction(data);
+                    buildingCounts[data.name]++;
+                }
+                else
+                {
+                    notEnoughResourceAnimation.SetBool("shouldPlayAnimation", true);
+                }
+                
+                //resourceManager.HasEnoughResources();
 
-                resourceManager.buildingData = data;
-                resourceManager.StartResourceProduction(data);
-                resourceManager.HasEnoughResources();
-
-                buildingCounts[data.name]++;
-            }           
+                
+            }
         }
         void UpdateExistingBuilding(BuildingData data)
         {
             int baseProduction = data.ProductionAmount;
             int stackMultiplier = buildingCounts[data.name];
             int newProduction = baseProduction * stackMultiplier;
-
-
             data.ProductionAmount = newProduction;
         }
 

@@ -12,7 +12,8 @@ public class BuildingUI : MonoBehaviour
     [SerializeField] private GameObject resourceBuildingButtons;
     [SerializeField] private GameObject militartDefenseButtons;
     [SerializeField] private GameObject backButton;
-    //[SerializeField] private Animator notEnoughResourceAnimation;
+    [SerializeField] private Animator notResearchedAnimation;
+
 
     public Upgrades upgrades;
 
@@ -55,6 +56,7 @@ public class BuildingUI : MonoBehaviour
     public void House()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.House);
+        //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void StorageBuilding()
@@ -65,33 +67,39 @@ public class BuildingUI : MonoBehaviour
     public void TownHall()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.TownHall);
+        //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void ResearchBuilding()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.ResearchBuilding);
+        //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void LumberJack()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.Lumberjack);
+        //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void Farm()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.Farm);
+        //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void StoneMine()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.StoneMine);
+        notResearchedAnimation.SetBool("shouldPlayAnimation", true);
         /*if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.StoneMine))
         {
             BuildingManager.Instance.SetBuildingType(BuildingType.StoneMine);
         }
         else
-            notEnoughResourceAnimation.Play("Resourcenotenough");*/
-     
+        notResearchedAnimation.SetBool("shouldPlayAnimation", true);
+             */
+
     }
 
     public void IronMine()
@@ -102,7 +110,7 @@ public class BuildingUI : MonoBehaviour
              BuildingManager.Instance.SetBuildingType(BuildingType.StoneMine);            
          }
          else
-             notEnoughResourceAnimation.Play("Resourcenotenough");*/
+             notResearchedAnimation.SetBool("shouldPlayAnimation", true);*/
     }
 
     public void FishingHouse()
