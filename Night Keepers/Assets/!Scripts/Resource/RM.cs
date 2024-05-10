@@ -61,8 +61,8 @@ namespace NightKeepers
                 //     notEnoughResourceAnimation.SetBool("shouldPlayAnimation", true);
                 // }
 
-                resourceManager.HasEnoughResources();
                 resourceManager.buildingData = data;
+                resourceManager.HasEnoughResources();
                 resourceManager.StartResourceProduction(data);
                 buildingCounts[data.name]++;
 

@@ -22,9 +22,8 @@ namespace NightKeepers
         public TMP_Text stoneText;
 
         public ResourceHave resources = new ResourceHave();
-        public BuildingManager buildingManager;
         public BuildingData buildingData;
-        public RM rm;
+        // public RM rm;
 
         private int resourceTileCount;
 
@@ -63,19 +62,19 @@ namespace NightKeepers
                 switch (buildingData.name)
                 {
                     case "IronMine":
-                        resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
+                        resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
                         
                         break;
                     case "StoneMine":
-                        resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
+                        resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
                         
                         break;
                     case "Farm":
-                        resources.Food += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
+                        resources.Food += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
                         
                         break;
                     case "LumberJack":
-                        resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * buildingManager.sameTileCount;
+                        resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
                         
                         break;
                     

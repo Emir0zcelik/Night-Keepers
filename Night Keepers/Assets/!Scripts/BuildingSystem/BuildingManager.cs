@@ -251,11 +251,6 @@ public class BuildingManager : Singleton<BuildingManager>
                 {
                     OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
                 }
-
-                foreach (var item in gridPositionList)
-                {
-                    print(item);
-                }
             }
         }
         
