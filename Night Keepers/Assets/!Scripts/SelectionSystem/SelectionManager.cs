@@ -77,6 +77,15 @@ namespace NightKeepers
         {
             if (Input.GetMouseButtonDown(1))
             {
+                if (GridManager.Instance._grid[gridPosition].building == null)
+                {
+                    return;
+                }
+                if (GridManager.Instance._grid[gridPosition].building.buildingType == BuildingData.BuildingType.TownHall)
+                {
+                    return;
+                }
+
                 Tile tile = new Tile()
                 {
                     building = null,

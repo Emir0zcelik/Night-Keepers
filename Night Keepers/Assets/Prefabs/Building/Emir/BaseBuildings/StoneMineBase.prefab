@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2060235421946817916}
   - component: {fileID: 2411556421893056226}
-  m_Layer: 0
+  - component: {fileID: 6599093087918526607}
+  m_Layer: 8
   m_Name: StoneMineBase
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8508886740924791097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 103, y: 0, z: 63}
+  m_LocalPosition: {x: 93, y: 0, z: 93}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -49,6 +50,32 @@ MonoBehaviour:
   direction: 1
   buildingType: 1
   sameTileCount: 0
+--- !u!114 &6599093087918526607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508886740924791097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <currentStateName>k__BackingField: Idle
+  <CurrentHealth>k__BackingField: 0
+  <isAggroed>k__BackingField: 0
+  <isInAttackingDistance>k__BackingField: 0
+  Target: {fileID: 0}
+  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
+    type: 2}
+  <_animation>k__BackingField: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &8082021853161618294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,6 +88,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StoneMine
+      objectReference: {fileID: 0}
+    - target: {fileID: 206329625771476983, guid: 09a11962b3b81d848b455324f643c7a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 545099461223655976, guid: 09a11962b3b81d848b455324f643c7a1,
         type: 3}

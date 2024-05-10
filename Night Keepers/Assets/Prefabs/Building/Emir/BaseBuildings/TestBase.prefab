@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7901167604092948532}
   - component: {fileID: 1451363122182117621}
-  m_Layer: 0
+  - component: {fileID: 3442283780431555760}
+  m_Layer: 8
   m_Name: TestBase
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -48,6 +49,33 @@ MonoBehaviour:
   buildingData: {fileID: 11400000, guid: dba06a4b2f4919b4e91d90e0ee16dd80, type: 2}
   direction: 1
   buildingType: 5
+  sameTileCount: 0
+--- !u!114 &3442283780431555760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608523661056864540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <currentStateName>k__BackingField: Idle
+  <CurrentHealth>k__BackingField: 0
+  <isAggroed>k__BackingField: 0
+  <isInAttackingDistance>k__BackingField: 0
+  Target: {fileID: 0}
+  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
+    type: 2}
+  <_animation>k__BackingField: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &5151569029228776745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60,6 +88,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803862274370027988, guid: 575a19025696be341b4ac3b8da80eaac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429988522589778269, guid: 575a19025696be341b4ac3b8da80eaac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7453355250650126281, guid: 575a19025696be341b4ac3b8da80eaac,
         type: 3}

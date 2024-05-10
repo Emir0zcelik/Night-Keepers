@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 901134750798860105}
   - component: {fileID: 1268634703167157293}
-  m_Layer: 0
+  - component: {fileID: 6817873152806281297}
+  m_Layer: 8
   m_Name: LumberjackBase
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -49,6 +50,32 @@ MonoBehaviour:
   direction: 1
   buildingType: 3
   sameTileCount: 0
+--- !u!114 &6817873152806281297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9025847561835886657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <currentStateName>k__BackingField: Idle
+  <CurrentHealth>k__BackingField: 0
+  <isAggroed>k__BackingField: 0
+  <isInAttackingDistance>k__BackingField: 0
+  Target: {fileID: 0}
+  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
+    type: 2}
+  <_animation>k__BackingField: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &5897024900211446595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +94,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lumberjack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908511854525188647, guid: 0d930f5137315b84391e41e42b35c6ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4060774554045263591, guid: 0d930f5137315b84391e41e42b35c6ba,
         type: 3}
@@ -90,6 +122,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: a89056472e0ad5c42b62bf0bdc3a2707, type: 2}
+    - target: {fileID: 6512183753269539432, guid: 0d930f5137315b84391e41e42b35c6ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256067168626493940, guid: 0d930f5137315b84391e41e42b35c6ba,
         type: 3}
       propertyPath: m_LocalScale.x

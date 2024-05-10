@@ -29,6 +29,8 @@ public class BuildingManager : Singleton<BuildingManager>
     bool isPlaceBuilding = false;
 
     bool isBuildingMode = true;
+
+    public bool isTownHallPlaced = false;
     public int sameTileCount { get; private set; }
     
     protected override void Awake() {
@@ -222,34 +224,36 @@ public class BuildingManager : Singleton<BuildingManager>
         {
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildingPreviews[buildingNumber].direction);
             buildings[buildingNumber].transform.position = GridManager.Instance._grid.GridToWorldPosition(gridPosition);
+            
+            if (isTownHallPlaced || (!isTownHallPlaced && buildingNumber == 3))
+            {
+                if (TryBuild(buildings[buildingNumber], gridPositionList,RM.Instance))
+                {             
+                    Building instantiatedBuilding = Instantiate(
+                            buildings[buildingNumber],
+                            previews[buildingNumber].transform.position,
+                            Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
 
-
-            if (TryBuild(buildings[buildingNumber], gridPositionList,RM.Instance))
-            {                
-                Building instantiatedBuilding = Instantiate(
-                        buildings[buildingNumber],
-                        previews[buildingNumber].transform.position,
-                        Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
-
-
-                foreach (Vector2Int position in gridPositionList)
-                {
-                    Tile tile = new Tile()
+                    foreach (Vector2Int position in gridPositionList)
                     {
-                        building = instantiatedBuilding,
-                        tileType = GridManager.Instance._grid[gridPosition].tileType,
-                    };
-                    GridManager.Instance._grid[position] = tile;
-                }
+                        Tile tile = new Tile()
+                        {
+                            building = instantiatedBuilding,
+                            tileType = GridManager.Instance._grid[gridPosition].tileType,
+                        };
+                        GridManager.Instance._grid[position] = tile;
+                    }
 
-                if (buildingNumber == 5)
-                {
-                    SetGridPositionForWall(GridManager.Instance._grid.WorldToGridPosition(instantiatedBuilding.transform.position));
-                }
+                    if (buildingNumber == 5)
+                    {
+                        SetGridPositionForWall(GridManager.Instance._grid.WorldToGridPosition(instantiatedBuilding.transform.position));
+                    }
 
-                if (buildingNumber == 3)
-                {
-                    OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
+                    if (buildingNumber == 3)
+                    {
+                        isTownHallPlaced = true;
+                        OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
+                    }
                 }
             }
         }
@@ -288,6 +292,11 @@ public class BuildingManager : Singleton<BuildingManager>
             }
         }
 
+        if (buildingNumber == 3 && isTownHallPlaced)
+        {
+            return false;
+        } 
+                 
         if (localSameTileCount == 0)
         {
             return false;
