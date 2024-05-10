@@ -24,7 +24,7 @@ public class BuildingManager : Singleton<BuildingManager>
     private Vector2Int gridPosition;
     private bool isRotated = false;
     private int buildingNumber;
-    bool isPlaced = false;
+    public bool isPlaced = false;
 
     bool isPlaceBuilding = false;
 
@@ -292,6 +292,7 @@ public class BuildingManager : Singleton<BuildingManager>
         {
             return false;
         }
+
 
         isPlaced = true;
         if (Input.GetMouseButtonDown(0))
