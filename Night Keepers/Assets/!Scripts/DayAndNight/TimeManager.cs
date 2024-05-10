@@ -14,6 +14,7 @@ namespace NightKeepers
         private bool _isDay = true;
 
         public static event Action OnNightArrived;
+        public static event Action OnDayArrived;
 
         public float GlobalTime 
         {
@@ -48,6 +49,7 @@ namespace NightKeepers
                 else
                 {
                     timeLenght = dayTimeLenght;
+                    OnDayArrived?.Invoke();
                 }
             }
         }
