@@ -6,10 +6,24 @@ namespace NightKeepers
 {
     public class PlayerUnitManager : Singleton<PlayerUnitManager>
     {
-        private Dictionary<Unit, int> _unitCounts = new Dictionary<Unit, int>();
+        private Dictionary<Unit, int> _unitDictionary = new Dictionary<Unit, int>();
+        private Dictionary<Unit, int> _placedUnitDictionary = new Dictionary<Unit, int>();
+        private List<GameObject> _placedUnitList = new List<GameObject>();
 
         [SerializeField] private RectTransform _readyUnitHolder;
         [SerializeField] private List<GameObject> _unitButtons;
+
+        private void OnEnable()
+        {
+            PlayerUnit.OnPlacedUnitDied += OnPlacedUnitDied;
+            TimeManager.OnDayArrived += OnDayArrived;
+        }
+
+        private void OnDisable()
+        {
+            PlayerUnit.OnPlacedUnitDied -= OnPlacedUnitDied;
+            TimeManager.OnDayArrived += OnDayArrived;
+        }
 
         private void Start()
         {
@@ -20,15 +34,43 @@ namespace NightKeepers
             }
         }
 
+        private void OnPlacedUnitDied(Unit unit)
+        {
+            if (_placedUnitDictionary.ContainsKey(unit))
+            {
+                _placedUnitDictionary[unit]--;
+                _placedUnitList.Remove(unit.gameObject);
+            }
+        }
+
+        private void OnDayArrived()
+        {
+            foreach (var kvp in _placedUnitDictionary)
+            {
+                if (_unitDictionary.ContainsKey(kvp.Key))
+                {
+                    _unitDictionary[kvp.Key] += kvp.Value;
+
+                    UpdateButtons(kvp.Key);
+                }
+            }
+            foreach (GameObject unit in _placedUnitList)
+            {
+                Destroy(unit);
+            }
+            _placedUnitList.Clear();
+            _placedUnitDictionary.Clear();
+        }
+
         public void AddUnitToReadyList(Unit unit)
         {
-            if (_unitCounts.ContainsKey(unit))
+            if (_unitDictionary.ContainsKey(unit))
             {
-                _unitCounts[unit]++;
+                _unitDictionary[unit]++;
             }
             else
             {
-                _unitCounts[unit] = 1;
+                _unitDictionary[unit] = 1;
             }
 
             UpdateButtons(unit);
@@ -49,27 +91,36 @@ namespace NightKeepers
 
         public int GetUnitCount(Unit unit)
         {
-            return _unitCounts.ContainsKey(unit) ? _unitCounts[unit] : 0;
+            return _unitDictionary.ContainsKey(unit) ? _unitDictionary[unit] : 0;
         }
 
         public Unit GetUnitByButtonName(string buttonName)
         {
-            Unit unit = _unitCounts.FirstOrDefault(kvp => kvp.Key.UnitData.UnitButtonPrefab.name == buttonName && kvp.Value != 0).Key;
+            Unit unit = _unitDictionary.FirstOrDefault(kvp => kvp.Key.UnitData.UnitButtonPrefab.name == buttonName && kvp.Value != 0).Key;
             return unit;
         }
 
         public void DecreaseUnitCount(Unit unit)
         {
-            if (_unitCounts.ContainsKey(unit))
+            if (_unitDictionary.ContainsKey(unit))
             {
-                _unitCounts[unit]--;
+                _unitDictionary[unit]--;
                 UpdateButtons(unit);
 
-                //if (_unitCounts[unit] <= 0)
-                //{
-                //    _unitCounts.Remove(unit);
-                //}
+                if (_placedUnitDictionary.ContainsKey(unit))
+                {
+                    _placedUnitDictionary[unit]++;
+                }
+                else
+                {
+                    _placedUnitDictionary[unit] = 1;
+                }
             }
+        }
+
+        public void AddToPlacedUnitList(GameObject unitObject)
+        {
+            _placedUnitList.Add(unitObject);
         }
     }
 }
