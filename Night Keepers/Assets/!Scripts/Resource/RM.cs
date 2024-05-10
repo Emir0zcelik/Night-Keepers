@@ -24,8 +24,8 @@ namespace NightKeepers
             buildingCounts["House"] = 0;
             buildingCounts["ResearchBuilding"] = 0;
             buildingCounts["Barrack"] = 0;
+            buildingCounts["Fishing"] = 0;
 
- 
         }
 
         public void SetBuildingData(BuildingData data)

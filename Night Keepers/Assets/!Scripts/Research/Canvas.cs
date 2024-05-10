@@ -14,11 +14,13 @@ namespace NightKeepers.Research
         [SerializeField] GameObject researchUI;
         public enum CanvasButtons
         {
-            Lumberjack,
-            Lumberjack1,
+            House,
+            Fishing,
             Farm,
-            IronMine,
+            MainHall,
             StoneMine,
+            Barracks,
+            ResearchBuilding,
             Wall,
             Others
         }
@@ -59,18 +61,18 @@ namespace NightKeepers.Research
             int.TryParse(researchText.text, out currentResearchValue);
             switch (e.researchUpgrades)
             {
-                case Upgrades.ResearchUpgrades.Lumberjack1:
+                case Upgrades.ResearchUpgrades.House:
                     if (currentResearchValue >= 20)
                     {
                         researchText.text = (currentResearchValue - 20).ToString();
-                        Debug.Log("Lumberjack1 = Activated");
+                        Debug.Log("House = Activated");
                     }
                     else
                     {
-                        Debug.Log("Insufficient research value to unlock Lumberjack1.");
+                        Debug.Log("Insufficient research value to unlock House.");
                     }
                     break;
-                case Upgrades.ResearchUpgrades.Lumberjack2:
+                case Upgrades.ResearchUpgrades.Fishing:
                     if (currentResearchValue >= 50)
                     {
                         researchText.text = (currentResearchValue - 50).ToString();
@@ -92,15 +94,15 @@ namespace NightKeepers.Research
                         Debug.Log("Insufficient research value to unlock Farm.");
                     }
                     break;
-                case Upgrades.ResearchUpgrades.IronMine:
+                case Upgrades.ResearchUpgrades.MainHall:
                     if (currentResearchValue >= 10)
                     {
                         researchText.text = (currentResearchValue - 10).ToString();
-                        Debug.Log("IronMine = Activated");
+                        Debug.Log("MainHall = Activated");
                     }
                     else
                     {
-                        Debug.Log("Insufficient research value to unlock IronMine.");
+                        Debug.Log("Insufficient research value to unlock MainHall.");
                     }
                     break;
                 case Upgrades.ResearchUpgrades.StoneMine:

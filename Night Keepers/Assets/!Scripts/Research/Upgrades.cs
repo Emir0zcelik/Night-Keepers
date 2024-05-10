@@ -25,12 +25,13 @@ namespace NightKeepers.Research
         public enum ResearchUpgrades
         {
             None,
-            Lumberjack2,
-            Lumberjack1,
-            Lumberjack,
+            House,
+            Fishing,
             Farm,
+            ResearchBuilding,
+            Barracks,
             StoneMine,
-            IronMine,
+            MainHall,
             Wall,
             OthersBuff
         }
@@ -65,8 +66,8 @@ namespace NightKeepers.Research
             switch (upgrades)
             {
 
-                case ResearchUpgrades.Lumberjack2:                  
-                        return ResearchUpgrades.Lumberjack1;                           
+                case ResearchUpgrades.Fishing:                  
+                        return ResearchUpgrades.Farm;                          
             }
             return ResearchUpgrades.None;
         }
@@ -81,7 +82,7 @@ namespace NightKeepers.Research
 
                 if (IsUnlocked(requirement))
                 {                   
-                    if (upgrades == ResearchUpgrades.Lumberjack2 && currentResearchValue >= 50)
+                    if (upgrades == ResearchUpgrades.Fishing && currentResearchValue >= 50)
                     {
 
                         UnlockUpgrades(upgrades);
@@ -103,7 +104,7 @@ namespace NightKeepers.Research
             }
             else
             {
-                if (upgrades == ResearchUpgrades.Lumberjack1 && currentResearchValue >= 20)
+                if (upgrades == ResearchUpgrades.House && currentResearchValue >= 20)
                 {
 
                     UnlockUpgrades(upgrades);
@@ -118,7 +119,7 @@ namespace NightKeepers.Research
                     Debug.Log($"Upgrade {upgrades} unlocked!");
                     return true;
                 }
-                else if (upgrades == ResearchUpgrades.IronMine && currentResearchValue >= 10)
+                else if (upgrades == ResearchUpgrades.MainHall && currentResearchValue >= 10)
                 {
 
                     UnlockUpgrades(upgrades);

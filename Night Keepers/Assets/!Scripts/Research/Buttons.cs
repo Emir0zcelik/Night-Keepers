@@ -17,12 +17,14 @@ namespace NightKeepers.Research
         public GameObject[] buildingsArray;
         public void Awake()
         {
-            buildingsArray[0].GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Lumberjack1, researchText));
-            buildingsArray[1].GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Lumberjack2, researchText));
+            buildingsArray[0].GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.House, researchText));
+            buildingsArray[1].GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Fishing, researchText));
             buildingsArray[2].GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Farm, researchText));
-            buildingsArray[3].GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.IronMine, researchText));
+            buildingsArray[3].GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.MainHall, researchText));
             buildingsArray[4].GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.StoneMine, researchText));
             buildingsArray[5].GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Wall, researchText));
+            buildingsArray[5].GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Barracks, researchText));
+            buildingsArray[5].GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.ResearchBuilding, researchText));
             /* transform.Find("Lumberjack1").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Lumberjack1,researchText));
              transform.Find("Lumberjack2").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Lumberjack2,researchText));
              transform.Find("Farm").GetComponent<Button>().onClick.AddListener(() => _upgrades.TryUnlock(Upgrades.ResearchUpgrades.Farm,researchText));

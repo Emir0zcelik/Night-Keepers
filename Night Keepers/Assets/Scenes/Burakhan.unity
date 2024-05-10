@@ -473,6 +473,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9777b82418bebef4cbc4f76ade5bce44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  woodText: {fileID: 0}
+  foodText: {fileID: 0}
+  stoneText: {fileID: 0}
   resources:
     Wood: 500
     Stone: 500
@@ -3398,6 +3401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchText: {fileID: 1979018603}
+  researchUI: {fileID: 1811004924}
 --- !u!1 &1833444898
 GameObject:
   m_ObjectHideFlags: 0
