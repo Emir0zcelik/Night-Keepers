@@ -4632,7 +4632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ac873e87faa484aaf7215ec503f978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayTimeLenght: 10
+  dayTimeLenght: 5
   nightTimeLenght: 100
 --- !u!4 &1632831273
 Transform:
