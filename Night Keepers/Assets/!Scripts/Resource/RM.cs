@@ -52,6 +52,14 @@ namespace NightKeepers
             }
             else
             {
+                // if(resourceManager.HasEnoughResources())
+                // {
+                
+                //}
+                // else
+                // {
+                //     notEnoughResourceAnimation.SetBool("shouldPlayAnimation", true);
+                // }
 
                 resourceManager.buildingData = data;
                 resourceManager.HasEnoughResources();

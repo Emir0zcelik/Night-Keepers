@@ -375,11 +375,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 74592225377428388, guid: e65014169a2b56f479188f78d8319c5c,
-        type: 3}
-      propertyPath: m_Name
-      value: Farm
-      objectReference: {fileID: 0}
     - target: {fileID: 170244289150316917, guid: e65014169a2b56f479188f78d8319c5c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -410,11 +405,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 212267492182446215, guid: e65014169a2b56f479188f78d8319c5c,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall
-      objectReference: {fileID: 0}
     - target: {fileID: 362454524225870613, guid: e65014169a2b56f479188f78d8319c5c,
         type: 3}
       propertyPath: m_Color.b
@@ -444,16 +434,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.5764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 711846565964886714, guid: e65014169a2b56f479188f78d8319c5c,
-        type: 3}
-      propertyPath: m_Name
-      value: Barracks1
-      objectReference: {fileID: 0}
-    - target: {fileID: 834164440593683911, guid: e65014169a2b56f479188f78d8319c5c,
-        type: 3}
-      propertyPath: m_Name
-      value: House1
       objectReference: {fileID: 0}
     - target: {fileID: 1678416435022395208, guid: e65014169a2b56f479188f78d8319c5c,
         type: 3}
@@ -560,11 +540,6 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.5764706
       objectReference: {fileID: 0}
-    - target: {fileID: 2404991199047530777, guid: e65014169a2b56f479188f78d8319c5c,
-        type: 3}
-      propertyPath: m_Name
-      value: Research
-      objectReference: {fileID: 0}
     - target: {fileID: 2488575997683209362, guid: e65014169a2b56f479188f78d8319c5c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -653,7 +628,7 @@ PrefabInstance:
     - target: {fileID: 3566175255997769421, guid: e65014169a2b56f479188f78d8319c5c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3859129381203194476, guid: e65014169a2b56f479188f78d8319c5c,
         type: 3}
@@ -764,16 +739,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4911243859622789107, guid: e65014169a2b56f479188f78d8319c5c,
-        type: 3}
-      propertyPath: m_Name
-      value: MainHall
-      objectReference: {fileID: 0}
-    - target: {fileID: 5398873956459940496, guid: e65014169a2b56f479188f78d8319c5c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5535183701815333072, guid: e65014169a2b56f479188f78d8319c5c,
         type: 3}
@@ -935,11 +900,6 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.5764706
       objectReference: {fileID: 0}
-    - target: {fileID: 6764281996420046636, guid: e65014169a2b56f479188f78d8319c5c,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneMine
-      objectReference: {fileID: 0}
     - target: {fileID: 6873715524167035497, guid: e65014169a2b56f479188f78d8319c5c,
         type: 3}
       propertyPath: m_Color.b
@@ -999,11 +959,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.5764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 8634656438849911866, guid: e65014169a2b56f479188f78d8319c5c,
-        type: 3}
-      propertyPath: m_Name
-      value: FishingHouse
       objectReference: {fileID: 0}
     - target: {fileID: 8815684127567223502, guid: e65014169a2b56f479188f78d8319c5c,
         type: 3}
@@ -1023,7 +978,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5730850796233075836, guid: e65014169a2b56f479188f78d8319c5c,
+    - targetCorrespondingSourceObject: {fileID: 5998499957125776004, guid: e65014169a2b56f479188f78d8319c5c,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1887511765}
@@ -1036,6 +991,12 @@ PrefabInstance:
 --- !u!1 &115693373 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3566175255997769421, guid: e65014169a2b56f479188f78d8319c5c,
+    type: 3}
+  m_PrefabInstance: {fileID: 115693372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &115693375 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5998499957125776004, guid: e65014169a2b56f479188f78d8319c5c,
     type: 3}
   m_PrefabInstance: {fileID: 115693372}
   m_PrefabAsset: {fileID: 0}
@@ -1052,7 +1013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchText: {fileID: 1059282634}
-  researchUI: {fileID: 1733171075}
+  researchUI: {fileID: 115693373}
 --- !u!1 &128755721 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6764281996420046636, guid: e65014169a2b56f479188f78d8319c5c,
@@ -4671,7 +4632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ac873e87faa484aaf7215ec503f978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayTimeLenght: 5
+  dayTimeLenght: 10
   nightTimeLenght: 100
 --- !u!4 &1632831273
 Transform:
@@ -4925,18 +4886,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3642849336397650693, guid: 59788680a0653d94d94b2360d265432b,
     type: 3}
   m_PrefabInstance: {fileID: 80609059}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1733171075 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5398873956459940496, guid: e65014169a2b56f479188f78d8319c5c,
-    type: 3}
-  m_PrefabInstance: {fileID: 115693372}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1733171076 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5730850796233075836, guid: e65014169a2b56f479188f78d8319c5c,
-    type: 3}
-  m_PrefabInstance: {fileID: 115693372}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1750749037 stripped
 GameObject:
@@ -5209,13 +5158,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887511764}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1976093012}
-  m_Father: {fileID: 1733171076}
+  m_Father: {fileID: 115693375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
