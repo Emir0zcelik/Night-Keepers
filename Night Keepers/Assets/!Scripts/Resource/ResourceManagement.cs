@@ -102,7 +102,7 @@ namespace NightKeepers
         //     }
         // }
 
-        public void HasEnoughResources()
+        public bool HasEnoughResources()
         {
             if (resources.Wood >= buildingData.Cost.wood &&
                 resources.Stone >= buildingData.Cost.stone &&
@@ -111,11 +111,11 @@ namespace NightKeepers
             {
             
                 DeductResources();
-
+                return true;
             }
             else
             {
-            
+                return false;
             }
         }
         private void DeductResources()
