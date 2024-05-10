@@ -52,21 +52,21 @@ namespace NightKeepers
             }
             else
             {
-                // Build the building as usual
+
                 resourceManager.buildingData = data;
                 resourceManager.StartResourceProduction(data);
                 resourceManager.HasEnoughResources();
-                // Increase the building count
+
                 buildingCounts[data.name]++;
             }           
         }
         void UpdateExistingBuilding(BuildingData data)
         {
-            int baseProduction = data.ProductionAmount; // Base production amount
-            int stackMultiplier = buildingCounts[data.name]; // Increase by 1 for each stack
+            int baseProduction = data.ProductionAmount;
+            int stackMultiplier = buildingCounts[data.name];
             int newProduction = baseProduction * stackMultiplier;
 
-            // Update the building data with the new production amount
+
             data.ProductionAmount = newProduction;
         }
 

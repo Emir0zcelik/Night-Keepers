@@ -74,15 +74,15 @@ namespace NightKeepers.Research
             ResearchUpgrades requirement = GetResearchRequirement(upgrades);
             int currentResearchValue;
             int.TryParse(researchText.text, out currentResearchValue);
-            //Debug.Log("vALUE :" + currentResearchValue);
+
             if (requirement != ResearchUpgrades.None)
             {
-                //Debug.Log("vALUE :" + currentResearchValue);
+
                 if (IsUnlocked(requirement))
                 {                   
                     if (upgrades == ResearchUpgrades.Lumberjack2 && currentResearchValue >= 50)
                     {
-                        Debug.Log("vALUE :" + currentResearchValue);
+
                         UnlockUpgrades(upgrades);
                         Debug.Log($"Upgrade {upgrades} unlocked!");
                         return true;
@@ -104,29 +104,29 @@ namespace NightKeepers.Research
             {
                 if (upgrades == ResearchUpgrades.Lumberjack1 && currentResearchValue >= 20)
                 {
-                    Debug.Log("VALUE :" + currentResearchValue);
+
                     UnlockUpgrades(upgrades);
-                    Debug.Log("VALUE1 :" + currentResearchValue);
+  
                     Debug.Log($"Upgrade {upgrades} unlocked!");
                     return true;
                 }
                 else if (upgrades == ResearchUpgrades.StoneMine && currentResearchValue >= 10)
                 {
-                    Debug.Log("vALUE :" + currentResearchValue);
+
                     UnlockUpgrades(upgrades);
                     Debug.Log($"Upgrade {upgrades} unlocked!");
                     return true;
                 }
                 else if (upgrades == ResearchUpgrades.IronMine && currentResearchValue >= 10)
                 {
-                    Debug.Log("vALUE :" + currentResearchValue);
+
                     UnlockUpgrades(upgrades);
                     Debug.Log($"Upgrade {upgrades} unlocked!");
                     return true;
                 }
                 else if (upgrades == ResearchUpgrades.Farm && currentResearchValue >= 10)
                 {
-                    Debug.Log("vALUE :" + currentResearchValue);
+
                     UnlockUpgrades(upgrades);
                     Debug.Log($"Upgrade {upgrades} unlocked!");
                     return true;
