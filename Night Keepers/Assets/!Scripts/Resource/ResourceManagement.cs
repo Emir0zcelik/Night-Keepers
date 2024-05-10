@@ -83,13 +83,13 @@ namespace NightKeepers
                 resources.Iron >= buildingData.Cost.iron &&
                 resources.Food >= buildingData.Cost.food)
             {
-                // Debug.Log(buildingData.Cost.wood + " " + resources.Wood);
+
                 DeductResources();
 
             }
             else
             {
-                // Debug.LogError("Insufficient Resources");
+
             }
         }
         private void DeductResources()
@@ -99,7 +99,7 @@ namespace NightKeepers
             resources.Stone -= buildingData.Cost.stone;
             resources.Iron -= buildingData.Cost.iron;
             resources.Food -= buildingData.Cost.food;
-            // Debug.Log("Deduct is called");
+
         }
         private void Start()
         {
@@ -108,8 +108,7 @@ namespace NightKeepers
             {
                 StartResourceProduction(buildingData);
             }
-            
-            /*StartResourceProduction(buildingData);*/
+
         }
 
     }
