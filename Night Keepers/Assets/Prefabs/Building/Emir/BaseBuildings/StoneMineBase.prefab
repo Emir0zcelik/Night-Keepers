@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2060235421946817916}
   - component: {fileID: 2411556421893056226}
-  - component: {fileID: 6599093087918526607}
   m_Layer: 8
   m_Name: StoneMineBase
   m_TagString: Selectable
@@ -27,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 8508886740924791097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 97, y: 0, z: 97}
+  m_LocalPosition: {x: 97, y: 0, z: 93}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -50,32 +49,6 @@ MonoBehaviour:
   direction: 1
   buildingType: 1
   sameTileCount: 0
---- !u!114 &6599093087918526607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8508886740924791097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <currentStateName>k__BackingField: Idle
-  <CurrentHealth>k__BackingField: 0
-  <isAggroed>k__BackingField: 0
-  <isInAttackingDistance>k__BackingField: 0
-  Target: {fileID: 0}
-  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
-    type: 2}
-  <_animation>k__BackingField: {fileID: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &8082021853161618294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,7 +158,11 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 2978047036782875225, guid: 09a11962b3b81d848b455324f643c7a1, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 206329625771476983, guid: 09a11962b3b81d848b455324f643c7a1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6647028194043497435}
   m_SourcePrefab: {fileID: 100100000, guid: 09a11962b3b81d848b455324f643c7a1, type: 3}
 --- !u!4 &1997503630361398523 stripped
 Transform:
@@ -193,3 +170,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8082021853161618294}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8283276115521043585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 206329625771476983, guid: 09a11962b3b81d848b455324f643c7a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8082021853161618294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6647028194043497435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8283276115521043585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <currentStateName>k__BackingField: Idle
+  <CurrentHealth>k__BackingField: 0
+  <isAggroed>k__BackingField: 0
+  <isInAttackingDistance>k__BackingField: 0
+  Target: {fileID: 0}
+  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
+    type: 2}
+  <_animation>k__BackingField: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0

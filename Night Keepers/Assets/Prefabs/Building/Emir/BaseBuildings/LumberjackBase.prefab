@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 901134750798860105}
   - component: {fileID: 1268634703167157293}
-  - component: {fileID: 6817873152806281297}
   m_Layer: 8
   m_Name: LumberjackBase
   m_TagString: Selectable
@@ -50,32 +49,6 @@ MonoBehaviour:
   direction: 1
   buildingType: 3
   sameTileCount: 0
---- !u!114 &6817873152806281297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9025847561835886657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <currentStateName>k__BackingField: Idle
-  <CurrentHealth>k__BackingField: 0
-  <isAggroed>k__BackingField: 0
-  <isInAttackingDistance>k__BackingField: 0
-  Target: {fileID: 0}
-  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
-    type: 2}
-  <_animation>k__BackingField: {fileID: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &5897024900211446595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,7 +169,11 @@ PrefabInstance:
     - {fileID: 4167635139827256543, guid: 0d930f5137315b84391e41e42b35c6ba, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3908511854525188647, guid: 0d930f5137315b84391e41e42b35c6ba,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7840508433300846798}
   m_SourcePrefab: {fileID: 100100000, guid: 0d930f5137315b84391e41e42b35c6ba, type: 3}
 --- !u!4 &3847422368325032631 stripped
 Transform:
@@ -204,3 +181,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5897024900211446595}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7488257158142499172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3908511854525188647, guid: 0d930f5137315b84391e41e42b35c6ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 5897024900211446595}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7840508433300846798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7488257158142499172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <currentStateName>k__BackingField: Idle
+  <CurrentHealth>k__BackingField: 0
+  <isAggroed>k__BackingField: 0
+  <isInAttackingDistance>k__BackingField: 0
+  Target: {fileID: 0}
+  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
+    type: 2}
+  <_animation>k__BackingField: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2582952982138751119}
   - component: {fileID: 1791534010613607669}
   - component: {fileID: 5170211333781799884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Castle_Wall_4_Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,6 +66,7 @@ MonoBehaviour:
   DownWall: {fileID: 0}
   LeftWall: {fileID: 0}
   RightWall: {fileID: 0}
+  isPreview: 0
   childTransform: {fileID: 3489438300375188628}
   Up: 0
   Down: 0
@@ -84,6 +85,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Castle_Wall_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164944853253155346, guid: 5ac1a5f477484ad4d95bd08647e32600,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8792265317532217512, guid: 5ac1a5f477484ad4d95bd08647e32600,
         type: 3}

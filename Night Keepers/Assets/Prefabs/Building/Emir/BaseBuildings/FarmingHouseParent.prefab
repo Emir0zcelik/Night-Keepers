@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4324547681956942627}
   - component: {fileID: 7344031187767561164}
-  - component: {fileID: -7538642524448059355}
   m_Layer: 8
   m_Name: FarmingHouseParent
   m_TagString: Selectable
@@ -50,32 +49,6 @@ MonoBehaviour:
   direction: 1
   buildingType: 0
   sameTileCount: 0
---- !u!114 &-7538642524448059355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8316877557443988481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <currentStateName>k__BackingField: Idle
-  <CurrentHealth>k__BackingField: 0
-  <isAggroed>k__BackingField: 0
-  <isInAttackingDistance>k__BackingField: 0
-  Target: {fileID: 0}
-  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
-    type: 2}
-  <_animation>k__BackingField: {fileID: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &4820667127909875310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,7 +120,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4b839fae0400b9644be960d5da5aaa29,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1792916696978077472}
   m_SourcePrefab: {fileID: 100100000, guid: 4b839fae0400b9644be960d5da5aaa29, type: 3}
 --- !u!4 &5002595710743681413 stripped
 Transform:
@@ -155,3 +132,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4820667127909875310}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5631499442238866239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4b839fae0400b9644be960d5da5aaa29,
+    type: 3}
+  m_PrefabInstance: {fileID: 4820667127909875310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1792916696978077472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5631499442238866239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539123853a9296479b2de24ccba5ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <currentStateName>k__BackingField: Idle
+  <CurrentHealth>k__BackingField: 0
+  <isAggroed>k__BackingField: 0
+  <isInAttackingDistance>k__BackingField: 0
+  Target: {fileID: 0}
+  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
+    type: 2}
+  <_animation>k__BackingField: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
