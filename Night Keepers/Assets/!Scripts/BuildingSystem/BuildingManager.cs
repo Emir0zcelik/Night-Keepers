@@ -14,22 +14,14 @@ public class BuildingManager : Singleton<BuildingManager>
     private List<MeshRenderer> meshRendererPreviews = new List<MeshRenderer>(); 
     [SerializeField] private Material validPreviewMaterial;
     [SerializeField] private Material invalidPreviewMaterial;
-
-    public Vector2Int gridPositonForWall;
     public static event Action<GameObject> OnMainBuildingPlaced;
-
-    public List<Building> walls;
     private BuildingData.BuildingType buildingType;
-
     private Vector2Int gridPosition;
     private bool isRotated = false;
     private int buildingNumber;
     public bool isPlaced = false;
-
     bool isPlaceBuilding = false;
-
     bool isBuildingMode = true;
-
     public bool isTownHallPlaced = false;
     public int sameTileCount { get; private set; }
     
@@ -244,11 +236,6 @@ public class BuildingManager : Singleton<BuildingManager>
                         GridManager.Instance._grid[position] = tile;
                     }
 
-                    if (buildingNumber == 5)
-                    {
-                        SetGridPositionForWall(GridManager.Instance._grid.WorldToGridPosition(instantiatedBuilding.transform.position));
-                    }
-
                     if (buildingNumber == 3)
                     {
                         isTownHallPlaced = true;
@@ -258,11 +245,6 @@ public class BuildingManager : Singleton<BuildingManager>
             }
         }
         
-    }
-
-    public void SetGridPositionForWall(Vector2Int gridPosition)
-    {
-        gridPositonForWall = gridPosition;
     }
 
     public void SetBuildingType(BuildingData.BuildingType buildingType)

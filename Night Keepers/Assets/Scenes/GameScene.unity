@@ -1606,12 +1606,14 @@ PrefabInstance:
         type: 3}
       propertyPath: _wallMeshFilters.Array.data[0]
       value: 
-      objectReference: {fileID: 1629127457}
+      objectReference: {fileID: 8980088167479368118, guid: e40acbbc8d988de498e867d2231a6927,
+        type: 3}
     - target: {fileID: 5411096954508611090, guid: cf21413c21737af40ba8dd68505fac44,
         type: 3}
       propertyPath: _wallMeshFilters.Array.data[1]
       value: 
-      objectReference: {fileID: 1119717662}
+      objectReference: {fileID: 6581149129479844197, guid: 6000345370d7f7344838c9208d00e5ff,
+        type: 3}
     - target: {fileID: 5411096954508611090, guid: cf21413c21737af40ba8dd68505fac44,
         type: 3}
       propertyPath: _wallMeshFilters.Array.data[2]
@@ -3833,12 +3835,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059282632}
   m_CullTransparentMesh: 1
---- !u!33 &1119717662 stripped
-MeshFilter:
-  m_CorrespondingSourceObject: {fileID: 7080529230743458500, guid: 4e53985df042fdd46b50711a08b641a8,
-    type: 3}
-  m_PrefabInstance: {fileID: 221596441}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1125034977
 GameObject:
   m_ObjectHideFlags: 0
@@ -4594,12 +4590,6 @@ MonoBehaviour:
 --- !u!1 &1540821432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3224104077250168272, guid: 4e53985df042fdd46b50711a08b641a8,
-    type: 3}
-  m_PrefabInstance: {fileID: 221596441}
-  m_PrefabAsset: {fileID: 0}
---- !u!33 &1629127457 stripped
-MeshFilter:
-  m_CorrespondingSourceObject: {fileID: 3401789178205045236, guid: 4e53985df042fdd46b50711a08b641a8,
     type: 3}
   m_PrefabInstance: {fileID: 221596441}
   m_PrefabAsset: {fileID: 0}

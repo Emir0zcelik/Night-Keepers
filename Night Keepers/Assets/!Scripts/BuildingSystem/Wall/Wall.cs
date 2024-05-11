@@ -33,7 +33,6 @@ namespace NightKeepers
                 return;
             }
 
-
             CheckVertical();
             CheckAllSides();
             
