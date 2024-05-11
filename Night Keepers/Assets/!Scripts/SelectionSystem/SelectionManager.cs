@@ -12,10 +12,6 @@ namespace NightKeepers
     public class SelectionManager : Singleton<SelectionManager>
     {
         private Transform highlight;
-        private RaycastHit raycastHit;
-
-        private Building selectedBuilding;
-
         public static event Action<FunctionalBuilding> onBuildingSelected;  
 
         private void Update() {
@@ -47,15 +43,16 @@ namespace NightKeepers
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
-                
 
                 if (GridManager.Instance._grid[gridPosition].building == null)
                 {
-                    if (highlight != null)
-                    {
-                        highlight.gameObject.GetComponentInChildren<Outline>().enabled = false;
-                    }
                     return;
+                }
+
+                if (highlight != null)
+                {
+                    highlight.gameObject.GetComponentInChildren<Outline>().enabled = false;
+                    highlight = null;
                 }
                 
 
