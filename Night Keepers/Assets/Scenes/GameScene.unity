@@ -4991,9 +4991,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NavMesh Surface
       objectReference: {fileID: 0}
-    - target: {fileID: 1351454323733771845, guid: a2649abedef83d5439ac31fcf5e0b94f,
+    - target: {fileID: 7524025810785775486, guid: a2649abedef83d5439ac31fcf5e0b94f,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_VoxelSize
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524025810785775486, guid: a2649abedef83d5439ac31fcf5e0b94f,
+        type: 3}
+      propertyPath: m_UseGeometry
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

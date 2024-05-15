@@ -26,12 +26,19 @@ public class NavMeshBaker : MonoBehaviour
     {
         TestBuilding.onBuildingDestroyed += OnBuildingDestroyed;
         GridManager.onWorldGenerationDone += OnWorldGenerationDone;
+        BuildingManager.OnBuildingPlaced += OnBuildingPlaced;
     }
 
     private void OnDisable()
     {
         TestBuilding.onBuildingDestroyed -= OnBuildingDestroyed;
         GridManager.onWorldGenerationDone -= OnWorldGenerationDone;
+        BuildingManager.OnBuildingPlaced -= OnBuildingPlaced;
+    }
+
+    private void OnBuildingPlaced()
+    {
+        meshSurface.UpdateNavMesh(meshSurface.navMeshData);
     }
 
     private void OnBuildingDestroyed()

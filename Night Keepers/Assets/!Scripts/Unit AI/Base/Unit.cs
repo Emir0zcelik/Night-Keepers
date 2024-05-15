@@ -194,6 +194,7 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
     {
         if (IsTargetReachable(target))
         {
+            Debug.Log("Target reachable");
             this.isAggroed = isAggroed;
             Target = target.gameObject;
             CurrentTargetUnit = target;
@@ -201,8 +202,10 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
         }
         else
         {
+            Debug.Log("Target is not reachable");
             if (currentStateName == "Attack")
             {
+                Debug.Log("Target is not reachable attack");
                 ClearAttackStatusAndTarget();
                 StateMachine.ChangeState(IdleState);
             }
@@ -298,7 +301,7 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
                     {
                         if (possibleTarget.GetUnitType() == GetFavouriteTarget() )
                         {
-                            Debug.Log(gameObject.name + " Found Favourite Player Chase Target.");
+                            // Debug.Log(gameObject.name + " Found Favourite Player Chase Target.");
                             SetAggroStatusAndTarget(true, possibleTarget);
                             return;
                         }
@@ -314,12 +317,12 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
                 if (bestPlayerTarget != null)
                 {
-                    Debug.Log(gameObject.name + " Found Best Player Chase Target." + bestPlayerTarget.name);
+                    // Debug.Log(gameObject.name + " Found Best Player Chase Target." + bestPlayerTarget.name);
                     SetAggroStatusAndTarget(true, bestPlayerTarget);
                 }
                 else
                 {
-                    Debug.Log(gameObject.name + " Could Not Find Any Player Chase Target.");
+                    // Debug.Log(gameObject.name + " Could Not Find Any Player Chase Target.");
                     StateMachine.ChangeState(IdleState);
                     // failed to find target
                 }

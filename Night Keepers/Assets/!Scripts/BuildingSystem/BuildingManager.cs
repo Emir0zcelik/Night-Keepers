@@ -24,6 +24,8 @@ public class BuildingManager : Singleton<BuildingManager>
     bool isBuildingMode = true;
     public bool isTownHallPlaced = false;
     public int sameTileCount { get; private set; }
+
+    public static event Action OnBuildingPlaced;
     
     protected override void Awake() {
         base.Awake();
@@ -235,6 +237,8 @@ public class BuildingManager : Singleton<BuildingManager>
                         };
                         GridManager.Instance._grid[position] = tile;
                     }
+
+                    OnBuildingPlaced?.Invoke();
 
                     if (buildingNumber == 3)
                     {
