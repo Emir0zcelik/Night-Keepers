@@ -89,10 +89,6 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
     public virtual void Die()
     {
-        if (UnitData.Type == UnitType.Building)
-        {
-            onBuildingDestroyed?.Invoke();
-        }
         Destroy(gameObject);
     }
 

@@ -24,13 +24,13 @@ public class NavMeshBaker : MonoBehaviour
 
     private void OnEnable()
     {
-        Unit.onBuildingDestroyed += OnBuildingDestroyed;
+        TestBuilding.onBuildingDestroyed += OnBuildingDestroyed;
         GridManager.onWorldGenerationDone += OnWorldGenerationDone;
     }
 
     private void OnDisable()
     {
-        Unit.onBuildingDestroyed -= OnBuildingDestroyed;
+        TestBuilding.onBuildingDestroyed -= OnBuildingDestroyed;
         GridManager.onWorldGenerationDone -= OnWorldGenerationDone;
     }
 
