@@ -30,8 +30,6 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
     [field: SerializeField] public Animation _animation { get; set; }
 
-    public static event Action onBuildingDestroyed;
-
     [HideInInspector]
     public LayerMask playerLayer;
     [HideInInspector]

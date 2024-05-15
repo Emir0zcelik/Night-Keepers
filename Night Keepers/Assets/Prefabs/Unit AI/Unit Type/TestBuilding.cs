@@ -1,5 +1,6 @@
 
 using System;
+using NightKeepers;
 
 public class TestBuilding : Unit
 {
@@ -7,7 +8,8 @@ public class TestBuilding : Unit
     public override void Die()
     {
         onBuildingDestroyed?.Invoke();
-        Destroy(gameObject.transform.parent.gameObject);
+        SelectionManager.Instance.DeleteBuilding(GridManager.Instance._grid.WorldToGridPosition(transform.parent.transform.position));
+        Destroy(transform.parent.gameObject);
         base.Die();
     }
 }

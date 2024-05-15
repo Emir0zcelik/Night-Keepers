@@ -79,7 +79,7 @@ namespace NightKeepers
             }      
         }                  
 
-        private void DeleteBuilding(Vector2Int gridPosition)
+        public void DeleteBuilding(Vector2Int gridPosition)
         {
             if (Input.GetMouseButtonDown(1))
             {
