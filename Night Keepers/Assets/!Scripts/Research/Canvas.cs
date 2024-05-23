@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
+using System.Collections;
 
 namespace NightKeepers.Research
 {
@@ -27,9 +25,23 @@ namespace NightKeepers.Research
 
         void Start()
         {
-
             researchText.text = researchText.GetComponent<TMP_Text>().text;
+            researchText.gameObject.SetActive(false);
             StartCoroutine(UpdateText());
+            BuildingManager.OnBuildingPlaced += BuildingManager_OnBuildingPlaced;
+        }
+
+        private void OnDestroy()
+        {
+            BuildingManager.OnBuildingPlaced -= BuildingManager_OnBuildingPlaced;
+        }
+
+        private void BuildingManager_OnBuildingPlaced()
+        {
+            if (BuildingManager.Instance.GetCurrentBuildingType() == BuildingData.BuildingType.ResearchBuilding)
+            {
+                researchText.gameObject.SetActive(true);
+            }
         }
 
         IEnumerator UpdateText()
@@ -37,9 +49,13 @@ namespace NightKeepers.Research
             while (true)
             {
                 yield return new WaitForSeconds(2);
-                researchText.text = (int.Parse(researchText.text) + Random.Range(1, 4)).ToString();
+                if (researchText.gameObject.activeSelf)
+                {
+                    researchText.text = (int.Parse(researchText.text) + Random.Range(1, 4)).ToString();
+                }
             }
         }
+
         private void Awake()
         {
             _upgrades = new Upgrades();
@@ -50,6 +66,7 @@ namespace NightKeepers.Research
         {
             researchUI.SetActive(true);
         }
+
         public void closeResearchUI()
         {
             researchUI.SetActive(false);

@@ -1973,9 +1973,29 @@ PrefabInstance:
       objectReference: {fileID: 1125034979}
     - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
         type: 3}
+      propertyPath: resources.Food
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
+        type: 3}
+      propertyPath: resources.Iron
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
+        type: 3}
+      propertyPath: resources.Wood
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
+        type: 3}
       propertyPath: buildingManager
       value: 
       objectReference: {fileID: 1803742824}
+    - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
+        type: 3}
+      propertyPath: resources.Stone
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4247145555861852654, guid: 6fadef02792299342bfd65497a16a06a,
         type: 3}
       propertyPath: m_LocalPosition.x

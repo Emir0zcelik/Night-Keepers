@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
-  m_Name: LumberJack
+  m_Name: Lumberjack
   m_EditorClassIdentifier: 
   buildingTypes: 5
   health: 100
@@ -19,8 +19,8 @@ MonoBehaviour:
   visual: {fileID: 0}
   Workforce: 2
   Cost:
-    wood: 20
-    stone: 20
+    wood: 50
+    stone: 0
     iron: 0
     food: 0
-  ProductionAmount: 1
+  ProductionAmount: 768
