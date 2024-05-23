@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -28,7 +27,8 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
     [field: SerializeField] public UnitScriptableObject UnitData { get; set; }
 
-    [field: SerializeField] public Animation _animation { get; set; }
+    [field: SerializeField] public Animation Animation { get; set; }
+    public List<string> AnimationNames = new();
 
     [HideInInspector]
     public LayerMask playerLayer;
@@ -47,6 +47,16 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
         playerLayer = LayerMask.GetMask("PlayerLayer");
         enemyLayer = LayerMask.GetMask("EnemyLayer");
+    }
+
+    private void OnEnable()
+    {
+        if (GetUnitType() == UnitType.Building) return;
+
+        foreach (AnimationState animState in Animation)
+        {
+            AnimationNames.Add(animState.name);
+        }
     }
 
     private void Start()
@@ -194,7 +204,7 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
     {
         if (IsTargetReachable(target))
         {
-            Debug.Log("Target reachable");
+            //Debug.Log("Target reachable");
             this.isAggroed = isAggroed;
             Target = target.gameObject;
             CurrentTargetUnit = target;
@@ -202,10 +212,10 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
         }
         else
         {
-            Debug.Log("Target is not reachable");
+            //Debug.Log("Target is not reachable");
             if (currentStateName == "Attack")
             {
-                Debug.Log("Target is not reachable attack");
+                //Debug.Log("Target is not reachable attack");
                 ClearAttackStatusAndTarget();
                 StateMachine.ChangeState(IdleState);
             }

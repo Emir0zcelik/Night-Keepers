@@ -45,13 +45,13 @@ namespace NightKeepers
 
                     if (!_isDay)
                     {
-                        Debug.Log("Night Time.");
+                        //Debug.Log("Night Time.");
                         timeLength = nightTimeLength;
                         OnNightArrived?.Invoke();
                     }
                     else
                     {
-                        Debug.Log("Day Time.");
+                        //Debug.Log("Day Time.");
                         timeLength = dayTimeLength;
                         OnDayArrived?.Invoke();
                     }
