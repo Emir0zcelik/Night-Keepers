@@ -1812,6 +1812,11 @@ PrefabInstance:
       objectReference: {fileID: 1942154167}
     - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
         type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 2304
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194757620622397249, guid: cf21413c21737af40ba8dd68505fac44,
+        type: 3}
       propertyPath: previews.Array.data[0]
       value: 
       objectReference: {fileID: 146502681}

@@ -26,6 +26,8 @@ public class BuildingManager : Singleton<BuildingManager>
     public int sameTileCount { get; private set; }
 
     public static event Action OnBuildingPlaced;
+
+    [SerializeField] private LayerMask layerMask;
     
     protected override void Awake() {
         base.Awake();
@@ -57,7 +59,7 @@ public class BuildingManager : Singleton<BuildingManager>
         SelectBuilding();
         
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, layerMask))
         {
             gridPosition = GridManager.Instance._grid.WorldToGridPosition(raycastHit.point);
             if (isBuildingMode)
