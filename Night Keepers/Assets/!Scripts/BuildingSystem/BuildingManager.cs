@@ -62,7 +62,7 @@ public class BuildingManager : Singleton<BuildingManager>
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, layerMask))
         {
             gridPosition = GridManager.Instance._grid.WorldToGridPosition(raycastHit.point);
-            if (isBuildingMode)
+            if (isBuildingMode && GridManager.Instance._grid.IsInDimensions(gridPosition))
             {                
                 isPlaceBuilding = true;
                 PreviewBuilding(gridPosition);
@@ -266,6 +266,10 @@ public class BuildingManager : Singleton<BuildingManager>
         int localSameTileCount = 0;
         foreach (Vector2Int position in gridPositionList)
         {
+            if (!GridManager.Instance._grid.IsInDimensions(position))
+            {
+                return false;
+            }
             if (GridManager.Instance._grid[position].building != null)
             {
                 return false; 
