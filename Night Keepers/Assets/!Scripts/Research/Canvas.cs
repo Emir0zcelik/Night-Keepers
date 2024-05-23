@@ -10,6 +10,8 @@ namespace NightKeepers.Research
         private Upgrades _upgrades;
         private int cost;
         [SerializeField] GameObject researchUI;
+        private bool isResearchBuildingConstructed = false;
+
         public enum CanvasButtons
         {
             House,
@@ -25,10 +27,9 @@ namespace NightKeepers.Research
 
         void Start()
         {
-            researchText.text = researchText.GetComponent<TMP_Text>().text;
-            researchText.gameObject.SetActive(false);
+            researchText.text = "0"; 
             StartCoroutine(UpdateText());
-            BuildingManager.OnBuildingPlaced += BuildingManager_OnBuildingPlaced;
+            BuildingManager.OnBuildingPlaced += BuildingManager_OnBuildingPlaced; 
         }
 
         private void OnDestroy()
@@ -40,7 +41,7 @@ namespace NightKeepers.Research
         {
             if (BuildingManager.Instance.GetCurrentBuildingType() == BuildingData.BuildingType.ResearchBuilding)
             {
-                researchText.gameObject.SetActive(true);
+                isResearchBuildingConstructed = true; 
             }
         }
 
@@ -49,9 +50,13 @@ namespace NightKeepers.Research
             while (true)
             {
                 yield return new WaitForSeconds(2);
-                if (researchText.gameObject.activeSelf)
+                if (isResearchBuildingConstructed) 
                 {
                     researchText.text = (int.Parse(researchText.text) + Random.Range(1, 4)).ToString();
+                }
+                else
+                {
+                    researchText.text = "0";
                 }
             }
         }
@@ -147,7 +152,6 @@ namespace NightKeepers.Research
                 case Upgrades.ResearchUpgrades.OthersBuff:
                     Debug.Log("OthersBuff = Activated");
                     break;
-
             }
         }
 
