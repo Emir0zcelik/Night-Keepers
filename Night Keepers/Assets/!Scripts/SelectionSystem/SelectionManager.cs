@@ -26,6 +26,10 @@ namespace NightKeepers
                 SelectedBuilding(gridPosition);
                 DeleteBuilding(gridPosition);
             }
+            else
+            {
+                ClearHighlight();
+            }
         }
 
         private void SelectedBuilding(Vector2Int gridPosition)
@@ -46,6 +50,7 @@ namespace NightKeepers
 
                 if (GridManager.Instance._grid[gridPosition].building == null)
                 {
+                    ClearHighlight();
                     return;
                 }
 
@@ -74,10 +79,11 @@ namespace NightKeepers
                 }
                 else
                 {
-                    highlight = null;
+                    highlight.gameObject.GetComponentInChildren<Outline>().enabled = false;
                 }
-            }      
-        }                  
+                highlight = null;
+            }
+        }               
 
         public void DeleteBuilding(Vector2Int gridPosition)
         {
