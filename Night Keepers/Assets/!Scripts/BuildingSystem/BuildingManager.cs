@@ -259,7 +259,11 @@ public class BuildingManager : Singleton<BuildingManager>
         this.buildingType = buildingType;
     }
 
-    
+    public BuildingData.BuildingType GetCurrentBuildingType()
+    {
+        return buildingType;
+    }
+
 
     private bool TryBuild(Building building, List<Vector2Int> gridPositionList, RM rmInstance)
     {
@@ -299,8 +303,12 @@ public class BuildingManager : Singleton<BuildingManager>
         isPlaced = true;
         if (Input.GetMouseButtonDown(0))
         {
-            rmInstance.SetBuildingData(building.buildingData);
-            BuildingManager.Instance.sameTileCount = localSameTileCount;
+            if (isTownHallPlaced)
+            {
+                rmInstance.SetBuildingData(building.buildingData);
+                BuildingManager.Instance.sameTileCount = localSameTileCount;
+            }
+           
         }
         
 
