@@ -4859,6 +4859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1632831273}
   - component: {fileID: 1632831272}
+  - component: {fileID: 1632831274}
   m_Layer: 0
   m_Name: TimeManager
   m_TagString: Untagged
@@ -4878,8 +4879,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ac873e87faa484aaf7215ec503f978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayTimeLenght: 10
-  nightTimeLenght: 100
+  dayTimeLength: 5
+  nightTimeLength: 5
   isTimeStarted: 0
 --- !u!4 &1632831273
 Transform:
@@ -4896,6 +4897,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1632831274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632831271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13957c5d9a1e344ca8a76189b49bb48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayNightIndicator: {fileID: 1966662082}
 --- !u!1 &1636747598
 GameObject:
   m_ObjectHideFlags: 0
@@ -5687,6 +5701,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827bf441bed4d434d91cde5b9e74dd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1966662082 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4803710639730423057, guid: 909a5d140d1c05e42aca8a3b68b0244a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4300763032637149847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1976093011
 GameObject:
   m_ObjectHideFlags: 0
@@ -5933,6 +5953,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4803710639730423057, guid: 909a5d140d1c05e42aca8a3b68b0244a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803710639730423057, guid: 909a5d140d1c05e42aca8a3b68b0244a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803710639730423057, guid: 909a5d140d1c05e42aca8a3b68b0244a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 6294503281450409396, guid: 909a5d140d1c05e42aca8a3b68b0244a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6068,6 +6103,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7130365729974425960, guid: 909a5d140d1c05e42aca8a3b68b0244a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 332b2213afabdbd4c963bbd64aaf292b,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -6204,10 +6245,10 @@ SceneRoots:
   - {fileID: 1171612994}
   - {fileID: 221596441}
   - {fileID: 1343733058}
+  - {fileID: 4300763032637149847}
   - {fileID: 1004565673}
   - {fileID: 911168594}
   - {fileID: 1632831273}
   - {fileID: 1816723548}
   - {fileID: 115693372}
-  - {fileID: 4300763032637149847}
   - {fileID: 1325822657}
