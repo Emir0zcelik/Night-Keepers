@@ -5,11 +5,10 @@ namespace NightKeepers
 {
     public class TimeManager : Singleton<TimeManager>
     {
-        [SerializeField] private float dayTimeLenght;
-        [SerializeField] private float nightTimeLenght;
+        [SerializeField] private float dayTimeLength;
+        [SerializeField] private float nightTimeLength;
 
-        private float timeLenght;
-
+        private float timeLength;
         private float _globalTime;
         private bool _isDay = true;
 
@@ -18,19 +17,19 @@ namespace NightKeepers
 
         public bool isTimeStarted = false;
 
-        public float GlobalTime 
+        public float GlobalTime
         {
             get { return _globalTime; }
         }
 
-        public bool IsDay 
+        public bool IsDay
         {
             get { return _isDay; }
         }
 
         private void Start()
         {
-            timeLenght = dayTimeLenght;
+            timeLength = dayTimeLength;
         }
 
         void Update()
@@ -39,26 +38,30 @@ namespace NightKeepers
             {
                 _globalTime += Time.deltaTime;
 
-                if (_globalTime >= timeLenght)
+                if (_globalTime >= timeLength)
                 {
-
                     _globalTime = 0f;
                     _isDay = !_isDay;
 
                     if (!_isDay)
                     {
                         Debug.Log("Night Time.");
-                        timeLenght = nightTimeLenght;
+                        timeLength = nightTimeLength;
                         OnNightArrived?.Invoke();
                     }
                     else
                     {
                         Debug.Log("Day Time.");
-                        timeLenght = dayTimeLenght;
+                        timeLength = dayTimeLength;
                         OnDayArrived?.Invoke();
                     }
-                }      
+                }
             }
+        }
+
+        public float GetProgressionRatio()
+        {
+            return _globalTime / timeLength;
         }
     }
 }
