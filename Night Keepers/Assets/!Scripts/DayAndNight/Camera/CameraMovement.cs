@@ -22,7 +22,8 @@ namespace NightKeepers.Camera
        
         private void Start()
         {
-            startingPosition = _gridManager._grid.GetCenterOfGrid();
+            Vector3 cameraPos = new Vector3(_gridManager._grid.GetCenterOfGrid().x,_gridManager._grid.GetCenterOfGrid().x / 10, _gridManager._grid.GetCenterOfGrid().z);
+            startingPosition = cameraPos;
             transform.position = startingPosition;
             targetPosition = transform.position;
             targetAngle = transform.eulerAngles.y;
