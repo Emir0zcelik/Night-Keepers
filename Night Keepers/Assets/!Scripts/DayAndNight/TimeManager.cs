@@ -16,6 +16,8 @@ namespace NightKeepers
         public static event Action OnNightArrived;
         public static event Action OnDayArrived;
 
+        public bool isTimeStarted = false;
+
         public float GlobalTime 
         {
             get { return _globalTime; }
@@ -33,26 +35,29 @@ namespace NightKeepers
 
         void Update()
         {
-            _globalTime += Time.deltaTime;
-
-            if (_globalTime >= timeLenght)
+            if (isTimeStarted)
             {
+                _globalTime += Time.deltaTime;
 
-                _globalTime = 0f;
-                _isDay = !_isDay;
+                if (_globalTime >= timeLenght)
+                {
 
-                if (!_isDay)
-                {
-                    Debug.Log("Night Time.");
-                    timeLenght = nightTimeLenght;
-                    OnNightArrived?.Invoke();
-                }
-                else
-                {
-                    Debug.Log("Day Time.");
-                    timeLenght = dayTimeLenght;
-                    OnDayArrived?.Invoke();
-                }
+                    _globalTime = 0f;
+                    _isDay = !_isDay;
+
+                    if (!_isDay)
+                    {
+                        Debug.Log("Night Time.");
+                        timeLenght = nightTimeLenght;
+                        OnNightArrived?.Invoke();
+                    }
+                    else
+                    {
+                        Debug.Log("Day Time.");
+                        timeLenght = dayTimeLenght;
+                        OnDayArrived?.Invoke();
+                    }
+                }      
             }
         }
     }

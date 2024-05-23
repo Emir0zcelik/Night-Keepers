@@ -243,6 +243,7 @@ public class BuildingManager : Singleton<BuildingManager>
                     if (buildingNumber == 3)
                     {
                         isTownHallPlaced = true;
+                        TimeManager.Instance.isTimeStarted = true;
                         OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
                     }
                 }
