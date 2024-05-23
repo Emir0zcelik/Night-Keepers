@@ -231,6 +231,7 @@ MonoBehaviour:
     type: 2}
   <Animation>k__BackingField: {fileID: 0}
   AnimationNames: []
+  <_healthBar>k__BackingField: {fileID: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 0

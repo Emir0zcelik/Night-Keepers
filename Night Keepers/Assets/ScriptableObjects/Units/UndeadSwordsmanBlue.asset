@@ -16,7 +16,7 @@ MonoBehaviour:
   MaxHealth: 140
   Damage: 35
   TimeBetweenAttacks: 1.5
-  DetectionRangeRadius: 20
+  DetectionRangeRadius: 40
   AttackRangeRadius: 2.5
   MovementSpeed: 6
   targetPreferences:
@@ -29,5 +29,5 @@ MonoBehaviour:
   UnitPowerPoints: 5
   Type: 1
   Side: 1
-  UnitImagePrefab: {fileID: 0}
+  UnitButtonPrefab: {fileID: 0}
   ProductionTime: 0

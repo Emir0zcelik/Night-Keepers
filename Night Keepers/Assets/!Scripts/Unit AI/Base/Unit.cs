@@ -1,3 +1,4 @@
+using NightKeepers;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -29,6 +30,8 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
     [field: SerializeField] public Animation Animation { get; set; }
     public List<string> AnimationNames = new();
+
+    [field: SerializeField] private FloatingHealthBar _healthBar { get; set; }
 
     [HideInInspector]
     public LayerMask playerLayer;
@@ -66,6 +69,7 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
         if (GetUnitType() != UnitType.Building)
         {
             navAgent.speed = UnitData.MovementSpeed;
+            _healthBar.UpdateHealthBar(UnitData.MaxHealth, CurrentHealth);
         }
 
         FindFavouriteTarget();
@@ -88,7 +92,10 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
     public void TakeDamage(int damageAmount)
     {
         CurrentHealth -= damageAmount;
-
+        if (GetUnitType() != UnitType.Building)
+        {
+            _healthBar.UpdateHealthBar(UnitData.MaxHealth, CurrentHealth);
+        }
         if (CurrentHealth <= 0 )
         {
             Die();

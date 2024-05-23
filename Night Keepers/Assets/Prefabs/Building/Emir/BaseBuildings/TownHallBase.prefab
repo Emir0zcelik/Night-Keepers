@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1462845469361398276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 445, y: 0, z: 515}
+  m_LocalPosition: {x: 445, y: 0, z: 525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -204,6 +204,7 @@ MonoBehaviour:
     type: 2}
   <Animation>k__BackingField: {fileID: 0}
   AnimationNames: []
+  <_healthBar>k__BackingField: {fileID: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 0

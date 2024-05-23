@@ -224,6 +224,6 @@ public class GridManager : Singleton<GridManager>
 
     public int GetMapSizeFromCenter()
     {
-        return width;
+        return width * cellSize / 2;
     }
 }
