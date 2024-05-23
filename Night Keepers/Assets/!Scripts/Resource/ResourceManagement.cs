@@ -134,6 +134,10 @@ namespace NightKeepers
             {
                 StartResourceProduction(buildingData);
             }
+            
+        }
+        private void Update()
+        {
             UpdateText();
         }
 
