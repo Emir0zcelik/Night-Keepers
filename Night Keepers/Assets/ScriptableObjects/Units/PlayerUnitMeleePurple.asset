@@ -31,4 +31,9 @@ MonoBehaviour:
   Side: 0
   UnitButtonPrefab: {fileID: 7878379943576522196, guid: f85e5bfdb1149db40a52fb3edc447328,
     type: 3}
-  ProductionTime: 10
+  ProductionTime: 5
+  Cost:
+    wood: 0
+    stone: 0
+    iron: 0
+    food: 0

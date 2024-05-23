@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static BuildingData;
 using static UnitScriptableObject;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/UnitScriptableObject", order = 1)]
@@ -34,6 +35,7 @@ public class UnitScriptableObject : ScriptableObject
 
     [Header("Only For Player Units!")]
     public float ProductionTime = 0f;
+    public ResourceCost Cost;
 }
 
 [System.Serializable]
