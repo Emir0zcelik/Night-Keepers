@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using static BuildingData;
 
 namespace NightKeepers
 {
@@ -20,32 +19,36 @@ namespace NightKeepers
         public TMP_Text woodText;
         public TMP_Text foodText;
         public TMP_Text stoneText;
-        public TMP_Text ironText;
 
         public ResourceHave resources = new ResourceHave();
         public BuildingData buildingData;
+
         private Dictionary<string, Coroutine> productionCoroutines = new Dictionary<string, Coroutine>();
 
         private void OnEnable()
         {
-            TimeManager.OnNightArrived += OnNightArrived;
-            TimeManager.OnDayArrived += OnDayArrived;
+            TimeManager.OnNightArrived += StopAllResourceProduction;
+            TimeManager.OnDayArrived += StartAllResourceProduction;
         }
 
         private void OnDisable()
         {
-            TimeManager.OnNightArrived -= OnNightArrived;
-            TimeManager.OnDayArrived -= OnDayArrived;
+            TimeManager.OnNightArrived -= StopAllResourceProduction;
+            TimeManager.OnDayArrived -= StartAllResourceProduction;
         }
 
-        private void OnNightArrived()
+        private void Start()
         {
-            StopAllResourceProduction();
+            buildingData = null;
+            if (buildingData != null)
+            {
+                StartResourceProduction(buildingData);
+            }
         }
 
-        private void OnDayArrived()
+        private void Update()
         {
-            StartAllResourceProduction();
+            UpdateText();
         }
 
         public void StartResourceProduction(BuildingData buildingData)
@@ -53,90 +56,47 @@ namespace NightKeepers
             if (!productionCoroutines.ContainsKey(buildingData.name))
             {
                 productionCoroutines[buildingData.name] = StartCoroutine(ProduceResources(buildingData));
-                Debug.Log($"Started resource production for: {buildingData.name}"); 
             }
         }
 
-        private void StopAllResourceProduction()
-        {
-            foreach (var coroutine in productionCoroutines.Values)
-            {
-                if (coroutine != null)
-                {
-                    StopCoroutine(coroutine);
-                }
-            }
-            productionCoroutines.Clear();
-        }
-
-        private void StartAllResourceProduction()
-        {
-            foreach (var building in productionCoroutines.Keys)
-            {
-                if (productionCoroutines[building] == null)
-                {
-                    productionCoroutines[building] = StartCoroutine(ProduceResources(buildingData));
-                }
-            }
-        }
-
-        private void UpdateText()
+        public void UpdateText()
         {
             woodText.text = resources.Wood.ToString();
             foodText.text = resources.Food.ToString();
             stoneText.text = resources.Stone.ToString();
-            ironText.text = resources.Iron.ToString();
-            Debug.Log($"Wood: {resources.Wood}, Food: {resources.Food}, Stone: {resources.Stone}, Iron: {resources.Iron}");
         }
-
 
         private IEnumerator ProduceResources(BuildingData buildingData)
         {
             while (true)
             {
-                yield return new WaitForSeconds(1);
-                if (buildingData != null)
+                while (buildingData == null)
                 {
-                    int effectiveSameTileCount = BuildingManager.Instance.sameTileCount;
-                    Debug.Log($"Effective same tile count: {effectiveSameTileCount}");
-
-                    switch (buildingData.buildingTypes)
-                    {
-                        case BuildingData.BuildingType.IronMine:
-                            resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
-                            Debug.Log($"Iron added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
-                            break;
-                        case BuildingData.BuildingType.StoneMine:
-                            resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
-                            Debug.Log($"Stone added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
-                            break;
-                        case BuildingData.BuildingType.Farm:
-                            resources.Food += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
-                            Debug.Log($"Food added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
-                            break;
-                        case BuildingData.BuildingType.Lumberjack:
-                            resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
-                            Debug.Log($"Wood added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
-                            break;
-                        default:
-                            break;
-                    }
-                    UpdateText();
-                    Debug.Log($"Produced resources for: {buildingData.name}");
+                    yield return null;
+                }
+                yield return new WaitForSeconds(1);
+                switch (buildingData.name)
+                {
+                    case "IronMine":
+                        resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
+                        break;
+                    case "StoneMine":
+                        resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
+                        break;
+                    case "Farm":
+                        resources.Food += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
+                        break;
+                    case "Lumberjack":
+                        resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
+                        break;
+                    default:
+                        break;
                 }
             }
         }
 
-
-
         public bool HasEnoughResources()
         {
-            if (buildingData == null)
-            {
-                Debug.LogError("BuildingData is null in HasEnoughResources method");
-                return false;
-            }
-
             if (resources.Wood >= buildingData.Cost.wood &&
                 resources.Stone >= buildingData.Cost.stone &&
                 resources.Iron >= buildingData.Cost.iron &&
@@ -151,8 +111,7 @@ namespace NightKeepers
             }
         }
 
-
-        public void DeductResources()
+        private void DeductResources()
         {
             resources.Wood -= buildingData.Cost.wood;
             resources.Stone -= buildingData.Cost.stone;
@@ -160,35 +119,21 @@ namespace NightKeepers
             resources.Food -= buildingData.Cost.food;
         }
 
-        public bool HasEnoughResourcesForUnit(ResourceCost cost)
+        private void StopAllResourceProduction()
         {
-            return resources.Wood >= cost.wood &&
-                   resources.Stone >= cost.stone &&
-                   resources.Iron >= cost.iron &&
-                   resources.Food >= cost.food;
+            foreach (var coroutine in productionCoroutines.Values)
+            {
+                StopCoroutine(coroutine);
+            }
+            productionCoroutines.Clear();
         }
 
-        public void DeductResourcesForUnit(ResourceCost cost)
+        private void StartAllResourceProduction()
         {
-            resources.Wood -= cost.wood;
-            resources.Stone -= cost.stone;
-            resources.Iron -= cost.iron;
-            resources.Food -= cost.food;
-        }
-
-        private void Start()
-        {
-
             if (buildingData != null)
             {
                 StartResourceProduction(buildingData);
             }
-        }
-
-
-        private void Update()
-        {
-            UpdateText();
         }
     }
 }
