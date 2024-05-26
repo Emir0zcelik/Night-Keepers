@@ -17,7 +17,7 @@ namespace NightKeepers
             buildingCounts["IronMine"] = 0;
             buildingCounts["StoneMine"] = 0;
             buildingCounts["Farm"] = 0;
-            buildingCounts["LumberJack"] = 0;
+            buildingCounts["Lumberjack"] = 0;
             buildingCounts["TownHall"] = 0;
             buildingCounts["Test"] = 0;
             buildingCounts["Wall"] = 0;
@@ -35,7 +35,7 @@ namespace NightKeepers
                 buildingCounts[data.name]++;
                 UpdateExistingBuilding(data);
             }
-            if (data.name == "LumberJack" && buildingCounts[data.name] >= 1)
+            if (data.name == "Lumberjack" && buildingCounts[data.name] >= 1)
             {
                 buildingCounts[data.name]++;
                 UpdateExistingBuilding(data);

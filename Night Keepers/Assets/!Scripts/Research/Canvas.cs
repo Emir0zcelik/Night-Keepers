@@ -10,6 +10,7 @@ namespace NightKeepers.Research
         private Upgrades _upgrades;
         private int cost;
         [SerializeField] GameObject researchUI;
+        [SerializeField] private Buttons buttons; 
         private bool isResearchBuildingConstructed = false;
 
         public enum CanvasButtons
@@ -27,9 +28,24 @@ namespace NightKeepers.Research
 
         void Start()
         {
-            researchText.text = "0"; 
+            researchText.text = "0";
             StartCoroutine(UpdateText());
-            BuildingManager.OnBuildingPlaced += BuildingManager_OnBuildingPlaced; 
+            BuildingManager.OnBuildingPlaced += BuildingManager_OnBuildingPlaced;
+
+            _upgrades = FindObjectOfType<Upgrades>();
+            if (_upgrades == null)
+            {
+                Debug.LogError("Upgrades component not found in the scene.");
+            }
+
+            if (buttons != null)
+            {
+                buttons.SetActiveSkills(_upgrades);
+            }
+            else
+            {
+                Debug.LogError("Buttons reference is not assigned in Canvas");
+            }
         }
 
         private void OnDestroy()
@@ -41,7 +57,7 @@ namespace NightKeepers.Research
         {
             if (BuildingManager.Instance.GetCurrentBuildingType() == BuildingData.BuildingType.ResearchBuilding)
             {
-                isResearchBuildingConstructed = true; 
+                isResearchBuildingConstructed = true;
             }
         }
 
@@ -50,7 +66,7 @@ namespace NightKeepers.Research
             while (true)
             {
                 yield return new WaitForSeconds(2);
-                if (isResearchBuildingConstructed) 
+                if (isResearchBuildingConstructed)
                 {
                     researchText.text = (int.Parse(researchText.text) + Random.Range(1, 4)).ToString();
                 }

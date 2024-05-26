@@ -1,20 +1,21 @@
 using NightKeepers;
+using NightKeepers.Research;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class BuildingManager : Singleton<BuildingManager>
 {
     [SerializeField] private List<Building> buildings;
-    [SerializeField] private List<GameObject> previews; 
-    private List<Building> buildingPreviews = new List<Building>(); 
-    private List<MeshRenderer> meshRendererPreviews = new List<MeshRenderer>(); 
+    [SerializeField] private List<GameObject> previews;
+    private List<Building> buildingPreviews = new List<Building>();
+    private List<MeshRenderer> meshRendererPreviews = new List<MeshRenderer>();
     [SerializeField] private Material validPreviewMaterial;
     [SerializeField] private Material invalidPreviewMaterial;
     public static event Action<GameObject> OnMainBuildingPlaced;
+    public static event Action OnBuildingPlaced; 
     private BuildingData.BuildingType buildingType;
     private Vector2Int gridPosition;
     private bool isRotated = false;
@@ -25,11 +26,12 @@ public class BuildingManager : Singleton<BuildingManager>
     public bool isTownHallPlaced = false;
     public int sameTileCount { get; private set; }
 
-    public static event Action OnBuildingPlaced;
-
     [SerializeField] private LayerMask layerMask;
-    
-    protected override void Awake() {
+
+    private Upgrades upgrades;
+
+    protected override void Awake()
+    {
         base.Awake();
         foreach (var preview in previews)
         {
@@ -42,13 +44,15 @@ public class BuildingManager : Singleton<BuildingManager>
         }
     }
 
-    private void Start() {
+    private void Start()
+    {
         foreach (var preview in previews)
         {
             preview.transform.localScale = new Vector3(preview.transform.localScale.x * GridManager.Instance.cellSize / 10, preview.transform.localScale.y * GridManager.Instance.cellSize / 10, preview.transform.localScale.z * GridManager.Instance.cellSize / 10);
             preview.SetActive(false);
         }
     }
+
     private void FixedUpdate()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -57,13 +61,13 @@ public class BuildingManager : Singleton<BuildingManager>
         }
 
         SelectBuilding();
-        
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, layerMask))
         {
             gridPosition = GridManager.Instance._grid.WorldToGridPosition(raycastHit.point);
             if (isBuildingMode && GridManager.Instance._grid.IsInDimensions(gridPosition))
-            {                
+            {
                 isPlaceBuilding = true;
                 PreviewBuilding(gridPosition);
             }
@@ -72,10 +76,10 @@ public class BuildingManager : Singleton<BuildingManager>
                 previews[buildingNumber].transform.position = Vector3.zero;
             }
         }
-        else{
+        else
+        {
             isPlaceBuilding = false;
         }
-
     }
 
     private void Update()
@@ -155,7 +159,6 @@ public class BuildingManager : Singleton<BuildingManager>
                 BuildingPreviewsActivate(buildingNumber);
                 break;
         }
-
     }
 
     private void BuildingPreviewsActivate(int active)
@@ -170,16 +173,15 @@ public class BuildingManager : Singleton<BuildingManager>
             {
                 previews[i].SetActive(false);
             }
-
         }
     }
 
     private void PreviewBuilding(Vector2Int gridPosition)
     {
-        if(!isPlaced)
+        if (!isPlaced)
         {
-            if (TryBuild(buildings[buildingNumber], buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction),RM.Instance))
-            {   
+            if (TryBuild(buildings[buildingNumber], buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction)))
+            {
                 var yourMaterials = new Material[]
                 {
                     validPreviewMaterial, validPreviewMaterial
@@ -194,19 +196,19 @@ public class BuildingManager : Singleton<BuildingManager>
                     invalidPreviewMaterial, invalidPreviewMaterial
                 };
 
-                meshRendererPreviews[buildingNumber].materials = yourMaterials;        
+                meshRendererPreviews[buildingNumber].materials = yourMaterials;
             }
-            
+
             Vector2Int rotationOffset = buildingPreviews[buildingNumber].buildingData.GetRotationOffset(buildingPreviews[buildingNumber].direction);
             Vector3 instantiatedBuildingWorldPosition = GridManager.Instance._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * GridManager.Instance.cellSize;
             previews[buildingNumber].transform.position = instantiatedBuildingWorldPosition;
             if (isRotated)
             {
                 buildingPreviews[buildingNumber].direction = BuildingData.GetNextDir(buildingPreviews[buildingNumber].direction);
-                previews[buildingNumber].transform.rotation = Quaternion.Euler(0, buildingPreviews[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0);                
+                previews[buildingNumber].transform.rotation = Quaternion.Euler(0, buildingPreviews[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0);
                 isRotated = false;
             }
-        }    
+        }
     }
 
     public Vector2Int GetPreviewPosition()
@@ -219,40 +221,58 @@ public class BuildingManager : Singleton<BuildingManager>
         if (Input.GetMouseButtonDown(0))
         {
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildingPreviews[buildingNumber].direction);
-            buildings[buildingNumber].transform.position = GridManager.Instance._grid.GridToWorldPosition(gridPosition);
-            
-            if (isTownHallPlaced || (!isTownHallPlaced && buildingNumber == 3))
+
+            if (!isTownHallPlaced && buildingNumber != 3)
             {
-                if (TryBuild(buildings[buildingNumber], gridPositionList,RM.Instance))
-                {             
-                    Building instantiatedBuilding = Instantiate(
-                            buildings[buildingNumber],
-                            previews[buildingNumber].transform.position,
-                            Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
+                Debug.Log("You must place the TownHall first.");
+                return;
+            }
 
-                    foreach (Vector2Int position in gridPositionList)
+            // General research check for all buildings
+            var currentBuildingType = buildings[buildingNumber].buildingData.buildingTypes;
+            var requiredResearchUpgrade = GetResearchUpgradeForBuilding(currentBuildingType);
+
+            // Check if the required research is unlocked and its prerequisites
+            if (upgrades != null && requiredResearchUpgrade != Upgrades.ResearchUpgrades.None)
+            {
+                var researchRequirement = upgrades.GetResearchRequirement(requiredResearchUpgrade);
+                if ((researchRequirement != Upgrades.ResearchUpgrades.None && !upgrades.IsUnlocked(researchRequirement)) || !upgrades.IsUnlocked(requiredResearchUpgrade))
+                {
+                    Debug.Log($"You need to unlock {researchRequirement} first and then {requiredResearchUpgrade}.");
+                    return;
+                }
+            }
+
+            if (TryBuild(buildings[buildingNumber], gridPositionList))
+            {
+                Building instantiatedBuilding = Instantiate(
+                    buildings[buildingNumber],
+                    previews[buildingNumber].transform.position,
+                    Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
+
+                foreach (Vector2Int position in gridPositionList)
+                {
+                    Tile tile = new Tile()
                     {
-                        Tile tile = new Tile()
-                        {
-                            building = instantiatedBuilding,
-                            tileType = GridManager.Instance._grid[gridPosition].tileType,
-                        };
-                        GridManager.Instance._grid[position] = tile;
-                    }
+                        building = instantiatedBuilding,
+                        tileType = GridManager.Instance._grid[gridPosition].tileType,
+                    };
+                    GridManager.Instance._grid[position] = tile;
+                }
 
-                    OnBuildingPlaced?.Invoke();
+                OnBuildingPlaced?.Invoke();
 
-                    if (buildingNumber == 3)
-                    {
-                        isTownHallPlaced = true;
-                        TimeManager.Instance.isTimeStarted = true;
-                        OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
-                    }
+                if (buildingNumber == 3)
+                {
+                    isTownHallPlaced = true;
+                    TimeManager.Instance.isTimeStarted = true;
+                    OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
                 }
             }
         }
-        
     }
+
+
 
     public void SetBuildingType(BuildingData.BuildingType buildingType)
     {
@@ -264,8 +284,7 @@ public class BuildingManager : Singleton<BuildingManager>
         return buildingType;
     }
 
-
-    private bool TryBuild(Building building, List<Vector2Int> gridPositionList, RM rmInstance)
+    private bool TryBuild(Building building, List<Vector2Int> gridPositionList)
     {
         int localSameTileCount = 0;
         foreach (Vector2Int position in gridPositionList)
@@ -276,7 +295,7 @@ public class BuildingManager : Singleton<BuildingManager>
             }
             if (GridManager.Instance._grid[position].building != null)
             {
-                return false; 
+                return false;
             }
             if (building.buildingData.placableTileTypes[1] == GridManager.Instance._grid[position].tileType)
             {
@@ -292,26 +311,45 @@ public class BuildingManager : Singleton<BuildingManager>
         if (buildingNumber == 3 && isTownHallPlaced)
         {
             return false;
-        } 
-                 
+        }
+
         if (localSameTileCount == 0)
         {
             return false;
         }
 
-
         isPlaced = true;
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (isTownHallPlaced)
-            {
-                rmInstance.SetBuildingData(building.buildingData);
-                BuildingManager.Instance.sameTileCount = localSameTileCount;
-            }
-           
-        }
-        
-
         return true;
+    }
+
+    private Upgrades.ResearchUpgrades GetResearchUpgradeForBuilding(BuildingData.BuildingType buildingType)
+    {
+        switch (buildingType)
+        {
+            case BuildingData.BuildingType.House:
+                return Upgrades.ResearchUpgrades.House;
+            case BuildingData.BuildingType.FishingHouse:
+                return Upgrades.ResearchUpgrades.Fishing;
+            case BuildingData.BuildingType.Farm:
+                return Upgrades.ResearchUpgrades.Farm;
+/*            case BuildingData.BuildingType.TownHall:
+                return Upgrades.ResearchUpgrades.MainHall;*/
+            case BuildingData.BuildingType.StoneMine:
+                return Upgrades.ResearchUpgrades.StoneMine;
+            case BuildingData.BuildingType.Wall:
+                return Upgrades.ResearchUpgrades.Wall;
+            case BuildingData.BuildingType.Barracks:
+                return Upgrades.ResearchUpgrades.Barracks;
+            case BuildingData.BuildingType.ResearchBuilding:
+                return Upgrades.ResearchUpgrades.ResearchBuilding;
+            default:
+                return Upgrades.ResearchUpgrades.None;
+        }
+    }
+
+
+    public void SetUpgrades(Upgrades upgrades)
+    {
+        this.upgrades = upgrades;
     }
 }
