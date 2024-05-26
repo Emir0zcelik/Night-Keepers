@@ -228,11 +228,9 @@ public class BuildingManager : Singleton<BuildingManager>
                 return;
             }
 
-            // General research check for all buildings
             var currentBuildingType = buildings[buildingNumber].buildingData.buildingTypes;
             var requiredResearchUpgrade = GetResearchUpgradeForBuilding(currentBuildingType);
 
-            // Check if the required research is unlocked and its prerequisites
             if (upgrades != null && requiredResearchUpgrade != Upgrades.ResearchUpgrades.None)
             {
                 var researchRequirement = upgrades.GetResearchRequirement(requiredResearchUpgrade);
@@ -262,6 +260,8 @@ public class BuildingManager : Singleton<BuildingManager>
 
                 OnBuildingPlaced?.Invoke();
 
+                RM.Instance.SetBuildingData(buildings[buildingNumber].buildingData); // Make sure this line sets the correct building data
+
                 if (buildingNumber == 3)
                 {
                     isTownHallPlaced = true;
@@ -271,6 +271,8 @@ public class BuildingManager : Singleton<BuildingManager>
             }
         }
     }
+
+
 
 
 

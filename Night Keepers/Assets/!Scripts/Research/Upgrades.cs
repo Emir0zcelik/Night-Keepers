@@ -21,6 +21,7 @@ namespace NightKeepers.Research
             House,
             Fishing,
             Farm,
+            IronMine,
             ResearchBuilding,
             Barracks,
             StoneMine,
@@ -125,6 +126,7 @@ namespace NightKeepers.Research
                 case ResearchUpgrades.House: return 20;
                 case ResearchUpgrades.Fishing: return 50;
                 case ResearchUpgrades.Farm: return 10;
+                case ResearchUpgrades.IronMine: return 10;
                 case ResearchUpgrades.MainHall: return 10;
                 case ResearchUpgrades.StoneMine: return 10;
                 case ResearchUpgrades.Wall: return 10;
