@@ -59,6 +59,7 @@ namespace NightKeepers
             int stackMultiplier = buildingCounts[data.name];
             int newProduction = baseProduction * stackMultiplier;
             data.ProductionAmount = newProduction;
+            
         }
     }
 }

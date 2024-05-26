@@ -53,6 +53,7 @@ namespace NightKeepers
             if (!productionCoroutines.ContainsKey(buildingData.name))
             {
                 productionCoroutines[buildingData.name] = StartCoroutine(ProduceResources(buildingData));
+                Debug.Log($"Started resource production for: {buildingData.name}"); 
             }
         }
 
@@ -85,7 +86,9 @@ namespace NightKeepers
             foodText.text = resources.Food.ToString();
             stoneText.text = resources.Stone.ToString();
             ironText.text = resources.Iron.ToString();
+            Debug.Log($"Wood: {resources.Wood}, Food: {resources.Food}, Stone: {resources.Stone}, Iron: {resources.Iron}");
         }
+
 
         private IEnumerator ProduceResources(BuildingData buildingData)
         {
@@ -94,27 +97,37 @@ namespace NightKeepers
                 yield return new WaitForSeconds(1);
                 if (buildingData != null)
                 {
+                    int effectiveSameTileCount = BuildingManager.Instance.sameTileCount;
+                    Debug.Log($"Effective same tile count: {effectiveSameTileCount}");
+
                     switch (buildingData.buildingTypes)
                     {
                         case BuildingData.BuildingType.IronMine:
-                            resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
+                            resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
+                            Debug.Log($"Iron added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
                             break;
                         case BuildingData.BuildingType.StoneMine:
-                            resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
+                            resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
+                            Debug.Log($"Stone added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
                             break;
                         case BuildingData.BuildingType.Farm:
-                            resources.Food += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
+                            resources.Food += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
+                            Debug.Log($"Food added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
                             break;
                         case BuildingData.BuildingType.Lumberjack:
-                            resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
+                            resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
+                            Debug.Log($"Wood added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
                             break;
                         default:
                             break;
                     }
                     UpdateText();
+                    Debug.Log($"Produced resources for: {buildingData.name}");
                 }
             }
         }
+
+
 
         public bool HasEnoughResources()
         {
@@ -165,12 +178,13 @@ namespace NightKeepers
 
         private void Start()
         {
+
             if (buildingData != null)
             {
                 StartResourceProduction(buildingData);
             }
-            UpdateText(); // Update text on start
         }
+
 
         private void Update()
         {

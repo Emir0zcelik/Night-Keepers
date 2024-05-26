@@ -23,4 +23,4 @@ MonoBehaviour:
     stone: 0
     iron: 0
     food: 0
-  ProductionAmount: 2
+  ProductionAmount: 0

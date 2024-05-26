@@ -258,9 +258,13 @@ public class BuildingManager : Singleton<BuildingManager>
                     GridManager.Instance._grid[position] = tile;
                 }
 
+                
+                sameTileCount = CountSameTiles(gridPosition, buildings[buildingNumber].buildingData.placableTileTypes[0]);
+
                 OnBuildingPlaced?.Invoke();
 
-                RM.Instance.SetBuildingData(buildings[buildingNumber].buildingData); // Make sure this line sets the correct building data
+                RM.Instance.SetBuildingData(buildings[buildingNumber].buildingData);
+                Debug.Log($"Building placed: {buildings[buildingNumber].buildingData.name}");
 
                 if (buildingNumber == 3)
                 {
@@ -271,6 +275,30 @@ public class BuildingManager : Singleton<BuildingManager>
             }
         }
     }
+
+    private int CountSameTiles(Vector2Int gridPosition, TileType tileType)
+    {
+        int count = 0;
+        Vector2Int[] directions = {
+        new Vector2Int(1, 0),
+        new Vector2Int(-1, 0),
+        new Vector2Int(0, 1),
+        new Vector2Int(0, -1)
+    };
+
+        foreach (var direction in directions)
+        {
+            Vector2Int neighborPosition = gridPosition + direction;
+            if (GridManager.Instance._grid.IsInDimensions(neighborPosition) && GridManager.Instance._grid[neighborPosition].tileType == tileType)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+
 
 
 
