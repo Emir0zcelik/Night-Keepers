@@ -428,9 +428,22 @@ MonoBehaviour:
     type: 2}
   <Animation>k__BackingField: {fileID: 2514164322181621450}
   AnimationNames: []
+  <_healthBar>k__BackingField: {fileID: 7965328052616479004}
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &7965328052616479004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 135464618240312071, guid: 4cde2cad9bb8e2e46815834411c583c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8028726209807499803}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15559207ea8cf5a4eb17c48a2b213359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

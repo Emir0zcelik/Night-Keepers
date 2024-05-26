@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 
 public class GridManager : Singleton<GridManager>
 {
-    [SerializeField] private int width;
-    [SerializeField] private int height;
+    [SerializeField] public int width;
+    [SerializeField] public int height;
     [SerializeField] public int cellSize;
 
     [SerializeField] private int grassProbability;
