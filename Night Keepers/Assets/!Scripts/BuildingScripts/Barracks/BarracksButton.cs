@@ -23,7 +23,7 @@ namespace NightKeepers
             else
             {
 
-                Debug.Log("Not Enough Resource");
+                Debug.Log("Not enough resource");
             }
         }
     }

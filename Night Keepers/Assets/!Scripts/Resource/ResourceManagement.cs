@@ -31,7 +31,29 @@ namespace NightKeepers
         private bool isProductionStarted = false;
         private Dictionary<string, Coroutine> productionCoroutines = new Dictionary<string, Coroutine>();
 
-        
+        private void OnEnable()
+        {
+            TimeManager.OnNightArrived += OnNightArrived;
+            TimeManager.OnDayArrived += OnDayArrived;
+        }
+
+        private void OnDisable()
+        {
+            TimeManager.OnNightArrived -= OnNightArrived;
+            TimeManager.OnDayArrived -= OnDayArrived;
+        }
+
+        private void OnNightArrived()
+        {
+            StopAllResourceProduction();
+        }
+
+        private void OnDayArrived()
+        {
+            StartAllResourceProduction();
+        }
+
+
         public void StartResourceProduction(BuildingData buildingData)
         {
             if (!productionCoroutines.ContainsKey(buildingData.name))
@@ -41,6 +63,29 @@ namespace NightKeepers
             else if (productionCoroutines[buildingData.name] == null)
             {
                 productionCoroutines[buildingData.name] = StartCoroutine(ProduceResources(buildingData));
+            }
+        }
+
+        private void StopAllResourceProduction()
+        {
+            foreach (var coroutine in productionCoroutines.Values)
+            {
+                if (coroutine != null)
+                {
+                    StopCoroutine(coroutine);
+                }
+            }
+            productionCoroutines.Clear();
+        }
+
+        private void StartAllResourceProduction()
+        {
+            foreach (var building in productionCoroutines.Keys)
+            {
+                if (productionCoroutines[building] == null)
+                {
+                    productionCoroutines[building] = StartCoroutine(ProduceResources(buildingData));
+                }
             }
         }
 

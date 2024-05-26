@@ -59,6 +59,10 @@ namespace NightKeepers
                 {
                     buildingCounts[data.name]++;
                 }
+                else
+                {
+                    notEnoughResourceAnimation.SetBool("shouldPlayAnimation", true);
+                }
 
 
             }
