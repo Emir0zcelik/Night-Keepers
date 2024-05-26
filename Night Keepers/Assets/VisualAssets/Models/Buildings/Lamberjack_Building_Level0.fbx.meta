@@ -3,7 +3,17 @@ guid: b7800e1ccbfbfbb4ba17489639a39dc9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingModuler_MAT
+    second: {fileID: 2100000, guid: aae805a3101685e44b37836ca4d14bbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LamberjackBuilding_MAT
+    second: {fileID: 2100000, guid: 8ade49233b20e9747b08e3a928b4f5e9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

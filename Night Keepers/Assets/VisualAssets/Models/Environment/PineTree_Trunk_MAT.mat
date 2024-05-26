@@ -58,12 +58,13 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RIMLIGHT: 1
-    - _RimLightEdgePower: 3.98
+    - _RimLightEdgePower: 9.86
     - _SSSIntensity: 1.45
     - _SSSPower: 1
     - _SUBSURFACE: 0
     - _ShadowPower: 12.17
-    - _Strenght: 0.5
+    - _Strenght: 1.59
+    - _Thickness: 4.3
     - _WIND: 1
     - _WindBend: 4
     - _WindDirection: 1

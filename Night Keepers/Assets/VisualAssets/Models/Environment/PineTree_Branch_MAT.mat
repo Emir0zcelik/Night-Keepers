@@ -59,7 +59,7 @@ Material:
     - _QueueOffset: 0
     - _RIMLIGHT: 0
     - _RimLightEdgePower: 3.72
-    - _SSSIntensity: 0.53
+    - _SSSIntensity: 0.12
     - _SSSPower: 1
     - _SUBSURFACE: 1
     - _ShadowPower: 1
