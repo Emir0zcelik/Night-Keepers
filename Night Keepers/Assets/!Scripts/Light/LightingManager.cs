@@ -1,62 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
+using NightKeepers;
 using UnityEngine;
 
-namespace NightKeepers
+[ExecuteAlways]
+public class LightingManager : MonoBehaviour
 {
-    [ExecuteAlways]
-    public class LightingManager : Singleton<LightingManager>
+    //Scene References
+    [SerializeField] private Light DirectionalLight;
+    [SerializeField] private LightingPreset Preset;
+
+    private void Update()
     {
-        [SerializeField] private Light directionalLight;
-        [SerializeField] private LightingPreset preset;
-        private float timeOfDay;
+        if (Preset == null)
+            return;
 
-        private void Update() {
-            if (preset == null)
-                return;
-            if (Application.isPlaying)
-            {
-                timeOfDay += Time.deltaTime;
-                timeOfDay %= 24;
-                UpdateLighting(TimeManager.Instance.GetProgressionRatio());
-            }
-            else
-            {
-                UpdateLighting(TimeManager.Instance.GetProgressionRatio());
-            }
-        }
-
-        private void UpdateLighting(float timePercent)
+        if (TimeManager.Instance.isTimeStarted)
         {
-            RenderSettings.ambientLight = preset.ambientColor.Evaluate(timePercent);
-            RenderSettings.fogColor = preset.fogColor.Evaluate(timePercent);
-            
-            if (directionalLight != null)
-            {
-                directionalLight.color = preset.directionalColor.Evaluate(timePercent);
-                directionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 70f, 0f));
-            }
+            UpdateLighting(TimeManager.Instance.GetProgressionRatio());
+        }
+    }
+
+
+    private void UpdateLighting(float timePercent)
+    {
+        //Set ambient and fog
+        RenderSettings.ambientLight = Preset.ambientColor.Evaluate(timePercent);
+        RenderSettings.fogColor = Preset.fogColor.Evaluate(timePercent);
+
+        //If the directional light is set then rotate and set it's color, I actually rarely use the rotation because it casts tall shadows unless you clamp the value
+        if (DirectionalLight != null)
+        {
+            DirectionalLight.color = Preset.directionalColor.Evaluate(timePercent);
+
+            DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 170f, 0));
         }
 
-        private void OnValidate() {
-            if (directionalLight != null)
-                return;
-            if (RenderSettings.sun != null)
+    }
+
+    //Try to find a directional light to use if we haven't set one
+    private void OnValidate()
+    {
+        if (DirectionalLight != null)
+            return;
+
+        //Search for lighting tab sun
+        if (RenderSettings.sun != null)
+        {
+            DirectionalLight = RenderSettings.sun;
+        }
+        //Search scene for light that fits criteria (directional)
+        else
+        {
+            Light[] lights = GameObject.FindObjectsOfType<Light>();
+            foreach (Light light in lights)
             {
-                directionalLight = RenderSettings.sun;
-            }
-            else
-            {
-                Light[] lights = GameObject.FindObjectsOfType<Light>();
-                foreach (Light light in lights)
+                if (light.type == LightType.Directional)
                 {
-                    if (light.type == LightType.Directional)
-                    {
-                        directionalLight = light;
-                        return;
-                    }
+                    DirectionalLight = light;
+                    return;
                 }
             }
-        }    
+        }
     }
 }
