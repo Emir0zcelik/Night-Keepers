@@ -15,7 +15,7 @@ public class BuildingManager : Singleton<BuildingManager>
     [SerializeField] private Material validPreviewMaterial;
     [SerializeField] private Material invalidPreviewMaterial;
     public static event Action<GameObject> OnMainBuildingPlaced;
-    public static event Action OnBuildingPlaced; 
+    public static event Action OnBuildingPlaced;
     private BuildingData.BuildingType buildingType;
     private Vector2Int gridPosition;
     private bool isRotated = false;
@@ -253,12 +253,11 @@ public class BuildingManager : Singleton<BuildingManager>
                     Tile tile = new Tile()
                     {
                         building = instantiatedBuilding,
-                        tileType = GridManager.Instance._grid[gridPosition].tileType,
+                        tileType = GridManager.Instance._grid[position].tileType,
                     };
                     GridManager.Instance._grid[position] = tile;
                 }
 
-                
                 sameTileCount = CountSameTiles(gridPosition, buildings[buildingNumber].buildingData.placableTileTypes[0]);
 
                 OnBuildingPlaced?.Invoke();
@@ -280,11 +279,11 @@ public class BuildingManager : Singleton<BuildingManager>
     {
         int count = 0;
         Vector2Int[] directions = {
-        new Vector2Int(1, 0),
-        new Vector2Int(-1, 0),
-        new Vector2Int(0, 1),
-        new Vector2Int(0, -1)
-    };
+            new Vector2Int(1, 0),
+            new Vector2Int(-1, 0),
+            new Vector2Int(0, 1),
+            new Vector2Int(0, -1)
+        };
 
         foreach (var direction in directions)
         {
@@ -297,12 +296,6 @@ public class BuildingManager : Singleton<BuildingManager>
 
         return count;
     }
-
-
-
-
-
-
 
     public void SetBuildingType(BuildingData.BuildingType buildingType)
     {
@@ -362,8 +355,6 @@ public class BuildingManager : Singleton<BuildingManager>
                 return Upgrades.ResearchUpgrades.Fishing;
             case BuildingData.BuildingType.Farm:
                 return Upgrades.ResearchUpgrades.Farm;
-/*            case BuildingData.BuildingType.TownHall:
-                return Upgrades.ResearchUpgrades.MainHall;*/
             case BuildingData.BuildingType.StoneMine:
                 return Upgrades.ResearchUpgrades.StoneMine;
             case BuildingData.BuildingType.Wall:
@@ -376,7 +367,6 @@ public class BuildingManager : Singleton<BuildingManager>
                 return Upgrades.ResearchUpgrades.None;
         }
     }
-
 
     public void SetUpgrades(Upgrades upgrades)
     {
