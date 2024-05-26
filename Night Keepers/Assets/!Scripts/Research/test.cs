@@ -14,10 +14,7 @@ namespace NightKeepers.Research
             {
                 buttons.SetActiveSkills(canvas.GetUpgrades());
             }
-            else
-            {
-                Debug.LogError("Canvas reference is not assigned in test");
-            }
+
         }
     }
 }

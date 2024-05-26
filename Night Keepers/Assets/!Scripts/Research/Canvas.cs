@@ -10,7 +10,7 @@ namespace NightKeepers.Research
         private Upgrades _upgrades;
         private int cost;
         [SerializeField] GameObject researchUI;
-        [SerializeField] private Buttons buttons; 
+        [SerializeField] private Buttons buttons;
         private bool isResearchBuildingConstructed = false;
 
         public enum CanvasButtons
@@ -37,6 +37,8 @@ namespace NightKeepers.Research
             {
                 Debug.LogError("Upgrades component not found in the scene.");
             }
+
+            BuildingManager.Instance.SetUpgrades(_upgrades);
 
             if (buttons != null)
             {
