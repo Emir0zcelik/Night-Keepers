@@ -6,10 +6,25 @@ namespace NightKeepers
     public class BarracksButton : MonoBehaviour
     {
         public static event Action<Unit> onButtonPressed;
+        public ResourceManagement resourceManager;
+
+        private void Start()
+        {
+            resourceManager = FindObjectOfType<ResourceManagement>();
+        }
 
         public void SendPrefabToBarracks(Unit _unitToProduce)
         {
-            onButtonPressed?.Invoke(_unitToProduce);
+            if (resourceManager.HasEnoughResourcesForUnit(_unitToProduce.UnitData.Cost))
+            {
+                onButtonPressed?.Invoke(_unitToProduce);
+                resourceManager.DeductResourcesForUnit(_unitToProduce.UnitData.Cost);
+            }
+            else
+            {
+
+                Debug.Log("Not Enough Resource");
+            }
         }
     }
 }

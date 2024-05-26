@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using TMPro;
+using static BuildingData;
 
 
 namespace NightKeepers
@@ -85,22 +86,6 @@ namespace NightKeepers
             }
         }
 
-        // public bool HasEnoughResources()
-        // {
-        //     if (resources.Wood >= buildingData.Cost.wood &&
-        //         resources.Stone >= buildingData.Cost.stone &&
-        //         resources.Iron >= buildingData.Cost.iron &&
-        //         resources.Food >= buildingData.Cost.food)
-        //     {
-
-        //         DeductResources();
-        //         return true;
-        //     }
-        //     else
-        //     {
-        //         return false;
-        //     }
-        // }
 
         public bool HasEnoughResources()
         {
@@ -127,6 +112,22 @@ namespace NightKeepers
             resources.Food -= buildingData.Cost.food;
 
         }
+        public bool HasEnoughResourcesForUnit(ResourceCost cost)
+        {
+            return resources.Wood >= cost.wood &&
+                   resources.Stone >= cost.stone &&
+                   resources.Iron >= cost.iron &&
+                   resources.Food >= cost.food;
+        }
+
+        public void DeductResourcesForUnit(ResourceCost cost)
+        {
+            resources.Wood -= cost.wood;
+            resources.Stone -= cost.stone;
+            resources.Iron -= cost.iron;
+            resources.Food -= cost.food;
+        }
+
         private void Start()
         {
             buildingData = null;
