@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using TMPro;
 using static BuildingData;
-
 
 namespace NightKeepers
 {
@@ -18,17 +16,14 @@ namespace NightKeepers
             public int Iron = 500;
             public int Food = 500;
         }
+
         public TMP_Text woodText;
         public TMP_Text foodText;
         public TMP_Text stoneText;
+        public TMP_Text ironText;
 
         public ResourceHave resources = new ResourceHave();
         public BuildingData buildingData;
-        // public RM rm;
-
-        private int resourceTileCount;
-
-        private bool isProductionStarted = false;
         private Dictionary<string, Coroutine> productionCoroutines = new Dictionary<string, Coroutine>();
 
         private void OnEnable()
@@ -53,16 +48,12 @@ namespace NightKeepers
             StartAllResourceProduction();
         }
 
-
         public void StartResourceProduction(BuildingData buildingData)
         {
             if (!productionCoroutines.ContainsKey(buildingData.name))
             {
                 productionCoroutines[buildingData.name] = StartCoroutine(ProduceResources(buildingData));
-            }
-            else if (productionCoroutines[buildingData.name] == null)
-            {
-                productionCoroutines[buildingData.name] = StartCoroutine(ProduceResources(buildingData));
+                Debug.Log($"Started resource production for: {buildingData.name}"); 
             }
         }
 
@@ -94,52 +85,63 @@ namespace NightKeepers
             woodText.text = resources.Wood.ToString();
             foodText.text = resources.Food.ToString();
             stoneText.text = resources.Stone.ToString();
+            ironText.text = resources.Iron.ToString();
+            Debug.Log($"Wood: {resources.Wood}, Food: {resources.Food}, Stone: {resources.Stone}, Iron: {resources.Iron}");
         }
+
 
         private IEnumerator ProduceResources(BuildingData buildingData)
         {
             while (true)
             {
-                while (buildingData == null)
-                {
-                    yield return null;
-                }
                 yield return new WaitForSeconds(1);
-                switch (buildingData.name)
+                if (buildingData != null)
                 {
-                    case "IronMine":
-                        resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
-                        
-                        break;
-                    case "StoneMine":
-                        resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
-                        
-                        break;
-                    case "Farm":
-                        resources.Food += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
-                        
-                        break;
-                    case "LumberJack":
-                        resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount;
-                        
-                        break;
-                    
-                    default:
-                        break;
-                }
+                    int effectiveSameTileCount = BuildingManager.Instance.sameTileCount;
+                    Debug.Log($"Effective same tile count: {effectiveSameTileCount}");
 
+                    switch (buildingData.buildingTypes)
+                    {
+                        case BuildingData.BuildingType.IronMine:
+                            resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
+                            Debug.Log($"Iron added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
+                            break;
+                        case BuildingData.BuildingType.StoneMine:
+                            resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
+                            Debug.Log($"Stone added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
+                            break;
+                        case BuildingData.BuildingType.Farm:
+                            resources.Food += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
+                            Debug.Log($"Food added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
+                            break;
+                        case BuildingData.BuildingType.Lumberjack:
+                            resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount;
+                            Debug.Log($"Wood added: {buildingData.Workforce * buildingData.ProductionAmount * effectiveSameTileCount}");
+                            break;
+                        default:
+                            break;
+                    }
+                    UpdateText();
+                    Debug.Log($"Produced resources for: {buildingData.name}");
+                }
             }
         }
 
 
+
         public bool HasEnoughResources()
         {
+            if (buildingData == null)
+            {
+                Debug.LogError("BuildingData is null in HasEnoughResources method");
+                return false;
+            }
+
             if (resources.Wood >= buildingData.Cost.wood &&
                 resources.Stone >= buildingData.Cost.stone &&
                 resources.Iron >= buildingData.Cost.iron &&
                 resources.Food >= buildingData.Cost.food)
             {
-            
                 DeductResources();
                 return true;
             }
@@ -148,15 +150,16 @@ namespace NightKeepers
                 return false;
             }
         }
-        private void DeductResources()
-        {
 
+
+        public void DeductResources()
+        {
             resources.Wood -= buildingData.Cost.wood;
             resources.Stone -= buildingData.Cost.stone;
             resources.Iron -= buildingData.Cost.iron;
             resources.Food -= buildingData.Cost.food;
-
         }
+
         public bool HasEnoughResourcesForUnit(ResourceCost cost)
         {
             return resources.Wood >= cost.wood &&
@@ -175,17 +178,17 @@ namespace NightKeepers
 
         private void Start()
         {
-            buildingData = null;
+
             if (buildingData != null)
             {
                 StartResourceProduction(buildingData);
             }
-            
         }
+
+
         private void Update()
         {
             UpdateText();
         }
-
     }
 }
