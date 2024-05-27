@@ -138,21 +138,21 @@ public class BuildingManager : Singleton<BuildingManager>
             case BuildingData.BuildingType.StoneMine:
                 isPlaced = false;
                 buildingNumber = 0;
-                buildingMultiplier = 2f;
+                buildingMultiplier = 4f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
 
             case BuildingData.BuildingType.IronMine:
                 isPlaced = false;
                 buildingNumber = 1;
-                buildingMultiplier = 2f;
+                buildingMultiplier = 4f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
 
             case BuildingData.BuildingType.Lumberjack:
                 isPlaced = false;
                 buildingNumber = 2;
-                buildingMultiplier = 2f;
+                buildingMultiplier = 4f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
 
@@ -166,13 +166,13 @@ public class BuildingManager : Singleton<BuildingManager>
             case BuildingData.BuildingType.Farm:
                 isPlaced = false;
                 buildingNumber = 4;
-                buildingMultiplier = 2f;
+                buildingMultiplier = 4f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
             case BuildingData.BuildingType.Wall:
                 isPlaced = false;
                 buildingNumber = 5;
-                buildingMultiplier = 2f;
+                buildingMultiplier = 4f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
             case BuildingData.BuildingType.House:
@@ -190,7 +190,7 @@ public class BuildingManager : Singleton<BuildingManager>
             case BuildingData.BuildingType.Barracks:
                 isPlaced = false;
                 buildingNumber = 8;
-                buildingMultiplier = 2f;
+                buildingMultiplier = 4f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
         }
