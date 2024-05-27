@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: MainBase_Building_Ground_MAT
+    second: {fileID: 2100000, guid: 8541539d5c0e38d4a98fd0a1ce20b541, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: MainBase_Building_Level0_MAT
     second: {fileID: 2100000, guid: d18002b2c8a46d149a2fe136272e933a, type: 2}
   materials:

@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: LamberjackBuilding_MAT
     second: {fileID: 2100000, guid: 8ade49233b20e9747b08e3a928b4f5e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamberjack_Ground_MAT
+    second: {fileID: 2100000, guid: 8541539d5c0e38d4a98fd0a1ce20b541, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

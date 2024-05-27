@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Barrack_Building_Ground_MAT
+    second: {fileID: 2100000, guid: 8541539d5c0e38d4a98fd0a1ce20b541, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Barrack_Building_Level0_MAT
     second: {fileID: 2100000, guid: 5f85bb3c997b41143a6e8cf4e14af7f1, type: 2}
   - first:
