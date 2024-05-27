@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02c0bfe5b6b25dd4a83d2553ea4142f9
+guid: 1907aa2dbed1ee24295435a6d0e928e5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Undead_WarriorWeapon_MAT
-    second: {fileID: 2100000, guid: 915ccb8ac03badc43914127bdd1eeffe, type: 2}
+      name: Lavender_MAT
+    second: {fileID: 2100000, guid: 84a416e4a74e7ef458e26226dffaab02, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -82,8 +82,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - f1adfd33c4973a3499c1913fe659adf9
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
