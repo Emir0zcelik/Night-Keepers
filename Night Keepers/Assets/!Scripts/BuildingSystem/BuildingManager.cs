@@ -28,6 +28,7 @@ public class BuildingManager : Singleton<BuildingManager>
     bool isBuildingMode = true;
     public bool isTownHallPlaced = false;
     public int sameTileCount { get; private set; }
+    private float buildingMultiplier;
 
     [SerializeField] private LayerMask layerMask;
 
@@ -137,50 +138,59 @@ public class BuildingManager : Singleton<BuildingManager>
             case BuildingData.BuildingType.StoneMine:
                 isPlaced = false;
                 buildingNumber = 0;
+                buildingMultiplier = 2f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
 
             case BuildingData.BuildingType.IronMine:
                 isPlaced = false;
                 buildingNumber = 1;
+                buildingMultiplier = 2f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
 
             case BuildingData.BuildingType.Lumberjack:
                 isPlaced = false;
                 buildingNumber = 2;
+                buildingMultiplier = 2f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
 
             case BuildingData.BuildingType.TownHall:
                 isPlaced = false;
                 buildingNumber = 3;
+                buildingMultiplier = 10f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
 
             case BuildingData.BuildingType.Farm:
                 isPlaced = false;
                 buildingNumber = 4;
+                buildingMultiplier = 2f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
             case BuildingData.BuildingType.Wall:
                 isPlaced = false;
                 buildingNumber = 5;
+                buildingMultiplier = 2f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
             case BuildingData.BuildingType.House:
                 isPlaced = false;
                 buildingNumber = 6;
+                buildingMultiplier = 2f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
             case BuildingData.BuildingType.ResearchBuilding:
                 isPlaced = false;
                 buildingNumber = 7;
+                buildingMultiplier = 10f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
             case BuildingData.BuildingType.Barracks:
                 isPlaced = false;
                 buildingNumber = 8;
+                buildingMultiplier = 2f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
         }
@@ -292,11 +302,12 @@ public class BuildingManager : Singleton<BuildingManager>
                 float phaseTime = counter / materialCount;
                 MeshRenderer meshRenderer = instantiatedBuilding.GetComponentInChildren<MeshRenderer>(); 
 
-                ChangeMaterial(phaseTime, meshRenderer, materialCount);
-
                 sameTileCount = CountSameTiles(gridPosition, buildings[buildingNumber].buildingData.placableTileTypes[0]);
 
                 OnBuildingPlaced?.Invoke();
+
+
+                StartCoroutine(BuildCoroutine(instantiatedBuilding, buildingMultiplier));
 
                 RM.Instance.SetBuildingData(buildings[buildingNumber].buildingData);
                 Debug.Log($"Building placed: {buildings[buildingNumber].buildingData.name}");
@@ -311,57 +322,27 @@ public class BuildingManager : Singleton<BuildingManager>
         }
     }
 
-    private void ChangeMaterial(float time ,MeshRenderer meshRenderer, int materialCount)
+    private IEnumerator BuildCoroutine(Building instantiatedBuilding, float buildingMultiplier)
     {
-        DeattachOriginalMaterial(meshRenderer);
-        
-        List<Material> originalMaterials = new List<Material>();
-        foreach (var buildingMaterial in buildingMaterials)
+        float time = 0;
+        float buildTime = instantiatedBuilding.buildingData.buildingTime;
+        MeshRenderer meshRenderer = instantiatedBuilding.GetComponentInChildren<MeshRenderer>();
+
+        while (time <= buildTime)
         {
-            if (buildingMaterial.Key == buildingNumber)
+            time += Time.fixedDeltaTime;
+            Debug.Log(time);
+            for (int i = 0; i < meshRenderer.materials.Length; i++)
             {
-                foreach (var value in buildingMaterial.Value)
-                {
-                    originalMaterials.Add(value);
-                }
+                meshRenderer.materials[i].SetFloat("_DissolveTime", time * buildingMultiplier);
             }
+            yield return new WaitForFixedUpdate();
         }
-        StartCoroutine(AttachOriginalMaterial(time,meshRenderer, originalMaterials));
+
+        Debug.Log("Building construction complete.");
     }
 
-    private void DeattachOriginalMaterial(MeshRenderer meshRenderer)
-    {
-        var yourMaterials = new Material[]
-        {
-            buildingPlacementMaterial, buildingPlacementMaterial
-        };
-        meshRenderer.materials = yourMaterials;
 
-    }
-
-    private IEnumerator AttachOriginalMaterial(float time, MeshRenderer meshRenderer, List<Material> originalMaterials)
-    {
-        for (int i = 0; i < originalMaterials.Count; i++)
-        {
-            yield return new WaitForSeconds(time / originalMaterials.Count);
-            
-            var newMaterial = new Material[originalMaterials.Count];
-            
-            for (int j = 0; j < newMaterial.Length; j++)
-            {
-                if (j <= i)
-                {
-                    newMaterial[j] = originalMaterials[j];
-                }
-                else
-                {
-                    newMaterial[j] = buildingPlacementMaterial;
-                }
-            }
-
-            meshRenderer.materials = newMaterial;
-        }
-    }
 
     private int CountSameTiles(Vector2Int gridPosition, TileType tileType)
     {

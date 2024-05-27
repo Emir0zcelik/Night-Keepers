@@ -89,6 +89,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3475112862057261295, guid: 061fb74f34609184d9b85723ae000dd7,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475112862057261295, guid: 061fb74f34609184d9b85723ae000dd7,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d18002b2c8a46d149a2fe136272e933a, type: 2}
@@ -97,6 +102,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: aae805a3101685e44b37836ca4d14bbd, type: 2}
+    - target: {fileID: 3475112862057261295, guid: 061fb74f34609184d9b85723ae000dd7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: fd40d99d843071143bb7c8d1501cb905, type: 2}
     - target: {fileID: 7225610655957794930, guid: 061fb74f34609184d9b85723ae000dd7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -159,6 +169,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6331370265703588003}
+    - targetCorrespondingSourceObject: {fileID: 1635723778476152718, guid: 061fb74f34609184d9b85723ae000dd7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2997107433438374943}
   m_SourcePrefab: {fileID: 100100000, guid: 061fb74f34609184d9b85723ae000dd7, type: 3}
 --- !u!1 &4411681373033989263 stripped
 GameObject:
@@ -221,6 +235,20 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &2997107433438374943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4411681373033989263}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbf05d1d04cf1c488768829a4ba795d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noiseStrength: 0.25
+  objectHeight: 10
 --- !u!4 &5750169089917670259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7225610655957794930, guid: 061fb74f34609184d9b85723ae000dd7,

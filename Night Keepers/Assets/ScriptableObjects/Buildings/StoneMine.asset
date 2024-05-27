@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
   m_Name: StoneMine
   m_EditorClassIdentifier: 
+  buildingTime: 10
   buildingTypes: 6
   health: 10
   placableTileTypes: 0200000005000000

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
   m_Name: Lumberjack2
   m_EditorClassIdentifier: 
+  buildingTime: 10
   buildingTypes: 0
   health: 100
   placableTileTypes: 0300000005000000
