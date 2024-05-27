@@ -69,7 +69,9 @@ MonoBehaviour:
   Target: {fileID: 0}
   <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
     type: 2}
-  <_animation>k__BackingField: {fileID: 0}
+  <Animation>k__BackingField: {fileID: 0}
+  AnimationNames: []
+  <_healthBar>k__BackingField: {fileID: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 0

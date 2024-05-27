@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ccba01776b27c1d42adc4c4216d80283,
         type: 3}
@@ -218,6 +218,7 @@ MonoBehaviour:
     type: 2}
   <Animation>k__BackingField: {fileID: 0}
   AnimationNames: []
+  <_healthBar>k__BackingField: {fileID: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 0

@@ -12,7 +12,8 @@ Material:
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ISDESOLVE
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
@@ -49,9 +50,14 @@ Material:
     - _AlphaClipping: 0.85
     - _BranchMove: 0.1
     - _BranchStiffness: 0.1
+    - _DissolveTime: 0
+    - _EdgeWidth: 0.05
+    - _ISDESOLVE: 1
     - _LeafFrequency: 0
     - _LeafSpeed: 0
     - _LeafWave: 0
+    - _NoiseScale: 50
+    - _NoiseStrength: 1
     - _NormalInfluence: 1
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -63,6 +69,7 @@ Material:
     - _ShadowPower: 12.17
     - _Strenght: 3.88
     - _Thickness: 0.62
+    - _VEGETATION: 0
     - _WIND: 0
     - _WindBend: 4
     - _WindDirection: 1
