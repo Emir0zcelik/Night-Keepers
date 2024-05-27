@@ -33,20 +33,12 @@ namespace NightKeepers.Research
             BuildingManager.OnBuildingPlaced += BuildingManager_OnBuildingPlaced;
 
             _upgrades = FindObjectOfType<Upgrades>();
-            if (_upgrades == null)
-            {
-                Debug.LogError("Upgrades component not found in the scene.");
-            }
 
             BuildingManager.Instance.SetUpgrades(_upgrades);
 
             if (buttons != null)
             {
                 buttons.SetActiveSkills(_upgrades);
-            }
-            else
-            {
-                Debug.LogError("Buttons reference is not assigned in Canvas");
             }
         }
 

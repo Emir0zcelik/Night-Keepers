@@ -16,32 +16,6 @@ namespace NightKeepers.Research
 
         private void Awake()
         {
-            Debug.Log("Awake method called");
-
-            if (buildingsArray == null || buildingsArray.Length == 0)
-            {
-                Debug.LogError("BuildingsArray is not assigned or empty");
-            }
-
-            if (_upgrades == null)
-            {
-                Debug.LogWarning("Upgrades is not assigned in Awake");
-            }
-
-            if (researchText == null)
-            {
-                Debug.LogError("ResearchText is not assigned");
-            }
-
-            for (int i = 0; i < buildingsArray.Length; i++)
-            {
-                if (buildingsArray[i] == null)
-                {
-                    Debug.LogError($"BuildingsArray[{i}] is not assigned");
-                }
-            }
-
-            Debug.Log("Adding button listeners");
             buildingsArray[0]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.House));
             buildingsArray[1]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.Fishing));
             buildingsArray[2]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.Farm));
@@ -54,29 +28,15 @@ namespace NightKeepers.Research
 
         private void OnButtonClick(Upgrades.ResearchUpgrades upgrade)
         {
-            Debug.Log($"Attempting to unlock upgrade: {upgrade}");
             if (_upgrades != null && researchText != null)
             {
                 _upgrades.TryUnlock(upgrade, researchText);
-            }
-            else
-            {
-                Debug.LogError("_upgrades or researchText is null in OnButtonClick");
             }
         }
 
         public void SetActiveSkills(Upgrades upgrades)
         {
-            Debug.Log("SetActiveSkills called");
             this._upgrades = upgrades;
-            if (this._upgrades == null)
-            {
-                Debug.LogError("_upgrades is null in SetActiveSkills");
-            }
-            else
-            {
-                Debug.Log("_upgrades assigned successfully in SetActiveSkills");
-            }
 
             BuildingManager.Instance.SetUpgrades(upgrades);
 

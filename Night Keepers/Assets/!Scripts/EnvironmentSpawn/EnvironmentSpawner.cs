@@ -21,17 +21,17 @@ namespace NightKeepers
                     Vector3 spawnPosition = GridManager.Instance._grid.GridToWorldPosition(new Vector2Int(x, z));
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Grass)
                     {
-                        GameObject grass = Instantiate(grasses[Random.Range(0, grasses.Count)], spawnPosition, Quaternion.identity);
+                        // GameObject grass = Instantiate(grasses[Random.Range(0, grasses.Count)], spawnPosition, Quaternion.identity);
                     }        
 
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Wood)
                     {
-                        GameObject tree = Instantiate(trees[Random.Range(0, trees.Count)], spawnPosition, Quaternion.identity);
+                        // GameObject tree = Instantiate(trees[Random.Range(0, trees.Count)], spawnPosition, Quaternion.identity);
                     }
 
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Rock)
                     {
-                        GameObject rock = Instantiate(trees[Random.Range(0, rocks.Count)], spawnPosition, Quaternion.identity);                        
+                        // GameObject rock = Instantiate(trees[Random.Range(0, rocks.Count)], spawnPosition, Quaternion.identity);                        
                     } 
                 }
             }

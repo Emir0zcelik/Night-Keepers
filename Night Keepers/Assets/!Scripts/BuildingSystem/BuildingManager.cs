@@ -3,6 +3,8 @@ using NightKeepers.Research;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,6 +16,7 @@ public class BuildingManager : Singleton<BuildingManager>
     private List<MeshRenderer> meshRendererPreviews = new List<MeshRenderer>();
     [SerializeField] private Material validPreviewMaterial;
     [SerializeField] private Material invalidPreviewMaterial;
+    [SerializeField] private Material buildingPlacementMaterial;
     public static event Action<GameObject> OnMainBuildingPlaced;
     public static event Action OnBuildingPlaced;
     private BuildingData.BuildingType buildingType;
@@ -30,6 +33,8 @@ public class BuildingManager : Singleton<BuildingManager>
 
     private Upgrades upgrades;
 
+    private Dictionary<int, List<Material>> buildingMaterials = new Dictionary<int, List<Material>>();
+
     protected override void Awake()
     {
         base.Awake();
@@ -42,6 +47,25 @@ public class BuildingManager : Singleton<BuildingManager>
         {
             meshRendererPreviews.Add(buildingPreviews[i++].GetComponentInChildren<MeshRenderer>());
         }
+        int j = 0;
+        foreach (var building in buildings)
+        {
+            List<Material> materials = new List<Material>();
+            foreach (var material in building.GetComponentInChildren<MeshRenderer>().sharedMaterials)
+            {
+               materials.Add(material);
+            }
+            buildingMaterials.Add(j, materials);
+            j++;
+        }
+
+        // foreach (var buildingMaterial in buildingMaterials)
+        // {
+        //     foreach (var item in buildingMaterial.Value)
+        //     {
+        //         Debug.Log("Key: " + buildingMaterial.Key + " Material: " + item);
+        //     }
+        // }
     }
 
     private void Start()
@@ -257,6 +281,30 @@ public class BuildingManager : Singleton<BuildingManager>
                     };
                     GridManager.Instance._grid[position] = tile;
                 }
+                float counter = instantiatedBuilding.buildingData.buildingTime;
+                int materialCount = buildingMaterials[buildingNumber].Count;
+                float phaseTime = counter / materialCount;
+                MeshRenderer meshRenderer = instantiatedBuilding.GetComponentInChildren<MeshRenderer>(); 
+
+                ChangeMaterial(phaseTime, meshRenderer, materialCount);
+
+                // for (int i = 0; i < materialCount; i++)
+                // {
+                //     meshRenderer.materials[i] = buildingPlacementMaterial;
+                // }
+                // for (int i = 0; i < materialCount; i++)
+                // {
+                //     float phaseTime = counter / materialCount;
+
+                //     while (phaseTime > 0)
+                //     {
+                //         phaseTime -= Time.deltaTime;
+                //     }
+                //     if (buildingMaterials.TryGetValue(buildingNumber, out List<Material> materials))
+                //     {
+                //         meshRenderer.materials[i] = materials[i];
+                //     } 
+                // }
 
                 sameTileCount = CountSameTiles(gridPosition, buildings[buildingNumber].buildingData.placableTileTypes[0]);
 
@@ -271,6 +319,49 @@ public class BuildingManager : Singleton<BuildingManager>
                     TimeManager.Instance.isTimeStarted = true;
                     OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
                 }
+            }
+        }
+    }
+
+    private void ChangeMaterial(float time ,MeshRenderer meshRenderer, int materialCount)
+    {
+        DeattachOriginalMaterial(meshRenderer);
+        
+        List<Material> originalMaterials = new List<Material>();
+        foreach (var buildingMaterial in buildingMaterials)
+        {
+            if (buildingMaterial.Key == buildingNumber)
+            {
+                foreach (var value in buildingMaterial.Value)
+                {
+                    originalMaterials.Add(value);
+                }
+            }
+        }
+        StartCoroutine(AttachOriginalMaterial(time,meshRenderer, originalMaterials));
+    }
+
+    private void DeattachOriginalMaterial(MeshRenderer meshRenderer)
+    {
+        var yourMaterials = new Material[]
+        {
+            buildingPlacementMaterial, buildingPlacementMaterial
+        };
+        meshRenderer.materials = yourMaterials;
+
+    }
+
+    private IEnumerator AttachOriginalMaterial(float time, MeshRenderer meshRenderer, List<Material> originalMaterials)
+    {
+        for (int i = 0; i < originalMaterials.Count; i++)
+        {
+            yield return new WaitForSeconds(time / originalMaterials.Count);
+            
+            var newMaterial = new Material[originalMaterials.Count];
+            
+            for (int j = 0; j < newMaterial.Length; j++)
+            {
+                
             }
         }
     }
