@@ -30,7 +30,10 @@ namespace NightKeepers.Research
         {
             if (_upgrades != null && researchText != null)
             {
-                _upgrades.TryUnlock(upgrade, researchText);
+                if (upgrade != Upgrades.ResearchUpgrades.Barracks && upgrade != Upgrades.ResearchUpgrades.ResearchBuilding)
+                {
+                    _upgrades.TryUnlock(upgrade, researchText);
+                }
             }
         }
 

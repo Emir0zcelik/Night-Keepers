@@ -253,15 +253,20 @@ public class BuildingManager : Singleton<BuildingManager>
             }
 
             var currentBuildingType = buildings[buildingNumber].buildingData.buildingTypes;
-            var requiredResearchUpgrade = GetResearchUpgradeForBuilding(currentBuildingType);
+           // var requiredResearchUpgrade = GetResearchUpgradeForBuilding(currentBuildingType);
 
-            if (upgrades != null && requiredResearchUpgrade != Upgrades.ResearchUpgrades.None)
+            if (currentBuildingType != BuildingData.BuildingType.Barracks && currentBuildingType != BuildingData.BuildingType.ResearchBuilding)
             {
-                var researchRequirement = upgrades.GetResearchRequirement(requiredResearchUpgrade);
-                if ((researchRequirement != Upgrades.ResearchUpgrades.None && !upgrades.IsUnlocked(researchRequirement)) || !upgrades.IsUnlocked(requiredResearchUpgrade))
+                var requiredResearchUpgrade = GetResearchUpgradeForBuilding(currentBuildingType);
+
+                if (upgrades != null && requiredResearchUpgrade != Upgrades.ResearchUpgrades.None)
                 {
-                    Debug.Log($"You need to unlock {researchRequirement} first and then {requiredResearchUpgrade}.");
-                    return;
+                    var researchRequirement = upgrades.GetResearchRequirement(requiredResearchUpgrade);
+                    if ((researchRequirement != Upgrades.ResearchUpgrades.None && !upgrades.IsUnlocked(researchRequirement)) || !upgrades.IsUnlocked(requiredResearchUpgrade))
+                    {
+                        Debug.Log($"You need to unlock {researchRequirement} first and then {requiredResearchUpgrade}.");
+                        return;
+                    }
                 }
             }
 
@@ -450,10 +455,10 @@ public class BuildingManager : Singleton<BuildingManager>
                 return Upgrades.ResearchUpgrades.StoneMine;
             case BuildingData.BuildingType.Wall:
                 return Upgrades.ResearchUpgrades.Wall;
-            case BuildingData.BuildingType.Barracks:
+/*            case BuildingData.BuildingType.Barracks:
                 return Upgrades.ResearchUpgrades.Barracks;
             case BuildingData.BuildingType.ResearchBuilding:
-                return Upgrades.ResearchUpgrades.ResearchBuilding;
+                return Upgrades.ResearchUpgrades.ResearchBuilding;*/
             default:
                 return Upgrades.ResearchUpgrades.None;
         }
