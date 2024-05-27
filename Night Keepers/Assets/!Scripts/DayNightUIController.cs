@@ -6,7 +6,7 @@ namespace NightKeepers
     {
         [SerializeField] private RectTransform dayNightIndicator;
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (TimeManager.Instance.isTimeStarted)
             {

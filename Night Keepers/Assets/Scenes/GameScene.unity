@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731597, g: 0.13414656, b: 0.121080525, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2446,7 +2446,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.3411765, g: 0.3411765, b: 0.3411765, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
@@ -2505,13 +2505,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519905764}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.061628457, y: -0.70441604, z: -0.70441604, w: -0.061628457}
+  m_LocalRotation: {x: -0.049990498, y: 0.5713938, z: -0.07139385, w: 0.816035}
   m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 70, z: -10}
 --- !u!114 &519905767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6829,12 +6829,12 @@ PrefabInstance:
     - target: {fileID: 3715867970928261382, guid: c09688c57091eb848aa6c50950dce6dc,
         type: 3}
       propertyPath: dayTimeLength
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3715867970928261382, guid: c09688c57091eb848aa6c50950dce6dc,
         type: 3}
       propertyPath: nightTimeLength
-      value: 200
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7814555132950530917, guid: c09688c57091eb848aa6c50950dce6dc,
         type: 3}
