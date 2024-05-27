@@ -29,7 +29,7 @@ public class LightingManager : Singleton<LightingManager>
         if (DirectionalLight != null)
         {
             DirectionalLight.color = Preset.directionalColor.Evaluate(timePercent);
-            DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3(((timePercent * 360f) / timeLength) - 90f, 70f, 0f));
+            DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 70f, 0f));
         }
 
     }
