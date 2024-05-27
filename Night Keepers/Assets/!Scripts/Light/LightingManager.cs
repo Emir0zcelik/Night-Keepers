@@ -4,12 +4,11 @@ using UnityEngine;
 [ExecuteAlways]
 public class LightingManager : Singleton<LightingManager>
 {
-    //Scene References
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
-    public float timeLength;
+    private float rotationAngle;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (Preset == null)
             return;
@@ -20,43 +19,21 @@ public class LightingManager : Singleton<LightingManager>
         }
     }
 
-    
-
     private void UpdateLighting(float timePercent)
     {
-        RenderSettings.ambientLight = Preset.ambientColor.Evaluate(timePercent);
-        RenderSettings.fogColor = Preset.fogColor.Evaluate(timePercent);
-        if (DirectionalLight != null)
+        if (TimeManager.Instance.IsDay)
         {
+            RenderSettings.ambientLight = Preset.ambientColor.Evaluate(timePercent);
+            RenderSettings.fogColor = Preset.fogColor.Evaluate(timePercent);
             DirectionalLight.color = Preset.directionalColor.Evaluate(timePercent);
-            DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 70f, 0f));
+
+            rotationAngle = Mathf.Lerp(0f, 180f, timePercent);
         }
-
-    }
-
-    //Try to find a directional light to use if we haven't set one
-    private void OnValidate()
-    {
-        if (DirectionalLight != null)
-            return;
-
-        //Search for lighting tab sun
-        if (RenderSettings.sun != null)
-        {
-            DirectionalLight = RenderSettings.sun;
-        }
-        //Search scene for light that fits criteria (directional)
         else
         {
-            Light[] lights = GameObject.FindObjectsOfType<Light>();
-            foreach (Light light in lights)
-            {
-                if (light.type == LightType.Directional)
-                {
-                    DirectionalLight = light;
-                    return;
-                }
-            }
+            rotationAngle = Mathf.Lerp(180f, 360f, timePercent);
         }
+
+        DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3(rotationAngle, 150f, 0f));
     }
 }

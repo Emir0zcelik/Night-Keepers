@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grass_MAT
+  m_Name: Lavander_MAT
   m_Shader: {fileID: -6465566751694194690, guid: 03338e257b6e6ef4a93fffd0c76ac001,
     type: 3}
   m_Parent: {fileID: 0}
@@ -73,7 +73,7 @@ Material:
     - _Input: {r: 0, g: 0, b: 0, a: 0}
     - _MainColor: {r: 1, g: 1, b: 1, a: 0}
     - _RimLightColor: {r: 1, g: 1, b: 1, a: 0}
-    - _SSSColor: {r: 0.9015293, g: 1, b: 0.21698096, a: 0}
+    - _SSSColor: {r: 0.5241208, g: 0.51257855, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4745318847886051059
 MonoBehaviour:

@@ -41,7 +41,6 @@ namespace NightKeepers
                 
                 if (_globalTime >= timeLength)
                 {
-                    Debug.Log("Global:" + _globalTime);
                     _globalTime = 0f;
                     _isDay = !_isDay;
 
@@ -55,7 +54,6 @@ namespace NightKeepers
                         timeLength = dayTimeLength;
                         OnDayArrived?.Invoke();
                     }
-                    LightingManager.Instance.timeLength = timeLength;
                 }
             }
         }
