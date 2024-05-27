@@ -58,14 +58,6 @@ public class BuildingManager : Singleton<BuildingManager>
             buildingMaterials.Add(j, materials);
             j++;
         }
-
-        // foreach (var buildingMaterial in buildingMaterials)
-        // {
-        //     foreach (var item in buildingMaterial.Value)
-        //     {
-        //         Debug.Log("Key: " + buildingMaterial.Key + " Material: " + item);
-        //     }
-        // }
     }
 
     private void Start()
@@ -90,6 +82,11 @@ public class BuildingManager : Singleton<BuildingManager>
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, layerMask))
         {
             gridPosition = GridManager.Instance._grid.WorldToGridPosition(raycastHit.point);
+            if (!TimeManager.Instance.IsDay)
+            {
+                previews[buildingNumber].transform.position = new Vector3(-100f, 0, 0);
+                return;
+            }
             if (isBuildingMode && GridManager.Instance._grid.IsInDimensions(gridPosition))
             {
                 isPlaceBuilding = true;
@@ -125,6 +122,10 @@ public class BuildingManager : Singleton<BuildingManager>
 
         if (isPlaceBuilding && isBuildingMode)
         {
+            if (!TimeManager.Instance.IsDay)
+            {
+                return;
+            }
             PlaceBuilding(gridPosition);
         }
     }
@@ -288,24 +289,6 @@ public class BuildingManager : Singleton<BuildingManager>
 
                 ChangeMaterial(phaseTime, meshRenderer, materialCount);
 
-                // for (int i = 0; i < materialCount; i++)
-                // {
-                //     meshRenderer.materials[i] = buildingPlacementMaterial;
-                // }
-                // for (int i = 0; i < materialCount; i++)
-                // {
-                //     float phaseTime = counter / materialCount;
-
-                //     while (phaseTime > 0)
-                //     {
-                //         phaseTime -= Time.deltaTime;
-                //     }
-                //     if (buildingMaterials.TryGetValue(buildingNumber, out List<Material> materials))
-                //     {
-                //         meshRenderer.materials[i] = materials[i];
-                //     } 
-                // }
-
                 sameTileCount = CountSameTiles(gridPosition, buildings[buildingNumber].buildingData.placableTileTypes[0]);
 
                 OnBuildingPlaced?.Invoke();
@@ -361,8 +344,17 @@ public class BuildingManager : Singleton<BuildingManager>
             
             for (int j = 0; j < newMaterial.Length; j++)
             {
-                
+                if (j <= i)
+                {
+                    newMaterial[j] = originalMaterials[j];
+                }
+                else
+                {
+                    newMaterial[j] = buildingPlacementMaterial;
+                }
             }
+
+            meshRenderer.materials = newMaterial;
         }
     }
 

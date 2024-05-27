@@ -38,23 +38,24 @@ namespace NightKeepers
             {
                 _globalTime += Time.deltaTime;
 
+                
                 if (_globalTime >= timeLength)
                 {
+                    Debug.Log("Global:" + _globalTime);
                     _globalTime = 0f;
                     _isDay = !_isDay;
 
                     if (!_isDay)
                     {
-                        //Debug.Log("Night Time.");
                         timeLength = nightTimeLength;
                         OnNightArrived?.Invoke();
                     }
                     else
                     {
-                        //Debug.Log("Day Time.");
                         timeLength = dayTimeLength;
                         OnDayArrived?.Invoke();
                     }
+                    LightingManager.Instance.timeLength = timeLength;
                 }
             }
         }
