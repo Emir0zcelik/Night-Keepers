@@ -9,6 +9,8 @@ namespace NightKeepers
         [SerializeField] private List<GameObject> trees;
         [SerializeField] private List<GameObject> rocks;
         [SerializeField] private List<GameObject> grasses;
+        [SerializeField] private List<GameObject> grassesWithStones;
+        [SerializeField] private List<GameObject> grassesWithTrees;
 
         private void Start() {
             for (int x = 0; x < GridManager.Instance.width; x++)
@@ -21,7 +23,22 @@ namespace NightKeepers
                     Vector3 spawnPosition = GridManager.Instance._grid.GridToWorldPosition(new Vector2Int(x, z));
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Grass)
                     {
-                        // GameObject grass = Instantiate(grasses[Random.Range(0, grasses.Count)], spawnPosition, Quaternion.identity);
+                        int probability = Random.Range(0, 100);
+                        
+                        switch (probability)
+                        {
+                            case < 70:
+                                Debug.Log("grass");
+                            break;
+                            
+                            case  < 90:
+                                Debug.Log("grassWithStone");
+                            break;
+                            
+                            default:
+                                Debug.Log("grassWithTree");
+                            break;
+                        }
                     }        
 
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Wood)

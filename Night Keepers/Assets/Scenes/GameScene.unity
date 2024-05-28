@@ -2119,7 +2119,18 @@ MonoBehaviour:
   trees: []
   rocks: []
   grasses:
-  - {fileID: 1855352861954380411, guid: f9251ee9a75b0c44eb1c187ee1f3896e, type: 3}
+  - {fileID: 9117124247968945210, guid: a397457639ad5fc4fba7c79fc326f314, type: 3}
+  - {fileID: 1303022074851449353, guid: 5f0ddd007a68c54409b64028246312e0, type: 3}
+  - {fileID: 1077754066232531200, guid: 92cd72a509f6ccb48b7bae34395000e9, type: 3}
+  - {fileID: 6316960493651138256, guid: 58df19b20e1579c47b57e20acc256895, type: 3}
+  - {fileID: 1414915511473094923, guid: 6013bf93eb477dd48854ada74491994f, type: 3}
+  - {fileID: 3984324416455601976, guid: ecf2d4a7c8dac6841b03a03b22a2f4f7, type: 3}
+  - {fileID: 3404549474758165398, guid: 1504d372c8c321b4e933ea14dcd52e65, type: 3}
+  - {fileID: 6288908709781991376, guid: 254491d6627338445bfa420e91273c94, type: 3}
+  - {fileID: 714383294858326717, guid: cf7c46ca09d6fbf4da239a34369fb785, type: 3}
+  - {fileID: 734435208333733008, guid: aa53c8879033ada409198d8f10889a5e, type: 3}
+  grassesWithStones: []
+  grassesWithTrees: []
 --- !u!1 &460993125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5580211509064804429, guid: 59788680a0653d94d94b2360d265432b,
