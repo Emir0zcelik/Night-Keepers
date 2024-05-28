@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4337980026571149608
+--- !u!1001 &8387153687402762236
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 77f14f2ee1754a142bb1fb70cc90e041,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.021546304
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77f14f2ee1754a142bb1fb70cc90e041,
         type: 3}
@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 77f14f2ee1754a142bb1fb70cc90e041,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1
+      value: 0.34271812
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77f14f2ee1754a142bb1fb70cc90e041,
         type: 3}
@@ -66,12 +66,12 @@ PrefabInstance:
     - target: {fileID: 4742473837712756890, guid: 77f14f2ee1754a142bb1fb70cc90e041,
         type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.62530416
+      value: 0.54790217
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 77f14f2ee1754a142bb1fb70cc90e041,
         type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0.3015515
+      value: 0.20399125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
