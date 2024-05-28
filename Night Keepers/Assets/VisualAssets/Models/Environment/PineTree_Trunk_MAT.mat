@@ -14,7 +14,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _RIMLIGHT
-  - _WIND
+  - _SUBSURFACE
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
@@ -51,9 +51,14 @@ Material:
     - _AlphaClipping: 0.85
     - _BranchMove: 0.1
     - _BranchStiffness: 0.1
+    - _DissolveTime: 0
+    - _EdgeWidth: 0.05
+    - _ISDESOLVE: 0
     - _LeafFrequency: 0
     - _LeafSpeed: 0
     - _LeafWave: 0
+    - _NoiseScale: 50
+    - _NoiseStrength: 1
     - _NormalInfluence: 1
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -61,11 +66,12 @@ Material:
     - _RimLightEdgePower: 9.86
     - _SSSIntensity: 1.45
     - _SSSPower: 1
-    - _SUBSURFACE: 0
+    - _SUBSURFACE: 1
     - _ShadowPower: 12.17
     - _Strenght: 1.59
     - _Thickness: 4.3
-    - _WIND: 1
+    - _VEGETATION: 0
+    - _WIND: 0
     - _WindBend: 4
     - _WindDirection: 1
     - _WindOffset: 10
