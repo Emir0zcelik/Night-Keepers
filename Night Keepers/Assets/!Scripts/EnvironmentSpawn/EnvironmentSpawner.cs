@@ -25,18 +25,19 @@ namespace NightKeepers
                     {
                         int probability = Random.Range(0, 100);
                         
+                        // int randomRotation = Quaternion.Euler()
                         switch (probability)
                         {
                             case < 70:
-                                Debug.Log("grass");
+                                Instantiate(grasses[Random.Range(0, grasses.Count)], spawnPosition, Quaternion.identity);
                             break;
                             
                             case  < 90:
-                                Debug.Log("grassWithStone");
+                                Instantiate(grassesWithStones[Random.Range(0, grassesWithStones.Count)], spawnPosition, Quaternion.identity);
                             break;
                             
                             default:
-                                Debug.Log("grassWithTree");
+                                Instantiate(grassesWithTrees[Random.Range(0, grassesWithTrees.Count)], spawnPosition, Quaternion.identity);
                             break;
                         }
                     }        

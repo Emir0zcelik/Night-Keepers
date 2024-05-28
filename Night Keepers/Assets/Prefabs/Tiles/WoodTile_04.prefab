@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8924262771673002538
 Transform:
@@ -126,6 +126,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fern (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -214,6 +219,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fern (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -304,6 +314,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fern (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -392,6 +407,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fern (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -482,6 +502,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PineTree2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39930e09a8aa7dd4d9c78c2b6f091167,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -570,6 +595,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fern (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -660,6 +690,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fern (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -748,6 +783,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PineTree2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39930e09a8aa7dd4d9c78c2b6f091167,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -838,6 +878,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fern (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -926,6 +971,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fern (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1016,6 +1066,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PineTree2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39930e09a8aa7dd4d9c78c2b6f091167,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1104,6 +1159,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fern (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1194,6 +1254,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fern (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1282,6 +1347,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fern (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1372,6 +1442,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fern (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1461,6 +1536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fern (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1549,6 +1629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fern (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db73fb3f2d9b9a24ca7b728b63f361ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
