@@ -58,11 +58,15 @@ namespace NightKeepers
             UpdateText();
         }
 
-        public void StartResourceProduction(BuildingData buildingData)
+        public void StartResourceProduction(string buildingType)
         {
-            if (!productionCoroutines.ContainsKey(buildingData.name))
+            if (!productionCoroutines.ContainsKey(buildingType))
             {
-                productionCoroutines[buildingData.name] = StartCoroutine(ProduceResources(buildingData));
+                BuildingData buildingData = RM.Instance.GetBuildingDataByName(buildingType);
+                if (buildingData != null)
+                {
+                    productionCoroutines[buildingType] = StartCoroutine(ProduceResources(buildingData));
+                }
             }
         }
 
@@ -133,13 +137,9 @@ namespace NightKeepers
 
         private void StartAllResourceProduction()
         {
-            foreach (var building in RM.Instance.buildingCounts.Keys)
+            foreach (var buildingType in RM.Instance.buildingCounts.Keys)
             {
-                BuildingData buildingData = RM.Instance.GetBuildingDataByName(building);
-                if (buildingData != null)
-                {
-                    StartResourceProduction(buildingData);
-                }
+                StartResourceProduction(buildingType);
             }
         }
     }

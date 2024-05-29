@@ -1,12 +1,10 @@
-using NightKeepers;
 using NightKeepers.Research;
-using System;
-using System.Collections;
+using NightKeepers;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEngine;
+using System;
 using UnityEngine.EventSystems;
+using UnityEngine;
+using System.Collections;
 
 public class BuildingManager : Singleton<BuildingManager>
 {
@@ -54,7 +52,7 @@ public class BuildingManager : Singleton<BuildingManager>
             List<Material> materials = new List<Material>();
             foreach (var material in building.GetComponentInChildren<MeshRenderer>().sharedMaterials)
             {
-               materials.Add(material);
+                materials.Add(material);
             }
             buildingMaterials.Add(j, materials);
             j++;
@@ -253,7 +251,6 @@ public class BuildingManager : Singleton<BuildingManager>
 
     private void PlaceBuilding(Vector2Int gridPosition)
     {
-
         if (Input.GetMouseButtonDown(0))
         {
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildingPreviews[buildingNumber].direction);
@@ -269,6 +266,11 @@ public class BuildingManager : Singleton<BuildingManager>
             if (!IsBuildingResearchUnlocked(currentBuildingType))
             {
                 Debug.Log("You need to unlock the research for this building first.");
+                return;
+            }
+            if (!RM.Instance.resourceManager.HasEnoughResources(buildings[buildingNumber].buildingData))
+            {
+                Debug.Log("Not enough resources to place this building.");
                 return;
             }
 
@@ -288,10 +290,6 @@ public class BuildingManager : Singleton<BuildingManager>
                     };
                     GridManager.Instance._grid[position] = tile;
                 }
-                float counter = instantiatedBuilding.buildingData.buildingTime;
-                int materialCount = buildingMaterials[buildingNumber].Count;
-                float phaseTime = counter / materialCount;
-                MeshRenderer meshRenderer = instantiatedBuilding.GetComponentInChildren<MeshRenderer>();
 
                 sameTileCount = CountSameTiles(gridPosition, buildings[buildingNumber].buildingData.placableTileTypes[0]);
 
@@ -311,6 +309,7 @@ public class BuildingManager : Singleton<BuildingManager>
             }
         }
     }
+
     private bool IsBuildingResearchUnlocked(BuildingData.BuildingType buildingType)
     {
         if (buildingType == BuildingData.BuildingType.Lumberjack || buildingType == BuildingData.BuildingType.TownHall || buildingType == BuildingData.BuildingType.Farm || buildingType == BuildingData.BuildingType.ResearchBuilding)
@@ -341,8 +340,6 @@ public class BuildingManager : Singleton<BuildingManager>
 
         Debug.Log("Building construction complete.");
     }
-
-
 
     private int CountSameTiles(Vector2Int gridPosition, TileType tileType)
     {
