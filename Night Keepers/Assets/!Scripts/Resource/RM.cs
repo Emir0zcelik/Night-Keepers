@@ -27,6 +27,13 @@ namespace NightKeepers
             buildingCounts["Fishing"] = 0;
 
         }
+        public void DecreaseBuildingCount(string buildingName)
+        {
+            if (buildingCounts.ContainsKey(buildingName) && buildingCounts[buildingName] > 0)
+            {
+                buildingCounts[buildingName]--;
+            }
+        }
 
         public void SetBuildingData(BuildingData data)
         {

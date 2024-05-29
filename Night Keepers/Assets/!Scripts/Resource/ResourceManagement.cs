@@ -29,12 +29,46 @@ namespace NightKeepers
         {
             TimeManager.OnNightArrived += StopAllResourceProduction;
             TimeManager.OnDayArrived += StartAllResourceProduction;
+            TestBuilding.onBuildingDestroyed += OnBuildingDestroyed;
         }
 
         private void OnDisable()
         {
             TimeManager.OnNightArrived -= StopAllResourceProduction;
             TimeManager.OnDayArrived -= StartAllResourceProduction;
+            TestBuilding.onBuildingDestroyed += OnBuildingDestroyed;
+        }
+        private void OnBuildingDestroyed()
+        {
+            AdjustResourcesAfterBuildingDestroyed();
+        }
+
+        private void AdjustResourcesAfterBuildingDestroyed()
+        {
+            if (RM.Instance.buildingCounts["IronMine"] < 1)
+            {
+                resources.Iron -= CalculateProductionReduction("IronMine");
+            }
+            if (RM.Instance.buildingCounts["StoneMine"] < 1)
+            {
+                resources.Stone -= CalculateProductionReduction("StoneMine");
+            }
+            if (RM.Instance.buildingCounts["Farm"] < 1)
+            {
+                resources.Food -= CalculateProductionReduction("Farm");
+            }
+            if (RM.Instance.buildingCounts["Lumberjack"] < 1)
+            {
+                resources.Wood -= CalculateProductionReduction("Lumberjack");
+            }
+        }
+
+        private int CalculateProductionReduction(string buildingType)
+        {
+            
+            int workforce = 1; 
+            int productionAmount = 1; 
+            return workforce * productionAmount * BuildingManager.Instance.sameTileCount / 2;
         }
 
         private void Start()
