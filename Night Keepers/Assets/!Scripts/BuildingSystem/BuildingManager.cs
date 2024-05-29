@@ -264,21 +264,11 @@ public class BuildingManager : Singleton<BuildingManager>
             }
 
             var currentBuildingType = buildings[buildingNumber].buildingData.buildingTypes;
-           // var requiredResearchUpgrade = GetResearchUpgradeForBuilding(currentBuildingType);
 
-            if (currentBuildingType != BuildingData.BuildingType.Barracks && currentBuildingType != BuildingData.BuildingType.ResearchBuilding)
+            if (!IsBuildingResearchUnlocked(currentBuildingType))
             {
-                var requiredResearchUpgrade = GetResearchUpgradeForBuilding(currentBuildingType);
-
-                if (upgrades != null && requiredResearchUpgrade != Upgrades.ResearchUpgrades.None)
-                {
-                    var researchRequirement = upgrades.GetResearchRequirement(requiredResearchUpgrade);
-                    if ((researchRequirement != Upgrades.ResearchUpgrades.None && !upgrades.IsUnlocked(researchRequirement)) || !upgrades.IsUnlocked(requiredResearchUpgrade))
-                    {
-                        Debug.Log($"You need to unlock {researchRequirement} first and then {requiredResearchUpgrade}.");
-                        return;
-                    }
-                }
+                Debug.Log("You need to unlock the research for this building first.");
+                return;
             }
 
             if (TryBuild(buildings[buildingNumber], gridPositionList))
@@ -300,12 +290,11 @@ public class BuildingManager : Singleton<BuildingManager>
                 float counter = instantiatedBuilding.buildingData.buildingTime;
                 int materialCount = buildingMaterials[buildingNumber].Count;
                 float phaseTime = counter / materialCount;
-                MeshRenderer meshRenderer = instantiatedBuilding.GetComponentInChildren<MeshRenderer>(); 
+                MeshRenderer meshRenderer = instantiatedBuilding.GetComponentInChildren<MeshRenderer>();
 
                 sameTileCount = CountSameTiles(gridPosition, buildings[buildingNumber].buildingData.placableTileTypes[0]);
 
                 OnBuildingPlaced?.Invoke();
-
 
                 StartCoroutine(BuildCoroutine(instantiatedBuilding, buildingMultiplier));
 
@@ -320,6 +309,16 @@ public class BuildingManager : Singleton<BuildingManager>
                 }
             }
         }
+    }
+    private bool IsBuildingResearchUnlocked(BuildingData.BuildingType buildingType)
+    {
+        if (buildingType == BuildingData.BuildingType.Lumberjack || buildingType == BuildingData.BuildingType.TownHall || buildingType == BuildingData.BuildingType.Farm || buildingType == BuildingData.BuildingType.ResearchBuilding)
+        {
+            return true;
+        }
+
+        var requiredResearchUpgrade = GetResearchUpgradeForBuilding(buildingType);
+        return upgrades != null && upgrades.IsUnlocked(requiredResearchUpgrade);
     }
 
     private IEnumerator BuildCoroutine(Building instantiatedBuilding, float buildingMultiplier)

@@ -108,11 +108,11 @@ namespace NightKeepers.Research
                     if (currentResearchValue >= 50)
                     {
                         researchText.text = (currentResearchValue - 50).ToString();
-                        Debug.Log("Lumberjack2 = Activated");
+                        Debug.Log("FishingHouse = Activated");
                     }
                     else
                     {
-                        Debug.Log("Insufficient research value to unlock Lumberjack2.");
+                        Debug.Log("Insufficient research value to unlock FishingHouse.");
                     }
                     break;
                 case Upgrades.ResearchUpgrades.Farm:
@@ -170,4 +170,5 @@ namespace NightKeepers.Research
             return _upgrades;
         }
     }
+
 }
