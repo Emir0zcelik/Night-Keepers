@@ -29,6 +29,7 @@ public class GridManager : Singleton<GridManager>
     [SerializeField] private float woodNoise;
     [SerializeField] private float ironNoise;
     [SerializeField] private List<GameObject> tilePrefabs;
+    [SerializeField] private Transform waterParent;
 
     public static event Action onWorldGenerationDone;
     public Grid<Tile> _grid;
@@ -96,7 +97,6 @@ public class GridManager : Singleton<GridManager>
             case TileType.Grass:                
                 InstantiateTile(_grid.GridToWorldPosition(new Vector2Int(x, z)), _grid._grid[x, z].tileType);
 
-
                 TilePropagation(x, z, tileType, Random.Range(1, grassPropagation), grassNoise);
 
                 break;
@@ -150,7 +150,9 @@ public class GridManager : Singleton<GridManager>
                 break;  
             
             case TileType.Water:
-                tilePrefab = Instantiate(tilePrefabs[2], position, quaternion.identity);
+                GameObject waterObj = new GameObject();
+                tilePrefab = Instantiate(waterObj, position, quaternion.identity, waterParent);
+                // tilePrefab = Instantiate(tilePrefabs[2], position, quaternion.identity, waterParent);
                 break;
             
             case TileType.Wood:

@@ -279,6 +279,11 @@ public class BuildingManager : Singleton<BuildingManager>
             {
                 foreach (var position in gridPositionList)
                 {
+                    if (GridManager.Instance._grid[position].building == null)
+                    {
+                        continue;
+                    }
+                    
                     if (GridManager.Instance._grid[position].building.buildingType == BuildingData.BuildingType.Environment)
                     {
                         DeleteBuilding(position);
@@ -345,7 +350,6 @@ public class BuildingManager : Singleton<BuildingManager>
             {
                 deleteCooldown -= Time.fixedDeltaTime;
             }
-            Debug.Log(deleteCooldown);
             for (int i = 0; i < meshRenderer.materials.Length; i++)
             {
                 meshRenderer.materials[i].SetFloat("_DissolveTime", time * buildingMultiplier);

@@ -48,29 +48,24 @@ namespace NightKeepers
                         
                         switch (probability)
                         {
-                            case < 4: // Grass
-                                print("big Stone");
+                            case < 4: 
                                 grass = Instantiate(grassBigRocks[Random.Range(0, grassBigRocks.Length)], spawnPosition, randomRotation);
                             break;
-                            case  < 9: // Lavanta
-                                print("agac");
+                            case  < 9: 
                                 grass = Instantiate(grassTree[Random.Range(0, grassTree.Length)], spawnPosition, randomRotation);
                             break;
                             case < 109:
-                                print("tas");
                                 grass = Instantiate(grassStones[Random.Range(0, grassStones.Length)], spawnPosition, randomRotation);
                             break;
                             case < 209:
-                                print("lavanta");
                                 grass = Instantiate(grassLavenders[Random.Range(0, grassLavenders.Length)], spawnPosition, randomRotation);
                             break;
 
                             default:
-                                print("cim");
                                 grass = Instantiate(grassDefault[Random.Range(0, grassDefault.Length)], spawnPosition, randomRotation);
                             break;
                         }
-
+                        grass.buildingType = BuildingData.BuildingType.Environment;
                         Tile tile = new Tile()
                         {
                             building = grass,

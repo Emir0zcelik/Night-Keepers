@@ -1441,12 +1441,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72e0fd7c19fc4e42b5bbb3ce4e4b0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trees: []
-  rocks: []
-  grassList:
+  grassBigRocks:
+  - {fileID: -6490574543637333905, guid: 6ad1d0f7b797e7f4e953692318145c2a, type: 3}
+  - {fileID: 5282912228938047162, guid: 4e6479e1b743569499d1da8578cb186e, type: 3}
+  - {fileID: 6904625139052319366, guid: 701a5f12a22388047a66d71a24b49d30, type: 3}
+  grassTree:
+  - {fileID: 9050269871811803988, guid: bdc9404b01abf6549b4ed7c06adeda54, type: 3}
+  - {fileID: 7077177953006613405, guid: 1e26f561fee23d644b5aa101cb37ee25, type: 3}
+  - {fileID: 2755322666707055663, guid: 9d9b71c0e1bae084a9624ca962b3905e, type: 3}
+  - {fileID: -2891655886079152926, guid: 2c040cf208d9dcc4e8d8512fe1775899, type: 3}
+  - {fileID: -4899447390982983335, guid: cb2b8096f2af1e242b76ad609309e0a6, type: 3}
+  - {fileID: -3781688842754068454, guid: 627830d549f129e48b569600d699ec36, type: 3}
+  grassStones:
+  - {fileID: -7490453656638058687, guid: f5445ece84e088446b5cdeeeb1eb60b5, type: 3}
+  - {fileID: 4275576288215236693, guid: bdc0d390a9681174fb658c7dca64a558, type: 3}
+  - {fileID: -246149744375620987, guid: d8f928699e5833847bc8f70f62c7302e, type: 3}
+  - {fileID: 8577350605229309947, guid: aca7fb648100df142a4057b90b003479, type: 3}
+  grassLavenders:
+  - {fileID: -5578628229085646658, guid: ab98f19e1dbd7ee43b710566f617a7b5, type: 3}
+  - {fileID: 5184159236834796925, guid: 56e2f9104c8cca648b876a71e4feebfb, type: 3}
+  grassDefault:
   - {fileID: -5241384681222018678, guid: f6eee78a212fc374d93841cd02cde36d, type: 3}
-  grassesWithStones: []
-  grassesWithTrees: []
+  - {fileID: -6921812526469901003, guid: 457ff072ab9f4a448bade62130f96691, type: 3}
+  - {fileID: 1561897706712221672, guid: b157049c02c635c439e87d72af753d2f, type: 3}
+  - {fileID: 17240439517498183, guid: 88b7af6d4b0857b4da82bfb7ccc4cfc5, type: 3}
+  woodBigStone:
+  - {fileID: 6045471869541947304, guid: f1a4caff3fd9dc14db9289faf65576c5, type: 3}
+  woodStone:
+  - {fileID: 6544719930172966550, guid: 15c226180e155bf4cb0b6509c0813722, type: 3}
+  - {fileID: -3629486933585000478, guid: ed1ae5bd1ae8f8c4691216ce44091f5e, type: 3}
+  woodDefault:
+  - {fileID: 6658138378822407731, guid: 586157e76a0441246a636dbd32af5372, type: 3}
+  - {fileID: -1395563408352473881, guid: a165cbe8c4e2cb449b2ae41394f35feb, type: 3}
+  - {fileID: -981677867213912077, guid: b6da87c9c23effb45a2dcda343ae18c2, type: 3}
+  - {fileID: 6352605786718729983, guid: dbb486fec93d0724e82a2a4b9c81e387, type: 3}
+  - {fileID: -234457410685568299, guid: 1a429a0d3de2d77469634577a544ca70, type: 3}
+  - {fileID: 8123455078445985332, guid: 1f4c0a8f1295cdf459d96e4336a5efad, type: 3}
+  stoneBig:
+  - {fileID: -8782371978196532455, guid: 1ab0f8cfe49c9694e9fdb3ded6b49f55, type: 3}
+  - {fileID: 7297046110258772922, guid: c0150f297c103294993b90b23c84d419, type: 3}
+  stoneDefault:
+  - {fileID: -6551651216962423976, guid: de79cec259e599047ba0d61665343938, type: 3}
+  - {fileID: 218332587447677475, guid: e5ca51c881789ef45add1781c8728197, type: 3}
+  - {fileID: 3468576736822710247, guid: 6477c151581471d4cba6b4f29bdb235a, type: 3}
+  - {fileID: 3027206883537203861, guid: 265893921eade2447abfa36b819bb6bc, type: 3}
 --- !u!114 &460993130 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6355232936918183712, guid: 59788680a0653d94d94b2360d265432b,
@@ -1591,6 +1629,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1171612994}
     m_Modifications:
+    - target: {fileID: 1537138583371703022, guid: 0200bbf367a524048b708fde0edbb71c,
+        type: 3}
+      propertyPath: GameSeed
+      value: Sicmik
+      objectReference: {fileID: 0}
     - target: {fileID: 6086393026546529161, guid: 0200bbf367a524048b708fde0edbb71c,
         type: 3}
       propertyPath: m_Name
@@ -1600,6 +1643,21 @@ PrefabInstance:
         type: 3}
       propertyPath: cellSize
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410684311430121414, guid: 0200bbf367a524048b708fde0edbb71c,
+        type: 3}
+      propertyPath: ironProbability
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410684311430121414, guid: 0200bbf367a524048b708fde0edbb71c,
+        type: 3}
+      propertyPath: woodProbability
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410684311430121414, guid: 0200bbf367a524048b708fde0edbb71c,
+        type: 3}
+      propertyPath: waterProbability
+      value: 93
       objectReference: {fileID: 0}
     - target: {fileID: 7987915510276431226, guid: 0200bbf367a524048b708fde0edbb71c,
         type: 3}
@@ -2989,6 +3047,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7073238803654897753, guid: 0bf3a175eaefce74b8dc31fbb1826153,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073238803654897753, guid: 0bf3a175eaefce74b8dc31fbb1826153,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073238803654897753, guid: 0bf3a175eaefce74b8dc31fbb1826153,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073238803654897753, guid: 0bf3a175eaefce74b8dc31fbb1826153,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8350112396150902083, guid: 0bf3a175eaefce74b8dc31fbb1826153,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3008,6 +3086,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529845937697487411, guid: 0bf3a175eaefce74b8dc31fbb1826153,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
