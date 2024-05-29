@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2276138790798136237}
   - component: {fileID: 3145864225879606681}
+  - component: {fileID: 5574334193088008093}
   m_Layer: 0
   m_Name: EnemySpawnManager
   m_TagString: Untagged
@@ -174,3 +175,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentWaveNumber: 1
   _spawnManagerData: {fileID: 11400000, guid: ca88553d425acfc409281289715197bb, type: 2}
+--- !u!114 &5574334193088008093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569535620854704011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 920f1a063d0a9ee4a939c950d9834fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
