@@ -331,7 +331,7 @@ public class BuildingManager : Singleton<BuildingManager>
         while (time <= buildTime)
         {
             time += Time.fixedDeltaTime;
-            Debug.Log(time);
+            //Debug.Log(time);
             for (int i = 0; i < meshRenderer.materials.Length; i++)
             {
                 meshRenderer.materials[i].SetFloat("_DissolveTime", time * buildingMultiplier);
