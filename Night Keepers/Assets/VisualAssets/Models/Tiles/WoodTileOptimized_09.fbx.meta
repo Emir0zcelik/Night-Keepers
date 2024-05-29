@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: fcbcc94dc76cbb0469b57fe0e016f124
+guid: e7db90979c6c514458d3814d07894ac4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rocks_MAT
+    second: {fileID: 2100000, guid: ba05f7e28c9aa7c46a954b7e058e8c43, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -34,7 +39,9 @@ ModelImporter:
     clipAnimations: []
     isReadable: 0
   meshes:
-    lODScreenPercentages: []
+    lODScreenPercentages:
+    - 0.25
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0
@@ -77,8 +84,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 9d0bd526d42f35e40a521faced4508dd
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

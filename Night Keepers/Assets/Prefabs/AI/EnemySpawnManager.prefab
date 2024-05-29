@@ -187,3 +187,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920f1a063d0a9ee4a939c950d9834fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowTransform: {fileID: 0}
+  ObjectToFollow: {fileID: 0}
