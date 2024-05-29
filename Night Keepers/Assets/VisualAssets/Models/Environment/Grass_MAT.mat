@@ -14,6 +14,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _SUBSURFACE
+  - _WIND
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
@@ -54,8 +55,8 @@ Material:
     - _EdgeWidth: 0.05
     - _ISDESOLVE: 0
     - _LeafFrequency: 1
-    - _LeafSpeed: 0.05
-    - _LeafWave: 0.1
+    - _LeafSpeed: 0.3
+    - _LeafWave: 0.5
     - _NoiseScale: 50
     - _NoiseStrength: 1
     - _NormalInfluence: 1
@@ -70,10 +71,10 @@ Material:
     - _Strenght: 0.53
     - _Thickness: 0
     - _VEGETATION: 0
-    - _WIND: 0
+    - _WIND: 1
     - _WindBend: 0
     - _WindDirection: 0
-    - _WindOffset: 10
+    - _WindOffset: 30
     m_Colors:
     - _Input: {r: 0, g: 0, b: 0, a: 0}
     - _MainColor: {r: 1, g: 1, b: 1, a: 0}

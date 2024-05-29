@@ -14,6 +14,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _SUBSURFACE
+  - _WIND
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
@@ -70,7 +71,7 @@ Material:
     - _Strenght: 0.53
     - _Thickness: 0
     - _VEGETATION: 0
-    - _WIND: 0
+    - _WIND: 1
     - _WindBend: 0
     - _WindDirection: 0
     - _WindOffset: 10
