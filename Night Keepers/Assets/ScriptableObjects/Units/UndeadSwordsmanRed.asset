@@ -18,7 +18,7 @@ MonoBehaviour:
   TimeBetweenAttacks: 1.5
   DetectionRangeRadius: 40
   AttackRangeRadius: 2.5
-  MovementSpeed: 6
+  MovementSpeed: 20
   targetPreferences:
   - unitType: 0
     weight: 1
@@ -31,3 +31,8 @@ MonoBehaviour:
   Side: 1
   UnitButtonPrefab: {fileID: 0}
   ProductionTime: 0
+  Cost:
+    wood: 0
+    stone: 0
+    iron: 0
+    food: 0
