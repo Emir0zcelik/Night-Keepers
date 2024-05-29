@@ -1,4 +1,3 @@
-using NightKeepers;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -23,9 +22,7 @@ namespace NightKeepers.Research
             Farm,
             IronMine,
             ResearchBuilding,
-            Barracks,
             StoneMine,
-            MainHall,
             Wall,
             OthersBuff
         }
@@ -98,7 +95,6 @@ namespace NightKeepers.Research
             }
         }
 
-
         private bool AttemptUnlock(ResearchUpgrades upgrades, TMP_Text researchText, int currentResearchValue, int requiredResearchPoints)
         {
             if (currentResearchValue >= requiredResearchPoints)
@@ -127,10 +123,8 @@ namespace NightKeepers.Research
                 case ResearchUpgrades.Fishing: return 50;
                 case ResearchUpgrades.Farm: return 10;
                 case ResearchUpgrades.IronMine: return 10;
-                case ResearchUpgrades.MainHall: return 10;
                 case ResearchUpgrades.StoneMine: return 10;
                 case ResearchUpgrades.Wall: return 10;
-                case ResearchUpgrades.Barracks: return 10;
                 case ResearchUpgrades.ResearchBuilding: return 10;
                 default: return 0;
             }

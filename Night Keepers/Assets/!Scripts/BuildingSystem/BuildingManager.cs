@@ -185,12 +185,13 @@ public class BuildingManager : Singleton<BuildingManager>
                 buildingMultiplier = 10f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
-            case BuildingData.BuildingType.Barracks:
-                isPlaced = false;
-                buildingNumber = 8;
-                buildingMultiplier = 4f;
-                BuildingPreviewsActivate(buildingNumber);
-                break;
+                 
+                case BuildingData.BuildingType.Barracks:
+                    isPlaced = false;
+                    buildingNumber = 8;
+                    buildingMultiplier = 4f;
+                    BuildingPreviewsActivate(buildingNumber);
+                    break;
         }
     }
 
@@ -312,7 +313,7 @@ public class BuildingManager : Singleton<BuildingManager>
 
     private bool IsBuildingResearchUnlocked(BuildingData.BuildingType buildingType)
     {
-        if (buildingType == BuildingData.BuildingType.Lumberjack || buildingType == BuildingData.BuildingType.TownHall || buildingType == BuildingData.BuildingType.Farm || buildingType == BuildingData.BuildingType.ResearchBuilding)
+        if (buildingType == BuildingData.BuildingType.Lumberjack || buildingType == BuildingData.BuildingType.TownHall || buildingType == BuildingData.BuildingType.Farm || buildingType == BuildingData.BuildingType.ResearchBuilding || buildingType == BuildingData.BuildingType.Barracks)
         {
             return true;
         }

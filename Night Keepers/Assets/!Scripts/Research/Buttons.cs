@@ -1,9 +1,8 @@
-using NightKeepers;
-using NightKeepers.Research;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
+using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 namespace NightKeepers.Research
 {
@@ -19,21 +18,16 @@ namespace NightKeepers.Research
             buildingsArray[0]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.House));
             buildingsArray[1]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.Fishing));
             buildingsArray[2]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.Farm));
-            buildingsArray[3]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.MainHall));
-            buildingsArray[4]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.StoneMine));
-            buildingsArray[5]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.Wall));
-            buildingsArray[6]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.Barracks));
-            buildingsArray[7]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.ResearchBuilding));
+            buildingsArray[3]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.StoneMine));
+            buildingsArray[4]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.Wall));
+            buildingsArray[5]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.ResearchBuilding));
         }
 
         private void OnButtonClick(Upgrades.ResearchUpgrades upgrade)
         {
             if (_upgrades != null && researchText != null)
             {
-                if (upgrade != Upgrades.ResearchUpgrades.Barracks && upgrade != Upgrades.ResearchUpgrades.ResearchBuilding)
-                {
-                    _upgrades.TryUnlock(upgrade, researchText);
-                }
+                _upgrades.TryUnlock(upgrade, researchText);
             }
         }
 
