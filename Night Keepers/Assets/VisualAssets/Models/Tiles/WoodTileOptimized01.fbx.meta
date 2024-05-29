@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: fcbcc94dc76cbb0469b57fe0e016f124
+guid: c0022e2ebd99db34a9d6002b13718c89
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fern_MAT
+    second: {fileID: 2100000, guid: 2fbdac238fa9cc64db261950eaeb1aa6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PineTree_Branch_MAT
+    second: {fileID: 2100000, guid: ecb7f13e3a59c3c4f8d6d2ca868f78d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PineTree_Trunk_MAT
+    second: {fileID: 2100000, guid: 56e95d59e897f8f4c969b945dff22792, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -34,7 +49,9 @@ ModelImporter:
     clipAnimations: []
     isReadable: 0
   meshes:
-    lODScreenPercentages: []
+    lODScreenPercentages:
+    - 0.25
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0
@@ -77,8 +94,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 9d0bd526d42f35e40a521faced4508dd
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
