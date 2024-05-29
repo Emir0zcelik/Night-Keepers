@@ -1,7 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using System.Collections;
 
 namespace NightKeepers
 {
@@ -21,7 +21,6 @@ namespace NightKeepers
         public TMP_Text stoneText;
 
         public ResourceHave resources = new ResourceHave();
-        public BuildingData buildingData;
 
         private Dictionary<string, Coroutine> productionCoroutines = new Dictionary<string, Coroutine>();
 
@@ -36,8 +35,9 @@ namespace NightKeepers
         {
             TimeManager.OnNightArrived -= StopAllResourceProduction;
             TimeManager.OnDayArrived -= StartAllResourceProduction;
-            TestBuilding.onBuildingDestroyed += OnBuildingDestroyed;
+            TestBuilding.onBuildingDestroyed -= OnBuildingDestroyed;
         }
+
         private void OnBuildingDestroyed()
         {
             AdjustResourcesAfterBuildingDestroyed();
@@ -45,39 +45,12 @@ namespace NightKeepers
 
         private void AdjustResourcesAfterBuildingDestroyed()
         {
-            if (RM.Instance.buildingCounts["IronMine"] < 1)
-            {
-                resources.Iron -= CalculateProductionReduction("IronMine");
-            }
-            if (RM.Instance.buildingCounts["StoneMine"] < 1)
-            {
-                resources.Stone -= CalculateProductionReduction("StoneMine");
-            }
-            if (RM.Instance.buildingCounts["Farm"] < 1)
-            {
-                resources.Food -= CalculateProductionReduction("Farm");
-            }
-            if (RM.Instance.buildingCounts["Lumberjack"] < 1)
-            {
-                resources.Wood -= CalculateProductionReduction("Lumberjack");
-            }
-        }
-
-        private int CalculateProductionReduction(string buildingType)
-        {
             
-            int workforce = 1; 
-            int productionAmount = 1; 
-            return workforce * productionAmount * BuildingManager.Instance.sameTileCount / 2;
         }
 
         private void Start()
         {
-            buildingData = null;
-            if (buildingData != null)
-            {
-                StartResourceProduction(buildingData);
-            }
+            UpdateText();
         }
 
         private void Update()
@@ -104,39 +77,35 @@ namespace NightKeepers
         {
             while (true)
             {
-                while (buildingData == null)
-                {
-                    yield return null;
-                }
                 yield return new WaitForSeconds(1);
-                switch (buildingData.name)
+                int totalProductionAmount = RM.Instance.buildingCounts[buildingData.name] * buildingData.ProductionAmount;
+
+                switch (buildingData.buildingTypes)
                 {
-                    case "IronMine":
-                        resources.Iron += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount/2;
+                    case BuildingData.BuildingType.IronMine:
+                        resources.Iron += totalProductionAmount;
                         break;
-                    case "StoneMine":
-                        resources.Stone += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount/2;
+                    case BuildingData.BuildingType.StoneMine:
+                        resources.Stone += totalProductionAmount;
                         break;
-                    case "Farm":
-                        resources.Food += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount/2;
+                    case BuildingData.BuildingType.Farm:
+                        resources.Food += totalProductionAmount;
                         break;
-                    case "Lumberjack":
-                        resources.Wood += buildingData.Workforce * buildingData.ProductionAmount * BuildingManager.Instance.sameTileCount/2;
-                        break;
-                    default:
+                    case BuildingData.BuildingType.Lumberjack:
+                        resources.Wood += totalProductionAmount;
                         break;
                 }
             }
         }
 
-        public bool HasEnoughResources()
+        public bool HasEnoughResources(BuildingData buildingData)
         {
             if (resources.Wood >= buildingData.Cost.wood &&
                 resources.Stone >= buildingData.Cost.stone &&
                 resources.Iron >= buildingData.Cost.iron &&
                 resources.Food >= buildingData.Cost.food)
             {
-                DeductResources();
+                DeductResources(buildingData);
                 return true;
             }
             else
@@ -145,7 +114,7 @@ namespace NightKeepers
             }
         }
 
-        private void DeductResources()
+        private void DeductResources(BuildingData buildingData)
         {
             resources.Wood -= buildingData.Cost.wood;
             resources.Stone -= buildingData.Cost.stone;
@@ -164,9 +133,13 @@ namespace NightKeepers
 
         private void StartAllResourceProduction()
         {
-            if (buildingData != null)
+            foreach (var building in RM.Instance.buildingCounts.Keys)
             {
-                StartResourceProduction(buildingData);
+                BuildingData buildingData = RM.Instance.GetBuildingDataByName(building);
+                if (buildingData != null)
+                {
+                    StartResourceProduction(buildingData);
+                }
             }
         }
     }

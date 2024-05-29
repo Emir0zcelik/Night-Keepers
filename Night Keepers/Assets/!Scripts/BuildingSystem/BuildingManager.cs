@@ -253,6 +253,7 @@ public class BuildingManager : Singleton<BuildingManager>
 
     private void PlaceBuilding(Vector2Int gridPosition)
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildingPreviews[buildingNumber].direction);
@@ -427,10 +428,6 @@ public class BuildingManager : Singleton<BuildingManager>
                 return Upgrades.ResearchUpgrades.StoneMine;
             case BuildingData.BuildingType.Wall:
                 return Upgrades.ResearchUpgrades.Wall;
-/*            case BuildingData.BuildingType.Barracks:
-                return Upgrades.ResearchUpgrades.Barracks;
-            case BuildingData.BuildingType.ResearchBuilding:
-                return Upgrades.ResearchUpgrades.ResearchBuilding;*/
             default:
                 return Upgrades.ResearchUpgrades.None;
         }

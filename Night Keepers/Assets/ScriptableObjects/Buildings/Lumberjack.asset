@@ -18,7 +18,7 @@ MonoBehaviour:
   placableTileTypes: 0300000005000000
   widthHeight: {x: 2, y: 2}
   visual: {fileID: 0}
-  Workforce: 2
+  Workforce: 1
   Cost:
     wood: 10
     stone: 0

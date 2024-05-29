@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace NightKeepers
 {
@@ -8,7 +7,6 @@ namespace NightKeepers
     {
         public ResourceManagement resourceManager;
         [SerializeField] private Animator notEnoughResourceAnimation;
-
 
         public Dictionary<string, int> buildingCounts = new Dictionary<string, int>();
 
@@ -25,8 +23,8 @@ namespace NightKeepers
             buildingCounts["ResearchBuilding"] = 0;
             buildingCounts["Barrack"] = 0;
             buildingCounts["Fishing"] = 0;
-
         }
+
         public void DecreaseBuildingCount(string buildingName)
         {
             if (buildingCounts.ContainsKey(buildingName) && buildingCounts[buildingName] > 0)
@@ -37,48 +35,25 @@ namespace NightKeepers
 
         public void SetBuildingData(BuildingData data)
         {
-            if (data.name == "IronMine" && buildingCounts[data.name] >= 1)
+            if (resourceManager.HasEnoughResources(data))
             {
                 buildingCounts[data.name]++;
-                UpdateExistingBuilding(data);
-            }
-            if (data.name == "Lumberjack" && buildingCounts[data.name] >= 1)
-            {
-                buildingCounts[data.name]++;
-                UpdateExistingBuilding(data);
-            }
-            if (data.name == "Farm" && buildingCounts[data.name] >= 1)
-            {
-                buildingCounts[data.name]++;
-                UpdateExistingBuilding(data);
-            }
-            if (data.name == "StoneMine" && buildingCounts[data.name] >= 1)
-            {
-                buildingCounts[data.name]++;
-                UpdateExistingBuilding(data);
-            }
-            else
-            {
-
-                resourceManager.buildingData = data;
                 resourceManager.StartResourceProduction(data);
-                if (resourceManager.HasEnoughResources())
-                {
-                    buildingCounts[data.name]++;
-                }
-
-
             }
         }
+
+        public BuildingData GetBuildingDataByName(string buildingName)
+        {
+            
+            return null; 
+        }
+
         void UpdateExistingBuilding(BuildingData data)
         {
-            int baseProduction = data.ProductionAmount;
-            int stackMultiplier = buildingCounts[data.name];
-            int newProduction = baseProduction * stackMultiplier;
-            data.ProductionAmount = newProduction;
+            
         }
+    }
 
-        }
     [System.Serializable]
     public class ResourceHave
     {
@@ -87,5 +62,4 @@ namespace NightKeepers
         public int Iron = 500;
         public int Food = 500;
     }
-
 }
