@@ -26,7 +26,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoMap:
-        m_Texture: {fileID: 2800000, guid: 68a296e91da202a469fd349e9e985251, type: 3}
+        m_Texture: {fileID: 2800000, guid: 44b063fca7e5f73468b6b55e13eb05a2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SSSTexture:
@@ -50,9 +50,14 @@ Material:
     - _AlphaClipping: 0.85
     - _BranchMove: 0.1
     - _BranchStiffness: 0.1
+    - _DissolveTime: 0
+    - _EdgeWidth: 0.05
+    - _ISDESOLVE: 0
     - _LeafFrequency: 0
     - _LeafSpeed: 0
     - _LeafWave: 0
+    - _NoiseScale: 50
+    - _NoiseStrength: 1
     - _NormalInfluence: 1
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -64,6 +69,7 @@ Material:
     - _ShadowPower: 12.17
     - _Strenght: 0.33
     - _Thickness: 11.5
+    - _VEGETATION: 0
     - _WIND: 0
     - _WindBend: 4
     - _WindDirection: 1
