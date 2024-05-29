@@ -28,8 +28,7 @@ namespace NightKeepers.Research
 
         void Start()
         {
-            researchText.text = "0";
-            StartCoroutine(UpdateText());
+            //researchText.text = "0";
             BuildingManager.OnBuildingPlaced += BuildingManager_OnBuildingPlaced;
 
             _upgrades = FindObjectOfType<Upgrades>();
@@ -40,6 +39,8 @@ namespace NightKeepers.Research
             {
                 buttons.SetActiveSkills(_upgrades);
             }
+
+            StartCoroutine(UpdateText());
         }
 
         private void OnDestroy()
@@ -62,11 +63,8 @@ namespace NightKeepers.Research
                 yield return new WaitForSeconds(2);
                 if (isResearchBuildingConstructed)
                 {
-                    researchText.text = (int.Parse(researchText.text) + Random.Range(1, 4)).ToString();
-                }
-                else
-                {
-                    researchText.text = "0";
+                    int currentResearchPoints = int.Parse(researchText.text);
+                    researchText.text = (currentResearchPoints + Random.Range(1, 4)).ToString();
                 }
             }
         }
@@ -115,15 +113,15 @@ namespace NightKeepers.Research
                         Debug.Log("Insufficient research value to unlock FishingHouse.");
                     }
                     break;
-                case Upgrades.ResearchUpgrades.Farm:
+                case Upgrades.ResearchUpgrades.Lumberjack1:
                     if (currentResearchValue >= 10)
                     {
                         researchText.text = (currentResearchValue - 10).ToString();
-                        Debug.Log("Farm = Activated");
+                        Debug.Log("Lumberjack1 = Activated");
                     }
                     else
                     {
-                        Debug.Log("Insufficient research value to unlock Farm.");
+                        Debug.Log("Insufficient research value to unlock Lumberjack1.");
                     }
                     break;
                 case Upgrades.ResearchUpgrades.StoneMine:
@@ -154,11 +152,9 @@ namespace NightKeepers.Research
             }
         }
 
-
         public Upgrades GetUpgrades()
         {
             return _upgrades;
         }
     }
-
 }

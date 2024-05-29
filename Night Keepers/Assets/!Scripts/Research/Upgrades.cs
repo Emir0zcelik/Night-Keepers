@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.Linq;
 
 namespace NightKeepers.Research
 {
@@ -19,9 +20,8 @@ namespace NightKeepers.Research
             None,
             House,
             Fishing,
-            Farm,
+            Lumberjack1,
             IronMine,
-            ResearchBuilding,
             StoneMine,
             Wall,
             OthersBuff
@@ -41,6 +41,10 @@ namespace NightKeepers.Research
             {
                 unlockedUpgrades.Add(upgrades);
                 OnResearchUnlocked?.Invoke(this, new OnResearchUnlockedEventArgs { researchUpgrades = upgrades });
+                if (upgrades == ResearchUpgrades.Lumberjack1)
+                {
+                    UpgradeLumberjackProduction();
+                }
             }
         }
 
@@ -53,8 +57,7 @@ namespace NightKeepers.Research
         {
             switch (upgrades)
             {
-                case ResearchUpgrades.Fishing:
-                    return ResearchUpgrades.Farm;
+                
                 default:
                     return ResearchUpgrades.None;
             }
@@ -114,18 +117,46 @@ namespace NightKeepers.Research
                 return false;
             }
         }
+        private void UpgradeLumberjackProduction()
+        {
+            
+            BuildingData lumberjackData = RM.Instance.buildingsData.FirstOrDefault(building => building.name == "Lumberjack");
+
+            if (lumberjackData != null)
+            {
+                
+                lumberjackData.ProductionAmount += 1;
+
+                
+                foreach (var building in RM.Instance.resourceManager.buildingsData)
+                {
+                    if (building.buildingTypes == BuildingData.BuildingType.Lumberjack)
+                    {
+                        building.ProductionAmount += 1;
+                    }
+                }
+
+                
+                RM.Instance.resourceManager.RestartResourceProduction("Lumberjack");
+            }
+            else
+            {
+                Debug.LogError("Lumberjack building data not found in buildingsData list.");
+            }
+        }
+
+
 
         private int GetRequiredResearchPoints(ResearchUpgrades upgrade)
         {
             switch (upgrade)
             {
                 case ResearchUpgrades.House: return 20;
-                case ResearchUpgrades.Fishing: return 50;
-                case ResearchUpgrades.Farm: return 10;
+                case ResearchUpgrades.Fishing: return 50;            
                 case ResearchUpgrades.IronMine: return 10;
                 case ResearchUpgrades.StoneMine: return 10;
                 case ResearchUpgrades.Wall: return 10;
-                case ResearchUpgrades.ResearchBuilding: return 10;
+                case ResearchUpgrades.Lumberjack1: return 10;
                 default: return 0;
             }
         }

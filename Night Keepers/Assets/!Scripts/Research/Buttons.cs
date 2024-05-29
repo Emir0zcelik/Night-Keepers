@@ -17,10 +17,9 @@ namespace NightKeepers.Research
         {
             buildingsArray[0]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.House));
             buildingsArray[1]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.Fishing));
-            buildingsArray[2]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.Farm));
+            buildingsArray[2]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.Lumberjack1));
             buildingsArray[3]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.StoneMine));
             buildingsArray[4]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.Wall));
-            buildingsArray[5]?.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(Upgrades.ResearchUpgrades.ResearchBuilding));
         }
 
         private void OnButtonClick(Upgrades.ResearchUpgrades upgrade)

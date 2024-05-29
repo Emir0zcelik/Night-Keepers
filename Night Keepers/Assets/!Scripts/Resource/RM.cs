@@ -11,7 +11,7 @@ namespace NightKeepers
 
         public Dictionary<string, int> buildingCounts = new Dictionary<string, int>();
 
-        // Tüm bina verilerini saklamak için bir liste
+        
         public List<BuildingData> buildingsData;
 
         void Start()
@@ -28,7 +28,7 @@ namespace NightKeepers
             buildingCounts["Barrack"] = 0;
             buildingCounts["Fishing"] = 0;
 
-            // Resources klasöründen tüm BuildingData nesnelerini yükleyin
+            
             buildingsData = new List<BuildingData>(Resources.LoadAll<BuildingData>("BuildingData"));
         }
 
