@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace NightKeepers
 {
@@ -9,6 +10,9 @@ namespace NightKeepers
         [SerializeField] private Animator notEnoughResourceAnimation;
 
         public Dictionary<string, int> buildingCounts = new Dictionary<string, int>();
+
+        // Tüm bina verilerini saklamak için bir liste
+        public List<BuildingData> buildingsData;
 
         void Start()
         {
@@ -23,6 +27,9 @@ namespace NightKeepers
             buildingCounts["ResearchBuilding"] = 0;
             buildingCounts["Barrack"] = 0;
             buildingCounts["Fishing"] = 0;
+
+            // Resources klasöründen tüm BuildingData nesnelerini yükleyin
+            buildingsData = new List<BuildingData>(Resources.LoadAll<BuildingData>("BuildingData"));
         }
 
         public void DecreaseBuildingCount(string buildingName)
@@ -37,29 +44,18 @@ namespace NightKeepers
         {
             if (resourceManager.HasEnoughResources(data))
             {
+                if (!buildingCounts.ContainsKey(data.name))
+                {
+                    buildingCounts[data.name] = 0;
+                }
                 buildingCounts[data.name]++;
-                resourceManager.StartResourceProduction(data);
+                resourceManager.StartResourceProduction(data.name);
             }
         }
 
         public BuildingData GetBuildingDataByName(string buildingName)
         {
-            
-            return null; 
+            return buildingsData.FirstOrDefault(bd => bd.name == buildingName);
         }
-
-        void UpdateExistingBuilding(BuildingData data)
-        {
-            
-        }
-    }
-
-    [System.Serializable]
-    public class ResourceHave
-    {
-        public int Wood = 500;
-        public int Stone = 500;
-        public int Iron = 500;
-        public int Food = 500;
     }
 }

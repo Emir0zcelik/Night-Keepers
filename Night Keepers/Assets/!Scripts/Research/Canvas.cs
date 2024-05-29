@@ -126,17 +126,6 @@ namespace NightKeepers.Research
                         Debug.Log("Insufficient research value to unlock Farm.");
                     }
                     break;
-                case Upgrades.ResearchUpgrades.MainHall:
-                    if (currentResearchValue >= 10)
-                    {
-                        researchText.text = (currentResearchValue - 10).ToString();
-                        Debug.Log("MainHall = Activated");
-                    }
-                    else
-                    {
-                        Debug.Log("Insufficient research value to unlock MainHall.");
-                    }
-                    break;
                 case Upgrades.ResearchUpgrades.StoneMine:
                     if (currentResearchValue >= 10)
                     {
@@ -164,6 +153,7 @@ namespace NightKeepers.Research
                     break;
             }
         }
+
 
         public Upgrades GetUpgrades()
         {
