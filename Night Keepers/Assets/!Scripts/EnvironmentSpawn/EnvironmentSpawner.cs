@@ -6,11 +6,20 @@ namespace NightKeepers
 {
     public class EnvironmentSpawner : MonoBehaviour
     {
-        [SerializeField] private List<Building> trees;
-        [SerializeField] private List<Building> rocks;
-        [SerializeField] private List<Building> grassList;
-        [SerializeField] private List<Building> grassesWithStones;
-        [SerializeField] private List<Building> grassesWithTrees;
+        [Header("Grass")]
+        [SerializeField] private Building[] grassBigRocks;
+        [SerializeField] private Building[] grassTree;
+        [SerializeField] private Building[] grassStones;
+        [SerializeField] private Building[] grassLavenders;
+        [SerializeField] private Building[] grassDefault;
+        [Header("Wood")]
+        [SerializeField] private Building[] woodBigStone;
+        [SerializeField] private Building[] woodStone;
+        [SerializeField] private Building[] woodDefault;
+        [Header("Stone")]
+        [SerializeField] private Building[] stoneBig;
+        [SerializeField] private Building[] stoneDefault;
+
 
         private void Start() {
             for (int x = 0; x < GridManager.Instance.width; x++)
@@ -19,47 +28,98 @@ namespace NightKeepers
                 {
                     if (GridManager.Instance._grid[x,z].building != null)
                         continue;
+                    Vector2Int gridPosition = new Vector2Int(x, z);
 
-                    Vector3 spawnPosition = GridManager.Instance._grid.GridToWorldPosition(new Vector2Int(x, z));
+                    Vector3 spawnPosition = GridManager.Instance._grid.GridToWorldPosition(gridPosition);
+                    Quaternion randomRotation = Quaternion.Euler(0, (float)Random.Range(0, 360), 0);
+                    
+                    int probability = Random.Range(0, 1000);
+                    
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Grass)
                     {
-                        Building grass = Instantiate(grassList[Random.Range(0, grassList.Count)], spawnPosition, Quaternion.identity);
+                        
+                        Building grass = null;
+                        
+                        int nullProbability = Random.Range(0, 100);
+                        if (nullProbability < 15)
+                        {
+                            continue;
+                        }
+                        
+                        switch (probability)
+                        {
+                            case < 4: // Grass
+                                print("big Stone");
+                                grass = Instantiate(grassBigRocks[Random.Range(0, grassBigRocks.Length)], spawnPosition, randomRotation);
+                            break;
+                            case  < 9: // Lavanta
+                                print("agac");
+                                grass = Instantiate(grassTree[Random.Range(0, grassTree.Length)], spawnPosition, randomRotation);
+                            break;
+                            case < 109:
+                                print("tas");
+                                grass = Instantiate(grassStones[Random.Range(0, grassStones.Length)], spawnPosition, randomRotation);
+                            break;
+                            case < 209:
+                                print("lavanta");
+                                grass = Instantiate(grassLavenders[Random.Range(0, grassLavenders.Length)], spawnPosition, randomRotation);
+                            break;
+
+                            default:
+                                print("cim");
+                                grass = Instantiate(grassDefault[Random.Range(0, grassDefault.Length)], spawnPosition, randomRotation);
+                            break;
+                        }
 
                         Tile tile = new Tile()
                         {
                             building = grass,
-                            tileType = GridManager.Instance._grid[new Vector2Int(x, z)].tileType,
+                            tileType = GridManager.Instance._grid[gridPosition].tileType,
                         };
-
-                        GridManager.Instance._grid[new Vector2Int(x, z)] = tile;
-
-                        int probability = Random.Range(0, 100);
-                        
-                        // int randomRotation = Quaternion.Euler()
-                        // switch (probability)
-                        // {
-                        //     case < 70:
-                        //         Instantiate(grasses[Random.Range(0, grasses.Count)], spawnPosition, Quaternion.identity);
-                        //     break;
-                            
-                        //     case  < 90:
-                        //         Instantiate(grassesWithStones[Random.Range(0, grassesWithStones.Count)], spawnPosition, Quaternion.identity);
-                        //     break;
-                            
-                        //     default:
-                        //         Instantiate(grassesWithTrees[Random.Range(0, grassesWithTrees.Count)], spawnPosition, Quaternion.identity);
-                        //     break;
-                        // }
+                        GridManager.Instance._grid[gridPosition] = tile;
                     }        
 
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Wood)
                     {
-                        // GameObject tree = Instantiate(trees[Random.Range(0, trees.Count)], spawnPosition, Quaternion.identity);
+                        Building wood = null;
+                        switch (probability)
+                        {
+                            case < 50:
+                                wood = Instantiate(woodBigStone[Random.Range(0, woodBigStone.Length)], spawnPosition, randomRotation);
+                            break;
+                            case < 200:
+                                wood = Instantiate(woodStone[Random.Range(0, woodStone.Length)], spawnPosition, randomRotation);
+                            break;
+                            default:
+                                wood = Instantiate(woodDefault[Random.Range(0, woodDefault.Length)], spawnPosition, randomRotation);
+                            break;
+                        }
+                        Tile tile = new Tile()
+                        {
+                            building = wood,
+                            tileType = GridManager.Instance._grid[gridPosition].tileType,
+                        };
+                        GridManager.Instance._grid[gridPosition] = tile;
                     }
 
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Rock)
                     {
-                        // GameObject rock = Instantiate(trees[Random.Range(0, rocks.Count)], spawnPosition, Quaternion.identity);                        
+                        Building stone = null;
+                        switch (probability)
+                        {
+                            case < 300:
+                                stone = Instantiate(stoneBig[Random.Range(0, stoneBig.Length)], spawnPosition, randomRotation);
+                            break;
+                            default:
+                                stone = Instantiate(stoneDefault[Random.Range(0, stoneDefault.Length)], spawnPosition, randomRotation);
+                            break;
+                        }
+                        Tile tile = new Tile()
+                        {
+                            building = stone,
+                            tileType = GridManager.Instance._grid[gridPosition].tileType,
+                        };
+                        GridManager.Instance._grid[gridPosition] = tile;
                     } 
                 }
             }
