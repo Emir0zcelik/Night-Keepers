@@ -420,8 +420,6 @@ public class BuildingManager : Singleton<BuildingManager>
                 return Upgrades.ResearchUpgrades.House;
             case BuildingData.BuildingType.FishingHouse:
                 return Upgrades.ResearchUpgrades.Fishing;
-            case BuildingData.BuildingType.Farm:
-                return Upgrades.ResearchUpgrades.Farm;
             case BuildingData.BuildingType.StoneMine:
                 return Upgrades.ResearchUpgrades.StoneMine;
             case BuildingData.BuildingType.Wall:

@@ -22,6 +22,8 @@ namespace NightKeepers
 
         public ResourceHave resources = new ResourceHave();
 
+        public List<BuildingData> buildingsData = new List<BuildingData>(); 
+
         private Dictionary<string, Coroutine> productionCoroutines = new Dictionary<string, Coroutine>();
 
         private void OnEnable()
@@ -45,7 +47,7 @@ namespace NightKeepers
 
         private void AdjustResourcesAfterBuildingDestroyed()
         {
-            
+           
         }
 
         private void Start()
@@ -68,6 +70,17 @@ namespace NightKeepers
                     productionCoroutines[buildingType] = StartCoroutine(ProduceResources(buildingData));
                 }
             }
+        }
+
+        public void RestartResourceProduction(string buildingType)
+        {
+            if (productionCoroutines.ContainsKey(buildingType))
+            {
+                StopCoroutine(productionCoroutines[buildingType]);
+                productionCoroutines.Remove(buildingType);
+            }
+
+            StartResourceProduction(buildingType);
         }
 
         public void UpdateText()
