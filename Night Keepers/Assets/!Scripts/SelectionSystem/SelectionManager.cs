@@ -24,7 +24,15 @@ namespace NightKeepers
 
                 OutlineSelection(gridPosition);
                 SelectedBuilding(gridPosition);
-                DeleteBuilding(gridPosition);
+                if (Input.GetMouseButtonDown(1))
+                {
+                    if (GridManager.Instance._grid[gridPosition].building == null)
+                        return;
+                    if (GridManager.Instance._grid[gridPosition].building.buildingType == BuildingData.BuildingType.Environment)
+                        return;
+
+                    BuildingManager.Instance.DeleteBuilding(gridPosition);
+                }
             }
         }
 
@@ -44,7 +52,7 @@ namespace NightKeepers
             if (!EventSystem.current.IsPointerOverGameObject())
             {
 
-                if (GridManager.Instance._grid[gridPosition].building == null)
+                if (GridManager.Instance._grid[gridPosition].building == null || GridManager.Instance._grid[gridPosition].building.buildingType == BuildingData.BuildingType.Environment)
                 {
                     return;
                 }
@@ -79,35 +87,5 @@ namespace NightKeepers
                 highlight = null;
             }
         }               
-
-        public void DeleteBuilding(Vector2Int gridPosition)
-        {
-            if (Input.GetMouseButtonDown(1))
-            {
-                if (GridManager.Instance._grid[gridPosition].building == null)
-                {
-                    return;
-                }
-                if (GridManager.Instance._grid[gridPosition].building.buildingType == BuildingData.BuildingType.TownHall)
-                {
-                    return;
-                }
-
-                Tile tile = new Tile()
-                {
-                    building = null,
-                    tileType = GridManager.Instance._grid[gridPosition].tileType
-                };
-
-                if (GridManager.Instance._grid[gridPosition].building != null)
-                {
-                    Destroy(GridManager.Instance._grid[gridPosition].building.gameObject);
-                    foreach (var item in GridManager.Instance._grid[gridPosition].building.buildingData.GetGridPositionList(gridPosition, GridManager.Instance._grid[gridPosition].building.direction))
-                    {
-                        GridManager.Instance._grid[item] = tile;
-                    }
-                }                
-            }
-        }
     }
 }

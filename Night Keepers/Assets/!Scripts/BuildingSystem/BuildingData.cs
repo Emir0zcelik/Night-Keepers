@@ -39,6 +39,7 @@ public class BuildingData : ScriptableObject
         Wall, 
         Traps,
         Test, 
+        Environment,
         // Lumberjack2, 
         // Lumberjack1, 
     }

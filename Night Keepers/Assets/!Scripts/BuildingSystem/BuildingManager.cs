@@ -29,6 +29,7 @@ public class BuildingManager : Singleton<BuildingManager>
     public bool isTownHallPlaced = false;
     public int sameTileCount { get; private set; }
     private float buildingMultiplier;
+    private float deleteCooldown;
 
     [SerializeField] private LayerMask layerMask;
 
@@ -253,11 +254,13 @@ public class BuildingManager : Singleton<BuildingManager>
 
     private void PlaceBuilding(Vector2Int gridPosition)
     {
-
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildingPreviews[buildingNumber].direction);
-
             if (!isTownHallPlaced && buildingNumber != 3)
             {
                 Debug.Log("You must place the TownHall first.");
@@ -274,6 +277,13 @@ public class BuildingManager : Singleton<BuildingManager>
 
             if (TryBuild(buildings[buildingNumber], gridPositionList))
             {
+                foreach (var position in gridPositionList)
+                {
+                    if (GridManager.Instance._grid[position].building.buildingType == BuildingData.BuildingType.Environment)
+                    {
+                        DeleteBuilding(position);
+                    }
+                }
                 Building instantiatedBuilding = Instantiate(
                     buildings[buildingNumber],
                     previews[buildingNumber].transform.position,
@@ -327,11 +337,15 @@ public class BuildingManager : Singleton<BuildingManager>
         float time = 0;
         float buildTime = instantiatedBuilding.buildingData.buildingTime;
         MeshRenderer meshRenderer = instantiatedBuilding.GetComponentInChildren<MeshRenderer>();
-
+        deleteCooldown = buildTime;
         while (time <= buildTime)
         {
             time += Time.fixedDeltaTime;
-            //Debug.Log(time);
+            if (deleteCooldown > 0)
+            {
+                deleteCooldown -= Time.fixedDeltaTime;
+            }
+            Debug.Log(deleteCooldown);
             for (int i = 0; i < meshRenderer.materials.Length; i++)
             {
                 meshRenderer.materials[i].SetFloat("_DissolveTime", time * buildingMultiplier);
@@ -385,7 +399,7 @@ public class BuildingManager : Singleton<BuildingManager>
             {
                 return false;
             }
-            if (GridManager.Instance._grid[position].building != null)
+            if (GridManager.Instance._grid[position].building != null && GridManager.Instance._grid[position].building.buildingType != BuildingData.BuildingType.Environment)
             {
                 return false;
             }
@@ -436,5 +450,30 @@ public class BuildingManager : Singleton<BuildingManager>
     public void SetUpgrades(Upgrades upgrades)
     {
         this.upgrades = upgrades;
+    }
+
+    public void DeleteBuilding(Vector2Int gridPosition)
+    {
+        if (GridManager.Instance._grid[gridPosition].building == null)
+            return;
+        if (GridManager.Instance._grid[gridPosition].building.buildingType == BuildingData.BuildingType.TownHall)
+            return;
+        if (deleteCooldown > 0)
+            return;
+
+        Tile tile = new Tile()
+        {
+            building = null,
+            tileType = GridManager.Instance._grid[gridPosition].tileType
+        };
+
+        if (GridManager.Instance._grid[gridPosition].building != null)
+        {
+            Destroy(GridManager.Instance._grid[gridPosition].building.gameObject);
+            foreach (var item in GridManager.Instance._grid[gridPosition].building.buildingData.GetGridPositionList(gridPosition, GridManager.Instance._grid[gridPosition].building.direction))
+            {
+                GridManager.Instance._grid[item] = tile;
+            }
+        }      
     }
 }

@@ -6,11 +6,11 @@ namespace NightKeepers
 {
     public class EnvironmentSpawner : MonoBehaviour
     {
-        [SerializeField] private List<GameObject> trees;
-        [SerializeField] private List<GameObject> rocks;
-        [SerializeField] private List<GameObject> grasses;
-        [SerializeField] private List<GameObject> grassesWithStones;
-        [SerializeField] private List<GameObject> grassesWithTrees;
+        [SerializeField] private List<Building> trees;
+        [SerializeField] private List<Building> rocks;
+        [SerializeField] private List<Building> grassList;
+        [SerializeField] private List<Building> grassesWithStones;
+        [SerializeField] private List<Building> grassesWithTrees;
 
         private void Start() {
             for (int x = 0; x < GridManager.Instance.width; x++)
@@ -23,7 +23,16 @@ namespace NightKeepers
                     Vector3 spawnPosition = GridManager.Instance._grid.GridToWorldPosition(new Vector2Int(x, z));
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Grass)
                     {
-                        Instantiate(grasses[Random.Range(0, grasses.Count)], spawnPosition, Quaternion.identity);
+                        Building grass = Instantiate(grassList[Random.Range(0, grassList.Count)], spawnPosition, Quaternion.identity);
+
+                        Tile tile = new Tile()
+                        {
+                            building = grass,
+                            tileType = GridManager.Instance._grid[new Vector2Int(x, z)].tileType,
+                        };
+
+                        GridManager.Instance._grid[new Vector2Int(x, z)] = tile;
+
                         int probability = Random.Range(0, 100);
                         
                         // int randomRotation = Quaternion.Euler()
