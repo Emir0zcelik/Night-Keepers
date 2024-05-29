@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
-  spriteTessellationDetail: -1
-  textureType: 0
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -121,18 +121,2002 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
-    outline: []
+    sprites:
+    - serializedVersion: 2
+      name: Gold icons set 1-01_0
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 944
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9adae0d3fe60bf4da6ee3d115f1baa5
+      internalID: 942782161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_1
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 944
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d64405f1257f224681152eefdea8461
+      internalID: 1623179435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_2
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 945
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 172ac28fa68f0eb4baceabd97e883b75
+      internalID: 142159527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_3
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 944
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c726d3d18e24ade47b50d67d63222b6b
+      internalID: 384595249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 944
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1793d1194225724f8640471f8e7bea9
+      internalID: -469100141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_5
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 944
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24ce055ef5af1ca459d4ac6b6b8f1211
+      internalID: 2014983410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_6
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 944
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669856841cb112447936658b94c491e5
+      internalID: 1676442093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_7
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 944
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f297ae182fdaba440a5c22d6736edaa1
+      internalID: 875756910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_8
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 944
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a22ef92a3a6a744aa4cd0c3325f7e4c
+      internalID: -132888703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_9
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 843
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1f89686fcbb0d45a9d76fdeba1a66a
+      internalID: -1930855163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_10
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 843
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff7b45a86f0264448bf341f0dac5d38e
+      internalID: -1789590136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_11
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 843
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 884b38f125d229649aaad057f8955f11
+      internalID: 284146960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_12
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 843
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1496159d2f671342834d337c01ee189
+      internalID: -1773595087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 843
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f74bfcdb32530543a21a8acf6ee5f56
+      internalID: 473394783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_14
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 843
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390a728dd27ccfc4882111b60117fb17
+      internalID: -2024520766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_15
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 843
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50470388eaf159f48b7c67b1bdfbf4fe
+      internalID: 1629414532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_16
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 843
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e706db9983ddac54b80facb5668827c0
+      internalID: -2106140145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_17
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 843
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a31329e6fcc0754789c98e522c74a68
+      internalID: -1966961634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_18
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 742
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948ae3f85c0a68a45bec1b680cce1de4
+      internalID: -1219791487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_19
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 742
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94fb08ffe417c57408de97e98b1a3112
+      internalID: -1372620277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_20
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 742
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67f9ccd9e3ab83f4f86e5abc1c6b00e0
+      internalID: 381787714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_21
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 742
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3e8951f1e6f8ac48ab60b3abeb6c39d
+      internalID: 1036633917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_22
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 755
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b82e80bf7c0644cabadceba12775b1
+      internalID: 1091728176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_23
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 742
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6cfc34c9cf67940868f46d3b732756
+      internalID: -802741762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_24
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 742
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c489e5605fdb940b35331fcdd75a67
+      internalID: 779581108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_25
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 742
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3300071a4c2df7459d45905f214ec92
+      internalID: -2113535802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_26
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 742
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d404c5a647a4cd4ea3202426acdcf74
+      internalID: -980410346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_27
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 641
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a625802ab8d4c4e44909e302c8dc9eb0
+      internalID: -982784319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_28
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 641
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0493c17bc24d8543bd2cfe790b0b238
+      internalID: 1083836011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_29
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 641
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7053b863df07c104b97a259eaab2ef7c
+      internalID: -1591402277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_30
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 641
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c6b7ea9fb8d434ca91560e58ebbc1f
+      internalID: -1315714357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_31
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 641
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1038b0fa32121643b0b83d39d27a86e
+      internalID: -1750968726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_32
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 641
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fde569c91384ee4ab2ee1bf558b66db
+      internalID: 642491352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_33
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 641
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6391a6ed532b24447b8d242738d74f0d
+      internalID: -1073775013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_34
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 641
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0dd553d1fafb9448afbcbe57315cda
+      internalID: -1275032878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_35
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 641
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c714ef5aa40ce4683c62de2463a3e2
+      internalID: 1449178656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_36
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 540
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999739eebc9d885408c6df019d5f8bd1
+      internalID: 165462247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_37
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 540
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bae8fa5f739be05449634dd0404f91ef
+      internalID: -2053734472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_38
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 540
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe00eba98c68f5b42bfd42b12b64e790
+      internalID: 2045323403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_39
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 540
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f0b162707e24b40850a56c77807df8
+      internalID: 709625194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_40
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 540
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f4cbbda69b4f3438601b22f3db8286
+      internalID: -102491006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_41
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 540
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a22949409b0a25b42adf314673e114e7
+      internalID: 137608302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_42
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 540
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f559c36ce91f8e043a6bebf26fb687a2
+      internalID: -78143180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_43
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 540
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ba55c798723ea48909ee0dd4771f4b
+      internalID: 1489747759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_44
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 540
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd81c33017a74fb47b6722f73fd7eb4b
+      internalID: -1939007291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_45
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 439
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 922b48ad815a07e4c9f00b3b0656f3f7
+      internalID: 527544913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_46
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 439
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1d968970f41fa4ea1ea850cf2937a6
+      internalID: -2076985692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_47
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 439
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44d07d2b1ac47ce4d81d98350f66e635
+      internalID: 340804828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_48
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 439
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7ac23fac24f7341ae55933bd59f4f4
+      internalID: 2069639456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_49
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 439
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 445e349be8c05d04289eba82c62c8bce
+      internalID: 1872257052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_50
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 439
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfe22fb0a51f09d4396fa3a7b284e758
+      internalID: -1779636849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_51
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 439
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5c0631487b67724caf06054da3e25b8
+      internalID: 1617496586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_52
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 439
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad87d4dbe10e2d4e9635ffa23b1a206
+      internalID: -907943249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_53
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 439
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ed47a28c5b10a49926c5131367d4f4
+      internalID: -851271873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_54
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 338
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d00ce49a6c4f8f47ad4d0e3e7283b0f
+      internalID: 1704402296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_55
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 338
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4eda3d24a3a38c439eaa83c0ecebcab
+      internalID: -1303089297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_56
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 338
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 250bac6748f357749b2260cc0743adcb
+      internalID: -1615762605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_57
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 338
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd3fad95c8ffe6042be4166cdb6083ec
+      internalID: 1395382076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_58
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 338
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f8cb81137216940a121a64dddfc0e4
+      internalID: 1000837556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_59
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 338
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0df69eb59c0aeb4eb8c31e813adf243
+      internalID: 3164576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_60
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 338
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e51e12fc3c7db041836e06ea8bbfd7d
+      internalID: 1427208107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_61
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 338
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48a4219abc74e7d479793c5f4cd5b3cd
+      internalID: -20517680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_62
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 338
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d637470db7e636a40b347095cc608097
+      internalID: 762870014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_63
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 237
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aad64b7192adb8d4db7389206348859b
+      internalID: 2136352700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_64
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 237
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e32de9aa66e634ab36fe815dba89ca
+      internalID: 688504337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_65
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 237
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05148521c4807a24ba0bc314697c3667
+      internalID: -252133811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_66
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 237
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33a5334c3474dc443aef2aaa39567594
+      internalID: -1062045272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_67
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 237
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6fb40d6ddd5c0e41b5cb00ab4725db0
+      internalID: -623664723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_68
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 237
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b21588d53c9db4586349f0e961e614
+      internalID: 246250312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_69
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 237
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9575042e07dc3845a70d04e383bec3a
+      internalID: 10836655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_70
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 237
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b44c3d53c15829b498f22f7aea65c1ff
+      internalID: -80865144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_71
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 237
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdd7c9a693a1592409b1ba9e983b3c55
+      internalID: 309159684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_72
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 136
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 391969e68067eaa42816bb1b8691fbcb
+      internalID: -611064619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_73
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 136
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e64b216814d5a3340a5a69efeb6941fd
+      internalID: 364687729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_74
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 136
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09957c67f93a80d4d8264a64e0dac3f4
+      internalID: -1687048392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_75
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 136
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae8fa3786e973b42828677f9c7e9e06
+      internalID: -1667961017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_76
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 136
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b12b49db0386624abaee1c256cd0232
+      internalID: -900301993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_77
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 136
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e970f5b1362cc640999ebb4d5205061
+      internalID: 296664297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_78
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 136
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd10106ed6b30c49b855d54855de413
+      internalID: -1981884921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_79
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 136
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1834d8fd83343014986333768fe137c7
+      internalID: -572970080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_80
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 136
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 416f5d0c49068ab40bd85b59866c5623
+      internalID: -195966456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_81
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 35
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cca350932da1b044bbd07086d01b7e7
+      internalID: 534469697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_82
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 35
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bd8f38d529a2242ae004503bf2a37e
+      internalID: 309544952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_83
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 35
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486c485b6dbacde48807456fa8982dbd
+      internalID: 1810074944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_84
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 35
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd25d7a2d9d64143a9a08f47a8b639d
+      internalID: 61947338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_85
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 35
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba81f53c001cfc4fadff582a89e0753
+      internalID: -767192719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_86
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 35
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f6249de1d344fa4ba2ec83e324ddf54
+      internalID: 1477939117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_87
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 35
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f395eb07a2d024da700643e4bbeeda
+      internalID: -1992409404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_88
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 35
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2462b3181b5b9940b7f848672be8c3c
+      internalID: 32693043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold icons set 1-01_89
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 35
+        width: 67.333336
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f422d6ab2df3e74eab2ae2cec3719de
+      internalID: 1874281479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -540, y: 540}
+      - {x: -540, y: -540}
+      - {x: 540, y: -540}
+      - {x: 540, y: 540}
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gold icons set 1-01_0: 942782161
+      Gold icons set 1-01_1: 1623179435
+      Gold icons set 1-01_10: -1789590136
+      Gold icons set 1-01_11: 284146960
+      Gold icons set 1-01_12: -1773595087
+      Gold icons set 1-01_13: 473394783
+      Gold icons set 1-01_14: -2024520766
+      Gold icons set 1-01_15: 1629414532
+      Gold icons set 1-01_16: -2106140145
+      Gold icons set 1-01_17: -1966961634
+      Gold icons set 1-01_18: -1219791487
+      Gold icons set 1-01_19: -1372620277
+      Gold icons set 1-01_2: 142159527
+      Gold icons set 1-01_20: 381787714
+      Gold icons set 1-01_21: 1036633917
+      Gold icons set 1-01_22: 1091728176
+      Gold icons set 1-01_23: -802741762
+      Gold icons set 1-01_24: 779581108
+      Gold icons set 1-01_25: -2113535802
+      Gold icons set 1-01_26: -980410346
+      Gold icons set 1-01_27: -982784319
+      Gold icons set 1-01_28: 1083836011
+      Gold icons set 1-01_29: -1591402277
+      Gold icons set 1-01_3: 384595249
+      Gold icons set 1-01_30: -1315714357
+      Gold icons set 1-01_31: -1750968726
+      Gold icons set 1-01_32: 642491352
+      Gold icons set 1-01_33: -1073775013
+      Gold icons set 1-01_34: -1275032878
+      Gold icons set 1-01_35: 1449178656
+      Gold icons set 1-01_36: 165462247
+      Gold icons set 1-01_37: -2053734472
+      Gold icons set 1-01_38: 2045323403
+      Gold icons set 1-01_39: 709625194
+      Gold icons set 1-01_4: -469100141
+      Gold icons set 1-01_40: -102491006
+      Gold icons set 1-01_41: 137608302
+      Gold icons set 1-01_42: -78143180
+      Gold icons set 1-01_43: 1489747759
+      Gold icons set 1-01_44: -1939007291
+      Gold icons set 1-01_45: 527544913
+      Gold icons set 1-01_46: -2076985692
+      Gold icons set 1-01_47: 340804828
+      Gold icons set 1-01_48: 2069639456
+      Gold icons set 1-01_49: 1872257052
+      Gold icons set 1-01_5: 2014983410
+      Gold icons set 1-01_50: -1779636849
+      Gold icons set 1-01_51: 1617496586
+      Gold icons set 1-01_52: -907943249
+      Gold icons set 1-01_53: -851271873
+      Gold icons set 1-01_54: 1704402296
+      Gold icons set 1-01_55: -1303089297
+      Gold icons set 1-01_56: -1615762605
+      Gold icons set 1-01_57: 1395382076
+      Gold icons set 1-01_58: 1000837556
+      Gold icons set 1-01_59: 3164576
+      Gold icons set 1-01_6: 1676442093
+      Gold icons set 1-01_60: 1427208107
+      Gold icons set 1-01_61: -20517680
+      Gold icons set 1-01_62: 762870014
+      Gold icons set 1-01_63: 2136352700
+      Gold icons set 1-01_64: 688504337
+      Gold icons set 1-01_65: -252133811
+      Gold icons set 1-01_66: -1062045272
+      Gold icons set 1-01_67: -623664723
+      Gold icons set 1-01_68: 246250312
+      Gold icons set 1-01_69: 10836655
+      Gold icons set 1-01_7: 875756910
+      Gold icons set 1-01_70: -80865144
+      Gold icons set 1-01_71: 309159684
+      Gold icons set 1-01_72: -611064619
+      Gold icons set 1-01_73: 364687729
+      Gold icons set 1-01_74: -1687048392
+      Gold icons set 1-01_75: -1667961017
+      Gold icons set 1-01_76: -900301993
+      Gold icons set 1-01_77: 296664297
+      Gold icons set 1-01_78: -1981884921
+      Gold icons set 1-01_79: -572970080
+      Gold icons set 1-01_8: -132888703
+      Gold icons set 1-01_80: -195966456
+      Gold icons set 1-01_81: 534469697
+      Gold icons set 1-01_82: 309544952
+      Gold icons set 1-01_83: 1810074944
+      Gold icons set 1-01_84: 61947338
+      Gold icons set 1-01_85: -767192719
+      Gold icons set 1-01_86: 1477939117
+      Gold icons set 1-01_87: -1992409404
+      Gold icons set 1-01_88: 32693043
+      Gold icons set 1-01_89: 1874281479
+      Gold icons set 1-01_9: -1930855163
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
