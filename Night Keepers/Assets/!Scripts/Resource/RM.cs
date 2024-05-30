@@ -43,15 +43,14 @@ namespace NightKeepers
 
         public void SetBuildingData(BuildingData data)
         {
-            if (resourceManager.HasEnoughResources(data))
-            {
+            
                 if (!buildingCounts.ContainsKey(data.name))
                 {
                     buildingCounts[data.name] = 0;
                 }
                 buildingCounts[data.name]++;
                 resourceManager.StartResourceProduction(data.name);
-            }
+            
         }
 
         public BuildingData GetBuildingDataByName(string buildingName)
