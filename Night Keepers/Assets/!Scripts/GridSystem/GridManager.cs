@@ -29,7 +29,8 @@ public class GridManager : Singleton<GridManager>
     [SerializeField] private float woodNoise;
     [SerializeField] private float ironNoise;
     [SerializeField] private List<GameObject> tilePrefabs;
-    [SerializeField] private Transform waterParent;
+    [SerializeField] private GameObject waterParent;
+    [SerializeField] private GameObject waterObj;
 
     public static event Action onWorldGenerationDone;
     public Grid<Tile> _grid;
@@ -37,6 +38,7 @@ public class GridManager : Singleton<GridManager>
     private void Awake()
     {
         _grid = new Grid<Tile>(width, height, cellSize);
+        // Instantiate(waterParent);
         InstantiateMap();
     }
 
@@ -150,8 +152,7 @@ public class GridManager : Singleton<GridManager>
                 break;  
             
             case TileType.Water:
-                GameObject waterObj = new GameObject();
-                tilePrefab = Instantiate(waterObj, position, quaternion.identity, waterParent);
+                tilePrefab = Instantiate(new GameObject("WaterObj"), position, quaternion.identity, waterParent.transform);
                 // tilePrefab = Instantiate(tilePrefabs[2], position, quaternion.identity, waterParent);
                 break;
             
