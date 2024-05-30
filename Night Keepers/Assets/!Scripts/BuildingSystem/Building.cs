@@ -9,5 +9,6 @@ public class Building : MonoBehaviour
     public BuildingData.BuildingType buildingType = BuildingData.BuildingType.Empty;
 
     public int sameTileCount = 0;
+    public float deleteCooldown = 0;
 
 }

@@ -28,8 +28,6 @@ public class BuildingManager : Singleton<BuildingManager>
     public bool isTownHallPlaced = false;
     public int sameTileCount { get; private set; }
     private float buildingMultiplier;
-    private float deleteCooldown;
-
     [SerializeField] private LayerMask layerMask;
 
     private Dictionary<int, List<Material>> buildingMaterials = new Dictionary<int, List<Material>>();
@@ -358,13 +356,14 @@ public class BuildingManager : Singleton<BuildingManager>
         float time = 0;
         float buildTime = instantiatedBuilding.buildingData.buildingTime;
         MeshRenderer meshRenderer = instantiatedBuilding.GetComponentInChildren<MeshRenderer>();
-        deleteCooldown = buildTime;
+        instantiatedBuilding.deleteCooldown = instantiatedBuilding.buildingData.deleteTime;
         while (time <= buildTime)
         {
             time += Time.fixedDeltaTime;
-            if (deleteCooldown > 0)
+            if (instantiatedBuilding.deleteCooldown > 0)
             {
-                deleteCooldown -= Time.fixedDeltaTime;
+                instantiatedBuilding.deleteCooldown -= Time.fixedDeltaTime;
+                Debug.Log(instantiatedBuilding.name + "'s cooldown:" + instantiatedBuilding.deleteCooldown);
             }
             for (int i = 0; i < meshRenderer.materials.Length; i++)
             {
@@ -457,7 +456,7 @@ public class BuildingManager : Singleton<BuildingManager>
             return;
         if (GridManager.Instance._grid[gridPosition].building.buildingType == BuildingData.BuildingType.TownHall)
             return;
-        if (deleteCooldown > 0)
+        if (GridManager.Instance._grid[gridPosition].building.deleteCooldown > 0)
             return;
 
         Tile tile = new Tile()

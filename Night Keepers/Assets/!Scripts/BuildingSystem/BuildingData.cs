@@ -44,6 +44,7 @@ public class BuildingData : ScriptableObject
         // Lumberjack1, 
     }
     public float buildingTime;
+    public float deleteTime;
     public BuildingType buildingTypes;
     public int health;
     public List<TileType> placableTileTypes;
