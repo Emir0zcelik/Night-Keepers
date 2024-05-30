@@ -278,6 +278,22 @@ public class BuildingManager : Singleton<BuildingManager>
                 return;
             }
 
+            
+            if (currentBuildingType == BuildingData.BuildingType.Wall)
+            {
+                int requiredStone = 30;
+                if (RM.Instance.resourceManager.resources.Stone < requiredStone)
+                {
+                    Debug.Log("Not enough stone to place the Wall.");
+                    return;
+                }
+                else
+                {
+                    RM.Instance.resourceManager.resources.Stone -= requiredStone;
+                    RM.Instance.resourceManager.UpdateText();
+                }
+            }
+
             if (TryBuild(buildings[buildingNumber], gridPositionList))
             {
                 foreach (var position in gridPositionList)
@@ -326,6 +342,7 @@ public class BuildingManager : Singleton<BuildingManager>
                     TimeManager.Instance.isTimeStarted = true;
                     OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
                 }
+
                 if (currentBuildingType == BuildingData.BuildingType.ResearchBuilding)
                 {
                     ResearchPointManager.Instance.StartGeneratingResearchPoints();
@@ -333,6 +350,7 @@ public class BuildingManager : Singleton<BuildingManager>
             }
         }
     }
+
 
 
     private IEnumerator BuildCoroutine(Building instantiatedBuilding, float buildingMultiplier)
@@ -353,7 +371,7 @@ public class BuildingManager : Singleton<BuildingManager>
                 if (meshRenderer.materials[i] == null)
                 {
                     Debug.LogError("Material is null. Building might have been destroyed.");
-                    yield break; // Coroutine'den ç?k
+                    yield break; 
                 }
                 meshRenderer.materials[i].SetFloat("_DissolveTime", time * buildingMultiplier);
             }
