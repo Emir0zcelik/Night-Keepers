@@ -14,6 +14,15 @@ namespace NightKeepers
             public int Stone = 500;
             public int Iron = 500;
             public int Food = 500;
+
+            [SerializeField]
+            public int MaxWood = 1000;
+            [SerializeField]
+            public int MaxStone = 1000;
+            [SerializeField]
+            public int MaxIron = 1000;
+            [SerializeField]
+            public int MaxFood = 1000;
         }
 
         public TMP_Text woodText;
@@ -22,7 +31,7 @@ namespace NightKeepers
 
         public ResourceHave resources = new ResourceHave();
 
-        public List<BuildingData> buildingsData = new List<BuildingData>(); 
+        public List<BuildingData> buildingsData = new List<BuildingData>();
 
         private Dictionary<string, Coroutine> productionCoroutines = new Dictionary<string, Coroutine>();
 
@@ -43,15 +52,11 @@ namespace NightKeepers
         private void OnBuildingDestroyed()
         {
             AdjustResourcesAfterBuildingDestroyed();
-            /*foreach (var buildingType in RM.Instance.buildingCounts.Keys)
-            {
-                RestartResourceProduction(buildingType);
-            }*/
         }
 
         private void AdjustResourcesAfterBuildingDestroyed()
         {
-           
+            // Building destruction logic here
         }
 
         private void Start()
@@ -104,16 +109,16 @@ namespace NightKeepers
                 switch (buildingData.buildingTypes)
                 {
                     case BuildingData.BuildingType.IronMine:
-                        resources.Iron += totalProductionAmount;
+                        resources.Iron = Mathf.Min(resources.Iron + totalProductionAmount, resources.MaxIron);
                         break;
                     case BuildingData.BuildingType.StoneMine:
-                        resources.Stone += totalProductionAmount;
+                        resources.Stone = Mathf.Min(resources.Stone + totalProductionAmount, resources.MaxStone);
                         break;
                     case BuildingData.BuildingType.Farm:
-                        resources.Food += totalProductionAmount;
+                        resources.Food = Mathf.Min(resources.Food + totalProductionAmount, resources.MaxFood);
                         break;
                     case BuildingData.BuildingType.Lumberjack:
-                        resources.Wood += totalProductionAmount;
+                        resources.Wood = Mathf.Min(resources.Wood + totalProductionAmount, resources.MaxWood);
                         break;
                 }
             }
