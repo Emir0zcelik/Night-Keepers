@@ -37,8 +37,10 @@ namespace NightKeepers
             if (buildingCounts.ContainsKey(buildingName) && buildingCounts[buildingName] > 0)
             {
                 buildingCounts[buildingName]--;
-                //resourceManager.RestartResourceProduction(buildingName);
+                Debug.Log($"Building count for {buildingName} is now {buildingCounts[buildingName]}");
             }
+            else
+                Debug.LogWarning($"Building count for {buildingName} could not be decreased. Current count: {buildingCounts.GetValueOrDefault(buildingName, 0)}");
         }
 
         public void SetBuildingData(BuildingData data)
