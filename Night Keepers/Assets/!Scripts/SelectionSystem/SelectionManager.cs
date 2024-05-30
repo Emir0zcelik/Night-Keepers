@@ -22,8 +22,11 @@ namespace NightKeepers
             {
                 Vector2Int gridPosition = GridManager.Instance._grid.WorldToGridPosition(raycastHit.point);
 
-                OutlineSelection(gridPosition);
-                SelectedBuilding(gridPosition);
+                if (GridManager.Instance._grid.IsInDimensions(gridPosition))
+                {
+                    OutlineSelection(gridPosition);
+                    SelectedBuilding(gridPosition);            
+                }
                 if (Input.GetMouseButtonDown(1))
                 {
                     if (GridManager.Instance._grid[gridPosition].building == null)
