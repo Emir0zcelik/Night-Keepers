@@ -1,4 +1,4 @@
-using NightKeepers.Research;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +14,6 @@ public class BuildingUI : MonoBehaviour
     [SerializeField] private GameObject backButton;
     [SerializeField] private Animator notResearchedAnimation;
 
-
-    public Upgrades upgrades;
 
     public void GeneralBuildings()
     {

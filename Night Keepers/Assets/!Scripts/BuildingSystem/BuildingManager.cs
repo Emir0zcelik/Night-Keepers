@@ -1,5 +1,4 @@
 using NightKeepers;
-using NightKeepers.Research;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,8 +32,6 @@ public class BuildingManager : Singleton<BuildingManager>
 
     [SerializeField] private LayerMask layerMask;
 
-    private Upgrades upgrades;
-
     private Dictionary<int, List<Material>> buildingMaterials = new Dictionary<int, List<Material>>();
 
     protected override void Awake()
@@ -55,7 +52,7 @@ public class BuildingManager : Singleton<BuildingManager>
             List<Material> materials = new List<Material>();
             foreach (var material in building.GetComponentInChildren<MeshRenderer>().sharedMaterials)
             {
-               materials.Add(material);
+                materials.Add(material);
             }
             buildingMaterials.Add(j, materials);
             j++;
@@ -275,6 +272,12 @@ public class BuildingManager : Singleton<BuildingManager>
                 return;
             }
 
+            if (!RM.Instance.resourceManager.HasEnoughResources(buildings[buildingNumber].buildingData))
+            {
+                Debug.Log("Not enough resources to place this building.");
+                return;
+            }
+
             if (TryBuild(buildings[buildingNumber], gridPositionList))
             {
                 foreach (var position in gridPositionList)
@@ -283,7 +286,7 @@ public class BuildingManager : Singleton<BuildingManager>
                     {
                         continue;
                     }
-                    
+
                     if (GridManager.Instance._grid[position].building.buildingType == BuildingData.BuildingType.Environment)
                     {
                         DeleteBuilding(position);
@@ -323,19 +326,14 @@ public class BuildingManager : Singleton<BuildingManager>
                     TimeManager.Instance.isTimeStarted = true;
                     OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
                 }
+                if (currentBuildingType == BuildingData.BuildingType.ResearchBuilding)
+                {
+                    ResearchPointManager.Instance.StartGeneratingResearchPoints();
+                }
             }
         }
     }
-    private bool IsBuildingResearchUnlocked(BuildingData.BuildingType buildingType)
-    {
-        if (buildingType == BuildingData.BuildingType.Lumberjack || buildingType == BuildingData.BuildingType.TownHall || buildingType == BuildingData.BuildingType.Farm || buildingType == BuildingData.BuildingType.ResearchBuilding)
-        {
-            return true;
-        }
 
-        var requiredResearchUpgrade = GetResearchUpgradeForBuilding(buildingType);
-        return upgrades != null && upgrades.IsUnlocked(requiredResearchUpgrade);
-    }
 
     private IEnumerator BuildCoroutine(Building instantiatedBuilding, float buildingMultiplier)
     {
@@ -352,6 +350,11 @@ public class BuildingManager : Singleton<BuildingManager>
             }
             for (int i = 0; i < meshRenderer.materials.Length; i++)
             {
+                if (meshRenderer.materials[i] == null)
+                {
+                    Debug.LogError("Material is null. Building might have been destroyed.");
+                    yield break; // Coroutine'den ç?k
+                }
                 meshRenderer.materials[i].SetFloat("_DissolveTime", time * buildingMultiplier);
             }
             yield return new WaitForFixedUpdate();
@@ -359,8 +362,6 @@ public class BuildingManager : Singleton<BuildingManager>
 
         Debug.Log("Building construction complete.");
     }
-
-
 
     private int CountSameTiles(Vector2Int gridPosition, TileType tileType)
     {
@@ -432,28 +433,6 @@ public class BuildingManager : Singleton<BuildingManager>
         return true;
     }
 
-    private Upgrades.ResearchUpgrades GetResearchUpgradeForBuilding(BuildingData.BuildingType buildingType)
-    {
-        switch (buildingType)
-        {
-            case BuildingData.BuildingType.House:
-                return Upgrades.ResearchUpgrades.House;
-            case BuildingData.BuildingType.FishingHouse:
-                return Upgrades.ResearchUpgrades.Fishing;
-            case BuildingData.BuildingType.StoneMine:
-                return Upgrades.ResearchUpgrades.StoneMine;
-            case BuildingData.BuildingType.Wall:
-                return Upgrades.ResearchUpgrades.Wall;
-            default:
-                return Upgrades.ResearchUpgrades.None;
-        }
-    }
-
-    public void SetUpgrades(Upgrades upgrades)
-    {
-        this.upgrades = upgrades;
-    }
-
     public void DeleteBuilding(Vector2Int gridPosition)
     {
         if (GridManager.Instance._grid[gridPosition].building == null)
@@ -476,6 +455,25 @@ public class BuildingManager : Singleton<BuildingManager>
             {
                 GridManager.Instance._grid[item] = tile;
             }
-        }      
+        }
+    }
+
+    private bool IsBuildingResearchUnlocked(BuildingData.BuildingType buildingType)
+    {
+        switch (buildingType)
+        {
+            case BuildingData.BuildingType.StoneMine:
+                return ResearchPointManager.Instance.isStoneMineResearched;
+            case BuildingData.BuildingType.Wall:
+                return ResearchPointManager.Instance.isWallResearched;
+            case BuildingData.BuildingType.Lumberjack:
+            case BuildingData.BuildingType.TownHall:
+            case BuildingData.BuildingType.Farm:
+            case BuildingData.BuildingType.ResearchBuilding:
+            case BuildingData.BuildingType.Barracks:
+                return true;
+            default:
+                return false;
+        }
     }
 }
