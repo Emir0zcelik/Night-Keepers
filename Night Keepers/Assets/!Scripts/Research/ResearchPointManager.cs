@@ -43,7 +43,7 @@ public class ResearchPointManager : MonoBehaviour
     {
         if (researchPointsText != null)
         {
-            researchPointsText.text = $"Research Points: {researchPoints}";
+            researchPointsText.text = $" {researchPoints}";
         }
     }
 
