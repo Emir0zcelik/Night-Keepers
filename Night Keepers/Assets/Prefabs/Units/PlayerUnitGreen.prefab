@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fcbcc94dc76cbb0469b57fe0e016f124,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c9d8279bf216544d942c0d1f9fca0e7, type: 2}
     - target: {fileID: 919132149155446097, guid: fcbcc94dc76cbb0469b57fe0e016f124,
         type: 3}
       propertyPath: m_Name
@@ -236,6 +241,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 191.969
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8c7c7204a4967d448ac241d02b33ac6f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c9d8279bf216544d942c0d1f9fca0e7, type: 2}
     - target: {fileID: 919132149155446097, guid: 8c7c7204a4967d448ac241d02b33ac6f,
         type: 3}
       propertyPath: m_Name
@@ -335,6 +345,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Human_Spear@T-Pose
       objectReference: {fileID: 0}
+    - target: {fileID: 2674846387864505797, guid: 9d0bd526d42f35e40a521faced4508dd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a675e89c91818404ba6ec2bbc6c24fd8, type: 2}
+    - target: {fileID: 2674846387864505797, guid: 9d0bd526d42f35e40a521faced4508dd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 27880b6cebd21594e82b6efca90ebb61, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
