@@ -20,8 +20,8 @@ MonoBehaviour:
   visual: {fileID: 0}
   Workforce: 0
   Cost:
-    wood: 0
+    wood: 150
     stone: 0
     iron: 0
-    food: 0
+    food: 100
   ProductionAmount: 0
