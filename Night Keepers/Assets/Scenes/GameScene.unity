@@ -1589,17 +1589,17 @@ PrefabInstance:
     - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
         type: 3}
       propertyPath: resources.Food
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
         type: 3}
       propertyPath: resources.Iron
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
         type: 3}
       propertyPath: resources.Wood
-      value: 100
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
         type: 3}
@@ -1609,7 +1609,7 @@ PrefabInstance:
     - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
         type: 3}
       propertyPath: resources.Stone
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4247145555861852654, guid: 6fadef02792299342bfd65497a16a06a,
         type: 3}
@@ -1688,7 +1688,7 @@ PrefabInstance:
     - target: {fileID: 1537138583371703022, guid: 0200bbf367a524048b708fde0edbb71c,
         type: 3}
       propertyPath: GameSeed
-      value: Sicmik
+      value: Minecraft
       objectReference: {fileID: 0}
     - target: {fileID: 6086393026546529161, guid: 0200bbf367a524048b708fde0edbb71c,
         type: 3}
@@ -4159,7 +4159,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 53319f72e9921ad49a8e8ace59dea0a4, type: 2}
+  - {fileID: 2100000, guid: e92b3329153830c489926cc8ce8196c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4431,7 +4431,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 53319f72e9921ad49a8e8ace59dea0a4, type: 2}
+  - {fileID: 2100000, guid: e92b3329153830c489926cc8ce8196c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4645,7 +4645,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 53319f72e9921ad49a8e8ace59dea0a4, type: 2}
+  - {fileID: 2100000, guid: e92b3329153830c489926cc8ce8196c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4976,7 +4976,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 53319f72e9921ad49a8e8ace59dea0a4, type: 2}
+  - {fileID: 2100000, guid: e92b3329153830c489926cc8ce8196c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

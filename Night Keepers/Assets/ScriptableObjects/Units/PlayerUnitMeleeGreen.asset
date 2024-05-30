@@ -16,7 +16,7 @@ MonoBehaviour:
   MaxHealth: 100
   Damage: 20
   TimeBetweenAttacks: 1.5
-  DetectionRangeRadius: 20
+  DetectionRangeRadius: 40
   AttackRangeRadius: 2.5
   MovementSpeed: 6
   targetPreferences:
@@ -31,7 +31,7 @@ MonoBehaviour:
   Side: 0
   UnitButtonPrefab: {fileID: 2877538126342939245, guid: 5c5dbd964127d1b418f525f48fb87028,
     type: 3}
-  ProductionTime: 60
+  ProductionTime: 20
   Cost:
     wood: 50
     stone: 0
