@@ -13,23 +13,22 @@ namespace NightKeepers.Camera
         [SerializeField] private Vector2 range;
         [SerializeField] private GridManager _gridManager;
         private Vector3 startingPosition;
-         
+
         private Vector3 targetPosition;
         private Vector3 input;
-        
+
         private float targetAngle;
         private float angle;
-       
+
         private void Start()
         {
-            Vector3 cameraPos = new Vector3(_gridManager._grid.GetCenterOfGrid().x,_gridManager._grid.GetCenterOfGrid().x / 10, _gridManager._grid.GetCenterOfGrid().z);
-            startingPosition = cameraPos;
+            startingPosition = _gridManager._grid.GetCenterOfGrid();
             transform.position = startingPosition;
             targetPosition = transform.position;
             targetAngle = transform.eulerAngles.y;
             angle = targetAngle;
             range = _gridManager._grid.GetXZRanges();
-            
+
         }
 
         private void HandleControl()
@@ -42,16 +41,16 @@ namespace NightKeepers.Camera
 
             input = (right + forward).normalized;
 
-            
+
             if (Input.GetKey(KeyCode.Q))
             {
-                targetAngle -= speed * 4; 
+                targetAngle -= speed * 4;
             }
 
-            
+
             if (Input.GetKey(KeyCode.E))
             {
-                targetAngle += speed * 4; 
+                targetAngle += speed * 4;
             }
 
             // Existing mouse rotation code
@@ -69,24 +68,24 @@ namespace NightKeepers.Camera
         }
         private void Rotation()
         {
-            angle = Mathf.Lerp(angle, targetAngle, smoothing * Time.deltaTime *3);
-            transform.rotation = Quaternion.AngleAxis(angle,Vector3.up);
+            angle = Mathf.Lerp(angle, targetAngle, smoothing * Time.deltaTime * 3);
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
         }
-        
-        
+
+
         private bool IsInBounds(Vector3 position)
         {
-            return position.x > startingPosition.x - range.x && 
+            return position.x > startingPosition.x - range.x &&
                 position.x < startingPosition.x + range.x &&
-                position.z < startingPosition.z + range.y && 
-                position.z > startingPosition.z -range.y;
+                position.z < startingPosition.z + range.y &&
+                position.z > startingPosition.z - range.y;
         }
-       
+
         private void Update()
         {
             HandleControl();
             Move();
-            Rotation(); 
+            Rotation();
         }
     }
 }
