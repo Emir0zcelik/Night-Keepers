@@ -42,17 +42,17 @@ namespace NightKeepers.Camera
 
             if (Input.GetKey(KeyCode.Q))
             {
-                targetAngle -= speed * 4;
+                targetAngle -= speed/2;
             }
 
             if (Input.GetKey(KeyCode.E))
             {
-                targetAngle += speed * 4;
+                targetAngle += speed/2;
             }
 
             if (Input.GetMouseButton(1))
             {
-                targetAngle += Input.GetAxisRaw("Mouse X") * speed * 4;
+                targetAngle += Input.GetAxisRaw("Mouse X") * speed * 1.5f;
             }
         }
 
