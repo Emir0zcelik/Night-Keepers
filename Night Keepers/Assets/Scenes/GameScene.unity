@@ -1717,6 +1717,26 @@ PrefabInstance:
       propertyPath: resources.Stone
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
+        type: 3}
+      propertyPath: resources.MaxFood
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
+        type: 3}
+      propertyPath: resources.MaxIron
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
+        type: 3}
+      propertyPath: resources.MaxWood
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 860350848444509496, guid: 6fadef02792299342bfd65497a16a06a,
+        type: 3}
+      propertyPath: resources.MaxStone
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4247145555861852654, guid: 6fadef02792299342bfd65497a16a06a,
         type: 3}
       propertyPath: m_LocalPosition.x

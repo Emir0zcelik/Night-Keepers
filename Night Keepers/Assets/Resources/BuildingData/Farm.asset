@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e03805d4671f4cb7bde1a2ebb48d4, type: 3}
   m_Name: Farm
   m_EditorClassIdentifier: 
-  buildingTime: 5
+  buildingTime: 2
+  deleteTime: 2
   buildingTypes: 8
   health: 10
   placableTileTypes: 0100000005000000
@@ -23,5 +24,5 @@ MonoBehaviour:
     wood: 50
     stone: 0
     iron: 0
-    food: 50
+    food: 0
   ProductionAmount: 1

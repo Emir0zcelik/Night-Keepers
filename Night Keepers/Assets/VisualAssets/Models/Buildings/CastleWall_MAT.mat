@@ -13,6 +13,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _ISDESOLVE
   - _RIMLIGHT
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -52,7 +53,7 @@ Material:
     - _BranchStiffness: 0.1
     - _DissolveTime: 0
     - _EdgeWidth: 0.05
-    - _ISDESOLVE: 0
+    - _ISDESOLVE: 1
     - _LeafFrequency: 0
     - _LeafSpeed: 0
     - _LeafWave: 0

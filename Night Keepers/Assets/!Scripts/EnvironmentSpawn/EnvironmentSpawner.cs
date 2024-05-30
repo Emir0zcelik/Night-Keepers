@@ -6,20 +6,31 @@ namespace NightKeepers
 {
     public class EnvironmentSpawner : MonoBehaviour
     {
-        [Header("Grass")]
+        [Header("-----------------------------------Probabilities Out Of 1000-----------------------------------")]
+        [Header("----------Grass----------")]
+        [SerializeField] private float grassBigRocksPercantage;
+        [SerializeField] private float grassTreePercantage;
+        [SerializeField] private float grassStonesPercantage;
+        [SerializeField] private float grassLavendersPercantage;
+        [Header("----------Wood----------")]
+        [SerializeField] private float woodBigStonePercantage;
+        [SerializeField] private float woodStonePercantage;
+        [Header("----------Stone----------")]
+        [SerializeField] private float stoneBigPercantage;
+        [Header("-------------------------------------------------PREFABS-------------------------------------------------")]
+        [Header("-----Grass-----")]
         [SerializeField] private Building[] grassBigRocks;
         [SerializeField] private Building[] grassTree;
         [SerializeField] private Building[] grassStones;
         [SerializeField] private Building[] grassLavenders;
         [SerializeField] private Building[] grassDefault;
-        [Header("Wood")]
+        [Header("-----Wood-----")]
         [SerializeField] private Building[] woodBigStone;
         [SerializeField] private Building[] woodStone;
         [SerializeField] private Building[] woodDefault;
-        [Header("Stone")]
+        [Header("-----Stone-----")]
         [SerializeField] private Building[] stoneBig;
         [SerializeField] private Building[] stoneDefault;
-
 
         private void Start() {
             for (int x = 0; x < GridManager.Instance.width; x++)
@@ -35,87 +46,73 @@ namespace NightKeepers
                     
                     int probability = Random.Range(0, 1000);
                     
+                    Building environment = null;
+
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Grass)
-                    {
-                        
-                        Building grass = null;
-                        
+                    {                        
                         int nullProbability = Random.Range(0, 100);
+
                         if (nullProbability < 15)
                         {
                             continue;
                         }
-                        
-                        switch (probability)
-                        {
-                            case < 4: 
-                                grass = Instantiate(grassBigRocks[Random.Range(0, grassBigRocks.Length)], spawnPosition, randomRotation);
-                            break;
-                            case  < 9: 
-                                grass = Instantiate(grassTree[Random.Range(0, grassTree.Length)], spawnPosition, randomRotation);
-                            break;
-                            case < 109:
-                                grass = Instantiate(grassStones[Random.Range(0, grassStones.Length)], spawnPosition, randomRotation);
-                            break;
-                            case < 209:
-                                grass = Instantiate(grassLavenders[Random.Range(0, grassLavenders.Length)], spawnPosition, randomRotation);
-                            break;
 
-                            default:
-                                grass = Instantiate(grassDefault[Random.Range(0, grassDefault.Length)], spawnPosition, randomRotation);
-                            break;
-                        }
-                        grass.buildingType = BuildingData.BuildingType.Environment;
-                        Tile tile = new Tile()
+                        if (probability < grassBigRocksPercantage)
                         {
-                            building = grass,
-                            tileType = GridManager.Instance._grid[gridPosition].tileType,
-                        };
-                        GridManager.Instance._grid[gridPosition] = tile;
+                            environment = Instantiate(grassBigRocks[Random.Range(0, grassBigRocks.Length)], spawnPosition, randomRotation);
+                        }
+                        else if (probability > grassBigRocksPercantage && probability < grassBigRocksPercantage + grassTreePercantage)
+                        {
+                            environment = Instantiate(grassTree[Random.Range(0, grassTree.Length)], spawnPosition, randomRotation);
+                        }
+                        else if (probability > grassBigRocksPercantage + grassTreePercantage && probability < grassBigRocksPercantage + grassTreePercantage + grassStonesPercantage)
+                        {
+                            environment = Instantiate(grassStones[Random.Range(0, grassStones.Length)], spawnPosition, randomRotation);
+                        }
+                        else if (probability > grassBigRocksPercantage + grassTreePercantage + grassStonesPercantage && probability < grassBigRocksPercantage + grassTreePercantage + grassStonesPercantage + grassLavendersPercantage)
+                        {
+                            environment = Instantiate(grassLavenders[Random.Range(0, grassLavenders.Length)], spawnPosition, randomRotation);
+                        }
+                        else
+                        {
+                            environment = Instantiate(grassDefault[Random.Range(0, grassDefault.Length)], spawnPosition, randomRotation);
+                        }
                     }        
 
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Wood)
                     {
-                        Building wood = null;
-                        switch (probability)
+                        if (probability < woodBigStonePercantage)
                         {
-                            case < 50:
-                                wood = Instantiate(woodBigStone[Random.Range(0, woodBigStone.Length)], spawnPosition, randomRotation);
-                            break;
-                            case < 200:
-                                wood = Instantiate(woodStone[Random.Range(0, woodStone.Length)], spawnPosition, randomRotation);
-                            break;
-                            default:
-                                wood = Instantiate(woodDefault[Random.Range(0, woodDefault.Length)], spawnPosition, randomRotation);
-                            break;
+                            environment = Instantiate(woodBigStone[Random.Range(0, woodBigStone.Length)], spawnPosition, randomRotation);
                         }
-                        Tile tile = new Tile()
+                        else if (probability > woodBigStonePercantage && probability < woodBigStonePercantage + woodStonePercantage)
                         {
-                            building = wood,
-                            tileType = GridManager.Instance._grid[gridPosition].tileType,
-                        };
-                        GridManager.Instance._grid[gridPosition] = tile;
+                            environment = Instantiate(woodStone[Random.Range(0, woodStone.Length)], spawnPosition, randomRotation);
+                        }
+                        else
+                        {
+                            environment = Instantiate(woodDefault[Random.Range(0, woodDefault.Length)], spawnPosition, randomRotation);
+                        }
                     }
 
                     if (GridManager.Instance._grid[x,z].tileType == TileType.Rock)
                     {
-                        Building stone = null;
-                        switch (probability)
+                        if (probability < stoneBigPercantage)
                         {
-                            case < 300:
-                                stone = Instantiate(stoneBig[Random.Range(0, stoneBig.Length)], spawnPosition, randomRotation);
-                            break;
-                            default:
-                                stone = Instantiate(stoneDefault[Random.Range(0, stoneDefault.Length)], spawnPosition, randomRotation);
-                            break;
+                            environment = Instantiate(stoneBig[Random.Range(0, stoneBig.Length)], spawnPosition, randomRotation);
                         }
-                        Tile tile = new Tile()
+                        else
                         {
-                            building = stone,
-                            tileType = GridManager.Instance._grid[gridPosition].tileType,
-                        };
-                        GridManager.Instance._grid[gridPosition] = tile;
+                            environment = Instantiate(stoneDefault[Random.Range(0, stoneDefault.Length)], spawnPosition, randomRotation);
+                        }
                     } 
+
+                    Tile tile = new Tile()
+                    {
+                        building = environment,
+                        tileType = GridManager.Instance._grid[gridPosition].tileType,
+                    };
+                    GridManager.Instance._grid[gridPosition] = tile;
                 }
             }
         }
