@@ -64,11 +64,11 @@ Material:
     - _QueueOffset: 0
     - _RIMLIGHT: 0
     - _RimLightEdgePower: 3.72
-    - _SSSIntensity: 0.12
+    - _SSSIntensity: 0.2
     - _SSSPower: 1
     - _SUBSURFACE: 1
     - _ShadowPower: 1
-    - _Strenght: 0.53
+    - _Strenght: 0.4
     - _Thickness: 0
     - _VEGETATION: 0
     - _WIND: 1
