@@ -33,7 +33,7 @@ public class ResearchPointManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1);
-            int pointsToAdd = Random.Range(1, 5);
+            int pointsToAdd = 2;
             researchPoints += pointsToAdd;
             UpdateResearchPointsText();
         }
