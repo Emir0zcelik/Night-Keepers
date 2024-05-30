@@ -37,6 +37,7 @@ namespace NightKeepers
             if (buildingCounts.ContainsKey(buildingName) && buildingCounts[buildingName] > 0)
             {
                 buildingCounts[buildingName]--;
+                //resourceManager.RestartResourceProduction(buildingName);
             }
         }
 

@@ -43,6 +43,10 @@ namespace NightKeepers
         private void OnBuildingDestroyed()
         {
             AdjustResourcesAfterBuildingDestroyed();
+            /*foreach (var buildingType in RM.Instance.buildingCounts.Keys)
+            {
+                RestartResourceProduction(buildingType);
+            }*/
         }
 
         private void AdjustResourcesAfterBuildingDestroyed()

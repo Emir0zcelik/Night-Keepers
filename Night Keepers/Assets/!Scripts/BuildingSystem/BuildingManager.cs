@@ -473,7 +473,9 @@ public class BuildingManager : Singleton<BuildingManager>
             {
                 GridManager.Instance._grid[item] = tile;
             }
+
         }
+        
     }
 
     private bool IsBuildingResearchUnlocked(BuildingData.BuildingType buildingType)
