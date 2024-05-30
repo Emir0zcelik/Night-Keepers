@@ -277,7 +277,7 @@ public class BuildingManager : Singleton<BuildingManager>
             }
 
             
-            if (currentBuildingType == BuildingData.BuildingType.Wall)
+            /*if (currentBuildingType == BuildingData.BuildingType.Wall)
             {
                 int requiredStone = 30;
                 if (RM.Instance.resourceManager.resources.Stone < requiredStone)
@@ -290,7 +290,7 @@ public class BuildingManager : Singleton<BuildingManager>
                     RM.Instance.resourceManager.resources.Stone -= requiredStone;
                     RM.Instance.resourceManager.UpdateText();
                 }
-            }
+            }*/
 
             if (TryBuild(buildings[buildingNumber], gridPositionList))
             {
