@@ -2404,6 +2404,16 @@ PrefabInstance:
       propertyPath: waterParent
       value: 
       objectReference: {fileID: 1807480228}
+    - target: {fileID: 6410684311430121414, guid: 0200bbf367a524048b708fde0edbb71c,
+        type: 3}
+      propertyPath: rockProbability
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410684311430121414, guid: 0200bbf367a524048b708fde0edbb71c,
+        type: 3}
+      propertyPath: waterProbability
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7987915510276431226, guid: 0200bbf367a524048b708fde0edbb71c,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -24,7 +24,7 @@ namespace NightKeepers
 
                 if (GridManager.Instance._grid.IsInDimensions(gridPosition))
                 {
-                    OutlineSelection(gridPosition);
+                    //OutlineSelection(gridPosition);
                     SelectedBuilding(gridPosition);   
                     if (Input.GetMouseButtonDown(1))
                     {

@@ -49,6 +49,7 @@ MonoBehaviour:
   direction: 1
   buildingType: 1
   sameTileCount: 0
+  deleteCooldown: 0
 --- !u!1001 &8082021853161618294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71,19 +72,28 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -70346611505937807, guid: d39031a580f463448a220e4bb578656d,
+      objectReference: {fileID: -3527775894591885644, guid: 5a9f1b1a8c222b447a0063a673e76e18,
         type: 3}
     - target: {fileID: 1053696785161376613, guid: 09a11962b3b81d848b455324f643c7a1,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1053696785161376613, guid: 09a11962b3b81d848b455324f643c7a1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -4612162990109294230, guid: d39031a580f463448a220e4bb578656d,
+      objectReference: {fileID: 2100000, guid: 9c2c9f01500416a49a4ddb366b99e207, type: 2}
+    - target: {fileID: 1053696785161376613, guid: 09a11962b3b81d848b455324f643c7a1,
         type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: aae805a3101685e44b37836ca4d14bbd, type: 2}
+    - target: {fileID: 1053696785161376613, guid: 09a11962b3b81d848b455324f643c7a1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: ae591770fcfbbe843b159a122de32c02, type: 2}
     - target: {fileID: 3979203923273562951, guid: 09a11962b3b81d848b455324f643c7a1,
         type: 3}
       propertyPath: m_Size.x
