@@ -44,6 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72e0fd7c19fc4e42b5bbb3ce4e4b0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grassBigRocksPercantage: 4
+  grassTreePercantage: 5
+  grassStonesPercantage: 100
+  grassLavendersPercantage: 20
+  woodBigStonePercantage: 50
+  woodStonePercantage: 150
+  stoneBigPercantage: 300
   grassBigRocks:
   - {fileID: -6490574543637333905, guid: 6ad1d0f7b797e7f4e953692318145c2a, type: 3}
   - {fileID: 5282912228938047162, guid: 4e6479e1b743569499d1da8578cb186e, type: 3}

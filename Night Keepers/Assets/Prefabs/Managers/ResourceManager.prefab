@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 860350848444509496}
+  notEnoughResourceAnimation: {fileID: 0}
+  buildingsData: []
 --- !u!114 &860350848444509496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,10 +60,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9777b82418bebef4cbc4f76ade5bce44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  woodText: {fileID: 0}
+  foodText: {fileID: 0}
+  stoneText: {fileID: 0}
   resources:
-    Wood: 500
-    Stone: 500
-    Iron: 500
-    Food: 500
-  buildingData: {fileID: 0}
-  rm: {fileID: 517835297877048775}
+    Wood: 300
+    Stone: 150
+    Iron: 0
+    Food: 150
+    MaxWood: 500
+    MaxStone: 500
+    MaxIron: 500
+    MaxFood: 500
+  buildingsData: []

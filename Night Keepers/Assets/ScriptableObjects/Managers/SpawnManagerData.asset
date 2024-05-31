@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779c07f5f88ff604bad0a278512785c5, type: 3}
   m_Name: SpawnManagerData
   m_EditorClassIdentifier: 
-  _spawnDelay: 0.5
+  _spawnDelay: 0.3
   _zOffset: 10
   _lowPowerPointThreshold: 5
   _spawnCurve:
@@ -21,20 +21,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 5
-      inSlope: 0.95707524
-      outSlope: 0.95707524
+      inSlope: 4.1418633
+      outSlope: 4.1418633
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.110999
+      outWeight: 0.050454095
     - serializedVersion: 3
       time: 50
       value: 200
-      inSlope: 6.4482875
-      outSlope: 6.4482875
+      inSlope: 0.12335606
+      outSlope: 0.12335606
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.040363237
+      inWeight: 0.07366289
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

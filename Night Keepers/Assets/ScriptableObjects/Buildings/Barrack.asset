@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Barrack
   m_EditorClassIdentifier: 
   buildingTime: 10
+  deleteTime: 0
   buildingTypes: 10
   health: 0
   placableTileTypes: 0100000005000000
@@ -20,7 +21,7 @@ MonoBehaviour:
   visual: {fileID: 0}
   Workforce: 0
   Cost:
-    wood: 150
+    wood: 125
     stone: 0
     iron: 0
     food: 100

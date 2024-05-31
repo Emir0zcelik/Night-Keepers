@@ -45,8 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27913fbf4cc0f1941995b6850b7e3491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gridManager: {fileID: 0}
-  _wallManager: {fileID: 5411096954508611090}
   buildings:
   - {fileID: 2411556421893056226, guid: daad74a23070dfc43b804c9d12e8a0d2, type: 3}
   - {fileID: 0}
@@ -67,15 +65,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  buildingPreviews: []
-  meshRendererPreviews: []
   validPreviewMaterial: {fileID: 2100000, guid: 04231e7a189848a40b9ffe6c675863df,
     type: 2}
   invalidPreviewMaterial: {fileID: 2100000, guid: 902c2023408f1d54caabe103d524e052,
     type: 2}
-  gridPositonForWall: {x: 0, y: 0}
-  walls: []
-  rm: {fileID: 0}
+  buildingPlacementMaterial: {fileID: 2100000, guid: d6506eb28eb539e498a10a61197f8313,
+    type: 2}
+  isPlaced: 0
+  isTownHallPlaced: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2304
 --- !u!114 &5411096954508611090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,10 +89,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentWallsList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7329001920216223356, guid: b45c24359d567b348b997f8356af1c83, type: 3}
+  - {fileID: 8238157612322165032, guid: b51340ca68d0770479a5929cee90794e, type: 3}
+  - {fileID: 1791534010613607669, guid: 8643d27989bde8642a51b232441e36c7, type: 3}
   _wallMeshFilters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8980088167479368118, guid: e40acbbc8d988de498e867d2231a6927, type: 3}
+  - {fileID: 6581149129479844197, guid: 6000345370d7f7344838c9208d00e5ff, type: 3}
+  - {fileID: 5596774959829597965, guid: 5ac1a5f477484ad4d95bd08647e32600, type: 3}

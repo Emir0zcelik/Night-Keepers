@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d9d57bba22122408089aaf7912e26a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameSeed: BOK
+  GameSeed: Minecraft
   CurrentSeed: 0
 --- !u!114 &6410684311430121414
 MonoBehaviour:
@@ -61,12 +61,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 100
   height: 100
-  cellSize: 2
+  cellSize: 10
   grassProbability: 89
   rockProbability: 92
-  waterProbability: 94
-  woodProbability: 95
-  ironProbability: 99
+  waterProbability: 93
+  woodProbability: 99
+  ironProbability: 0
   grassPropagation: 6
   rockPropagation: 5
   waterPropagation: 8
@@ -83,3 +83,4 @@ MonoBehaviour:
   - {fileID: 1197828385681279654, guid: bd1ce549c3582fb4d8dc16085b948dc6, type: 3}
   - {fileID: 8374549972984234659, guid: 9152b0d259d8af84c82dbc0283bab91e, type: 3}
   - {fileID: 6158549227335794656, guid: c5d7894f752499946ab243ab2d058946, type: 3}
+  waterParent: {fileID: 0}

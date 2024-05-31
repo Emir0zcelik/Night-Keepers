@@ -6,6 +6,7 @@ public class ResearchUpgrades : MonoBehaviour
     public enum ResearchUpgrade
     {
         Lumberjack1,
+        Lumberjack2,
         StoneMine,
         Wall,
         Fishing,
@@ -53,8 +54,8 @@ public class ResearchUpgrades : MonoBehaviour
 
         if (lumberjackData != null)
         {
-            lumberjackData.ProductionAmount += 2;
-            Debug.Log("Lumberjack production increased by 2!");
+            lumberjackData.ProductionAmount += 1;
+            Debug.Log("Lumberjack production increased by 1!");
         }
         else
         {
@@ -66,7 +67,7 @@ public class ResearchUpgrades : MonoBehaviour
         {
             if (building.buildingTypes == BuildingData.BuildingType.Lumberjack)
             {
-                building.ProductionAmount += 2;
+                building.ProductionAmount += 1;
             }
         }
 
