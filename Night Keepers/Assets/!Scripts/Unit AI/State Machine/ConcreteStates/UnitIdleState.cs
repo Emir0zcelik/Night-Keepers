@@ -49,10 +49,7 @@ public class UnitIdleState : UnitState
 
     public override void PhysicsUpdateState()
     {
-        if (unit.GetUnitType() != UnitType.Building)
-        {
-            unit.LookForNewChaseTarget();
-        }
+        unit.LookForNewChaseTarget();
         base.PhysicsUpdateState();
     }
 }

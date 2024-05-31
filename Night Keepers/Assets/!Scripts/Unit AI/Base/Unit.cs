@@ -271,81 +271,51 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
         switch (UnitData.Side)
         {
             case UnitSide.Player:
-                Collider[] enemyColliders = Physics.OverlapSphere(transform.position, UnitData.DetectionRangeRadius, enemyLayer);
-                Unit bestEnemyTarget = null;
-                int maxEnemyWeight = int.MinValue;
-
-                foreach (Collider col in enemyColliders)
-                {
-                    if (col.TryGetComponent(out Unit possibleTarget))
-                    {
-                        if (possibleTarget.GetUnitType() == GetFavouriteTarget())
-                        {
-                            //Debug.Log(gameObject.name + " Found Favourite Enemy Chase Target.");
-                            SetAggroStatusAndTarget(true, possibleTarget);
-                            return;
-                        }
-
-                        TargetPreference targetPreference = GetTargetPreferenceList().Find(T => T.unitType == possibleTarget.GetUnitType());
-                        if (targetPreference != null && targetPreference.weight > maxEnemyWeight)
-                        {
-                            maxEnemyWeight = targetPreference.weight;
-                            bestEnemyTarget = possibleTarget;
-                        }
-                    }
-                }
-
-                if (bestEnemyTarget != null)
-                {
-                    //Debug.Log(gameObject.name + " Found Best Enemy Chase Target.");
-                    SetAggroStatusAndTarget(true, bestEnemyTarget);
-                }
-                else
-                {
-                    //Debug.Log(gameObject.name + " Could Not Find Any Enemy Chase Target.");
-                    StateMachine.ChangeState(IdleState);
-                    // failed to find target
-                }
+                LookForNewChaseTargetInLayer(enemyLayer);
                 break;
             case UnitSide.Enemy:
-                Collider[] playerColliders = Physics.OverlapSphere(transform.position, UnitData.DetectionRangeRadius, playerLayer);
-                Unit bestPlayerTarget = null;
-                int maxPlayerWeight = int.MinValue;
-
-                foreach (Collider col in playerColliders)
-                {
-                    if (col.TryGetComponent(out Unit possibleTarget))
-                    {
-                        if (possibleTarget.GetUnitType() == GetFavouriteTarget() )
-                        {
-                            // Debug.Log(gameObject.name + " Found Favourite Player Chase Target.");
-                            SetAggroStatusAndTarget(true, possibleTarget);
-                            return;
-                        }
-
-                        TargetPreference targetPreference = GetTargetPreferenceList().Find(T => T.unitType == possibleTarget.GetUnitType());
-                        if (targetPreference != null && targetPreference.weight > maxPlayerWeight)
-                        {
-                            maxPlayerWeight = targetPreference.weight;
-                            bestPlayerTarget = possibleTarget;
-                        }
-                    }
-                }
-
-                if (bestPlayerTarget != null)
-                {
-                    // Debug.Log(gameObject.name + " Found Best Player Chase Target." + bestPlayerTarget.name);
-                    SetAggroStatusAndTarget(true, bestPlayerTarget);
-                }
-                else
-                {
-                    // Debug.Log(gameObject.name + " Could Not Find Any Player Chase Target.");
-                    StateMachine.ChangeState(IdleState);
-                    // failed to find target
-                }
+                LookForNewChaseTargetInLayer(playerLayer);
                 break;
             default:
                 break;
+        }
+    }
+
+    private void LookForNewChaseTargetInLayer(LayerMask targetLayer)
+    {
+        Collider[] targetColliders = Physics.OverlapSphere(transform.position, UnitData.DetectionRangeRadius, targetLayer);
+        Unit bestTarget = null;
+        int maxWeight = int.MinValue;
+
+        foreach (Collider col in targetColliders)
+        {
+            if (col.TryGetComponent(out Unit possibleTarget))
+            {
+                if (possibleTarget.GetUnitType() == GetFavouriteTarget())
+                {
+                    SetAggroStatusAndTarget(true, possibleTarget);
+                    return;
+                }
+
+                TargetPreference targetPreference = GetTargetPreferenceList().Find(T => T.unitType == possibleTarget.GetUnitType());
+                if (targetPreference != null && targetPreference.weight > maxWeight)
+                {
+                    maxWeight = targetPreference.weight;
+                    bestTarget = possibleTarget;
+                }
+            }
+        }
+
+        if (bestTarget != null)
+        {
+            SetAggroStatusAndTarget(true, bestTarget);
+        }
+        else
+        {
+            if (StateMachine.CurrentUnitState != IdleState)
+            {
+                StateMachine.ChangeState(IdleState);
+            }
         }
     }
 
@@ -354,35 +324,26 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
         switch (UnitData.Side)
         {
             case UnitSide.Player:
-                Collider[] enemyColliders = Physics.OverlapSphere(transform.position, UnitData.AttackRangeRadius, enemyLayer);
-                foreach (Collider col in enemyColliders)
-                {
-                    if (col.TryGetComponent(out Unit possibleTarget))
-                    {
-                        SetAggroStatusAndTarget(true, possibleTarget);
-                        SetAttackingStatus(true);
-                        //Debug.Log(gameObject.name + " Found New Enemy Attack Target.");
-                        return true;
-                    }
-                }
-                //Debug.Log(gameObject.name + " Did Not Find New Enemy Attack Target");
-                return false;
+                return LookForNewAttackTargetInLayer(enemyLayer);
             case UnitSide.Enemy:
-                Collider[] playerColliders = Physics.OverlapSphere(transform.position, UnitData.AttackRangeRadius, playerLayer);
-                foreach (Collider col in playerColliders)
-                {
-                    if (col.TryGetComponent(out Unit possibleTarget))
-                    {
-                        SetAggroStatusAndTarget(true, possibleTarget);
-                        SetAttackingStatus(true);
-                        //Debug.Log(gameObject.name + " Found New Player Attack Target.");
-                        return true;
-                    }
-                }
-                //Debug.Log(gameObject.name + " Did Not Find New Player Attack Target.");
-                return false;
+                return LookForNewAttackTargetInLayer(playerLayer);
             default:
                 return false;
         }
+    }
+
+    private bool LookForNewAttackTargetInLayer(LayerMask targetLayer)
+    {
+        Collider[] targetColliders = Physics.OverlapSphere(transform.position, UnitData.AttackRangeRadius, targetLayer);
+        foreach (Collider col in targetColliders)
+        {
+            if (col.TryGetComponent(out Unit possibleTarget))
+            {
+                SetAggroStatusAndTarget(true, possibleTarget);
+                SetAttackingStatus(true);
+                return true;
+            }
+        }
+        return false;
     }
 }
