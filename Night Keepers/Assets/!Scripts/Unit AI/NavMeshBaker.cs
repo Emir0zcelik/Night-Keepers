@@ -17,7 +17,7 @@ public class NavMeshBaker : MonoBehaviour
 
     private void Start()
     {
-        //BakeNavMesh();
+        BakeNavMesh();
 
         waitForSeconds = new WaitForSeconds(bakeDelay);
     }
