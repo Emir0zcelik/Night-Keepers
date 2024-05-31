@@ -46,6 +46,14 @@ public class GridManager : Singleton<GridManager>
         {
             WaterFoamChanger(item, _grid.WorldToGridPosition(item.transform.position));
         }
+        for (int x = 0; x < width; x++)
+        {
+            for (int z = 0; z < height; z++)
+            {
+                Vector2Int gridPosition = new Vector2Int(x, z);
+                InstantiateWaterDepthWall(gridPosition);
+            }
+        }
     }
 
     void InstantiateMap()
@@ -151,6 +159,7 @@ public class GridManager : Singleton<GridManager>
         {
             case TileType.Grass:
                 tilePrefab = Instantiate(tilePrefabs[0], position, Quaternion.identity);
+                // tilePrefab.transform.position = new Vector3(tilePrefab.transform.position.x, -5f, tilePrefab.transform.position.z);
                 break;
             
             case TileType.Rock:
@@ -159,7 +168,7 @@ public class GridManager : Singleton<GridManager>
             
             case TileType.Water:
                 tilePrefab = Instantiate(waterParent, position, quaternion.identity);
-                tilePrefab.transform.position = new Vector3(tilePrefab.transform.position.x - 4.5f, -0.5f, tilePrefab.transform.position.z - 4.5f);
+                tilePrefab.transform.position = new Vector3(tilePrefab.transform.position.x - 4.5f, -1f, tilePrefab.transform.position.z - 4.5f);
                 WaterFoamChanger(tilePrefab.GetComponent<WaterVolumeBase>(), _grid.WorldToGridPosition(position));
                 break;
             
@@ -172,7 +181,7 @@ public class GridManager : Singleton<GridManager>
                 break;
         }
         
-        tilePrefab.transform.localScale = new Vector3((float)cellSize / 10, (float)cellSize / 10, (float)cellSize / 10);
+        // tilePrefab.transform.localScale = new Vector3((float)cellSize / 10, (float)cellSize / 10, (float)cellSize / 10);
 
         return tilePrefab;
     }
@@ -235,6 +244,61 @@ public class GridManager : Singleton<GridManager>
     public int GetMapSizeFromCenter()
     {
         return width * cellSize / 2;
+    }
+
+    private void InstantiateWaterDepthWall(Vector2Int gridPosition)
+    {
+        if (_grid[gridPosition].tileType == TileType.Water)
+        {
+            return;
+        }
+        int tileTypeNumber = 0;
+
+        if (_grid[gridPosition].tileType == TileType.Grass)
+        {
+            tileTypeNumber = 0;
+        }
+        if (_grid[gridPosition].tileType == TileType.Wood)
+        {
+            tileTypeNumber = 3;
+        }
+        if (_grid[gridPosition].tileType == TileType.Rock)
+        {
+            tileTypeNumber = 1;
+        }
+
+
+        if (_grid.IsInDimensions(new Vector2Int(gridPosition.x - 1, gridPosition.y)) && _grid[gridPosition.x - 1, gridPosition.y].tileType == TileType.Water)
+        {
+            Instantiate(
+                tilePrefabs[tileTypeNumber], 
+                new Vector3(_grid.GridToWorldPosition(gridPosition).x - 5f, -5f, _grid.GridToWorldPosition(gridPosition).z), 
+                Quaternion.Euler(90f, 180f, -90));
+        }
+
+        if (_grid.IsInDimensions(new Vector2Int(gridPosition.x + 1, gridPosition.y)) && _grid[gridPosition.x + 1, gridPosition.y].tileType == TileType.Water)
+        {
+            Instantiate(
+                tilePrefabs[tileTypeNumber], 
+                new Vector3(_grid.GridToWorldPosition(gridPosition).x + 5f, -5f, _grid.GridToWorldPosition(gridPosition).z), 
+                Quaternion.Euler(90f, 90f, 0));
+        }
+
+        if (_grid.IsInDimensions(new Vector2Int(gridPosition.x, gridPosition.y - 1)) && _grid[gridPosition.x, gridPosition.y - 1].tileType == TileType.Water)
+        {
+            Instantiate(
+                tilePrefabs[tileTypeNumber], 
+                new Vector3(_grid.GridToWorldPosition(gridPosition).x, -5f, _grid.GridToWorldPosition(gridPosition).z - 5f),
+                 Quaternion.Euler(90f, 90f, -90));
+        }
+        
+        if (_grid.IsInDimensions(new Vector2Int(gridPosition.x, gridPosition.y + 1)) && _grid[gridPosition.x, gridPosition.y + 1].tileType == TileType.Water)
+        {
+            Instantiate(
+                tilePrefabs[tileTypeNumber], 
+                new Vector3(_grid.GridToWorldPosition(gridPosition).x, -5f, _grid.GridToWorldPosition(gridPosition).z + 5f),
+                Quaternion.Euler(90f, 90f, 90));
+        }
     }
 
 
