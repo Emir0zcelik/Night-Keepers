@@ -10,6 +10,8 @@ public class ResearchPointManager : MonoBehaviour
     public bool isStoneMineResearched = false;
     public bool isWallResearched = false;
     public bool isFishingResearched = false;
+    public bool isHouseResearched = false;
+    public bool isTrapResearched = false;
 
     private void Awake()
     {

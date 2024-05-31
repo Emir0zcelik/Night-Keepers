@@ -8,7 +8,9 @@ public class ResearchUpgrades : MonoBehaviour
         Lumberjack1,
         StoneMine,
         Wall,
-        Fishing
+        Fishing,
+        House,
+        Trap
     }
 
     public ResearchUpgrade researchUpgrade;
@@ -32,6 +34,14 @@ public class ResearchUpgrades : MonoBehaviour
             case ResearchUpgrade.Fishing:
                 ResearchPointManager.Instance.isFishingResearched = true;
                 Debug.Log("Wall research completed!");
+                break;
+            case ResearchUpgrade.House:
+                ResearchPointManager.Instance.isHouseResearched = true;
+                Debug.Log("House research completed!");
+                break;
+            case ResearchUpgrade.Trap:
+                ResearchPointManager.Instance.isTrapResearched = true;
+                Debug.Log("Trap research completed!");
                 break;
         }
     }
