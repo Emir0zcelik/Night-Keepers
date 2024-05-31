@@ -134,7 +134,7 @@ public class BuildingManager : Singleton<BuildingManager>
             case BuildingData.BuildingType.StoneMine:
                 isPlaced = false;
                 buildingNumber = 0;
-                buildingMultiplier = 4f;
+                buildingMultiplier = 11f;
                 BuildingPreviewsActivate(buildingNumber);
                 break;
 

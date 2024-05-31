@@ -50,6 +50,7 @@ MonoBehaviour:
   direction: 1
   buildingType: 11
   sameTileCount: 0
+  deleteCooldown: 0
 --- !u!114 &1190365221445479703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +203,7 @@ MonoBehaviour:
   <isAggroed>k__BackingField: 0
   <isInAttackingDistance>k__BackingField: 0
   Target: {fileID: 0}
-  <UnitData>k__BackingField: {fileID: 11400000, guid: abeef22ab493008408cae6034a2cfc79,
+  <UnitData>k__BackingField: {fileID: 11400000, guid: 431ed80d71cdb8747b5a51903328aa17,
     type: 2}
   <Animation>k__BackingField: {fileID: 0}
   AnimationNames: []
