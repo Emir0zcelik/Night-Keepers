@@ -5053,6 +5053,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4311520078819454162, guid: 0bc3ca387210fda4a93e00e57d8e0ef9,
         type: 3}
+      propertyPath: m_TaaSettings.quality
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311520078819454162, guid: 0bc3ca387210fda4a93e00e57d8e0ef9,
+        type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
