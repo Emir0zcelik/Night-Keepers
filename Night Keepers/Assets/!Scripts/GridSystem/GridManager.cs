@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Bitgem.VFX.StylisedWater;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -30,7 +31,6 @@ public class GridManager : Singleton<GridManager>
     [SerializeField] private float ironNoise;
     [SerializeField] private List<GameObject> tilePrefabs;
     [SerializeField] private GameObject waterParent;
-    [SerializeField] private GameObject waterObj;
 
     public static event Action onWorldGenerationDone;
     public Grid<Tile> _grid;
@@ -38,8 +38,14 @@ public class GridManager : Singleton<GridManager>
     private void Awake()
     {
         _grid = new Grid<Tile>(width, height, cellSize);
-        // Instantiate(waterParent);
         InstantiateMap();
+    }
+    private void Start() {
+
+        foreach (var item in FindObjectsOfType<WaterVolumeBase>())
+        {
+            WaterFoamChanger(item, _grid.WorldToGridPosition(item.transform.position));
+        }
     }
 
     void InstantiateMap()
@@ -152,8 +158,9 @@ public class GridManager : Singleton<GridManager>
                 break;  
             
             case TileType.Water:
-                tilePrefab = Instantiate(new GameObject("WaterObj"), position, quaternion.identity, waterParent.transform);
-                // tilePrefab = Instantiate(tilePrefabs[2], position, quaternion.identity, waterParent);
+                tilePrefab = Instantiate(waterParent, position, quaternion.identity);
+                tilePrefab.transform.position = new Vector3(tilePrefab.transform.position.x - 4.5f, -0.5f, tilePrefab.transform.position.z - 4.5f);
+                WaterFoamChanger(tilePrefab.GetComponent<WaterVolumeBase>(), _grid.WorldToGridPosition(position));
                 break;
             
             case TileType.Wood:
@@ -228,5 +235,27 @@ public class GridManager : Singleton<GridManager>
     public int GetMapSizeFromCenter()
     {
         return width * cellSize / 2;
+    }
+
+
+    private void WaterFoamChanger(WaterVolumeBase waterVolumeBase, Vector2Int gridPosition)
+    {
+        waterVolumeBase.IncludeFoam = 0;
+        if (_grid[gridPosition.x - 1, gridPosition.y].tileType != TileType.Water)
+        {
+            waterVolumeBase.IncludeFoam |= WaterVolumeBase.TileFace.NegX;
+        }
+        if (_grid[gridPosition.x + 1, gridPosition.y].tileType != TileType.Water)
+        {
+            waterVolumeBase.IncludeFoam |= WaterVolumeBase.TileFace.PosX;
+        }
+        if (_grid[gridPosition.x, gridPosition.y - 1].tileType != TileType.Water)
+        {
+            waterVolumeBase.IncludeFoam |= WaterVolumeBase.TileFace.NegZ;
+        }
+        if (_grid[gridPosition.x, gridPosition.y + 1].tileType != TileType.Water)
+        {
+            waterVolumeBase.IncludeFoam |= WaterVolumeBase.TileFace.PosZ;
+        }
     }
 }
