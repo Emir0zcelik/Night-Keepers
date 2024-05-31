@@ -31,9 +31,9 @@ public class UnitScriptableObject : ScriptableObject
     }
     public UnitSide Side;
 
-    public GameObject UnitButtonPrefab;
 
     [Header("Only For Player Units!")]
+    public GameObject UnitButtonPrefab;
     public float ProductionTime = 0f;
     public ResourceCost Cost;
 }

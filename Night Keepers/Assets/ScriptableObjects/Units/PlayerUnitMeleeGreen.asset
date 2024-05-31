@@ -16,14 +16,14 @@ MonoBehaviour:
   MaxHealth: 100
   Damage: 20
   TimeBetweenAttacks: 1.5
-  DetectionRangeRadius: 40
+  DetectionRangeRadius: 60
   AttackRangeRadius: 2.5
   MovementSpeed: 12
   targetPreferences:
   - unitType: 0
     weight: 1
   - unitType: 1
-    weight: 1
+    weight: 2
   - unitType: 2
     weight: 1
   UnitPowerPoints: 1
