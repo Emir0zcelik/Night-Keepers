@@ -31,6 +31,7 @@ public class GridManager : Singleton<GridManager>
     [SerializeField] private float ironNoise;
     [SerializeField] private List<GameObject> tilePrefabs;
     [SerializeField] private GameObject waterParent;
+    [SerializeField] private GameObject waterDeepCube;
 
     public static event Action onWorldGenerationDone;
     public Grid<Tile> _grid;
@@ -159,7 +160,6 @@ public class GridManager : Singleton<GridManager>
         {
             case TileType.Grass:
                 tilePrefab = Instantiate(tilePrefabs[0], position, Quaternion.identity);
-                // tilePrefab.transform.position = new Vector3(tilePrefab.transform.position.x, -5f, tilePrefab.transform.position.z);
                 break;
             
             case TileType.Rock:
@@ -168,8 +168,9 @@ public class GridManager : Singleton<GridManager>
             
             case TileType.Water:
                 tilePrefab = Instantiate(waterParent, position, quaternion.identity);
-                tilePrefab.transform.position = new Vector3(tilePrefab.transform.position.x - 4.5f, -1f, tilePrefab.transform.position.z - 4.5f);
-                WaterFoamChanger(tilePrefab.GetComponent<WaterVolumeBase>(), _grid.WorldToGridPosition(position));
+                tilePrefab.transform.position = new Vector3(tilePrefab.transform.position.x - 4.5f, -11f, tilePrefab.transform.position.z - 4.5f);
+                Instantiate(waterDeepCube, new Vector3(position.x, Random.Range(-15, -10) ,position.z), Quaternion.identity);
+                // WaterFoamChanger(tilePrefab.GetComponent<WaterVolumeBase>(), _grid.WorldToGridPosition(position));
                 break;
             
             case TileType.Wood:
