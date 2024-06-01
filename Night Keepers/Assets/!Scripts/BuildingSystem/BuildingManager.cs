@@ -29,6 +29,7 @@ public class BuildingManager : Singleton<BuildingManager>
     public int sameTileCount { get; private set; }
     private float buildingMultiplier;
     [SerializeField] private LayerMask layerMask;
+    public bool isDeleteMode = false;
 
     private Dictionary<int, List<Material>> buildingMaterials = new Dictionary<int, List<Material>>();
 
@@ -115,6 +116,12 @@ public class BuildingManager : Singleton<BuildingManager>
         if (Input.GetKeyDown(KeyCode.B))
         {
             isBuildingMode = true;
+        }
+
+        if (isDeleteMode)
+        {
+            DeleteBuilding(gridPosition);
+            isDeleteMode = false;
         }
 
         if (isPlaceBuilding && isBuildingMode)
@@ -363,7 +370,6 @@ public class BuildingManager : Singleton<BuildingManager>
             if (instantiatedBuilding.deleteCooldown > 0)
             {
                 instantiatedBuilding.deleteCooldown -= Time.fixedDeltaTime;
-                Debug.Log(instantiatedBuilding.name + "'s cooldown:" + instantiatedBuilding.deleteCooldown);
             }
             for (int i = 0; i < meshRenderer.materials.Length; i++)
             {
