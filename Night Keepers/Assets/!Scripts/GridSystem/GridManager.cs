@@ -305,19 +305,19 @@ public class GridManager : Singleton<GridManager>
     private void WaterFoamChanger(WaterVolumeBase waterVolumeBase, Vector2Int gridPosition)
     {
         waterVolumeBase.IncludeFoam = 0;
-        if (_grid[gridPosition.x - 1, gridPosition.y].tileType != TileType.Water)
+        if (_grid.IsInDimensions(new Vector2Int(gridPosition.x - 1, gridPosition.y)) && _grid[gridPosition.x - 1, gridPosition.y].tileType != TileType.Water)
         {
             waterVolumeBase.IncludeFoam |= WaterVolumeBase.TileFace.NegX;
         }
-        if (_grid[gridPosition.x + 1, gridPosition.y].tileType != TileType.Water)
+        if (_grid.IsInDimensions(new Vector2Int(gridPosition.x + 1, gridPosition.y)) && _grid[gridPosition.x + 1, gridPosition.y].tileType != TileType.Water)
         {
             waterVolumeBase.IncludeFoam |= WaterVolumeBase.TileFace.PosX;
         }
-        if (_grid[gridPosition.x, gridPosition.y - 1].tileType != TileType.Water)
+        if (_grid.IsInDimensions(new Vector2Int(gridPosition.x, gridPosition.y - 1)) && _grid[gridPosition.x, gridPosition.y - 1].tileType != TileType.Water)
         {
             waterVolumeBase.IncludeFoam |= WaterVolumeBase.TileFace.NegZ;
         }
-        if (_grid[gridPosition.x, gridPosition.y + 1].tileType != TileType.Water)
+        if (_grid.IsInDimensions(new Vector2Int(gridPosition.x, gridPosition.y + 1)) && _grid[gridPosition.x, gridPosition.y + 1].tileType != TileType.Water)
         {
             waterVolumeBase.IncludeFoam |= WaterVolumeBase.TileFace.PosZ;
         }
