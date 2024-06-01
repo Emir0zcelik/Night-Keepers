@@ -120,8 +120,16 @@ public class BuildingManager : Singleton<BuildingManager>
 
         if (isDeleteMode)
         {
-            DeleteBuilding(gridPosition);
-            isDeleteMode = false;
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (GridManager.Instance._grid[gridPosition].building == null)
+                    return;
+                if (GridManager.Instance._grid[gridPosition].building.buildingType == BuildingData.BuildingType.Environment)
+                    return;
+                    
+                DeleteBuilding(gridPosition);
+                isDeleteMode = false;
+            }
         }
 
         if (isPlaceBuilding && isBuildingMode)

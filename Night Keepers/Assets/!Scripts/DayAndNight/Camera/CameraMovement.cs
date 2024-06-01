@@ -83,5 +83,13 @@ namespace NightKeepers.Camera
             Move();
             Rotation();
         }
+
+        public void FocusTownHall(Vector3 townHallPosition)
+        {
+
+            float length = Vector3.Distance(transform.position, townHallPosition);
+
+            targetPosition = Vector3.Lerp(transform.position, townHallPosition, Time.time);
+        }
     }
 }

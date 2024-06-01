@@ -39,4 +39,10 @@ public class PlayerBaseManager : Singleton<PlayerBaseManager>
             return Vector3.zero;
         }
     }
+
+    public List<GameObject> GetPlayerBaseList()
+    {
+        List<GameObject> baseTransforms = _playerBaseList;
+        return baseTransforms;
+    }
 }

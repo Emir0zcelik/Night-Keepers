@@ -25,16 +25,7 @@ namespace NightKeepers
                 if (GridManager.Instance._grid.IsInDimensions(gridPosition))
                 {
                     //OutlineSelection(gridPosition);
-                    SelectedBuilding(gridPosition);   
-                    if (Input.GetMouseButtonDown(1))
-                    {
-                        if (GridManager.Instance._grid[gridPosition].building == null)
-                            return;
-                        if (GridManager.Instance._grid[gridPosition].building.buildingType == BuildingData.BuildingType.Environment)
-                            return;
-
-                        BuildingManager.Instance.DeleteBuilding(gridPosition);
-                    }         
+                    SelectedBuilding(gridPosition);           
                 }
 
             }
