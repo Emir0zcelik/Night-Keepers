@@ -50,7 +50,7 @@ namespace NightKeepers.Camera
                 targetAngle += speed/2;
             }
 
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(1) || Input.GetMouseButton(2))
             {
                 targetAngle += Input.GetAxisRaw("Mouse X") * speed * 1.5f;
             }
@@ -86,9 +86,6 @@ namespace NightKeepers.Camera
 
         public void FocusTownHall(Vector3 townHallPosition)
         {
-
-            float length = Vector3.Distance(transform.position, townHallPosition);
-
             targetPosition = Vector3.Lerp(transform.position, townHallPosition, Time.time);
         }
     }

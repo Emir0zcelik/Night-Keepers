@@ -82,7 +82,7 @@ public class BuildingManager : Singleton<BuildingManager>
             gridPosition = GridManager.Instance._grid.WorldToGridPosition(raycastHit.point);
             if (!TimeManager.Instance.IsDay)
             {
-                previews[buildingNumber].transform.position = new Vector3(-100f, 0, 0);
+                previews[buildingNumber].transform.position = new Vector3(-1000f, 0, 0);
                 return;
             }
             if (isBuildingMode && GridManager.Instance._grid.IsInDimensions(gridPosition))
@@ -92,7 +92,7 @@ public class BuildingManager : Singleton<BuildingManager>
             }
             else
             {
-                previews[buildingNumber].transform.position = Vector3.zero;
+                previews[buildingNumber].transform.position = new Vector3(-1000f, 0, 0);
             }
         }
         else
@@ -103,7 +103,7 @@ public class BuildingManager : Singleton<BuildingManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetMouseButtonDown(1))
         {
             isRotated = true;
         }

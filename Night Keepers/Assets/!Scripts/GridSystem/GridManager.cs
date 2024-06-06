@@ -6,6 +6,11 @@ using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+public enum WayOfTile
+{
+    Empty, Up, Down, Left, Right
+}
+
 public class GridManager : Singleton<GridManager>
 {
     [SerializeField] public int width;
@@ -53,6 +58,7 @@ public class GridManager : Singleton<GridManager>
             {
                 Vector2Int gridPosition = new Vector2Int(x, z);
                 InstantiateWaterDepthWall(gridPosition);
+                InstantiateWaterDepthWallEdges(gridPosition);
             }
         }
     }
@@ -247,12 +253,57 @@ public class GridManager : Singleton<GridManager>
         return width * cellSize / 2;
     }
 
+    private void InstantiateWaterDepthWallEdges(Vector2Int gridPosition)
+    {
+        if (_grid[gridPosition].tileType != TileType.Water) {return; }
+        // if (
+        //     gridPosition.x != 0 || 
+        //     gridPosition.x != width - 1 || 
+        //     gridPosition.y != 0 || 
+        //     gridPosition.y != height - 1) {return; }
+
+        Debug.Log(gridPosition);
+
+        if (gridPosition.x == 0)
+        {
+            Instantiate(
+                tilePrefabs[0], 
+                new Vector3(_grid.GridToWorldPosition(gridPosition).x - 5f, -5f, _grid.GridToWorldPosition(gridPosition).z), 
+                Quaternion.Euler(90f, 180f, 90));
+        }
+
+        if (gridPosition.x == width - 1)
+        {
+            Instantiate(
+                tilePrefabs[0], 
+                new Vector3(_grid.GridToWorldPosition(gridPosition).x + 5f, -5f, _grid.GridToWorldPosition(gridPosition).z), 
+                Quaternion.Euler(90f, 180f, -90));
+        }
+
+        if (gridPosition.y == 0)
+        {
+            Instantiate(
+                tilePrefabs[0], 
+                new Vector3(_grid.GridToWorldPosition(gridPosition).x, -5f, _grid.GridToWorldPosition(gridPosition).z -5f), 
+                Quaternion.Euler(90f, 90f, 90));
+        }
+
+        if (gridPosition.y == height - 1)
+        {
+            Instantiate(
+                tilePrefabs[0], 
+                new Vector3(_grid.GridToWorldPosition(gridPosition).x, -5f, _grid.GridToWorldPosition(gridPosition).z +5f), 
+                Quaternion.Euler(90f, 90f, -90));
+        }
+        
+        
+
+    }
+
     private void InstantiateWaterDepthWall(Vector2Int gridPosition)
     {
-        if (_grid[gridPosition].tileType == TileType.Water)
-        {
-            return;
-        }
+        if (_grid[gridPosition].tileType == TileType.Water) {return; }
+
         int tileTypeNumber = 0;
 
         if (_grid[gridPosition].tileType == TileType.Grass)
@@ -290,7 +341,7 @@ public class GridManager : Singleton<GridManager>
             Instantiate(
                 tilePrefabs[tileTypeNumber], 
                 new Vector3(_grid.GridToWorldPosition(gridPosition).x, -5f, _grid.GridToWorldPosition(gridPosition).z - 5f),
-                 Quaternion.Euler(90f, 90f, -90));
+                Quaternion.Euler(90f, 90f, -90));
         }
         
         if (_grid.IsInDimensions(new Vector2Int(gridPosition.x, gridPosition.y + 1)) && _grid[gridPosition.x, gridPosition.y + 1].tileType == TileType.Water)
