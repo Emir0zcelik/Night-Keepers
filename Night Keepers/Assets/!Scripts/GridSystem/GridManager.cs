@@ -58,7 +58,7 @@ public class GridManager : Singleton<GridManager>
             {
                 Vector2Int gridPosition = new Vector2Int(x, z);
                 InstantiateWaterDepthWall(gridPosition);
-                InstantiateWaterDepthWallEdges(gridPosition);
+                InstantiateWallAllEdges(gridPosition);
             }
         }
     }
@@ -176,7 +176,6 @@ public class GridManager : Singleton<GridManager>
                 tilePrefab = Instantiate(waterParent, position, quaternion.identity);
                 tilePrefab.transform.position = new Vector3(tilePrefab.transform.position.x - 4.5f, -11f, tilePrefab.transform.position.z - 4.5f);
                 Instantiate(waterDeepCube, new Vector3(position.x, Random.Range(-15, -10) ,position.z), Quaternion.identity);
-                // WaterFoamChanger(tilePrefab.GetComponent<WaterVolumeBase>(), _grid.WorldToGridPosition(position));
                 break;
             
             case TileType.Wood:
@@ -187,9 +186,6 @@ public class GridManager : Singleton<GridManager>
                 tilePrefab = Instantiate(tilePrefabs[4], position, quaternion.identity);
                 break;
         }
-        
-        // tilePrefab.transform.localScale = new Vector3((float)cellSize / 10, (float)cellSize / 10, (float)cellSize / 10);
-
         return tilePrefab;
     }
 
@@ -253,50 +249,57 @@ public class GridManager : Singleton<GridManager>
         return width * cellSize / 2;
     }
 
-    private void InstantiateWaterDepthWallEdges(Vector2Int gridPosition)
+    private void InstantiateWallAllEdges(Vector2Int gridPosition)
     {
-        if (_grid[gridPosition].tileType != TileType.Water) {return; }
-        // if (
-        //     gridPosition.x != 0 || 
-        //     gridPosition.x != width - 1 || 
-        //     gridPosition.y != 0 || 
-        //     gridPosition.y != height - 1) {return; }
+        if (_grid[gridPosition].tileType == TileType.Water) {return; }
 
-        Debug.Log(gridPosition);
+        int tileTypeNumber = 0;
+
+        if (_grid[gridPosition].tileType == TileType.Grass)
+        {
+            tileTypeNumber = 0;
+        }
+        if (_grid[gridPosition].tileType == TileType.Wood)
+        {
+            tileTypeNumber = 3;
+        }
+        if (_grid[gridPosition].tileType == TileType.Rock)
+        {
+            tileTypeNumber = 1;
+        }
 
         if (gridPosition.x == 0)
         {
             Instantiate(
-                tilePrefabs[0], 
+                tilePrefabs[tileTypeNumber], 
                 new Vector3(_grid.GridToWorldPosition(gridPosition).x - 5f, -5f, _grid.GridToWorldPosition(gridPosition).z), 
-                Quaternion.Euler(90f, 180f, 90));
+                Quaternion.Euler(90f, 180f, -90));
         }
 
         if (gridPosition.x == width - 1)
         {
             Instantiate(
-                tilePrefabs[0], 
+                tilePrefabs[tileTypeNumber], 
                 new Vector3(_grid.GridToWorldPosition(gridPosition).x + 5f, -5f, _grid.GridToWorldPosition(gridPosition).z), 
-                Quaternion.Euler(90f, 180f, -90));
+                Quaternion.Euler(90f, 180f, 90));
         }
 
         if (gridPosition.y == 0)
         {
             Instantiate(
-                tilePrefabs[0], 
+                tilePrefabs[tileTypeNumber], 
                 new Vector3(_grid.GridToWorldPosition(gridPosition).x, -5f, _grid.GridToWorldPosition(gridPosition).z -5f), 
-                Quaternion.Euler(90f, 90f, 90));
+                Quaternion.Euler(90f, 90f, -90));
         }
 
         if (gridPosition.y == height - 1)
         {
             Instantiate(
-                tilePrefabs[0], 
+                tilePrefabs[tileTypeNumber], 
                 new Vector3(_grid.GridToWorldPosition(gridPosition).x, -5f, _grid.GridToWorldPosition(gridPosition).z +5f), 
-                Quaternion.Euler(90f, 90f, -90));
+                Quaternion.Euler(90f, 90f, 90));
         }
-        
-        
+
 
     }
 
