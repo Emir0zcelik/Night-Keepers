@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using NightKeepers.Camera;
 using UnityEngine;
@@ -28,6 +27,7 @@ namespace NightKeepers
         public void TownHallFocus()
         {
             List<GameObject> playerBaseList = PlayerBaseManager.Instance.GetPlayerBaseList();
+            if (playerBaseList.Count <= 0)  return;
             Vector3 townHallPosition = playerBaseList[0].transform.position;
             cameraMovement.FocusTownHall(townHallPosition);
         }
