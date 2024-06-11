@@ -36,14 +36,14 @@ namespace NightKeepers.Camera
             {
                 targetZoom = 0;
             }
-            input = Mathf.Lerp(input, targetZoom, smoothing * Time.deltaTime);
+            input = Mathf.Lerp(input, targetZoom, smoothing * Time.unscaledDeltaTime);
         }
 
         private void Zoom()
         {
             Vector3 nextPosition = targetPosition + cameraDirection * input * zoomSpeed;
-            if (IsInBounds(nextPosition)) targetPosition = nextPosition;
-            cameraHolder.localPosition = Vector3.Lerp(cameraHolder.localPosition, targetPosition, smoothing * Time.deltaTime);
+            if (IsInBounds(nextPosition))   targetPosition = nextPosition;
+            cameraHolder.localPosition = Vector3.Lerp(cameraHolder.localPosition, targetPosition, smoothing * Time.unscaledDeltaTime);
         }
         private bool IsInBounds(Vector3 position)
         {
