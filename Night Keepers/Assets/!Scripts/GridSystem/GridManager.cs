@@ -41,8 +41,9 @@ public class GridManager : Singleton<GridManager>
     public static event Action onWorldGenerationDone;
     public Grid<Tile> _grid;
     private const int batchInstantiateSize = 1000;
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _grid = new Grid<Tile>(width, height, cellSize);
         InstantiateMap();
     }
