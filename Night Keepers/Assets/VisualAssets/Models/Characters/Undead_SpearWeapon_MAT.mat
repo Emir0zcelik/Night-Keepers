@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Undead_Spear_MAT
+  m_Name: Undead_SpearWeapon_MAT
   m_Shader: {fileID: -6465566751694194690, guid: 03338e257b6e6ef4a93fffd0c76ac001,
     type: 3}
   m_Parent: {fileID: 0}

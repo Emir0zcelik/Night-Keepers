@@ -3,7 +3,12 @@ guid: 0b0cde42902ec38448e17a5c206914ec
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Undead_SpearWeapon_MAT
+    second: {fileID: 2100000, guid: 4fb0c95f5671e2f48aa0f4ddba41656f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
