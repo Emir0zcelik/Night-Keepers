@@ -27,6 +27,13 @@ namespace NightKeepers
             SelectionManager.onBuildingSelected -= OnBuildingSelected;
         }
 
+        private void Update()
+        {
+            if (!_selectedBarrack && UIHolder.activeInHierarchy) {
+                UIHolder.SetActive(false);
+            }
+        }
+
         private void OnBuildingSelected(FunctionalBuilding barracks)
         {
             if (barracks.GetType() == typeof(Barracks))

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: IronMine
   m_EditorClassIdentifier: 
   buildingTime: 10
+  deleteTime: 0
   buildingTypes: 7
   health: 100
   placableTileTypes: 0400000005000000
@@ -20,7 +21,7 @@ MonoBehaviour:
   visual: {fileID: 0}
   Workforce: 2
   Cost:
-    wood: 50
+    wood: 75
     stone: 50
     iron: 0
     food: 0
