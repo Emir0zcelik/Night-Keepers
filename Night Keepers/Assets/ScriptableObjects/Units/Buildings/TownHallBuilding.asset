@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TownHallBuilding
   m_EditorClassIdentifier: 
   UnitName: 
-  MaxHealth: 250
+  MaxHealth: 300
   Damage: 0
   TimeBetweenAttacks: 0
   DetectionRangeRadius: 0

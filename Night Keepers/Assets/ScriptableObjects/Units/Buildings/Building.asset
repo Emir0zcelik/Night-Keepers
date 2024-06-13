@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Building
   m_EditorClassIdentifier: 
   UnitName: 
-  MaxHealth: 200
+  MaxHealth: 225
   Damage: 0
   TimeBetweenAttacks: 0
   DetectionRangeRadius: 0
