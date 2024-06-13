@@ -6,6 +6,16 @@ public class PlayerBaseManager : Singleton<PlayerBaseManager>
     [SerializeField]
     private List<GameObject> _playerBaseList = new List<GameObject>();
 
+    private void LateUpdate()
+    {
+        if (!_playerBaseList[0])
+        {
+            Debug.Log("Game Over");
+            Time.timeScale = 0;
+            // set game over screen active
+        }
+    }
+
     private void OnEnable()
     {
         BuildingManager.OnMainBuildingPlaced += OnMainBuildingPlaced;
