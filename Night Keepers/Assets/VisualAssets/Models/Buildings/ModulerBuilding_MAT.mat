@@ -14,6 +14,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _BUILDINGLIGHT
+  - _ISDESOLVE
   - _RIMLIGHT
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -63,7 +64,7 @@ Material:
     - _EmissiveNoiseScale: 5
     - _FlickingCount: 0.95
     - _Float: 0
-    - _ISDESOLVE: 0
+    - _ISDESOLVE: 1
     - _LeafFrequency: 0
     - _LeafSpeed: 0
     - _LeafWave: 0
