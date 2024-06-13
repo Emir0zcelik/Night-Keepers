@@ -108,7 +108,8 @@ namespace NightKeepers
         {
             if (_unitDictionary.ContainsKey(unit))
             {
-                _unitDictionary[unit]--;
+                if (_unitDictionary[unit] > 0) _unitDictionary[unit]--;
+                
                 UpdateButtons(unit);
 
                 if (_placedUnitDictionary.ContainsKey(unit))
