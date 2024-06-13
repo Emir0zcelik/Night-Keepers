@@ -46,9 +46,9 @@ public class UnitAttackState : UnitState
         if (_timer > unit.UnitData.TimeBetweenAttacks)
         {
             _timer = 0;
-            unit.DoAttack();
             if (_target != null)
             {
+                unit.DoAttack();
                 _target.TakeDamage(unit.UnitData.Damage);
             }
         }
