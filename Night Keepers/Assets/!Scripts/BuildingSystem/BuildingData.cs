@@ -100,6 +100,18 @@ public class BuildingData : ScriptableObject
         }
     }
 
+    public Vector2Int GetRotationOffsetResearchBuilding(Dir dir)
+    {
+        switch (dir)
+        {
+            default:
+            case Dir.Down: return new Vector2Int(0, 1);
+            case Dir.Left: return new Vector2Int(widthHeight.x / 2, 2);
+            case Dir.Up: return new Vector2Int(2, 0);
+            case Dir.Right: return new Vector2Int(0, 0);
+        }
+    }
+
     public List<Vector2Int> GetGridPositionList(Vector2Int offset, Dir dir)
     {
         List<Vector2Int> gridPositionList = new List<Vector2Int>();

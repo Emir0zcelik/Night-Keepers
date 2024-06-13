@@ -5,7 +5,7 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     public BuildingData buildingData;
-    public BuildingData.Dir direction = BuildingData.Dir.Down;
+    public BuildingData.Dir direction;
     public BuildingData.BuildingType buildingType = BuildingData.BuildingType.Empty;
 
     public int sameTileCount = 0;

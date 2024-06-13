@@ -243,10 +243,20 @@ public class BuildingManager : Singleton<BuildingManager>
                 meshRendererPreviews[buildingNumber].materials = yourMaterials;
             }
             
+            if (buildingNumber==7)
+            {
+                Vector2Int rotationOffset = buildingPreviews[buildingNumber].buildingData.GetRotationOffsetResearchBuilding(buildingPreviews[buildingNumber].direction);
+                Vector3 instantiatedBuildingWorldPosition = GridManager.Instance._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * GridManager.Instance.cellSize;
+                previews[buildingNumber].transform.position = instantiatedBuildingWorldPosition;
+            }
+            else
+            {
+                Vector2Int rotationOffset = buildingPreviews[buildingNumber].buildingData.GetRotationOffset(buildingPreviews[buildingNumber].direction);
+                Vector3 instantiatedBuildingWorldPosition = GridManager.Instance._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * GridManager.Instance.cellSize;
+                previews[buildingNumber].transform.position = instantiatedBuildingWorldPosition;
+            }
             
-            Vector2Int rotationOffset = buildingPreviews[buildingNumber].buildingData.GetRotationOffset(buildingPreviews[buildingNumber].direction);
-            Vector3 instantiatedBuildingWorldPosition = GridManager.Instance._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * GridManager.Instance.cellSize;
-            previews[buildingNumber].transform.position = instantiatedBuildingWorldPosition;
+
             
 
 
