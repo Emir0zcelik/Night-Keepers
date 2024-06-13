@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3517305590035528762
 Transform:
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7899736733849003493
 Transform:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2037838987889457546
 Transform:
   m_ObjectHideFlags: 0
@@ -364,6 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4324547681956942627}
   - component: {fileID: 7344031187767561164}
+  - component: {fileID: 39790242554478952}
   m_Layer: 8
   m_Name: FarmingHouseParent
   m_TagString: Selectable
@@ -412,6 +413,27 @@ MonoBehaviour:
   buildingType: 0
   sameTileCount: 0
   deleteCooldown: 0
+--- !u!114 &39790242554478952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316877557443988481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2843091111372fe41af44e579080cf4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 1540514475716976912}
+  - {fileID: 82428242890447833}
+  - {fileID: 6385139626616395485}
+  - {fileID: 8580331161629994205}
+  - {fileID: 1088226117275005226}
+  - {fileID: 6307703634598860718}
+  - {fileID: 5049432998122354934}
+  - {fileID: 8517193903449733215}
 --- !u!1 &8580331161629994205
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &874170245594138009
 Transform:
   m_ObjectHideFlags: 0
@@ -543,6 +565,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch
       objectReference: {fileID: 0}
+    - target: {fileID: 426656637318329866, guid: 104d01f53e4627b4faf14fff7d05c524,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 701574976993050640, guid: 104d01f53e4627b4faf14fff7d05c524,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -628,6 +655,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 104d01f53e4627b4faf14fff7d05c524, type: 3}
+--- !u!1 &1088226117275005226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 426656637318329866, guid: 104d01f53e4627b4faf14fff7d05c524,
+    type: 3}
+  m_PrefabInstance: {fileID: 788673163043096352}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5527193692576494151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063567091712161127, guid: 104d01f53e4627b4faf14fff7d05c524,
@@ -820,6 +853,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 426656637318329866, guid: 104d01f53e4627b4faf14fff7d05c524,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 701574976993050640, guid: 104d01f53e4627b4faf14fff7d05c524,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -911,6 +949,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4897938907722419964}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5049432998122354934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 426656637318329866, guid: 104d01f53e4627b4faf14fff7d05c524,
+    type: 3}
+  m_PrefabInstance: {fileID: 4897938907722419964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5936517240934326692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -923,6 +967,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Torch (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 426656637318329866, guid: 104d01f53e4627b4faf14fff7d05c524,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 701574976993050640, guid: 104d01f53e4627b4faf14fff7d05c524,
         type: 3}
@@ -1015,6 +1064,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5936517240934326692}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6307703634598860718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 426656637318329866, guid: 104d01f53e4627b4faf14fff7d05c524,
+    type: 3}
+  m_PrefabInstance: {fileID: 5936517240934326692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8347685009738796629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1027,6 +1082,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Torch (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 426656637318329866, guid: 104d01f53e4627b4faf14fff7d05c524,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 701574976993050640, guid: 104d01f53e4627b4faf14fff7d05c524,
         type: 3}
@@ -1116,6 +1176,12 @@ PrefabInstance:
 --- !u!4 &3863393833539205938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063567091712161127, guid: 104d01f53e4627b4faf14fff7d05c524,
+    type: 3}
+  m_PrefabInstance: {fileID: 8347685009738796629}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8517193903449733215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 426656637318329866, guid: 104d01f53e4627b4faf14fff7d05c524,
     type: 3}
   m_PrefabInstance: {fileID: 8347685009738796629}
   m_PrefabAsset: {fileID: 0}

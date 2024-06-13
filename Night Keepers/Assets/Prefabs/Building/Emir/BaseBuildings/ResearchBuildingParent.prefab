@@ -14972,6 +14972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4135013046195719230}
   - component: {fileID: 3364409013440261831}
+  - component: {fileID: 2376589333033229755}
   m_Layer: 8
   m_Name: ResearchBuildingParent
   m_TagString: Selectable
@@ -15019,6 +15020,26 @@ MonoBehaviour:
   buildingType: 4
   sameTileCount: 0
   deleteCooldown: 0
+--- !u!114 &2376589333033229755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2901104052683862647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2843091111372fe41af44e579080cf4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 2509359827300081329}
+  - {fileID: 7038766070779836197}
+  - {fileID: 1263203987636840158}
+  - {fileID: 74973959247272288}
+  - {fileID: 7724029704809451500}
+  - {fileID: 1404369482140028737}
+  - {fileID: 6883985777792579403}
 --- !u!1 &3518866341208439545
 GameObject:
   m_ObjectHideFlags: 0
@@ -49078,6 +49099,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch
       objectReference: {fileID: 0}
+    - target: {fileID: 426656637318329866, guid: 104d01f53e4627b4faf14fff7d05c524,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 701574976993050640, guid: 104d01f53e4627b4faf14fff7d05c524,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -49286,6 +49312,12 @@ PrefabInstance:
 --- !u!4 &2028442916373754918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063567091712161127, guid: 104d01f53e4627b4faf14fff7d05c524,
+    type: 3}
+  m_PrefabInstance: {fileID: 6513081805472596289}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6883985777792579403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 426656637318329866, guid: 104d01f53e4627b4faf14fff7d05c524,
     type: 3}
   m_PrefabInstance: {fileID: 6513081805472596289}
   m_PrefabAsset: {fileID: 0}
