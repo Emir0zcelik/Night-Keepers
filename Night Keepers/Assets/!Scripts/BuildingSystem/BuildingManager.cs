@@ -24,7 +24,7 @@ public class BuildingManager : Singleton<BuildingManager>
     private int buildingNumber;
     public bool isPlaced = false;
     bool isPlaceBuilding = false;
-    bool isBuildingMode = true;
+    public bool isBuildingMode = false;
     public bool isTownHallPlaced = false;
     public bool isLumberjackPlaced = false;
     public bool isFarmPlaced = false;
@@ -106,19 +106,14 @@ public class BuildingManager : Singleton<BuildingManager>
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            isRotated = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape))
         {
             isBuildingMode = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetMouseButtonDown(1))
         {
-            isBuildingMode = true;
+            isRotated = true;
         }
 
         if (isDeleteMode)
@@ -274,6 +269,12 @@ public class BuildingManager : Singleton<BuildingManager>
         if (Input.GetMouseButtonDown(0))
         {
             List<Vector2Int> gridPositionList = buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildingPreviews[buildingNumber].direction);
+
+            foreach (var position in gridPositionList)
+            {
+                Debug.Log(position);
+            }
+
             if (!isTownHallPlaced && buildingNumber != 3)
             {
                 Debug.Log("You must place the TownHall first.");
@@ -327,7 +328,7 @@ public class BuildingManager : Singleton<BuildingManager>
                 Building instantiatedBuilding = Instantiate(
                     buildings[buildingNumber],
                     previews[buildingNumber].transform.position,
-                    Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
+                    Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildings[buildingNumber].direction), 0));
 
                 foreach (Vector2Int position in gridPositionList)
                 {
@@ -378,6 +379,7 @@ public class BuildingManager : Singleton<BuildingManager>
                 {
                     ResearchPointManager.Instance.StartGeneratingResearchPoints();
                 }
+                isBuildingMode = false;
             }
         }
     }
