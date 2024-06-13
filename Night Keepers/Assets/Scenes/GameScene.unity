@@ -4728,6 +4728,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2726668013106137404, guid: 2b729dd5c7f42db48b6d22af4f2311bb,
+        type: 3}
+      propertyPath: m_Name
+      value: SpearmanUnitButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726668013106137404, guid: 2b729dd5c7f42db48b6d22af4f2311bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171757924692743939, guid: 2b729dd5c7f42db48b6d22af4f2311bb,
+        type: 3}
+      propertyPath: m_Name
+      value: ProduceSpearmanUnitButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3353723780441766852, guid: 2b729dd5c7f42db48b6d22af4f2311bb,
         type: 3}
       propertyPath: m_AnchorMax.x
