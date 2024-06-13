@@ -8,6 +8,8 @@ public class PlayerBaseManager : Singleton<PlayerBaseManager>
 
     private void LateUpdate()
     {
+        if (!BuildingManager.Instance.isTownHallPlaced) return;
+
         if (!_playerBaseList[0])
         {
             Debug.Log("Game Over");
@@ -28,6 +30,7 @@ public class PlayerBaseManager : Singleton<PlayerBaseManager>
 
     private void OnMainBuildingPlaced(GameObject mainBuilding)
     {
+
         _playerBaseList.Add(mainBuilding);
         EnemySpawnManager.Instance.SetTargetBase(GetSelectedBasePosition());
     }
