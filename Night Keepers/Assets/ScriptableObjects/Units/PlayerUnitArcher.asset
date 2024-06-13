@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: Archer
   MaxHealth: 50
-  Damage: 30
+  Damage: 23
   TimeBetweenAttacks: 1.1
   DetectionRangeRadius: 70
   AttackRangeRadius: 50
@@ -31,9 +31,9 @@ MonoBehaviour:
   Side: 0
   UnitButtonPrefab: {fileID: 7878379943576522196, guid: f85e5bfdb1149db40a52fb3edc447328,
     type: 3}
-  ProductionTime: 10
+  ProductionTime: 12
   Cost:
-    wood: 70
+    wood: 80
     stone: 0
     iron: 0
-    food: 70
+    food: 80
