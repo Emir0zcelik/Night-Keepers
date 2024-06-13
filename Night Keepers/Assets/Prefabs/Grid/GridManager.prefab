@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7987915510276431226}
-  - component: {fileID: 1537138583371703022}
   - component: {fileID: 6410684311430121414}
   m_Layer: 0
   m_Name: GridManager
@@ -33,20 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1537138583371703022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6086393026546529161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83d9d57bba22122408089aaf7912e26a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameSeed: Minecraft
-  CurrentSeed: 0
 --- !u!114 &6410684311430121414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,3 +69,4 @@ MonoBehaviour:
   - {fileID: 8374549972984234659, guid: 9152b0d259d8af84c82dbc0283bab91e, type: 3}
   - {fileID: 6158549227335794656, guid: c5d7894f752499946ab243ab2d058946, type: 3}
   waterParent: {fileID: 0}
+  waterDeepCube: {fileID: 0}

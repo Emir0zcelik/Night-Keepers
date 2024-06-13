@@ -2,6 +2,7 @@ using NightKeepers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class MainMenu : MonoBehaviour
     public void GameSceneChange()
     {
         Seed.Instance.GameSeed = seed.text;
+        Seed.Instance.ChangeSeed();
         SceneManager.LoadSceneAsync("GameScene");
     }
 

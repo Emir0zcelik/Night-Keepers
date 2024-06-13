@@ -9,10 +9,16 @@ namespace NightKeepers
         public string GameSeed = "Default";
         public int CurrentSeed = 0;
 
-        private void Awake() {
+        
+        protected override void Awake(){
+            base.Awake();
+            DontDestroyOnLoad(this);
+        }
+
+        public void ChangeSeed()
+        {
             CurrentSeed = GameSeed.GetHashCode();
             Random.InitState(CurrentSeed);
-            
         }
     }
 }
