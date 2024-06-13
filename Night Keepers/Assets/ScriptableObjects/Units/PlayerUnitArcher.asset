@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97ad304ca4ae95f4e99310481ddd3af7, type: 3}
-  m_Name: PlayerUnitMeleePurple
+  m_Name: PlayerUnitArcher
   m_EditorClassIdentifier: 
-  UnitName: Purple
-  MaxHealth: 100
-  Damage: 20
-  TimeBetweenAttacks: 1.5
-  DetectionRangeRadius: 20
-  AttackRangeRadius: 2.5
-  MovementSpeed: 6
+  UnitName: Archer
+  MaxHealth: 80
+  Damage: 30
+  TimeBetweenAttacks: 1.1
+  DetectionRangeRadius: 70
+  AttackRangeRadius: 30
+  MovementSpeed: 8
   targetPreferences:
   - unitType: 0
     weight: 1
   - unitType: 1
     weight: 1
   - unitType: 2
-    weight: 1
+    weight: 2
   UnitPowerPoints: 1
-  Type: 1
+  Type: 2
   Side: 0
   UnitButtonPrefab: {fileID: 7878379943576522196, guid: f85e5bfdb1149db40a52fb3edc447328,
     type: 3}
-  ProductionTime: 5
+  ProductionTime: 10
   Cost:
-    wood: 0
+    wood: 50
     stone: 0
     iron: 0
-    food: 0
+    food: 60

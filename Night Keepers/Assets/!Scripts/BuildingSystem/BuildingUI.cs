@@ -69,6 +69,7 @@ public class BuildingUI : MonoBehaviour
     public void House()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.House);
+        BuildingManager.Instance.isBuildingMode = true;
         //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
@@ -80,30 +81,35 @@ public class BuildingUI : MonoBehaviour
     public void TownHall()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.TownHall);
+        BuildingManager.Instance.isBuildingMode = true;
         //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void ResearchBuilding()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.ResearchBuilding);
+        BuildingManager.Instance.isBuildingMode = true;
         //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void LumberJack()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.Lumberjack);
+        BuildingManager.Instance.isBuildingMode = true;
         //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void Farm()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.Farm);
+        BuildingManager.Instance.isBuildingMode = true;
         //notResearchedAnimation.SetBool("shouldPlayAnimation", true);
     }
 
     public void StoneMine()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.StoneMine);
+        BuildingManager.Instance.isBuildingMode = true;
         // notResearchedAnimation.SetBool("shouldPlayAnimation", true);
         /*if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.StoneMine))
         {
@@ -118,6 +124,7 @@ public class BuildingUI : MonoBehaviour
     public void IronMine()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.IronMine);
+        BuildingManager.Instance.isBuildingMode = true;
         /*if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.IronMine))
          {
              BuildingManager.Instance.SetBuildingType(BuildingType.StoneMine);            
@@ -128,17 +135,20 @@ public class BuildingUI : MonoBehaviour
 
     public void FishingHouse()
     {
+        BuildingManager.Instance.isBuildingMode = true;
         // BuildingManager.Instance.SetBuildingType(BuildingType.FishingHouse);
     }
 
     public void Barracks()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.Barracks);
+        BuildingManager.Instance.isBuildingMode = true;
     }
 
     public void Walls()
     {
         BuildingManager.Instance.SetBuildingType(BuildingType.Wall);
+        BuildingManager.Instance.isBuildingMode = true;
         /* if (upgrades.unlockedUpgrades.Contains(Upgrades.ResearchUpgrades.Wall))
               {
              BuildingManager.Instance.SetBuildingType(BuildingType.Wall);
@@ -150,6 +160,7 @@ public class BuildingUI : MonoBehaviour
 
     public void Traps()
     {
+        BuildingManager.Instance.isBuildingMode = true;
         // BuildingManager.Instance.SetBuildingType(BuildingType.Traps);
     }
 
