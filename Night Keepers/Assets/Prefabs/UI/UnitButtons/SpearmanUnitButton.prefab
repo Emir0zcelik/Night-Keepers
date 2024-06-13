@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8736705161435494550}
   - component: {fileID: 2809651297999690073}
   m_Layer: 5
-  m_Name: GreenUnitButton
+  m_Name: SpearmanUnitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

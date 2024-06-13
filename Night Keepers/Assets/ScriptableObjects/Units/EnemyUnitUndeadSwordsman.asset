@@ -10,24 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97ad304ca4ae95f4e99310481ddd3af7, type: 3}
-  m_Name: UndeadSwordsmanWhite
+  m_Name: EnemyUnitUndeadSwordsman
   m_EditorClassIdentifier: 
-  UnitName: White
-  MaxHealth: 200
-  Damage: 50
+  UnitName: UndeadSwordsman
+  MaxHealth: 100
+  Damage: 8
   TimeBetweenAttacks: 1.5
   DetectionRangeRadius: 40
   AttackRangeRadius: 2.5
-  MovementSpeed: 6
+  MovementSpeed: 12
   targetPreferences:
   - unitType: 0
-    weight: 2
+    weight: 1
   - unitType: 1
     weight: 1
   - unitType: 2
     weight: 1
-  UnitPowerPoints: 10
+  UnitPowerPoints: 1
   Type: 1
   Side: 1
   UnitButtonPrefab: {fileID: 0}
   ProductionTime: 0
+  Cost:
+    wood: 0
+    stone: 0
+    iron: 0
+    food: 0

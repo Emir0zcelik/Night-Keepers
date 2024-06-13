@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 5422213758170375104}
   - component: {fileID: 478359509232283246}
   m_Layer: 9
-  m_Name: EnemyUnitRed
+  m_Name: EnemyUnitUndeadSwordsman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

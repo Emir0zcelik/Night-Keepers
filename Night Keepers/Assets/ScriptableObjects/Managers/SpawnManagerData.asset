@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779c07f5f88ff604bad0a278512785c5, type: 3}
   m_Name: SpawnManagerData
   m_EditorClassIdentifier: 
-  _spawnDelay: 0.3
-  _zOffset: 10
+  _spawnDelay: 0.35
+  _zOffset: 15
   _lowPowerPointThreshold: 5
   _spawnCurve:
     serializedVersion: 2
@@ -50,3 +50,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   EnemyList:
   - {fileID: 333135734097797818, guid: 4cde2cad9bb8e2e46815834411c583c3, type: 3}
+  - {fileID: 6191611343210676189, guid: 8d8b899d76c37c64693c6e72502a9b6a, type: 3}
