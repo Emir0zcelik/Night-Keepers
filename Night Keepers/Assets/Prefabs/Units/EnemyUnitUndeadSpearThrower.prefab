@@ -363,7 +363,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
-  _spearPrefab: {fileID: 1485300836921558472, guid: 4ffbee6800a98264794a388da507f91a,
+  _spearPrefab: {fileID: 3614406534158015248, guid: b139fcdfe9442b749a39e8103ebc6069,
     type: 3}
   _rightHand: {fileID: 2730520920949254585}
 --- !u!4 &842910344062957650 stripped

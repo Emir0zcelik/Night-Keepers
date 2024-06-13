@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PlayerUnitArcher
   m_EditorClassIdentifier: 
   UnitName: Archer
-  MaxHealth: 80
+  MaxHealth: 50
   Damage: 30
   TimeBetweenAttacks: 1.1
   DetectionRangeRadius: 70
-  AttackRangeRadius: 30
+  AttackRangeRadius: 50
   MovementSpeed: 8
   targetPreferences:
   - unitType: 0

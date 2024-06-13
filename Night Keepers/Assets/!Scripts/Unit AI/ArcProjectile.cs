@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace NightKeepers
 {
-    public class ThrownSpear : MonoBehaviour
+    public class ArcProjectile : MonoBehaviour
     {
         public float speed = 10f;
         public float arcHeight = 5f;
@@ -32,7 +32,7 @@ namespace NightKeepers
             Vector3 direction = (_targetPosition - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * speed);
-            transform.LookAt(_targetPosition);
+            //transform.LookAt(_targetPosition);
 
             elapsedTime += Time.deltaTime;
 

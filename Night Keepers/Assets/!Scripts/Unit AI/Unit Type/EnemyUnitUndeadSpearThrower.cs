@@ -11,7 +11,7 @@ namespace NightKeepers
         {
             base.DoAttack();
             var spear = Instantiate(_spearPrefab, _rightHand.position, Quaternion.identity);
-            spear.GetComponent<ThrownSpear>().Thrown(_rightHand.position, GetCurrentTargetPosition());
+            spear.GetComponent<ArcProjectile>().Thrown(_rightHand.position, GetCurrentTargetPosition());
         }
     }
 }
