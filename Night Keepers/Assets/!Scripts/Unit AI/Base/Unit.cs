@@ -346,4 +346,6 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
         }
         return false;
     }
+
+    public virtual void DoAttack() { }
 }

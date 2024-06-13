@@ -50,4 +50,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   EnemyList:
   - {fileID: 333135734097797818, guid: 4cde2cad9bb8e2e46815834411c583c3, type: 3}
-  - {fileID: 6191611343210676189, guid: 8d8b899d76c37c64693c6e72502a9b6a, type: 3}
+  - {fileID: 5002799233795003715, guid: 8d8b899d76c37c64693c6e72502a9b6a, type: 3}
