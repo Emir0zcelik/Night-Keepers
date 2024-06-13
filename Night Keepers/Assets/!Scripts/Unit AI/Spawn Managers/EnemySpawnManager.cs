@@ -112,6 +112,12 @@ public class EnemySpawnManager : Singleton<EnemySpawnManager>
 
     private Unit SelectEnemyToSpawn(int currentWavePowerPoints)
     {
+        // temporary if
+        if (TimeManager.Instance.DayCount == 1 || TimeManager.Instance.DayCount == 2)
+        {
+            return _spawnManagerData.EnemyList[0];
+        }
+
         if (currentWavePowerPoints > _spawnManagerData._lowPowerPointThreshold)
         {
             while (true)

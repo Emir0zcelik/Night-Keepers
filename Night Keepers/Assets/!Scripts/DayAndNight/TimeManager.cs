@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace NightKeepers
@@ -7,11 +8,12 @@ namespace NightKeepers
     {
         [SerializeField] private float dayTimeLength;
         [SerializeField] private float nightTimeLength;
+        [SerializeField] private TextMeshProUGUI _dayCountText;
 
         private float timeLength;
         private float _globalTime;
         private bool _isDay = true;
-        [SerializeField]private int _dayCount = 1;
+        private int _dayCount = 1;
 
         public static event Action OnNightArrived;
         public static event Action OnDayArrived;
@@ -60,7 +62,7 @@ namespace NightKeepers
                         timeLength = dayTimeLength;
                         OnDayArrived?.Invoke();
                         _dayCount++;
-                        Debug.Log(DayCount);
+                        _dayCountText.text = "Day: " + DayCount;
                     }
                 }
             }

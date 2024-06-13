@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EnemyUnitUndeadSpearThrower
   m_EditorClassIdentifier: 
   UnitName: UndeadSpearThrower
-  MaxHealth: 80
+  MaxHealth: 60
   Damage: 20
-  TimeBetweenAttacks: 1.7
+  TimeBetweenAttacks: 1.2
   DetectionRangeRadius: 60
   AttackRangeRadius: 25
   MovementSpeed: 10

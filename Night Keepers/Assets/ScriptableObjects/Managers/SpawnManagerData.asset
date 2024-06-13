@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnDelay: 0.35
   _zOffset: 15
-  _lowPowerPointThreshold: 5
+  _lowPowerPointThreshold: 3
   _spawnCurve:
     serializedVersion: 2
     m_Curve:

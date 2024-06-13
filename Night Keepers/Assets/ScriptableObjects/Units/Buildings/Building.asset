@@ -12,13 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ad304ca4ae95f4e99310481ddd3af7, type: 3}
   m_Name: Building
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  UnitName: 
+  MaxHealth: 200
   Damage: 0
   TimeBetweenAttacks: 0
   DetectionRangeRadius: 0
   AttackRangeRadius: 0
-  movementSpeed: 0
+  MovementSpeed: 0
   targetPreferences: []
-  UnitPowerPoint: 0
-  Side: 0
+  UnitPowerPoints: 1
   Type: 0
+  Side: 0
+  UnitButtonPrefab: {fileID: 0}
+  ProductionTime: 0
+  Cost:
+    wood: 0
+    stone: 0
+    iron: 0
+    food: 0
