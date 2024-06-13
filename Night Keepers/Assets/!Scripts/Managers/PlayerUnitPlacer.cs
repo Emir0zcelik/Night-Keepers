@@ -50,7 +50,7 @@ namespace NightKeepers
             Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Tile")))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Tile")) && _spawnedUnitObject)
             {
                 _spawnedUnitObject.transform.position = hit.point + Vector3.up;
             }

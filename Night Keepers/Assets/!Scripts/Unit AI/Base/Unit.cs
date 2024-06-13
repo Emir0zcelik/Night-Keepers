@@ -180,6 +180,8 @@ public class Unit : MonoBehaviour, IDamageable, IMoveable, ITriggerCheckable
 
     public Vector3 GetCurrentTargetPosition()
     {
+        if (!Target) return Vector3.zero;
+
         return Target.transform.position;
     }
 

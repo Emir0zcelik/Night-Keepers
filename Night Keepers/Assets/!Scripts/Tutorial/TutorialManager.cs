@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace NightKeepers
@@ -24,11 +22,6 @@ namespace NightKeepers
         public bool isTownHall = false;
         public bool isBackButton = false;
         public bool isCloseButton = false;
-
-
-        private void Awake() {
-            
-        }
 
         void Update()
         {

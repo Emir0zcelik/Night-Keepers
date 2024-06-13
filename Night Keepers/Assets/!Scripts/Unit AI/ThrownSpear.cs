@@ -14,6 +14,9 @@ namespace NightKeepers
 
         private bool _isThrown = false;
 
+        private float activeTime = 3.0f; 
+        private float elapsedTime = 0.0f;
+
         void Update()
         {
             if (!_isThrown) return;
@@ -30,6 +33,13 @@ namespace NightKeepers
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * speed);
             transform.LookAt(_targetPosition);
+
+            elapsedTime += Time.deltaTime;
+
+            if (elapsedTime >= activeTime)
+            {
+                Destroy(gameObject);
+            }
         }
 
         public void Thrown(Vector3 startingPos, Vector3 targetPos)

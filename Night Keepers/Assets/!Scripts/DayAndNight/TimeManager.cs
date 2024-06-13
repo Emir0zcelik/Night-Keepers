@@ -11,6 +11,7 @@ namespace NightKeepers
         private float timeLength;
         private float _globalTime;
         private bool _isDay = true;
+        [SerializeField]private int _dayCount = 1;
 
         public static event Action OnNightArrived;
         public static event Action OnDayArrived;
@@ -25,6 +26,11 @@ namespace NightKeepers
         public bool IsDay
         {
             get { return _isDay; }
+        }
+
+        public int DayCount
+        {
+            get { return _dayCount; }
         }
 
         private void Start()
@@ -53,6 +59,8 @@ namespace NightKeepers
                     {
                         timeLength = dayTimeLength;
                         OnDayArrived?.Invoke();
+                        _dayCount++;
+                        Debug.Log(DayCount);
                     }
                 }
             }
