@@ -33,7 +33,7 @@ MonoBehaviour:
     type: 3}
   ProductionTime: 10
   Cost:
-    wood: 50
+    wood: 70
     stone: 0
     iron: 0
-    food: 60
+    food: 70

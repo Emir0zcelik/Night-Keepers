@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779c07f5f88ff604bad0a278512785c5, type: 3}
   m_Name: SpawnManagerData
   m_EditorClassIdentifier: 
-  _spawnDelay: 0.35
+  _spawnDelay: 0.15
   _zOffset: 15
   _lowPowerPointThreshold: 3
   _spawnCurve:
@@ -20,7 +20,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 1
-      value: 5
+      value: 4
       inSlope: 4.1418633
       outSlope: 4.1418633
       tangentMode: 0
