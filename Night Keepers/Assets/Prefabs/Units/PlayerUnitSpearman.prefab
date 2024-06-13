@@ -469,7 +469,7 @@ PrefabInstance:
     - target: {fileID: 5861037828237610178, guid: 4cde2cad9bb8e2e46815834411c583c3,
         type: 3}
       propertyPath: m_Name
-      value: PlayerUnitGreen
+      value: PlayerUnitSpearman
       objectReference: {fileID: 0}
     - target: {fileID: 5861037828237610178, guid: 4cde2cad9bb8e2e46815834411c583c3,
         type: 3}
