@@ -6,15 +6,16 @@ public class PlayerBaseManager : Singleton<PlayerBaseManager>
     [SerializeField]
     private List<GameObject> _playerBaseList = new List<GameObject>();
 
+    [SerializeField] private GameObject _gameOverScreen;
+
     private void LateUpdate()
     {
         if (!BuildingManager.Instance.isTownHallPlaced) return;
 
         if (!_playerBaseList[0])
         {
-            Debug.Log("Game Over");
             Time.timeScale = 0;
-            // set game over screen active
+            _gameOverScreen.SetActive(true);
         }
     }
 
