@@ -3,7 +3,22 @@ guid: 8ade20aa25da61445b4f8c6e5565545b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human_Archer_MAT
+    second: {fileID: 2100000, guid: 3541fd4517f5b2b4094c3ebe48154c95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human_Archer_Weapon_MAT
+    second: {fileID: 2100000, guid: a343b8676aa9ab94fbd7cb77a8f09bdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human_MAT
+    second: {fileID: 2100000, guid: 539f7c4dce67a0942bebfb43fd2a96d6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
