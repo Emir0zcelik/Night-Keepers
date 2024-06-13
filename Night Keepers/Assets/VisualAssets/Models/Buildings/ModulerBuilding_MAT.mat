@@ -13,6 +13,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _BUILDINGLIGHT
   - _ISDESOLVE
   - _RIMLIGHT
   m_InvalidKeywords: []
@@ -28,6 +29,10 @@ Material:
     m_TexEnvs:
     - _AlbedoMap:
         m_Texture: {fileID: 2800000, guid: 85a5cf988d3486549898a5026ad6e207, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissive:
+        m_Texture: {fileID: 2800000, guid: 418204e2740ef2f45b7d31d9b9cb3310, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SSSTexture:
@@ -48,11 +53,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Adjust: 0.8
     - _AlphaClipping: 0.85
+    - _BUILDINGLIGHT: 1
     - _BranchMove: 0.1
     - _BranchStiffness: 0.1
     - _DissolveTime: 0
     - _EdgeWidth: 2
+    - _EmissiveClampRate: 0.4
+    - _EmissiveNoiseScale: 5
+    - _FlickingCount: 0.95
+    - _Float: 0
     - _ISDESOLVE: 1
     - _LeafFrequency: 0
     - _LeafSpeed: 0
@@ -70,12 +81,14 @@ Material:
     - _ShadowPower: 12.17
     - _Strenght: 1.84
     - _Thickness: 6.41
+    - _Timer: 1
     - _VEGETATION: 0
     - _WIND: 0
     - _WindBend: 4
     - _WindDirection: 1
     - _WindOffset: 10
     m_Colors:
+    - _EmissiveColor: {r: 1.8443024, g: 0.9034993, b: 0.22618778, a: 0}
     - _Input: {r: 0, g: 0, b: 0, a: 0}
     - _MainColor: {r: 1, g: 1, b: 1, a: 0}
     - _RimLightColor: {r: 0.80817604, g: 0.9315089, b: 1, a: 0}

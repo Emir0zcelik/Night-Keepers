@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97ad304ca4ae95f4e99310481ddd3af7, type: 3}
-  m_Name: UndeadSwordsmanRed
+  m_Name: PlayerUnitSpearman
   m_EditorClassIdentifier: 
-  UnitName: Red
+  UnitName: Spearman
   MaxHealth: 100
-  Damage: 8
+  Damage: 20
   TimeBetweenAttacks: 1.5
-  DetectionRangeRadius: 40
+  DetectionRangeRadius: 60
   AttackRangeRadius: 2.5
   MovementSpeed: 12
   targetPreferences:
@@ -28,11 +28,12 @@ MonoBehaviour:
     weight: 2
   UnitPowerPoints: 1
   Type: 1
-  Side: 1
-  UnitButtonPrefab: {fileID: 0}
-  ProductionTime: 0
+  Side: 0
+  UnitButtonPrefab: {fileID: 2877538126342939245, guid: 5c5dbd964127d1b418f525f48fb87028,
+    type: 3}
+  ProductionTime: 7
   Cost:
-    wood: 0
+    wood: 30
     stone: 0
     iron: 0
-    food: 0
+    food: 50

@@ -10,24 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97ad304ca4ae95f4e99310481ddd3af7, type: 3}
-  m_Name: UndeadSwordsmanBlue
+  m_Name: EnemyUnitUndeadSpearThrower
   m_EditorClassIdentifier: 
-  UnitName: Blue
-  MaxHealth: 140
-  Damage: 35
+  UnitName: UndeadSpearThrower
+  MaxHealth: 100
+  Damage: 20
   TimeBetweenAttacks: 1.5
-  DetectionRangeRadius: 40
-  AttackRangeRadius: 2.5
-  MovementSpeed: 6
+  DetectionRangeRadius: 60
+  AttackRangeRadius: 25
+  MovementSpeed: 10
   targetPreferences:
   - unitType: 0
     weight: 1
   - unitType: 1
-    weight: 1
+    weight: 2
   - unitType: 2
     weight: 2
-  UnitPowerPoints: 5
-  Type: 1
+  UnitPowerPoints: 2
+  Type: 2
   Side: 1
   UnitButtonPrefab: {fileID: 0}
   ProductionTime: 0
+  Cost:
+    wood: 0
+    stone: 0
+    iron: 0
+    food: 0
