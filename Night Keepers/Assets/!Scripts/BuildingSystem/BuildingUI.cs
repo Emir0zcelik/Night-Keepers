@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using NightKeepers;
 using UnityEngine;
 using UnityEngine.UI;
 using static BuildingData;
@@ -14,7 +15,14 @@ public class BuildingUI : MonoBehaviour
     [SerializeField] private GameObject backButton;
     [SerializeField] private Animator notResearchedAnimation;
 
-
+    public void MainMenu()
+    {
+        backButton.SetActive(false);
+        resourceBuildingButtons.SetActive(false);
+        militartDefenseButtons.SetActive(false);
+        generalBuildingButtons.SetActive(false);
+        buildingMainMenuButtons.SetActive(true);
+    }
     public void GeneralBuildings()
     {
         buildingMainMenuButtons.SetActive(false);
@@ -22,6 +30,7 @@ public class BuildingUI : MonoBehaviour
         militartDefenseButtons.SetActive(false);
         generalBuildingButtons.SetActive(true);
         backButton.SetActive(true);
+        TutorialManager.Instance.isGeneralBuilding = true;
     }
 
     public void ResourceBuildings()
@@ -31,6 +40,7 @@ public class BuildingUI : MonoBehaviour
         generalBuildingButtons.SetActive(false);
         resourceBuildingButtons.SetActive(true);
         backButton.SetActive(true);
+        TutorialManager.Instance.isResourceBuilding = true;
     }
 
     public void MilitaryDefenseBuildings()
@@ -40,6 +50,7 @@ public class BuildingUI : MonoBehaviour
         generalBuildingButtons.SetActive(false);
         militartDefenseButtons.SetActive(true);
         backButton.SetActive(true);
+        TutorialManager.Instance.isMilitaryBuilding = true;
     }
 
     public void BackButton()
@@ -49,6 +60,10 @@ public class BuildingUI : MonoBehaviour
         militartDefenseButtons.SetActive(false);
         buildingMainMenuButtons.SetActive(true);
         backButton.SetActive(false);
+        TutorialManager.Instance.isBackButton = true;
+        TutorialManager.Instance.isGeneralBuilding = false;
+        TutorialManager.Instance.isResourceBuilding = false;
+        TutorialManager.Instance.isMilitaryBuilding = false;
     }
 
     public void House()

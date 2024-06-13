@@ -26,6 +26,9 @@ public class BuildingManager : Singleton<BuildingManager>
     bool isPlaceBuilding = false;
     bool isBuildingMode = true;
     public bool isTownHallPlaced = false;
+    public bool isLumberjackPlaced = false;
+    public bool isFarmPlaced = false;
+    public bool isBarrackPlaced = false;
     public int sameTileCount { get; private set; }
     private float buildingMultiplier;
     [SerializeField] private LayerMask layerMask;
@@ -349,11 +352,26 @@ public class BuildingManager : Singleton<BuildingManager>
                 RM.Instance.SetBuildingData(buildings[buildingNumber].buildingData);
                 Debug.Log($"Building placed: {buildings[buildingNumber].buildingData.name}");
 
+                if (buildingNumber == 2)
+                {
+                    isLumberjackPlaced = true;
+                }
+
                 if (buildingNumber == 3)
                 {
                     isTownHallPlaced = true;
                     TimeManager.Instance.isTimeStarted = true;
                     OnMainBuildingPlaced?.Invoke(instantiatedBuilding.gameObject);
+                }
+
+                if (buildingNumber == 4)
+                {
+                    isFarmPlaced = true;
+                }
+
+                if (buildingNumber == 8)
+                {
+                    isBarrackPlaced = true;
                 }
 
                 if (currentBuildingType == BuildingData.BuildingType.ResearchBuilding)

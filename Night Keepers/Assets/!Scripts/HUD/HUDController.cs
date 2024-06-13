@@ -16,12 +16,18 @@ namespace NightKeepers
 
         public void OpenBuildingUI()
         {
+            buildingUI.GetComponent<BuildingUI>().MainMenu();
             buildingUI.SetActive(true);
+            TutorialManager.Instance.isBuildingMainMenu = true;
+            TutorialManager.Instance.isCloseButton = true;
         }
 
         public void CloseBuildingUI()
         {
             buildingUI.SetActive(false);
+            TutorialManager.Instance.isCloseButton = false;
+            TutorialManager.Instance.isBuildingMainMenu = false;
+            TutorialManager.Instance.isBackButton = true;
         }
 
         public void TownHallFocus()
