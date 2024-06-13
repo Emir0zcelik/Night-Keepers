@@ -76,6 +76,18 @@ public class BuildingData : ScriptableObject
         }
     }
 
+    public int GetRotationAngleResearchBuilding(Dir dir)
+    {
+        switch (dir)
+        {
+            default:
+            case Dir.Down: return 0;
+            case Dir.Left: return 90;
+            case Dir.Up: return 180;
+            case Dir.Right: return 270;
+        }
+    }
+
     public Vector2Int GetRotationOffset(Dir dir)
     {
         switch (dir)
@@ -118,4 +130,5 @@ public class BuildingData : ScriptableObject
 
         return gridPositionList;
     }
+
 }

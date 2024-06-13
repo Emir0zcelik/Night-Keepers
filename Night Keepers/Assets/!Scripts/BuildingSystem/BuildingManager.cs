@@ -224,7 +224,7 @@ public class BuildingManager : Singleton<BuildingManager>
     {
         if (!isPlaced)
         {
-            if (TryBuild(buildings[buildingNumber], buildings[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildings[buildingNumber].direction)))
+            if (TryBuild(buildings[buildingNumber], buildingPreviews[buildingNumber].buildingData.GetGridPositionList(gridPosition, buildingPreviews[buildingNumber].direction)))
             {
                 var yourMaterials = new Material[]
                 {
@@ -242,10 +242,14 @@ public class BuildingManager : Singleton<BuildingManager>
 
                 meshRendererPreviews[buildingNumber].materials = yourMaterials;
             }
-
+            
+            
             Vector2Int rotationOffset = buildingPreviews[buildingNumber].buildingData.GetRotationOffset(buildingPreviews[buildingNumber].direction);
             Vector3 instantiatedBuildingWorldPosition = GridManager.Instance._grid.GridToWorldPosition(gridPosition) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * GridManager.Instance.cellSize;
             previews[buildingNumber].transform.position = instantiatedBuildingWorldPosition;
+            
+
+
             if (isRotated)
             {
                 buildingPreviews[buildingNumber].direction = BuildingData.GetNextDir(buildingPreviews[buildingNumber].direction);
@@ -328,7 +332,7 @@ public class BuildingManager : Singleton<BuildingManager>
                 Building instantiatedBuilding = Instantiate(
                     buildings[buildingNumber],
                     previews[buildingNumber].transform.position,
-                    Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildings[buildingNumber].direction), 0));
+                    Quaternion.Euler(0, buildings[buildingNumber].buildingData.GetRotationAngle(buildingPreviews[buildingNumber].direction), 0));
 
                 foreach (Vector2Int position in gridPositionList)
                 {
