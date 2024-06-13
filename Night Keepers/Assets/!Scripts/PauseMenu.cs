@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject PausePanel;
-    
-    void Update()
-    {
-        
-    }
 
     public void Pause()
     {
-        PausePanel.SetActive(true);
-        Time.timeScale = 0;
+        if (Time.timeScale != 0)
+        {
+            PausePanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else {
+            PausePanel.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 
     public void Continue()

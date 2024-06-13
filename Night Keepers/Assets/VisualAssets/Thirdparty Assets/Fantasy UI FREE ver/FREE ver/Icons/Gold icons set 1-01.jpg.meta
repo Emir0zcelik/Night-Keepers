@@ -420,9 +420,9 @@ TextureImporter:
       name: Gold icons set 1-01_14
       rect:
         serializedVersion: 2
-        x: 625
-        y: 843
-        width: 67.333336
+        x: 617
+        y: 849
+        width: 66
         height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
